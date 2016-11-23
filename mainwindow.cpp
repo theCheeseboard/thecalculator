@@ -45,8 +45,7 @@ void MainWindow::on_lineEdit_returnPressed()
 
 void MainWindow::on_evaluateButton_clicked()
 {
-    bool errorOccurred;
-    QString error;
+    bool errorOccurred = false;
     //Store the current expression
     ui->previousExpression->setText(ui->lineEdit->text() + " =");
     qDebug() << "Calculating expression: " + ui->lineEdit->text();
