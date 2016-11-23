@@ -126,6 +126,8 @@ private slots:
 
     void on_functionsEdit_clicked();
 
+    void on_shiftButton_toggled(bool checked);
+
 private:
     Ui::MainWindow *ui;
     bool eventFilter(QObject *watched, QEvent *event);

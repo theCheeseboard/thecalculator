@@ -184,6 +184,44 @@ QString MainWindow::evaluate(QString expression, bool &error, bool suppressOutpu
         }
     }
 
+    //Change roots into index form
+    noReplace = false;
+    while (!noReplace) {
+        noReplace = true;
+        if (expression.contains("√")) {
+            int index = expression.indexOf("√");
+            expression.replace(index, 1, "("); //Replace √ with an open bracket
+            index += 1; //Skip past the √ symbol
+
+            //Now read until the end of the expression or until a space not contained within brackets
+            uint bracketCount = 0;
+            QString number;
+            for (int i = index; i < expression.count(); i++) {
+                if (expression.at(i) == ' ' && bracketCount == 0) {
+                    index = i;
+                    i = expression.count();
+                } else if (expression.at(i) == '(') {
+                    bracketCount++;
+                    number.append(expression.at(i));
+                } else if (expression.at(i) == ')') {
+                    if (bracketCount == 0) {
+                        index = i;
+                        i = expression.count();
+                    } else {
+                        number.append(expression.at(i));
+                        bracketCount--;
+                    }
+                } else {
+                    number.append(expression.at(i));
+                }
+            }
+            if (index == 1 + expression.indexOf("√") + 1) index = expression.count();
+
+            //Insert a power expression at the end
+            expression.insert(index, ") ^ 0.5");
+        }
+    }
+
     //Check that each bracket is prepended (or appended) with an operation. Insert multiplcation signs if neccessary.
     noReplace = false;
     while (!noReplace) {
@@ -975,7 +1013,11 @@ void MainWindow::on_closeBracketButton_clicked()
 
 void MainWindow::on_piButton_clicked()
 {
-    ui->lineEdit->insert("π");
+    if (ui->shiftButton->isChecked()) {
+        ui->lineEdit->insert("e");
+    } else {
+        ui->lineEdit->insert("π");
+    }
 }
 
 void MainWindow::on_backspaceButton_clicked()
@@ -985,16 +1027,25 @@ void MainWindow::on_backspaceButton_clicked()
 
 void MainWindow::on_sinButton_clicked()
 {
+    if (ui->shiftButton->isChecked()) {
+        ui->lineEdit->insert("a");
+    }
     ui->lineEdit->insert("sin");
 }
 
 void MainWindow::on_cosButton_clicked()
 {
+    if (ui->shiftButton->isChecked()) {
+        ui->lineEdit->insert("a");
+    }
     ui->lineEdit->insert("cos");
 }
 
 void MainWindow::on_tanButton_clicked()
 {
+    if (ui->shiftButton->isChecked()) {
+        ui->lineEdit->insert("a");
+    }
     ui->lineEdit->insert("tan");
 }
 
@@ -1017,7 +1068,11 @@ void MainWindow::on_actionExit_triggered()
 
 void MainWindow::on_powerButton_clicked()
 {
-    ui->lineEdit->insert(" ^ ");
+    if (ui->shiftButton->isChecked()) {
+        ui->lineEdit->insert("√");
+    } else {
+        ui->lineEdit->insert(" ^ ");
+    }
 }
 
 void MainWindow::on_exponentButton_clicked()
@@ -1099,7 +1154,7 @@ void MainWindow::on_functionsButton_clicked()
 
     QPropertyAnimation* anim = new QPropertyAnimation(ui->functionsFrame, "geometry");
     anim->setStartValue(ui->functionsFrame->geometry());
-    anim->setEndValue(QRect(0, ui->oneButton->mapTo(this, QPoint(0, 0)).y(), this->width(), this->height() + 300 - ui->oneButton->mapTo(this, QPoint(0, 0)).y()));
+    anim->setEndValue(QRect(0, ui->shiftButton->mapTo(this, QPoint(0, 0)).y(), this->width(), this->height() + 300 - ui->shiftButton->mapTo(this, QPoint(0, 0)).y()));
     anim->setDuration(500);
     anim->setEasingCurve(QEasingCurve::OutCubic);
     connect(anim, SIGNAL(finished()), anim, SLOT(deleteLater()));
@@ -1115,7 +1170,7 @@ void MainWindow::on_functionsClose_clicked()
 {
     QPropertyAnimation* winAnim = new QPropertyAnimation();
     winAnim->setStartValue(this->height());
-    winAnim->setEndValue(this->height() - 300);
+    winAnim->setEndValue(this->sizeHint().height());
     winAnim->setDuration(500);
     winAnim->setEasingCurve(QEasingCurve::OutCubic);
     connect(winAnim, &QPropertyAnimation::valueChanged, [=](QVariant value) {
@@ -1125,7 +1180,7 @@ void MainWindow::on_functionsClose_clicked()
 
     QPropertyAnimation* anim = new QPropertyAnimation(ui->functionsFrame, "geometry");
     anim->setStartValue(ui->functionsFrame->geometry());
-    anim->setEndValue(QRect(0, this->height() - 300, this->width(), this->height() - ui->oneButton->mapTo(this, QPoint(0, 0)).y()));
+    anim->setEndValue(QRect(0, this->height() - 300, this->width(), this->height() - ui->shiftButton->mapTo(this, QPoint(0, 0)).y()));
     anim->setDuration(500);
     anim->setEasingCurve(QEasingCurve::OutCubic);
     connect(anim, SIGNAL(finished()), anim, SLOT(deleteLater()));
@@ -1168,7 +1223,7 @@ void MainWindow::on_functionsNew_clicked()
 
         QPropertyAnimation* anim = new QPropertyAnimation(ui->functionsFrame, "geometry");
         anim->setStartValue(ui->functionsFrame->geometry());
-        anim->setEndValue(QRect(0, this->sizeHint().height(), this->width(), this->sizeHint().height() - ui->oneButton->mapTo(this, QPoint(0, 0)).y()));
+        anim->setEndValue(QRect(0, this->sizeHint().height(), this->width(), this->sizeHint().height() - ui->shiftButton->mapTo(this, QPoint(0, 0)).y()));
         anim->setDuration(500);
         anim->setEasingCurve(QEasingCurve::OutCubic);
         connect(anim, SIGNAL(finished()), anim, SLOT(deleteLater()));
@@ -1178,14 +1233,6 @@ void MainWindow::on_functionsNew_clicked()
         group->addAnimation(anim);
         connect(group, SIGNAL(finished()), group, SLOT(deleteLater()));
         group->start();
-
-        /*QPropertyAnimation* anim = new QPropertyAnimation(ui->functionsFrame, "geometry");
-        anim->setStartValue(ui->functionsFrame->geometry());
-        anim->setEndValue(QRect(0, this->height(), this->width(), this->height() - ui->oneButton->mapTo(this, QPoint(0, 0)).y()));
-        anim->setDuration(500);
-        anim->setEasingCurve(QEasingCurve::OutCubic);
-        connect(anim, SIGNAL(finished()), anim, SLOT(deleteLater()));
-        anim->start();*/
     }
 }
 
@@ -1215,7 +1262,7 @@ void MainWindow::on_doneButton_clicked()
 
     QPropertyAnimation* anim = new QPropertyAnimation(ui->functionsFrame, "geometry");
     anim->setStartValue(ui->functionsFrame->geometry());
-    anim->setEndValue(QRect(0, ui->oneButton->mapTo(this, QPoint(0, 0)).y(), this->width(), this->sizeHint().height() + 300 - ui->oneButton->mapTo(this, QPoint(0, 0)).y()));
+    anim->setEndValue(QRect(0, ui->shiftButton->mapTo(this, QPoint(0, 0)).y(), this->width(), this->sizeHint().height() + 300 - ui->shiftButton->mapTo(this, QPoint(0, 0)).y()));
     anim->setDuration(500);
     anim->setEasingCurve(QEasingCurve::OutCubic);
     connect(anim, SIGNAL(finished()), anim, SLOT(deleteLater()));
@@ -1225,13 +1272,6 @@ void MainWindow::on_doneButton_clicked()
     group->addAnimation(anim);
     connect(group, SIGNAL(finished()), group, SLOT(deleteLater()));
     group->start();
-    /*QPropertyAnimation* anim = new QPropertyAnimation(ui->functionsFrame, "geometry");
-    anim->setStartValue(ui->functionsFrame->geometry());
-    anim->setEndValue(QRect(0, ui->oneButton->mapTo(this, QPoint(0, 0)).y() - ui->instructionLabel->height(), this->width(), this->height() - ui->oneButton->mapTo(this, QPoint(0, 0)).y() + ui->instructionLabel->height()));
-    anim->setDuration(500);
-    anim->setEasingCurve(QEasingCurve::OutCubic);
-    connect(anim, SIGNAL(finished()), anim, SLOT(deleteLater()));
-    anim->start();*/
 }
 
 void MainWindow::on_functionsInsert_clicked()
@@ -1294,7 +1334,7 @@ void MainWindow::on_functionsEdit_clicked()
 
     QPropertyAnimation* anim = new QPropertyAnimation(ui->functionsFrame, "geometry");
     anim->setStartValue(ui->functionsFrame->geometry());
-    anim->setEndValue(QRect(0, this->sizeHint().height(), this->width(), this->sizeHint().height() - ui->oneButton->mapTo(this, QPoint(0, 0)).y()));
+    anim->setEndValue(QRect(0, this->sizeHint().height(), this->width(), this->sizeHint().height() - ui->shiftButton->mapTo(this, QPoint(0, 0)).y()));
     anim->setDuration(500);
     anim->setEasingCurve(QEasingCurve::OutCubic);
     connect(anim, SIGNAL(finished()), anim, SLOT(deleteLater()));
@@ -1311,5 +1351,22 @@ void MainWindow::setRadians(bool radians) {
         ui->actionRadians->trigger();
     } else {
         ui->actionDegrees->trigger();
+    }
+}
+
+void MainWindow::on_shiftButton_toggled(bool checked)
+{
+    if (checked) {
+        ui->sinButton->setText("arcsin");
+        ui->cosButton->setText("arccos");
+        ui->tanButton->setText("arctan");
+        ui->powerButton->setText("√");
+        ui->piButton->setText("e");
+    } else {
+        ui->sinButton->setText("sin");
+        ui->cosButton->setText("cos");
+        ui->tanButton->setText("tan");
+        ui->powerButton->setText("^");
+        ui->piButton->setText("π");
     }
 }
