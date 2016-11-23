@@ -30,8 +30,9 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    QString evaluate(QString expression, bool &error, bool suppressOutput = false);
+    void setRadians(bool radians);
 private slots:
-    QString evaluate(QString expression, bool &error);
 
     void on_lineEdit_returnPressed();
 
@@ -120,6 +121,10 @@ private slots:
     void on_functionsInsert_clicked();
 
     void on_functionsTable_currentCellChanged(int currentRow, int currentColumn, int previousRow, int previousColumn);
+
+    void on_functionsDelete_clicked();
+
+    void on_functionsEdit_clicked();
 
 private:
     Ui::MainWindow *ui;

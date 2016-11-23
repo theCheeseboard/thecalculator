@@ -67,8 +67,10 @@ void MainWindow::on_evaluateButton_clicked()
 
 }
 
-QString MainWindow::evaluate(QString expression, bool &error) {
-    qDebug() << "Calculating expression step: " + expression;
+QString MainWindow::evaluate(QString expression, bool &error, bool suppressOutput) {
+    if (!suppressOutput) {
+        qDebug() << "Calculating expression step: " + expression;
+    }
 
     //Evaluate user defined functions
     bool stageComplete = false;
@@ -100,7 +102,7 @@ QString MainWindow::evaluate(QString expression, bool &error) {
                         } else if (currentBracketCount == 1) {
                             currentBracketCount--;
                             lengthOfSub = i - index + 1;
-                            functionArg = evaluate(expression.mid(currentBracketStart + 1, i - currentBracketStart - 1), error);
+                            functionArg = evaluate(expression.mid(currentBracketStart + 1, i - currentBracketStart - 1), error, suppressOutput);
                             if (error) {
                                 error = true;
                                 return functionArg;
@@ -231,7 +233,7 @@ QString MainWindow::evaluate(QString expression, bool &error) {
                     return "Mismatched Brackets";
                 } else if (currentBracketCount == 1) {
                     currentBracketCount--;
-                    QString evaluatedBracket = evaluate(expression.mid(currentBracketStart + 1, i - currentBracketStart - 1), error);
+                    QString evaluatedBracket = evaluate(expression.mid(currentBracketStart + 1, i - currentBracketStart - 1), error, suppressOutput);
                     if (error) {
                         error = true;
                         return evaluatedBracket;
@@ -271,7 +273,7 @@ QString MainWindow::evaluate(QString expression, bool &error) {
                     number.append(expression.at(i));
                 }
             }
-            if (index == 3) index = expression.count();
+            if (index == 4 + expression.indexOf("asin")) index = expression.count();
 
             //Do some error checking
             if (number == "") {
@@ -304,7 +306,7 @@ QString MainWindow::evaluate(QString expression, bool &error) {
                     number.append(expression.at(i));
                 }
             }
-            if (index == 3) index = expression.count();
+            if (index == 4 + expression.indexOf("acos")) index = expression.count();
 
             if (number == "") {
                 error = true;
@@ -336,7 +338,7 @@ QString MainWindow::evaluate(QString expression, bool &error) {
                     number.append(expression.at(i));
                 }
             }
-            if (index == 3) index = expression.count();
+            if (index == 4 + expression.indexOf("atan")) index = expression.count();
 
             if (number == "") {
                 error = true;
@@ -365,7 +367,7 @@ QString MainWindow::evaluate(QString expression, bool &error) {
                     number.append(expression.at(i));
                 }
             }
-            if (index == 3) index = expression.count();
+            if (index == 3 + expression.indexOf("sin")) index = expression.count();
 
             if (number == "") {
                 error = true;
@@ -394,7 +396,7 @@ QString MainWindow::evaluate(QString expression, bool &error) {
                     number.append(expression.at(i));
                 }
             }
-            if (index == 3) index = expression.count();
+            if (index == 3 + expression.indexOf("cos")) index = expression.count();
 
             if (number == "") {
                 error = true;
@@ -423,7 +425,7 @@ QString MainWindow::evaluate(QString expression, bool &error) {
                     number.append(expression.at(i));
                 }
             }
-            if (index == 3) index = expression.count();
+            if (index == 3 + expression.indexOf("tan")) index = expression.count();
 
             //Check for errors
             if (number == "") {
@@ -465,7 +467,7 @@ QString MainWindow::evaluate(QString expression, bool &error) {
                     number.append(expression.at(i));
                 }
             }
-            if (index == 3) index = expression.count();
+            if (index == 3 + expression.indexOf("log")) index = expression.count();
 
             //Check for errors
             if (number == "") {
@@ -496,7 +498,7 @@ QString MainWindow::evaluate(QString expression, bool &error) {
                     number.append(expression.at(i));
                 }
             }
-            if (index == 3) index = expression.count();
+            if (index == 2 + expression.indexOf("ln")) index = expression.count();
 
             //Check for errors
             if (number == "") {
@@ -710,8 +712,10 @@ QString MainWindow::evaluate(QString expression, bool &error) {
         return "Negative Overflow";
     }
 
-    qDebug() << "Answer: " + expression;
-    qDebug() << "";
+    if (!suppressOutput) {
+        qDebug() << "Answer: " + expression;
+        qDebug() << "";
+    }
     return expression;
 }
 
@@ -1233,19 +1237,80 @@ void MainWindow::on_doneButton_clicked()
 
 void MainWindow::on_functionsInsert_clicked()
 {
-    QString input = QInputDialog::getText(this, "Parameters", "Enter Parameter for x");
+    /*QString input = QInputDialog::getText(this, "Parameters", "Enter Parameter for x");
     if (input != "") {
         QString function = ui->functionsTable->item(ui->functionsTable->currentRow(), 0)->text();
         function.replace("x", input);
         ui->lineEdit->insert(function);
-    }
+    }*/
+    QString function = ui->functionsTable->item(ui->functionsTable->currentRow(), 0)->text();
+    ui->lineEdit->insert(function.left(function.indexOf("(") + 1));
+
+    //Close the function
+    ui->functionsClose->click();
 }
 
 void MainWindow::on_functionsTable_currentCellChanged(int currentRow, int currentColumn, int previousRow, int previousColumn)
 {
     if (currentRow == -1) {
         ui->functionsInsert->setEnabled(false);
+        ui->functionsDelete->setEnabled(false);
+        ui->functionsEdit->setEnabled(false);
     } else {
         ui->functionsInsert->setEnabled(true);
+        ui->functionsDelete->setEnabled(true);
+        ui->functionsEdit->setEnabled(true);
+    }
+}
+
+void MainWindow::on_functionsDelete_clicked()
+{
+    settings.beginGroup("functions");
+    QString key = ui->functionsTable->item(ui->functionsTable->currentRow(), 0)->text();
+    settings.remove(key);
+    settings.endGroup();
+
+    ui->functionsTable->removeRow(ui->functionsTable->currentRow());
+}
+
+void MainWindow::on_functionsEdit_clicked()
+{
+    editingFunction = ui->functionsTable->currentRow();
+    ui->lineEdit->setText(ui->functionsTable->item(ui->functionsTable->currentRow(), 1)->text());
+    ui->instructionLabel->setVisible(true);
+    ui->doneButton->setVisible(true);
+    ui->evaluateButton->setEnabled(false);
+    ui->functionsButton->setEnabled(false);
+
+    this->layout()->update();
+    QPropertyAnimation* winAnim = new QPropertyAnimation();
+    winAnim->setStartValue(this->height());
+    winAnim->setEndValue(this->sizeHint().height());
+    winAnim->setDuration(500);
+    winAnim->setEasingCurve(QEasingCurve::OutCubic);
+    connect(winAnim, &QPropertyAnimation::valueChanged, [=](QVariant value) {
+        this->setFixedHeight(value.toInt());
+    });
+    connect(winAnim, SIGNAL(finished()), winAnim, SLOT(deleteLater()));
+
+    QPropertyAnimation* anim = new QPropertyAnimation(ui->functionsFrame, "geometry");
+    anim->setStartValue(ui->functionsFrame->geometry());
+    anim->setEndValue(QRect(0, this->sizeHint().height(), this->width(), this->sizeHint().height() - ui->oneButton->mapTo(this, QPoint(0, 0)).y()));
+    anim->setDuration(500);
+    anim->setEasingCurve(QEasingCurve::OutCubic);
+    connect(anim, SIGNAL(finished()), anim, SLOT(deleteLater()));
+
+    QParallelAnimationGroup* group = new QParallelAnimationGroup();
+    group->addAnimation(winAnim);
+    group->addAnimation(anim);
+    connect(group, SIGNAL(finished()), group, SLOT(deleteLater()));
+    group->start();
+}
+
+void MainWindow::setRadians(bool radians) {
+    if (radians) {
+        ui->actionRadians->trigger();
+    } else {
+        ui->actionDegrees->trigger();
     }
 }
