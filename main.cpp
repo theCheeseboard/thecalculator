@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     args.removeFirst();
 
     MainWindow w;
-    bool concatenateExpr;
+    bool concatenateExpr = false;
     QString expr;
     for (QString arg : args) {
         if (concatenateExpr) {
