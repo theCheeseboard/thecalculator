@@ -59,9 +59,11 @@ void MainWindow::on_evaluateButton_clicked()
         qDebug() << "[ERROR] " + evaluated;
         ui->lineEdit->setText(evaluated + " [ERROR!]");
     } else {
-        qDebug() << "Answer: " + evaluated;
-        ui->lineEdit->setText(evaluated);
-        previousAnswer = evaluated;
+        //Lose a bit of accuracy so numbers seem correct
+        QString answer = QString::number(evaluated.toDouble(), 'g', 15);
+        qDebug() << "Answer: " + answer;
+        ui->lineEdit->setText(answer);
+        previousAnswer = answer;
     }
 
 }
@@ -189,7 +191,8 @@ QString MainWindow::evaluate(QString expression, bool &error, bool suppressOutpu
     while (!noReplace) {
         noReplace = true;
         if (expression.contains("√")) {
-            int index = expression.indexOf("√");
+            int initialIndex = expression.indexOf("√");
+            int index = initialIndex;
             expression.replace(index, 1, "("); //Replace √ with an open bracket
             index += 1; //Skip past the √ symbol
 
@@ -215,7 +218,7 @@ QString MainWindow::evaluate(QString expression, bool &error, bool suppressOutpu
                     number.append(expression.at(i));
                 }
             }
-            if (index == 1 + expression.indexOf("√") + 1) index = expression.count();
+            if (index == 2 + initialIndex) index = expression.count();
 
             //Insert a power expression at the end
             expression.insert(index, ") ^ 0.5");
@@ -241,7 +244,8 @@ QString MainWindow::evaluate(QString expression, bool &error, bool suppressOutpu
                 }
             } else if (expression.at(i) == ')') {
                 if (expression.count() > i + 1) {
-                    if (expression.at(i + 1) != ' ' && expression.at(i + 1) != ')') {
+                    if (expression.at(i + 1) != ' ' && expression.at(i + 1) != ')' &&
+                            expression.at(i + 1) != '!') {
                         noReplace = false;
                         expression.insert(i + 1, " × ");
                     }
@@ -291,6 +295,33 @@ QString MainWindow::evaluate(QString expression, bool &error, bool suppressOutpu
             error = true;
             return "Mismatched Brackets";
         }
+    }
+
+    //Calculate factorial function
+    while (expression.contains("!")) {
+        int index = expression.indexOf("!") - 1;
+        QString number;
+        for (int i = index; i >= 0; i--) {
+            if (expression.at(i) == ' ') {
+                index = i;
+                i = -1;
+            } else {
+                number.insert(0, expression.at(i));
+            }
+        }
+        if (expression.indexOf("!")) index = 0;
+
+        double result;
+        if (number == "") {
+            error = true;
+            return "Invalid Syntax";
+        } else if (number.toDouble() == 0) {
+            result = 1;
+        } else {
+            result = std::tgamma(number.toDouble() + 1);
+        }
+
+        expression.replace(index, number.length() + 1, QString::number(result, 'g', 15).replace("e+", " × 10 ^ "));
     }
 
     //Calculate trigonometric and logarithmic functions.

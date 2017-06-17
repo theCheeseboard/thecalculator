@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
+#include <iostream>
 
 int main(int argc, char *argv[])
 {
@@ -59,10 +60,13 @@ int main(int argc, char *argv[])
         expr.replace(">>", " >> ");
         QString answer = w.evaluate(expr, error, true);
         if (error) {
-            qDebug("%s", QString("[ERROR] ").append(answer).toStdString().data());
+            //qDebug("%s", QString("[ERROR] ").append(answer).toStdString().data());
+            //return 2;
+            std::cout << QString("[ERROR] ").append(answer).toStdString().data();
             return 2;
         } else {
-            qDebug("%s", answer.toStdString().data());
+            //qDebug("%s", answer.toStdString().data());
+            std::cout << answer.toStdString().data();
             return 0;
         }
     } else {
