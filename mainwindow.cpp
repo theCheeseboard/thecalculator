@@ -115,12 +115,12 @@ void MainWindow::parserError(const char *error) {
     ui->answerLabel->setText(QString::fromLocal8Bit(error));
 }
 
-void MainWindow::parserResult(double result) {
-    ui->answerLabel->setText(QString::number(result));
+void MainWindow::parserResult(idouble result) {
+    ui->answerLabel->setText(idbToString(result));
 }
 
-double MainWindow::callFunction(QString name, QList<double> args, QString& error) {
-    qDebug() << "Calling function:" << name << "with arguments" << args;
+idouble MainWindow::callFunction(QString name, QList<idouble> args, QString& error) {
+    //qDebug() << "Calling function:" << name << "with arguments" << args;
     if (!customFunctions.contains(name)) {
         error = tr("%1: undefined function").arg(name);
         return 0;
@@ -129,8 +129,8 @@ double MainWindow::callFunction(QString name, QList<double> args, QString& error
     }
 }
 
-std::function<double(QList<double>,QString&)> MainWindow::createSingleArgFunction(std::function<double (double, QString &)> fn, QString fnName) {
-    return [=](QList<double> args, QString& error) -> double {
+std::function<idouble(QList<idouble>,QString&)> MainWindow::createSingleArgFunction(std::function<idouble (idouble, QString &)> fn, QString fnName) {
+    return [=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() != 1) {
             error = tr("%1: expected 1 argument, got %2").arg(fnName).arg(args.length());
             return 0;
@@ -141,44 +141,59 @@ std::function<double(QList<double>,QString&)> MainWindow::createSingleArgFunctio
 }
 
 void MainWindow::setupBuiltinFunctions() {
-
-    customFunctions.insert("abs", createSingleArgFunction([=](double arg, QString& error) {
+    customFunctions.insert("abs", createSingleArgFunction([=](idouble arg, QString& error) {
         return abs(arg);
     }, "abs"));
-    customFunctions.insert("sqrt", createSingleArgFunction([=](double arg, QString& error) {
+    customFunctions.insert("sqrt", createSingleArgFunction([=](idouble arg, QString& error) {
         return sqrt(arg);
     }, "sqrt"));
-    customFunctions.insert("cbrt", createSingleArgFunction([=](double arg, QString& error) {
+    /*customFunctions.insert("cbrt", createSingleArgFunction([=](idouble arg, QString& error) {
         return cbrt(arg);
-    }, "cbrt"));
-    customFunctions.insert("sin", createSingleArgFunction([=](double arg, QString& error) {
+    }, "cbrt"));*/
+    customFunctions.insert("fact", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
+        if (arg.imag() != 0) {
+            error = tr("fact: input (%1) not a real number").arg(idbToString(arg));
+            return 0;
+        } else if (arg.real() < 0) {
+            error = tr("fact: input (%1) out of bounds (0 and above)").arg(idbToString(arg));
+            return 0;
+        } else if (arg.real() == 0) {
+            return 1;
+        } else {
+            return arg.real() * tgamma(arg.real());
+        }
+    }, "abs"));
+    customFunctions.insert("sin", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
         return sin(arg);
     }, "sin"));
-    customFunctions.insert("cos", createSingleArgFunction([=](double arg, QString& error) {
+    customFunctions.insert("cos", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
         return cos(arg);
     }, "cos"));
-    customFunctions.insert("tan", createSingleArgFunction([=](double arg, QString& error) {
+    customFunctions.insert("tan", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
         return tan(arg);
     }, "tan"));
-    customFunctions.insert("asin", createSingleArgFunction([=](double arg, QString& error) -> double {
+    customFunctions.insert("asin", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         if (abs(arg) > 1) {
-            error = tr("asin: input (%1) out of bounds (between -1 and 1)").arg(arg);
-            qDebug() << "error at " << bufferState->yy_bs_column;
+            error = tr("asin: input (%1) out of bounds (between -1 and 1)").arg(idbToString(arg));
+            //qDebug() << "error at " << bufferState->yy_bs_column;
             return 0;
         } else {
             return asin(arg);
         }
     }, "asin"));
-    customFunctions.insert("acos", createSingleArgFunction([=](double arg, QString& error) -> double {
+    customFunctions.insert("acos", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         if (abs(arg) > 1) {
-            error = tr("asin: input (%1) out of bounds (between -1 and 1)").arg(arg);
+            error = tr("asin: input (%1) out of bounds (between -1 and 1)").arg(idbToString(arg));
             return 0;
         } else {
             return asin(arg);
         }
     }, "acos"));
 
-    customFunctions.insert("log", [=](QList<double> args, QString& error) -> double {
+    customFunctions.insert("log", [=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() == 1) {
             //log base 10
             return log10(args.first());
@@ -190,4 +205,26 @@ void MainWindow::setupBuiltinFunctions() {
             return 0;
         }
     });
+}
+
+QString MainWindow::idbToString(idouble db) {
+    if (db.real() != 0 && db.imag() == 0) {
+        return QString::number(db.real());
+    } else if (db.real() == 0 && db.imag() == 0) {
+        return "0";
+    } else if (db.real() != 0 && db.imag() == 1) {
+        return QString::number(db.real()) + " + i";
+    } else if (db.real() != 0 && db.imag() > 0) {
+        return QString::number(db.real()) + " + " + QString::number(db.imag()) + "i";
+    } else if (db.real() != 0 && db.imag() == -1) {
+        return QString::number(db.real()) + " - i";
+    } else if (db.real() != 0 && db.imag() < 0) {
+        return QString::number(db.real()) + " - " + QString::number(-db.imag()) + "i";
+    } else if (db.imag() == 1) {
+        return "i";
+    } else if (db.imag() == -1) {
+        return "-i";
+    } else {
+        return QString::number(db.imag()) + "i";
+    }
 }

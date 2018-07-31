@@ -16,8 +16,8 @@ extern MainWindow* MainWin;
 
 %union {
     QString* string;
-    double number;
-    QList<double>* arguments;
+    idouble* number;
+    QList<idouble>* arguments;
 }
 
 %token<number> NUMBER
@@ -34,6 +34,7 @@ extern MainWindow* MainWin;
 
 %destructor { delete $$; } <string>
 %destructor { delete $$; } <arguments>
+//%destructor { delete $$; } <number>
 
 //Set operator precedence
 %left ADD SUBTRACT
@@ -43,47 +44,80 @@ extern MainWindow* MainWin;
 %left LBRACKET RBRACKET
 
 %%
-line: expression EOL { MainWin->parserResult($1); }
+line: expression EOL { MainWin->parserResult(*$1); }
 
-expression: SUBTRACT expression {$$ = -$2;}
-|   NUMBER {$$ = $1;}
-|   expression ADD expression {$$ = $1 + $3;}
-|   expression SUBTRACT expression {$$ = $1 - $3;}
-|   expression MULTIPLY expression {$$ = $1 * $3;}
-|   NUMBER expression {$$ = $1 * $2;}
+expression: SUBTRACT expression {$$ = new idouble(-*$2);}
+|   NUMBER {$$ = new idouble(*$1);}
+|   expression ADD expression {$$ = new idouble(*$1 + *$3);}
+|   expression SUBTRACT expression {$$ = new idouble(*$1 - *$3);}
+|   expression MULTIPLY expression {$$ = new idouble(*$1 * *$3);}
+//|   NUMBER expression {$$ = new idouble(*$1 * *$2);}
 |   expression DIVIDE expression {
-        if ($3 == 0) {
+        if ($3->real() == 0 && $3->imag() == 0) {
             yyerror("div: division by 0 is undefined");
             YYABORT;
         } else {
-            $$ = $1 / $3;
+            $$ = new idouble(*$1 / *$3);
         }
     }
-|   LBRACKET expression RBRACKET {$$ = $2;}
-|   expression PERCENT {$$ = $$ / 100;}
-|   expression EXPONENTIATE expression {$$ = pow($1, $3);}
-|   expression SQUARE {$$ = pow($1, 2);}
-|   expression CUBE {$$ = pow($1, 3);}
-|   expression FACTORIAL {$$ = $1 * tgamma($1);}
-|   function
-
-arguments: expression {$$ = new QList<double>(); $$->append($1);}
-|   arguments ARGSEPARATOR expression {$$ = new QList<double>(*$1); $$->append($3);}
-|   %empty {$$ = new QList<double>();}
-
-function: IDENTIFIER LBRACKET arguments RBRACKET {
+|   LBRACKET expression RBRACKET {$$ = new idouble(*$2);}
+|   expression PERCENT {$$ = new idouble(*$1 / idouble(100));}
+|   expression EXPONENTIATE expression {$$ = new idouble(pow(*$1, *$3));}
+|   expression SQUARE {$$ = new idouble(pow(*$1, 2));}
+|   expression CUBE {$$ = new idouble(pow(*$1, 3));}
+|   expression FACTORIAL {
         QString error;
-        $$ = MainWin->callFunction(*$1, *$3, error);
+        $$ = new idouble(MainWin->callFunction("fact", QList<idouble>() << *$1, error));
         if (error != "") {
             yyerror(error.toUtf8().constData());
             YYABORT;
         }
     }
+|   function
+
+arguments: expression {$$ = new QList<idouble>(); $$->append(*$1);}
+|   arguments ARGSEPARATOR expression {$$ = new QList<idouble>(*$1); $$->append(*$3);}
+|   %empty {$$ = new QList<idouble>();}
+
+function: IDENTIFIER LBRACKET arguments RBRACKET {
+        QString error;
+        $$ = new idouble(MainWin->callFunction(*$1, *$3, error));
+        if (error != "") {
+            yyerror(error.toUtf8().constData());
+            YYABORT;
+        }
+    }
+|   IDENTIFIER EXPONENTIATE expression LBRACKET arguments RBRACKET {
+        QString error;
+        idouble single = MainWin->callFunction(*$1, *$5, error);
+        if (error != "") {
+            yyerror(error.toUtf8().constData());
+            YYABORT;
+        }
+
+        $$ = new idouble(pow(single, *$3));
+    }
+|   IDENTIFIER SQUARE LBRACKET arguments RBRACKET {
+        QString error;
+        idouble single = MainWin->callFunction(*$1, *$4, error);
+        if (error != "") {
+            yyerror(error.toUtf8().constData());
+            YYABORT;
+        }
+
+        $$ = new idouble(pow(single, 2));
+    }
+|   IDENTIFIER CUBE LBRACKET arguments RBRACKET {
+        QString error;
+        idouble single = MainWin->callFunction(*$1, *$4, error);
+        if (error != "") {
+            yyerror(error.toUtf8().constData());
+            YYABORT;
+        }
+
+        $$ = new idouble(pow(single, 3));
+    }
 %%
-/*int main(int argc, char** argv) {
-    yyin = stdin;
-    yyparse();
-}*/
 
 void yyerror(const char* s) {
     printf("ERROR: %s\n", s);

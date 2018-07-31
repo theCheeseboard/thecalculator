@@ -30,11 +30,12 @@ class MainWindow : public QMainWindow
         ~MainWindow();
     
         QList<CalcButton*> buttons;
+        QString idbToString(idouble db);
 
     public slots:
         void parserError(const char* error);
-        void parserResult(double result);
-        double callFunction(QString name, QList<double> args, QString& error);
+        void parserResult(idouble result);
+        idouble callFunction(QString name, QList<idouble> args, QString& error);
 
     private slots:
         void on_expandButton_clicked();
@@ -53,9 +54,9 @@ class MainWindow : public QMainWindow
         Ui::MainWindow *ui;
 
         bool extended = false;
-        QMap<QString, std::function<double(QList<double>,QString&)>> customFunctions;
+        QMap<QString, std::function<idouble(QList<idouble>,QString&)>> customFunctions;
         void setupBuiltinFunctions();
-        std::function<double(QList<double>,QString&)> createSingleArgFunction(std::function<double(double, QString&)> fn, QString fnName);
+        std::function<idouble(QList<idouble>,QString&)> createSingleArgFunction(std::function<idouble(idouble, QString&)> fn, QString fnName);
 
         YY_BUFFER_STATE bufferState;
 };
