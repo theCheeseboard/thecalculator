@@ -17,7 +17,7 @@ if [ $STAGE = "script" ]; then
     echo "[TRAVIS] Installing into appdir"
     make install INSTALL_ROOT=~/appdir
     git clone https://github.com/vicr123/contemporary-icons.git
-    cp contemporary-icons/apps/32/accessories-calculator.svg ~/appdir/accessories-calculator.svg
+    cp contemporary-icons/apps/16/accessories-calculator.svg ~/appdir/accessories-calculator.svg
     cd ~
     echo "[TRAVIS] Getting linuxdeployqt"
     wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
