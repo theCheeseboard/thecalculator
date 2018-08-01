@@ -19,6 +19,7 @@ unix:!macx {
 macx {
     INCLUDEPATH += "/usr/local/include/the-libs"
     LIBS += -L/usr/local/lib -lthe-libs
+    ICON = icon.icns
 }
 
 
@@ -100,3 +101,6 @@ unix:!macx {
 
     INSTALLS += target desktop #translations
 }
+
+RESOURCES += \
+    icons.qrc

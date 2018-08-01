@@ -323,3 +323,8 @@ QString MainWindow::idbToString(idouble db) {
         return QString::number(db.imag()) + "i";
     }
 }
+
+void MainWindow::on_actionExit_triggered()
+{
+    QApplication::exit();
+}
