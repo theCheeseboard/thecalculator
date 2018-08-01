@@ -83,7 +83,7 @@ unix:!macx {
     #translations.files = translations/*
 
     desktop.path = /usr/share/applications
-    desktop.files = theslate.desktop
+    desktop.files = thecalculator.desktop
 
     INSTALLS += target desktop #translations
 }
