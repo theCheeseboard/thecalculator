@@ -27,7 +27,7 @@ if [ $STAGE = "script" ]; then
     ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage
   else
     echo "[TRAVIS] Building for macOS"
-    export PATH="/usr/local/opt/qt/bin:$PATH"
+    export PATH="/usr/local/opt/bison/bin:/usr/local/opt/flex/bin:/usr/local/opt/qt/bin:$PATH"
     cd ..
     echo "[TRAVIS] Building and installing the-libs"
     git clone https://github.com/vicr123/the-libs.git
