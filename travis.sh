@@ -40,8 +40,9 @@ if [ $STAGE = "script" ]; then
     mkdir "build-thecalculator"
     cd "build-thecalculator"
     echo "[TRAVIS] Running qmake"
-    qmake "INCLUDEPATH += /usr/local/opt/qt/include" "LIBS += -L/usr/local/opt/qt/lib" ../theCalculator/theCalculator.pro
+    qmake "INCLUDEPATH += /usr/local/opt/qt/include" "LIBS += -L/usr/local/opt/qt/lib" ../thecalculator/theCalculator.pro
     echo "[TRAVIS] Building project"
+    cp ../thecalculator/icon.icns ./
     make
     echo "[TRAVIS] Embedding the-libs"
     mkdir theCalculator.app/Contents/Libraries
