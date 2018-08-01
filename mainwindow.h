@@ -58,6 +58,9 @@ class MainWindow : public QMainWindow
         void setupBuiltinFunctions();
         std::function<idouble(QList<idouble>,QString&)> createSingleArgFunction(std::function<idouble(idouble, QString&)> fn, QString fnName);
 
+        idouble currentAnswer;
+
+
         YY_BUFFER_STATE bufferState;
 };
 

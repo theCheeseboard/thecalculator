@@ -34,12 +34,14 @@ typedef std::complex<double> idouble;
 ")" {return RBRACKET;}
 "²" {return SQUARE;}
 "³" {return CUBE;}
-"√" {return ROOT;}
+"√" {return RADICAL;}
 "%" {return PERCENT;}
 "!" {return FACTORIAL;}
+"<<" {return LSH;}
+">>" {return RSH;}
 [[:alpha:]_][[:alnum:]_]* {
     if (strcmp("e", yytext) == 0) {
-        yylval.number = new idouble(M_E);
+        yylval.number = new idouble(M_E, 0);
         return NUMBER;
     } else {
         yylval.string = new QString(yytext);
@@ -47,5 +49,5 @@ typedef std::complex<double> idouble;
     }
 }
 "," {return ARGSEPARATOR;}
-"π" {yylval.number = new idouble(M_PI); return NUMBER; }
+"π" {yylval.number = new idouble(M_PI, 0); return NUMBER; }
 %%

@@ -2,8 +2,8 @@
 //Include headers
 #include <QString>
 #include <cstdio>
-#include "mainwindow.h"
 #include <complex>
+#include "mainwindow.h"
 
 //Define flex functions
 extern int yylex(void);
@@ -13,6 +13,8 @@ extern MainWindow* MainWin;
 %}
 
 %define parse.trace
+%define parse.error verbose
+%define parse.lac full
 
 %union {
     QString* string;
@@ -22,8 +24,8 @@ extern MainWindow* MainWin;
 
 %token<number> NUMBER
 %token<number> LBRACKET RBRACKET
-%token<number> ADD SUBTRACT MULTIPLY DIVIDE
-%token<number> PERCENT ABSOLUTE ENDABSOLUTE FACTORIAL
+%token<number> ADD SUBTRACT MULTIPLY DIVIDE LSH RSH
+%token<number> PERCENT ABSOLUTE ENDABSOLUTE FACTORIAL RADICAL
 %token<number> EOL
 %token<number> ARGSEPARATOR
 %token<string> IDENTIFIER
@@ -39,14 +41,15 @@ extern MainWindow* MainWin;
 //Set operator precedence
 %left ADD SUBTRACT
 %left MULTIPLY DIVIDE
-%left EXPONENTIATE SQUARE CUBE ROOT
+%left LSH RSH
+%left EXPONENTIATE SQUARE CUBE RADICAL
 %left FACTORIAL PERCENT
 %left LBRACKET RBRACKET
 
 %%
 line: expression EOL { MainWin->parserResult(*$1); }
 
-expression: SUBTRACT expression {$$ = new idouble(-*$2);}
+expression: SUBTRACT expression {$$ = new idouble(-$2->real(), $2->imag());}
 |   NUMBER {$$ = new idouble(*$1);}
 |   expression ADD expression {$$ = new idouble(*$1 + *$3);}
 |   expression SUBTRACT expression {$$ = new idouble(*$1 - *$3);}
@@ -54,7 +57,7 @@ expression: SUBTRACT expression {$$ = new idouble(-*$2);}
 //|   NUMBER expression {$$ = new idouble(*$1 * *$2);}
 |   expression DIVIDE expression {
         if ($3->real() == 0 && $3->imag() == 0) {
-            yyerror("div: division by 0 is undefined");
+            yyerror("div: division by 0 undefined");
             YYABORT;
         } else {
             $$ = new idouble(*$1 / *$3);
@@ -65,6 +68,22 @@ expression: SUBTRACT expression {$$ = new idouble(-*$2);}
 |   expression EXPONENTIATE expression {$$ = new idouble(pow(*$1, *$3));}
 |   expression SQUARE {$$ = new idouble(pow(*$1, 2));}
 |   expression CUBE {$$ = new idouble(pow(*$1, 3));}
+|   expression LSH expression {
+        QString error;
+        $$ = new idouble(MainWin->callFunction("lsh", QList<idouble>() << *$1 << *$3, error));
+        if (error != "") {
+            yyerror(error.toUtf8().constData());
+            YYABORT;
+        }
+    }
+|   expression RSH expression {
+        QString error;
+        $$ = new idouble(MainWin->callFunction("rsh", QList<idouble>() << *$1 << *$3, error));
+        if (error != "") {
+            yyerror(error.toUtf8().constData());
+            YYABORT;
+        }
+    }
 |   expression FACTORIAL {
         QString error;
         $$ = new idouble(MainWin->callFunction("fact", QList<idouble>() << *$1, error));
@@ -73,6 +92,8 @@ expression: SUBTRACT expression {$$ = new idouble(-*$2);}
             YYABORT;
         }
     }
+|   RADICAL expression {$$ = new idouble(sqrt(*$2));}
+|   CUBE RADICAL expression {$$ = new idouble(pow(*$3, 1.0/3.0));}
 |   function
 
 arguments: expression {$$ = new QList<idouble>(); $$->append(*$1);}

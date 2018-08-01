@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 extern MainWindow* MainWin;
+
 #include "calc.bison.hpp"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -35,6 +36,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->LeftBracketButton->setPalette(operationButtonPalette);
     ui->RightBracketButton->setPalette(operationButtonPalette);
     ui->expandButton->setPalette(operationButtonPalette);
+    ui->rightShiftButton->setPalette(operationButtonPalette);
+    ui->leftShiftButton->setPalette(operationButtonPalette);
+    ui->imaginaryButton->setPalette(operationButtonPalette);
+    ui->percentButton->setPalette(operationButtonPalette);
 
     QPalette functionPalette = ui->scrollArea->palette();
     functionPalette.setColor(QPalette::Button, functionPalette.color(QPalette::Button).lighter(125));
@@ -112,10 +117,16 @@ void MainWindow::on_expressionBox_textEdited(const QString &arg1)
 }
 
 void MainWindow::parserError(const char *error) {
-    ui->answerLabel->setText(QString::fromLocal8Bit(error));
+    QString errorText = QString::fromLocal8Bit(error);
+    if (errorText.startsWith("syntax error")) {
+        ui->answerLabel->setText("");
+    } else {
+        ui->answerLabel->setText(errorText);
+    }
 }
 
 void MainWindow::parserResult(idouble result) {
+    currentAnswer = result;
     ui->answerLabel->setText(idbToString(result));
 }
 
@@ -175,6 +186,18 @@ void MainWindow::setupBuiltinFunctions() {
         Q_UNUSED(error)
         return tan(arg);
     }, "tan"));
+    customFunctions.insert("conj", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
+        return conj(arg);
+    }, "conj"));
+    customFunctions.insert("im", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
+        return arg.imag();
+    }, "im"));
+    customFunctions.insert("re", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
+        return arg.real();
+    }, "re"));
     customFunctions.insert("asin", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         if (abs(arg) > 1) {
             error = tr("asin: input (%1) out of bounds (between -1 and 1)").arg(idbToString(arg));
@@ -186,7 +209,7 @@ void MainWindow::setupBuiltinFunctions() {
     }, "asin"));
     customFunctions.insert("acos", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         if (abs(arg) > 1) {
-            error = tr("asin: input (%1) out of bounds (between -1 and 1)").arg(idbToString(arg));
+            error = tr("acos: input (%1) out of bounds (between -1 and 1)").arg(idbToString(arg));
             return 0;
         } else {
             return asin(arg);
@@ -205,6 +228,78 @@ void MainWindow::setupBuiltinFunctions() {
             return 0;
         }
     });
+    customFunctions.insert("ln", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
+        return log(arg);
+    }, "ln"));
+
+    customFunctions.insert("lsh", [=](QList<idouble> args, QString& error) -> idouble {
+        if (args.length() == 2) {
+            idouble first = args.first();
+            idouble second = args.at(1);
+
+            if (first.imag() != 0) {
+                error = tr("lsh: arg1 (%1) not a real number").arg(idbToString(first));
+                return 0;
+            }
+            if (second.imag() != 0) {
+                error = tr("lsh: arg2 (%1) not a real number").arg(idbToString(second));
+                return 0;
+            }
+
+            if (floor(first.real()) != first.real()) {
+                error = tr("lsh: arg1 (%1) not an integer").arg(idbToString(first));
+                return 0;
+            }
+
+            if (floor(second.real()) != second.real()) {
+                error = tr("lsh: arg2 (%2) not an integer").arg(idbToString(second));
+                return 0;
+            }
+
+            return (int) first.real() << (int) second.real();
+        } else {
+            error = tr("lsh: expected 2 arguments, got %1").arg(args.length());
+            return 0;
+        }
+    });
+    customFunctions.insert("rsh", [=](QList<idouble> args, QString& error) -> idouble {
+        if (args.length() == 2) {
+            idouble first = args.first();
+            idouble second = args.at(1);
+
+            if (first.imag() != 0) {
+                error = tr("rsh: arg1 (%1) not a real number").arg(idbToString(first));
+                return 0;
+            }
+            if (second.imag() != 0) {
+                error = tr("rsh: arg2 (%1) not a real number").arg(idbToString(second));
+                return 0;
+            }
+
+            if (floor(first.real()) != first.real()) {
+                error = tr("rsh: arg1 (%1) not an integer").arg(idbToString(first));
+                return 0;
+            }
+
+            if (floor(second.real()) != second.real()) {
+                error = tr("rsh: arg2 (%2) not an integer").arg(idbToString(second));
+                return 0;
+            }
+
+            return (int) first.real() >> (int) second.real();
+        } else {
+            error = tr("rsh: expected 2 arguments, got %1").arg(args.length());
+            return 0;
+        }
+    });
+
+    customFunctions.insert("floor", createSingleArgFunction([=](idouble arg, QString& error) {
+        return floor(arg.real());
+    }, "floor"));
+    customFunctions.insert("ceil", createSingleArgFunction([=](idouble arg, QString& error) {
+        return ceil(arg.real());
+    }, "ceil"));
 }
 
 QString MainWindow::idbToString(idouble db) {
