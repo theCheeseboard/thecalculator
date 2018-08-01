@@ -76,6 +76,9 @@ flexheader.CONFIG += target_predeps no_link
 
 QMAKE_EXTRA_COMPILERS += bisonsource bisonheader flexheader flexsource
 
+# Turn off stripping as this causes the install to fail :(
+QMAKE_STRIP = echo
+
 unix:!macx {
     target.path = /usr/bin
 

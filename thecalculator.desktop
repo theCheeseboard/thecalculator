@@ -6,4 +6,4 @@ Name=theCalculator
 GenericName=Calculator
 Exec=/usr/bin/thecalculator
 Icon=accessories-calculator
-Categories=Utilities;
+Categories=Utility;
