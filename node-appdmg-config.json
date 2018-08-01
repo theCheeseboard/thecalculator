@@ -1,5 +1,5 @@
 {
-    "title": "theSlate",
+    "title": "theCalculator",
     "icon": "icon.icns",
     "background": "app-dmg-background.png",
     "icon-size": 48,
@@ -14,7 +14,7 @@
             "x": 125,
             "y": 225,
             "type": "file",
-            "path": "theSlate.app"
+            "path": "theCalculator.app"
         },
         {
             "x": 470,

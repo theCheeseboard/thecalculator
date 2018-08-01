@@ -55,6 +55,7 @@ if [ $STAGE = "script" ]; then
     echo "[TRAVIS] Preparing Disk Image creator"
     npm install appdmg
     echo "[TRAVIS] Building Disk Image"
+    ls
     ./node_modules/appdmg/bin/appdmg.js ./node-appdmg-config.json ~/theCalculator-macOS.dmg
   fi
 elif [ $STAGE = "before_install" ]; then
