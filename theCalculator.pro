@@ -47,7 +47,7 @@ BISON = parser/calc.y
 
 flexsource.input = FLEX
 flexsource.output = ${QMAKE_FILE_BASE}.cpp
-flexsource.commands = flex -o ${QMAKE_FILE_BASE}.cpp ${QMAKE_FILE_IN}
+flexsource.commands = flex --header-file=${QMAKE_FILE_BASE}.h -o ${QMAKE_FILE_BASE}.cpp ${QMAKE_FILE_IN}
 flexsource.variable_out = SOURCES
 flexsource.name = Flex Sources ${QMAKE_FILE_IN}
 flexsource.CONFIG += target_predeps
@@ -66,4 +66,11 @@ bisonheader.variable_out = HEADERS
 bisonheader.name = Bison Headers ${QMAKE_FILE_IN}
 bisonheader.CONFIG += target_predeps no_link
 
-QMAKE_EXTRA_COMPILERS += bisonsource bisonheader flexsource
+flexheader.input = FLEX
+flexheader.output = ${QMAKE_FILE_BASE}.h
+flexheader.commands = @true
+flexheader.variable_out = HEADERS
+flexheader.name = Flex Headers ${QMAKE_FILE_IN}
+flexheader.CONFIG += target_predeps no_link
+
+QMAKE_EXTRA_COMPILERS += bisonsource bisonheader flexheader flexsource
