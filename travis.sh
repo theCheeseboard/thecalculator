@@ -48,9 +48,9 @@ if [ $STAGE = "script" ]; then
     mkdir theCalculator.app/Contents/Libraries
     cp  /usr/local/lib/libthe-libs*.dylib theCalculator.app/Contents/Libraries/
     install_name_tool -change libthe-libs.1.dylib @executable_path/../Libraries/libthe-libs.1.dylib theCalculator.app/Contents/MacOS/theCalculator
-    install_name_tool -change @rpath/QtWidgets.framework/Versions/5/QtWidgets @executable_path/../Frameworks/QtSvg.framework/Versions/5/QtWidgets theCalculator.app/Libraries/libthe-libs.1.dylib
-    install_name_tool -change @rpath/QtWidgets.framework/Versions/5/QtGui @executable_path/../Frameworks/QtSvg.framework/Versions/5/QtGui theCalculator.app/Libraries/libthe-libs.1.dylib
-    install_name_tool -change @rpath/QtWidgets.framework/Versions/5/QtCore @executable_path/../Frameworks/QtSvg.framework/Versions/5/QtCore theCalculator.app/Libraries/libthe-libs.1.dylib
+    install_name_tool -change @rpath/QtWidgets.framework/Versions/5/QtWidgets @executable_path/../Frameworks/QtSvg.framework/Versions/5/QtWidgets theCalculator.app/Contents/Libraries/libthe-libs.1.dylib
+    install_name_tool -change @rpath/QtWidgets.framework/Versions/5/QtGui @executable_path/../Frameworks/QtSvg.framework/Versions/5/QtGui theCalculator.app/Contents/Libraries/libthe-libs.1.dylib
+    install_name_tool -change @rpath/QtWidgets.framework/Versions/5/QtCore @executable_path/../Frameworks/QtSvg.framework/Versions/5/QtCore theCalculator.app/Contents/Libraries/libthe-libs.1.dylib
     echo "[TRAVIS] Deploying Qt Libraries"
     macdeployqt theCalculator.app
     echo "[TRAVIS] Preparing Disk Image creator"
