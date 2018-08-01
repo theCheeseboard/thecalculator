@@ -12,7 +12,6 @@ void yyerror(const char* s);
 extern MainWindow* MainWin;
 %}
 
-%define parse.trace
 %define parse.error verbose
 %define parse.lac full
 

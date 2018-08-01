@@ -40,7 +40,8 @@ FORMS += \
 
 DISTFILES += \
     parser/calc.y \
-    parser/calc.l
+    parser/calc.l \
+    thecalculator.desktop
 
 FLEX = parser/calc.l
 BISON = parser/calc.y
@@ -74,3 +75,15 @@ flexheader.name = Flex Headers ${QMAKE_FILE_IN}
 flexheader.CONFIG += target_predeps no_link
 
 QMAKE_EXTRA_COMPILERS += bisonsource bisonheader flexheader flexsource
+
+unix:!macx {
+    target.path = /usr/bin
+
+    #translations.path = /usr/share/theslate/translations
+    #translations.files = translations/*
+
+    desktop.path = /usr/share/applications
+    desktop.files = theslate.desktop
+
+    INSTALLS += target desktop #translations
+}
