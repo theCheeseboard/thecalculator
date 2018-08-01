@@ -53,9 +53,11 @@ if [ $STAGE = "script" ]; then
     echo "[TRAVIS] Deploying Qt Libraries"
     macdeployqt theCalculator.app
     echo "[TRAVIS] Preparing Disk Image creator"
+    cp theCalculator.app -r ../thecalculator/
+    cd ../thecalculator
     npm install appdmg
     echo "[TRAVIS] Building Disk Image"
-    ./node_modules/appdmg/bin/appdmg.js ../node-appdmg-config.json ~/theCalculator-macOS.dmg
+    ./node_modules/appdmg/bin/appdmg.js node-appdmg-config.json ~/theCalculator-macOS.dmg
   fi
 elif [ $STAGE = "before_install" ]; then
   if [ $TRAVIS_OS_NAME = "linux" ]; then
