@@ -73,6 +73,7 @@ elif [ $STAGE = "before_install" ]; then
 elif [ $STAGE = "after_success" ]; then
   if [ $TRAVIS_OS_NAME = "linux" ]; then
     echo "[TRAVIS] Publishing AppImage"
+    cd ~
     wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
     bash upload.sh theCalculator*.AppImage*
   else
