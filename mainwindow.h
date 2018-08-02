@@ -13,8 +13,9 @@
 #include "expression.h"
 #include "calc.h"
 #include <complex>
+#include <iomanip>
 
-typedef std::complex<double> idouble;
+typedef std::complex<long double> idouble;
 
 class CalcButton;
 namespace Ui {
@@ -31,10 +32,14 @@ class MainWindow : public QMainWindow
     
         QList<CalcButton*> buttons;
         QString idbToString(idouble db);
+        QString numberFormatToString(long double format);
 
     public slots:
         void parserError(const char* error);
         void parserResult(idouble result);
+        void assignValue(QString identifier, idouble value);
+        bool valueExists(QString identifer);
+        idouble getValue(QString identifer);
         idouble callFunction(QString name, QList<idouble> args, QString& error);
 
     private slots:
@@ -54,12 +59,16 @@ class MainWindow : public QMainWindow
         Ui::MainWindow *ui;
 
         bool extended = false;
+        bool explicitEvaluation = false;
         QMap<QString, std::function<idouble(QList<idouble>,QString&)>> customFunctions;
         void setupBuiltinFunctions();
         std::function<idouble(QList<idouble>,QString&)> createSingleArgFunction(std::function<idouble(idouble, QString&)> fn, QString fnName);
+        void resizeAnswerLabel();
+
+        void resizeEvent(QResizeEvent* event);
 
         idouble currentAnswer;
-
+        QMap<QString, idouble> variables;
 
         YY_BUFFER_STATE bufferState;
 };

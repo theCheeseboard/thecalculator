@@ -22,6 +22,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->SevenButton->setShiftedOutput("⁷");
     ui->EightButton->setShiftedOutput("⁸");
     ui->NineButton->setShiftedOutput("⁹");
+    ui->PlusButton->setShiftedOutput("⁺");
+    ui->MinusButton->setShiftedOutput("⁻");
+    ui->imaginaryButton->setShiftedOutput("ⁱ");
 
     //ui->EqualButton->setProperty("type", "positive");
     QPalette operationButtonPalette = ui->EqualButton->palette();
@@ -47,6 +50,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->scrollArea->setFixedWidth(0);
     this->setFixedWidth(this->sizeHint().width());
+    ui->answerContainer->setFixedHeight(ui->answerLabel->height());
 
     ui->SquareButton->setTypedOutput("²");
     ui->CubeButton->setTypedOutput("³");
@@ -103,10 +107,12 @@ void MainWindow::on_EqualButton_clicked()
 {
     /*Expression e(ui->expressionBox->text());
     ui->expressionBox->setText(e.evaluate());*/
+    explicitEvaluation = true;
     QString expression = ui->expressionBox->text();
     bufferState = yy_scan_string(expression.append("\n").toUtf8().constData());
     yyparse();
     yy_delete_buffer(bufferState);
+    explicitEvaluation = false;
 }
 
 void MainWindow::on_expressionBox_textEdited(const QString &arg1)
@@ -118,16 +124,20 @@ void MainWindow::on_expressionBox_textEdited(const QString &arg1)
 
 void MainWindow::parserError(const char *error) {
     QString errorText = QString::fromLocal8Bit(error);
-    if (errorText.startsWith("syntax error")) {
+    QString answerText;
+    if (errorText.startsWith("syntax error") && !explicitEvaluation) {
         ui->answerLabel->setText("");
     } else {
         ui->answerLabel->setText(errorText);
     }
+
+    resizeAnswerLabel();
 }
 
 void MainWindow::parserResult(idouble result) {
     currentAnswer = result;
     ui->answerLabel->setText(idbToString(result));
+    resizeAnswerLabel();
 }
 
 idouble MainWindow::callFunction(QString name, QList<idouble> args, QString& error) {
@@ -293,6 +303,28 @@ void MainWindow::setupBuiltinFunctions() {
             return 0;
         }
     });
+    customFunctions.insert("pow", [=](QList<idouble> args, QString& error) -> idouble {
+        if (args.length() == 2) {
+            idouble first = args.first();
+            idouble second = args.at(1);
+
+            if (first.real() == 0 && first.imag() == 0 &&
+                    second.real() == 0 && second.imag() == 0) {
+                error = tr("pow: arg2 (0) out of bounds for arg1 (0) (neither can be 0)");
+                return 0;
+            }
+
+            if (first.real() == 0 && first.imag() == 0 && second.real() == 0) {
+                error = tr("pow: arg2 (%1) out of bounds for arg1 (0) (should be a real number)").arg(idbToString(second));
+                return 0;
+            }
+
+            return pow(first, second);
+        } else {
+            error = tr("pow: expected 2 arguments, got %1").arg(args.length());
+            return 0;
+        }
+    });
 
     customFunctions.insert("floor", createSingleArgFunction([=](idouble arg, QString& error) {
         return floor(arg.real());
@@ -303,23 +335,64 @@ void MainWindow::setupBuiltinFunctions() {
 }
 
 QString MainWindow::idbToString(idouble db) {
-    if (db.real() != 0 && db.imag() == 0) {
-        return QString::number(db.real());
-    } else if (db.real() == 0 && db.imag() == 0) {
+    long double real = db.real();
+    long double imag = db.imag();
+    if (real != 0 && imag == 0) {
+        return numberFormatToString(real);
+    } else if (real == 0 && imag == 0) {
         return "0";
-    } else if (db.real() != 0 && db.imag() == 1) {
-        return QString::number(db.real()) + " + i";
-    } else if (db.real() != 0 && db.imag() > 0) {
-        return QString::number(db.real()) + " + " + QString::number(db.imag()) + "i";
-    } else if (db.real() != 0 && db.imag() == -1) {
-        return QString::number(db.real()) + " - i";
-    } else if (db.real() != 0 && db.imag() < 0) {
-        return QString::number(db.real()) + " - " + QString::number(-db.imag()) + "i";
-    } else if (db.imag() == 1) {
+    } else if (real != 0 && imag == 1) {
+        return numberFormatToString(real) + " + i";
+    } else if (real != 0 && imag > 0) {
+        return numberFormatToString(real) + " + " + numberFormatToString(imag) + "i";
+    } else if (real != 0 && imag == -1) {
+        return numberFormatToString(imag) + " - i";
+    } else if (real != 0 && imag < 0) {
+        return numberFormatToString(real) + " - " + numberFormatToString(-imag) + "i";
+    } else if (imag == 1) {
         return "i";
-    } else if (db.imag() == -1) {
+    } else if (imag == -1) {
         return "-i";
     } else {
-        return QString::number(db.imag()) + "i";
+        return numberFormatToString(imag) + "i";
     }
+}
+
+QString MainWindow::numberFormatToString(long double number) {
+    std::stringstream stream;
+    stream << std::setprecision(10) << number;
+
+    return QString::fromStdString(stream.str());
+}
+
+void MainWindow::assignValue(QString identifier, idouble value) {
+    if (explicitEvaluation) {
+        variables.insert(identifier, value);
+        ui->answerLabel->setText(tr("%1 assigned to %2").arg(identifier, idbToString(value)));
+    } else {
+        ui->answerLabel->setText(tr("Assign %1 to %2").arg(identifier, idbToString(value)));
+    }
+}
+
+bool MainWindow::valueExists(QString identifier) {
+    return variables.contains(identifier);
+}
+
+idouble MainWindow::getValue(QString identifier) {
+    return variables.value(identifier);
+}
+
+void MainWindow::resizeAnswerLabel() {
+    QFont font = this->font();
+    font.setPointSize(15);
+    QFontMetricsF metrics(font);
+    qreal width = metrics.width(ui->answerLabel->text());
+    if (width > ui->answerContainer->width()) {
+        font.setPointSizeF(15.0 * (float) ui->answerContainer->width() / width);
+    }
+    ui->answerLabel->setFont(font);
+}
+
+void MainWindow::resizeEvent(QResizeEvent* event) {
+    resizeAnswerLabel();
 }
