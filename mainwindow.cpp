@@ -401,3 +401,8 @@ void MainWindow::resizeAnswerLabel() {
 void MainWindow::resizeEvent(QResizeEvent* event) {
     resizeAnswerLabel();
 }
+
+void MainWindow::on_actionExit_triggered()
+{
+    QApplication::exit();
+}

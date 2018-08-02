@@ -55,7 +55,9 @@ class MainWindow : public QMainWindow
 
         void on_expressionBox_textEdited(const QString &arg1);
 
-    private:
+        void on_actionExit_triggered();
+
+private:
         Ui::MainWindow *ui;
 
         bool extended = false;

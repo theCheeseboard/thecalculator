@@ -27,7 +27,7 @@ if [ $STAGE = "script" ]; then
     ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage
   else
     echo "[TRAVIS] Building for macOS"
-    export PATH="/usr/local/opt/qt/bin:$PATH"
+    export PATH="/usr/local/opt/bison/bin:/usr/local/opt/flex/bin:/usr/local/opt/qt/bin:$PATH"
     cd ..
     echo "[TRAVIS] Building and installing the-libs"
     git clone https://github.com/vicr123/the-libs.git
@@ -40,22 +40,25 @@ if [ $STAGE = "script" ]; then
     mkdir "build-thecalculator"
     cd "build-thecalculator"
     echo "[TRAVIS] Running qmake"
-    qmake "INCLUDEPATH += /usr/local/opt/qt/include" "LIBS += -L/usr/local/opt/qt/lib" ../theCalculator/theCalculator.pro
+    qmake "INCLUDEPATH += /usr/local/opt/qt/include" "LIBS += -L/usr/local/opt/qt/lib" ../thecalculator/theCalculator.pro
     echo "[TRAVIS] Building project"
+    cp ../thecalculator/icon.icns ./
     make
     echo "[TRAVIS] Embedding the-libs"
     mkdir theCalculator.app/Contents/Libraries
     cp  /usr/local/lib/libthe-libs*.dylib theCalculator.app/Contents/Libraries/
     install_name_tool -change libthe-libs.1.dylib @executable_path/../Libraries/libthe-libs.1.dylib theCalculator.app/Contents/MacOS/theCalculator
-    install_name_tool -change @rpath/QtWidgets.framework/Versions/5/QtWidgets @executable_path/../Frameworks/QtSvg.framework/Versions/5/QtWidgets theCalculator.app/Libraries/libthe-libs.1.dylib
-    install_name_tool -change @rpath/QtWidgets.framework/Versions/5/QtGui @executable_path/../Frameworks/QtSvg.framework/Versions/5/QtGui theCalculator.app/Libraries/libthe-libs.1.dylib
-    install_name_tool -change @rpath/QtWidgets.framework/Versions/5/QtCore @executable_path/../Frameworks/QtSvg.framework/Versions/5/QtCore theCalculator.app/Libraries/libthe-libs.1.dylib
+    install_name_tool -change @rpath/QtWidgets.framework/Versions/5/QtWidgets @executable_path/../Frameworks/QtSvg.framework/Versions/5/QtWidgets theCalculator.app/Contents/Libraries/libthe-libs.1.dylib
+    install_name_tool -change @rpath/QtWidgets.framework/Versions/5/QtGui @executable_path/../Frameworks/QtSvg.framework/Versions/5/QtGui theCalculator.app/Contents/Libraries/libthe-libs.1.dylib
+    install_name_tool -change @rpath/QtWidgets.framework/Versions/5/QtCore @executable_path/../Frameworks/QtSvg.framework/Versions/5/QtCore theCalculator.app/Contents/Libraries/libthe-libs.1.dylib
     echo "[TRAVIS] Deploying Qt Libraries"
     macdeployqt theCalculator.app
     echo "[TRAVIS] Preparing Disk Image creator"
+    cp -r theCalculator.app ../thecalculator/
+    cd ../thecalculator
     npm install appdmg
     echo "[TRAVIS] Building Disk Image"
-    ./node_modules/appdmg/bin/appdmg.js ./node-appdmg-config.json ~/theCalculator-macOS.dmg
+    ./node_modules/appdmg/bin/appdmg.js node-appdmg-config.json ~/theCalculator-macOS.dmg
   fi
 elif [ $STAGE = "before_install" ]; then
   if [ $TRAVIS_OS_NAME = "linux" ]; then

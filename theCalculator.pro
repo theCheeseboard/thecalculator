@@ -9,8 +9,19 @@ CONFIG   += c++14
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = thecalculator
+TARGET = theCalculator
 TEMPLATE = app
+
+unix:!macx {
+    TARGET = thecalculator
+}
+
+macx {
+    INCLUDEPATH += "/usr/local/include/the-libs"
+    LIBS += -L/usr/local/lib -lthe-libs
+    ICON = icon.icns
+}
+
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
@@ -90,3 +101,6 @@ unix:!macx {
 
     INSTALLS += target desktop #translations
 }
+
+RESOURCES += \
+    icons.qrc
