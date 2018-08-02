@@ -309,14 +309,19 @@ void MainWindow::setupBuiltinFunctions() {
             idouble second = args.at(1);
 
             if (first.real() == 0 && first.imag() == 0 &&
-                    second.real() == 0 && second.imag() == 0) {
-                error = tr("pow: arg2 (0) out of bounds for arg1 (0) (neither can be 0)");
+                    second.real() <= 0 && second.imag() == 0) {
+                error = tr("pow: arg2 (%1) out of bounds for arg1 (0) (should be positive)").arg(idbToString(second));
                 return 0;
             }
 
-            if (first.real() == 0 && first.imag() == 0 && second.real() == 0) {
+            if (first.real() == 0 && first.imag() == 0 && second.real() == 0 && second.imag() != 0) {
                 error = tr("pow: arg2 (%1) out of bounds for arg1 (0) (should be a real number)").arg(idbToString(second));
                 return 0;
+            }
+
+            if (first.real() == 0 && first.imag() == 0 &&
+                    second.real() > 0) {
+                error = tr("pow: arg2 (%1) out of bounds for arg1 (0) (should be positive)").arg(idbToString(second));
             }
 
             return pow(first, second);
