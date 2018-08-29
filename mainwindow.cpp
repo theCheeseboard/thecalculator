@@ -87,7 +87,7 @@ void MainWindow::on_expandButton_clicked()
     anim->setEasingCurve(QEasingCurve::OutCubic);
     connect(anim, &tVariantAnimation::valueChanged, [=](QVariant value) {
         ui->scrollArea->setFixedWidth(value.toInt() * getDPIScaling());
-        this->setFixedWidth(this->sizeHint().width());
+        this->setFixedWidth(this->sizeHint().width() * getDPIScaling() - ui->scrollArea->width() * getDPIScaling() + ui->scrollArea->width());
     });
     connect(anim, SIGNAL(finished()), anim, SLOT(deleteLater()));
     anim->start();
