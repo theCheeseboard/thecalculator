@@ -1,7 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QScroller>
 extern MainWindow* MainWin;
+extern float getDPIScaling();
 
 #include "calc.bison.hpp"
 
@@ -48,8 +50,10 @@ MainWindow::MainWindow(QWidget *parent) :
     functionPalette.setColor(QPalette::Button, functionPalette.color(QPalette::Button).lighter(125));
     ui->scrollArea->setPalette(functionPalette);
 
+    QScroller::grabGesture(ui->scrollArea, QScroller::LeftMouseButtonGesture);
+
     ui->scrollArea->setFixedWidth(0);
-    this->setFixedWidth(this->sizeHint().width());
+    this->setFixedWidth(this->sizeHint().width() * getDPIScaling());
     ui->answerContainer->setFixedHeight(ui->answerLabel->height());
 
     ui->SquareButton->setTypedOutput("²");
@@ -82,7 +86,7 @@ void MainWindow::on_expandButton_clicked()
     anim->setDuration(500);
     anim->setEasingCurve(QEasingCurve::OutCubic);
     connect(anim, &tVariantAnimation::valueChanged, [=](QVariant value) {
-        ui->scrollArea->setFixedWidth(value.toInt());
+        ui->scrollArea->setFixedWidth(value.toInt() * getDPIScaling());
         this->setFixedWidth(this->sizeHint().width());
     });
     connect(anim, SIGNAL(finished()), anim, SLOT(deleteLater()));

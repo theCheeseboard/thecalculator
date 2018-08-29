@@ -79,8 +79,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>216</width>
-             <height>248</height>
+             <width>240</width>
+             <height>250</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
@@ -498,6 +498,9 @@
            <font>
             <pointsize>20</pointsize>
            </font>
+          </property>
+          <property name="inputMethodHints">
+           <set>Qt::ImhNoPredictiveText</set>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

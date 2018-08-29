@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
+#include <QDesktopWidget>
 
 MainWindow* MainWin;
 
@@ -11,4 +12,9 @@ int main(int argc, char *argv[])
     MainWin->show();
 
     return a.exec();
+}
+
+float getDPIScaling() {
+    float currentDPI = QApplication::desktop()->logicalDpiX();
+    return currentDPI / (float) 96;
 }
