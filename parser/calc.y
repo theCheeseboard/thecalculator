@@ -85,7 +85,7 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), $2->imag());}
         if (MainWin->valueExists(*$1)) {
             $$ = new idouble(pow(MainWin->getValue(*$1), *$3));
         } else {
-            yyerror("var: unknown variable");
+            yyerror((*$1).append(": unknown variable").toLocal8Bit().constData());
             YYABORT;
         }
     }
@@ -93,7 +93,7 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), $2->imag());}
         if (MainWin->valueExists(*$1)) {
             $$ = new idouble(pow(MainWin->getValue(*$1), *$2));
         } else {
-            yyerror("var: unknown variable");
+            yyerror((*$1).append(": unknown variable").toLocal8Bit().constData());
             YYABORT;
         }
     }
@@ -107,7 +107,7 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), $2->imag());}
         if (MainWin->valueExists(*$1)) {
             $$ = new idouble(MainWin->getValue(*$1));
         } else {
-            yyerror("var: unknown variable");
+            yyerror((*$1).append(": unknown variable").toLocal8Bit().constData());
             YYABORT;
         }
     }

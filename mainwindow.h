@@ -61,6 +61,8 @@ class MainWindow : public QMainWindow
 
         void on_FunctionsButton_clicked();
 
+        void on_expressionBox_returnPressed();
+
     private:
         Ui::MainWindow *ui;
 

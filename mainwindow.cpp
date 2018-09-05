@@ -497,3 +497,8 @@ void MainWindow::on_FunctionsButton_clicked()
     ui->menuBar->setVisible(false);
     ui->stackedWidget->setCurrentIndex(1);
 }
+
+void MainWindow::on_expressionBox_returnPressed()
+{
+    ui->EqualButton->click();
+}
