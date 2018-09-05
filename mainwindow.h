@@ -57,11 +57,16 @@ class MainWindow : public QMainWindow
 
         void on_actionExit_triggered();
 
-private:
+        void on_backButton_clicked();
+
+        void on_FunctionsButton_clicked();
+
+    private:
         Ui::MainWindow *ui;
 
         bool extended = false;
         bool explicitEvaluation = false;
+        bool resultSuccess = false;
         QMap<QString, std::function<idouble(QList<idouble>,QString&)>> customFunctions;
         void setupBuiltinFunctions();
         std::function<idouble(QList<idouble>,QString&)> createSingleArgFunction(std::function<idouble(idouble, QString&)> fn, QString fnName);

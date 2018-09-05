@@ -4,6 +4,7 @@
 #include <QScroller>
 #include <QActionGroup>
 #include <QMenu>
+#include <QStackedWidget>
 extern MainWindow* MainWin;
 extern float getDPIScaling();
 
@@ -122,11 +123,23 @@ void MainWindow::on_EqualButton_clicked()
     bufferState = yy_scan_string(expression.append("\n").toUtf8().constData());
     yyparse();
     yy_delete_buffer(bufferState);
+
+    if (resultSuccess) {
+        variables.insert("Ans", currentAnswer);
+        ui->answerLabel->setText("");
+        ui->expressionBox->setText(idbToString(currentAnswer));
+    }
+
     explicitEvaluation = false;
 }
 
 void MainWindow::on_expressionBox_textEdited(const QString &arg1)
 {
+    QString newString = arg1;
+    if (newString.contains("/")) newString.replace("/", "÷");
+    if (newString.contains("*")) newString.replace("*", "×");
+    ui->expressionBox->setText(newString);
+
     bufferState = yy_scan_string(QString(arg1 + "\n").toUtf8().constData());
     yyparse();
     yy_delete_buffer(bufferState);
@@ -142,12 +155,14 @@ void MainWindow::parserError(const char *error) {
     }
 
     resizeAnswerLabel();
+    resultSuccess = false;
 }
 
 void MainWindow::parserResult(idouble result) {
     currentAnswer = result;
     ui->answerLabel->setText(idbToString(result));
     resizeAnswerLabel();
+    resultSuccess = true;
 }
 
 idouble MainWindow::callFunction(QString name, QList<idouble> args, QString& error) {
@@ -469,4 +484,16 @@ idouble MainWindow::toRad(idouble deg) {
         deg *= idouble(M_PI / 180);
     }
     return deg;
+}
+
+void MainWindow::on_backButton_clicked()
+{
+    ui->menuBar->setVisible(true);
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_FunctionsButton_clicked()
+{
+    ui->menuBar->setVisible(false);
+    ui->stackedWidget->setCurrentIndex(1);
 }
