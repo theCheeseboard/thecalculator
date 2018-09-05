@@ -78,6 +78,7 @@ class MainWindow : public QMainWindow
         idouble toDeg(idouble rad);
 
         void resizeEvent(QResizeEvent* event);
+        bool eventFilter(QObject *watched, QEvent *event);
 
         idouble currentAnswer;
         QMap<QString, idouble> variables;

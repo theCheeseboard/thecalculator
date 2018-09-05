@@ -1006,6 +1006,9 @@
    <addaction name="menuTrigonometry"/>
   </widget>
   <action name="actionExit">
+   <property name="icon">
+    <iconset theme="application-exit"/>
+   </property>
    <property name="text">
     <string>&amp;Exit</string>
    </property>

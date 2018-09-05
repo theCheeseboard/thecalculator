@@ -21,6 +21,9 @@ MainWindow::MainWindow(QWidget *parent) :
     group->addAction(ui->actionDegrees);
     group->addAction(ui->actionRadians);
 
+    ui->expressionBox->grabKeyboard();
+    ui->expressionBox->installEventFilter(this);
+
     ui->ZeroButton->setShiftedOutput("⁰");
     ui->OneButton->setShiftedOutput("¹");
     ui->TwoButton->setShiftedOutput("²");
@@ -135,12 +138,16 @@ void MainWindow::on_EqualButton_clicked()
 
 void MainWindow::on_expressionBox_textEdited(const QString &arg1)
 {
+    int anchorPosition = ui->expressionBox->cursorPosition();
+
     QString newString = arg1;
     if (newString.contains("/")) newString.replace("/", "÷");
     if (newString.contains("*")) newString.replace("*", "×");
+    if (newString.contains(" ")) newString.replace(" ", "⋅");
     ui->expressionBox->setText(newString);
+    ui->expressionBox->setCursorPosition(anchorPosition);
 
-    bufferState = yy_scan_string(QString(arg1 + "\n").toUtf8().constData());
+    bufferState = yy_scan_string(QString(newString + "\n").toUtf8().constData());
     yyparse();
     yy_delete_buffer(bufferState);
 }
@@ -501,4 +508,33 @@ void MainWindow::on_FunctionsButton_clicked()
 void MainWindow::on_expressionBox_returnPressed()
 {
     ui->EqualButton->click();
+}
+
+bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
+    if (watched == ui->expressionBox) {
+        if (event->type() == QEvent::KeyPress) {
+            QKeyEvent* e = (QKeyEvent*) event;
+
+            if (e->modifiers() & Qt::ControlModifier) {
+                switch (e->key()) {
+                    case Qt::Key_P: ui->expressionBox->insert("π"); break;
+                    case Qt::Key_0: ui->expressionBox->insert("⁰"); break;
+                    case Qt::Key_1: ui->expressionBox->insert("¹"); break;
+                    case Qt::Key_2: ui->expressionBox->insert("²"); break;
+                    case Qt::Key_3: ui->expressionBox->insert("³"); break;
+                    case Qt::Key_4: ui->expressionBox->insert("⁴"); break;
+                    case Qt::Key_5: ui->expressionBox->insert("⁵"); break;
+                    case Qt::Key_6: ui->expressionBox->insert("⁶"); break;
+                    case Qt::Key_7: ui->expressionBox->insert("⁷"); break;
+                    case Qt::Key_8: ui->expressionBox->insert("⁸"); break;
+                    case Qt::Key_9: ui->expressionBox->insert("⁹"); break;
+                    case Qt::Key_I: ui->expressionBox->insert("ⁱ"); break;
+                    case Qt::Key_Equal: ui->expressionBox->insert("⁺"); break;
+                    case Qt::Key_Minus: ui->expressionBox->insert("⁻"); break;
+                    case Qt::Key_R: ui->expressionBox->insert("√"); break;
+                }
+            }
+        }
+    }
+    return false;
 }

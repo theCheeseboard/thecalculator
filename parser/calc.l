@@ -54,6 +54,7 @@ typedef std::complex<long double> idouble;
 "⁻" {return SUPERSUBTRACT;}
 "*" {return MULTIPLY;}
 "×" {return MULTIPLY;}
+"⋅" {return MULTIPLY;}
 "÷" {return DIVIDE;}
 "/" {return DIVIDE;}
 "^" {return EXPONENTIATE;}
