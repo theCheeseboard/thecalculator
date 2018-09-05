@@ -67,6 +67,9 @@ private:
         std::function<idouble(QList<idouble>,QString&)> createSingleArgFunction(std::function<idouble(idouble, QString&)> fn, QString fnName);
         void resizeAnswerLabel();
 
+        idouble toRad(idouble deg);
+        idouble toDeg(idouble rad);
+
         void resizeEvent(QResizeEvent* event);
 
         idouble currentAnswer;

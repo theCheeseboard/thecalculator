@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 
 #include <QScroller>
+#include <QActionGroup>
+#include <QMenu>
 extern MainWindow* MainWin;
 extern float getDPIScaling();
 
@@ -13,6 +15,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     MainWin = this;
     ui->setupUi(this);
+
+    QActionGroup* group = new QActionGroup(this);
+    group->addAction(ui->actionDegrees);
+    group->addAction(ui->actionRadians);
 
     ui->ZeroButton->setShiftedOutput("⁰");
     ui->OneButton->setShiftedOutput("¹");
@@ -172,9 +178,9 @@ void MainWindow::setupBuiltinFunctions() {
     customFunctions.insert("sqrt", createSingleArgFunction([=](idouble arg, QString& error) {
         return sqrt(arg);
     }, "sqrt"));
-    /*customFunctions.insert("cbrt", createSingleArgFunction([=](idouble arg, QString& error) {
-        return cbrt(arg);
-    }, "cbrt"));*/
+    customFunctions.insert("cbrt", createSingleArgFunction([=](idouble arg, QString& error) {
+        return pow(arg, 1 / (float) 3);
+    }, "cbrt"));
     customFunctions.insert("fact", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         if (arg.imag() != 0) {
             error = tr("fact: input (%1) not a real number").arg(idbToString(arg));
@@ -190,15 +196,28 @@ void MainWindow::setupBuiltinFunctions() {
     }, "abs"));
     customFunctions.insert("sin", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
-        return sin(arg);
+        return sin(toRad(arg));
     }, "sin"));
     customFunctions.insert("cos", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
-        return cos(arg);
+        return cos(toRad(arg));
     }, "cos"));
-    customFunctions.insert("tan", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("tan", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         Q_UNUSED(error)
-        return tan(arg);
+
+        if (ui->actionDegrees->isChecked()) {
+            if (fmod(arg.real() - 90, 180) == 0) {
+                error = tr("tan: input (%1) out of bounds (not 90° + 180n)").arg(idbToString(arg));
+                return 0;
+            }
+        } else {
+            if (fmod(arg.real() - (M_PI / 2), M_PI) == 0) {
+                error = tr("tan: input (%1) out of bounds (not π/2 + πn)").arg(idbToString(arg));
+                return 0;
+            }
+        }
+
+        return tan(toRad(arg));
     }, "tan"));
     customFunctions.insert("conj", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
@@ -215,10 +234,9 @@ void MainWindow::setupBuiltinFunctions() {
     customFunctions.insert("asin", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         if (abs(arg) > 1) {
             error = tr("asin: input (%1) out of bounds (between -1 and 1)").arg(idbToString(arg));
-            //qDebug() << "error at " << bufferState->yy_bs_column;
             return 0;
         } else {
-            return asin(arg);
+            return toDeg(asin(arg));
         }
     }, "asin"));
     customFunctions.insert("acos", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
@@ -226,9 +244,37 @@ void MainWindow::setupBuiltinFunctions() {
             error = tr("acos: input (%1) out of bounds (between -1 and 1)").arg(idbToString(arg));
             return 0;
         } else {
-            return asin(arg);
+            return toDeg(acos(arg));
         }
     }, "acos"));
+    customFunctions.insert("atan", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
+        Q_UNUSED(error)
+        return toDeg(atan(arg));
+    }, "acos"));
+    customFunctions.insert("sec", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
+        return idouble(1) / cos(toRad(arg));
+    }, "sec"));
+    customFunctions.insert("csc", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
+        return idouble(1) / sin(toRad(arg));
+    }, "csc"));
+    customFunctions.insert("cot", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
+        return idouble(1) / tan(toRad(arg));
+    }, "cot"));
+    customFunctions.insert("asec", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
+        return toDeg(acos(idouble(1) / arg));
+    }, "asec"));
+    customFunctions.insert("acsc", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
+        return toDeg(asin(idouble(1) / arg));
+    }, "acsc"));
+    customFunctions.insert("acot", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
+        return toDeg(atan(idouble(1) / arg));
+    }, "acot"));
 
     customFunctions.insert("log", [=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() == 1) {
@@ -409,4 +455,18 @@ void MainWindow::resizeEvent(QResizeEvent* event) {
 void MainWindow::on_actionExit_triggered()
 {
     QApplication::exit();
+}
+
+idouble MainWindow::toDeg(idouble rad) {
+    if (ui->actionDegrees->isChecked()) {
+        rad *= idouble(180 / M_PI);
+    }
+    return rad;
+}
+
+idouble MainWindow::toRad(idouble deg) {
+    if (ui->actionDegrees->isChecked()) {
+        deg *= idouble(M_PI / 180);
+    }
+    return deg;
 }
