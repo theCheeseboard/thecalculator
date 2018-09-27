@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
             if (res != nullptr) delete res;
             res = new Result();
 
-            YY_BUFFER_STATE bufferState = yy_scan_string(e.append("\n").toUtf8().constData());
+            YY_BUFFER_STATE bufferState = yy_scan_string(QString(e + "\n").toUtf8().constData());
             yyparse();
             yy_delete_buffer(bufferState);
 
