@@ -22,6 +22,12 @@ namespace Ui {
 class MainWindow;
 }
 
+struct Result {
+    char* error = nullptr;
+    idouble result;
+    bool assigned;
+};
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -31,18 +37,15 @@ class MainWindow : public QMainWindow
         ~MainWindow();
     
         QList<CalcButton*> buttons;
-        QString idbToString(idouble db);
-        QString numberFormatToString(long double format);
+        void assignValue(QString identifier, idouble value);
 
         QString evaluateExpression(QString expression);
+        static void setupBuiltinFunctions();
+
 
     public slots:
         void parserError(const char* error);
         void parserResult(idouble result);
-        void assignValue(QString identifier, idouble value);
-        bool valueExists(QString identifer);
-        idouble getValue(QString identifer);
-        idouble callFunction(QString name, QList<idouble> args, QString& error);
 
     private slots:
         void on_expandButton_clicked();
@@ -67,26 +70,26 @@ class MainWindow : public QMainWindow
 
         void on_actionAbout_triggered();
 
+        void on_actionDegrees_triggered(bool checked);
+
+        void on_actionRadians_triggered(bool checked);
+
     private:
         Ui::MainWindow *ui;
 
         bool extended = false;
-        bool explicitEvaluation = false;
         bool resultSuccess = false;
-        QMap<QString, std::function<idouble(QList<idouble>,QString&)>> customFunctions;
-        void setupBuiltinFunctions();
-        std::function<idouble(QList<idouble>,QString&)> createSingleArgFunction(std::function<idouble(idouble, QString&)> fn, QString fnName);
+        static std::function<idouble(QList<idouble>,QString&)> createSingleArgFunction(std::function<idouble(idouble, QString&)> fn, QString fnName);
         void resizeAnswerLabel();
 
-        idouble toRad(idouble deg);
-        idouble toDeg(idouble rad);
+        static idouble toRad(idouble deg);
+        static idouble toDeg(idouble rad);
 
         void resizeEvent(QResizeEvent* event);
         void changeEvent(QEvent* event);
         bool eventFilter(QObject *watched, QEvent *event);
 
         idouble currentAnswer;
-        QMap<QString, idouble> variables;
 
         YY_BUFFER_STATE bufferState;
 };

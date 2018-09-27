@@ -10,11 +10,48 @@ extern int yylex(void);
 extern void yyterminate();
 void yyerror(const char* s);
 extern MainWindow* MainWin;
+extern QMap<QString, std::function<idouble(QList<idouble>,QString&)>> customFunctions;
+extern QMap<QString, idouble> variables;
+extern bool explicitEvaluation;
+extern Result* res;
+extern bool resSuccess;
+
+idouble callFunction(QString name, QList<idouble> args, QString& error) {
+    //qDebug() << "Calling function:" << name << "with arguments" << args;
+    if (!customFunctions.contains(name)) {
+        error = QApplication::tr("parser", "%1: undefined function").arg(name);
+        return 0;
+    } else {
+        return customFunctions.value(name)(args, error);
+    }
+}
+
+void assignValue(QString identifier, idouble value) {
+    if (explicitEvaluation) {
+        variables.insert(identifier, value);
+    }
+
+    if (MainWin != nullptr) {
+        MainWin->assignValue(identifier, value);
+    }
+
+    res->assigned = true;
+    resSuccess = true;
+}
+
+
+bool valueExists(QString identifier) {
+    return variables.contains(identifier);
+}
+
+idouble getValue(QString identifier) {
+    return variables.value(identifier);
+}
 
 //Define helper functions
 #define CALL_MAINWINDOW_FUNCTION(arg1, arg2, result) { \
         QString error; \
-        result = new idouble(MainWin->callFunction(arg1, arg2, error)); \
+        result = new idouble(callFunction(arg1, arg2, error)); \
         if (error != "") { \
             yyerror(error.toUtf8().constData()); \
             YYABORT; \
@@ -60,8 +97,14 @@ extern MainWindow* MainWin;
 %left ASSIGNMENT
 
 %%
-line: expression EOL { MainWin->parserResult(*$1); }
-|   IDENTIFIER ASSIGNMENT expression EOL { MainWin->assignValue(*$1, *$3); }
+line: expression EOL {
+          res->result = *$1;
+          resSuccess = true;
+          if (MainWin != nullptr) {
+              MainWin->parserResult(*$1);
+          }
+    }
+|   IDENTIFIER ASSIGNMENT expression EOL { assignValue(*$1, *$3); }
 
 expression: SUBTRACT expression {$$ = new idouble(-$2->real(), $2->imag());}
 |   NUMBER {$$ = new idouble(*$1);}
@@ -82,16 +125,16 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), $2->imag());}
 |   expression PERCENT {$$ = new idouble(*$1 / idouble(100));}
 |   expression EXPONENTIATE expression {CALL_MAINWINDOW_FUNCTION("pow", QList<idouble>() << *$1 << *$3, $$)}
 |   IDENTIFIER EXPONENTIATE expression {
-        if (MainWin->valueExists(*$1)) {
-            $$ = new idouble(pow(MainWin->getValue(*$1), *$3));
+        if (valueExists(*$1)) {
+            $$ = new idouble(pow(getValue(*$1), *$3));
         } else {
             yyerror((*$1).append(": unknown variable").toLocal8Bit().constData());
             YYABORT;
         }
     }
 |   IDENTIFIER power {
-        if (MainWin->valueExists(*$1)) {
-            $$ = new idouble(pow(MainWin->getValue(*$1), *$2));
+        if (valueExists(*$1)) {
+            $$ = new idouble(pow(getValue(*$1), *$2));
         } else {
             yyerror((*$1).append(": unknown variable").toLocal8Bit().constData());
             YYABORT;
@@ -104,8 +147,8 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), $2->imag());}
 |   power RADICAL expression {CALL_MAINWINDOW_FUNCTION("pow", QList<idouble>() << *$3 << idouble(1.0) / *$1, $$)}
 |   function
 |   IDENTIFIER {
-        if (MainWin->valueExists(*$1)) {
-            $$ = new idouble(MainWin->getValue(*$1));
+        if (valueExists(*$1)) {
+            $$ = new idouble(getValue(*$1));
         } else {
             yyerror((*$1).append(": unknown variable").toLocal8Bit().constData());
             YYABORT;
@@ -137,5 +180,10 @@ function: IDENTIFIER LBRACKET arguments RBRACKET {CALL_MAINWINDOW_FUNCTION(*$1, 
 %%
 
 void yyerror(const char* s) {
-    MainWin->parserError(s);
+    res->error = (char*) s;
+    resSuccess = false;
+
+    if (MainWin != nullptr) {
+        MainWin->parserError(s);
+    }
 }

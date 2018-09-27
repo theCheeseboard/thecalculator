@@ -9,6 +9,11 @@
 
 extern MainWindow* MainWin;
 extern float getDPIScaling();
+extern QMap<QString, std::function<idouble(QList<idouble>,QString&)>> customFunctions;
+extern QMap<QString, idouble> variables;
+extern bool explicitEvaluation;
+extern QString idbToString(idouble db);
+extern bool isDegrees;
 
 #include "calc.bison.hpp"
 
@@ -74,7 +79,6 @@ MainWindow::MainWindow(QWidget *parent) :
     for (CalcButton* b : buttons) {
         connect(b, SIGNAL(output(QString)), this, SLOT(ButtonPressed(QString)));
     }
-    setupBuiltinFunctions();
 }
 
 MainWindow::~MainWindow()
@@ -174,16 +178,6 @@ void MainWindow::parserResult(idouble result) {
     resultSuccess = true;
 }
 
-idouble MainWindow::callFunction(QString name, QList<idouble> args, QString& error) {
-    //qDebug() << "Calling function:" << name << "with arguments" << args;
-    if (!customFunctions.contains(name)) {
-        error = tr("%1: undefined function").arg(name);
-        return 0;
-    } else {
-        return customFunctions.value(name)(args, error);
-    }
-}
-
 std::function<idouble(QList<idouble>,QString&)> MainWindow::createSingleArgFunction(std::function<idouble (idouble, QString &)> fn, QString fnName) {
     return [=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() != 1) {
@@ -229,7 +223,7 @@ void MainWindow::setupBuiltinFunctions() {
     customFunctions.insert("tan", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         Q_UNUSED(error)
 
-        if (ui->actionDegrees->isChecked()) {
+        if (isDegrees) {
             if (fmod(arg.real() - 90, 180) == 0) {
                 error = tr("tan: input (%1) out of bounds (not 90° + 180n)").arg(idbToString(arg));
                 return 0;
@@ -437,54 +431,6 @@ void MainWindow::setupBuiltinFunctions() {
     }, "ceil"));
 }
 
-QString MainWindow::idbToString(idouble db) {
-    long double real = db.real();
-    long double imag = db.imag();
-    if (real != 0 && imag == 0) {
-        return numberFormatToString(real);
-    } else if (real == 0 && imag == 0) {
-        return "0";
-    } else if (real != 0 && imag == 1) {
-        return numberFormatToString(real) + " + i";
-    } else if (real != 0 && imag > 0) {
-        return numberFormatToString(real) + " + " + numberFormatToString(imag) + "i";
-    } else if (real != 0 && imag == -1) {
-        return numberFormatToString(imag) + " - i";
-    } else if (real != 0 && imag < 0) {
-        return numberFormatToString(real) + " - " + numberFormatToString(-imag) + "i";
-    } else if (imag == 1) {
-        return "i";
-    } else if (imag == -1) {
-        return "-i";
-    } else {
-        return numberFormatToString(imag) + "i";
-    }
-}
-
-QString MainWindow::numberFormatToString(long double number) {
-    std::stringstream stream;
-    stream << std::setprecision(10) << number;
-
-    return QString::fromStdString(stream.str());
-}
-
-void MainWindow::assignValue(QString identifier, idouble value) {
-    if (explicitEvaluation) {
-        variables.insert(identifier, value);
-        ui->answerLabel->setText(tr("%1 assigned to %2").arg(identifier, idbToString(value)));
-    } else {
-        ui->answerLabel->setText(tr("Assign %1 to %2").arg(identifier, idbToString(value)));
-    }
-}
-
-bool MainWindow::valueExists(QString identifier) {
-    return variables.contains(identifier);
-}
-
-idouble MainWindow::getValue(QString identifier) {
-    return variables.value(identifier);
-}
-
 void MainWindow::resizeAnswerLabel() {
     QFont font = this->font();
     font.setPointSize(15);
@@ -506,14 +452,14 @@ void MainWindow::on_actionExit_triggered()
 }
 
 idouble MainWindow::toDeg(idouble rad) {
-    if (ui->actionDegrees->isChecked()) {
+    if (isDegrees) {
         rad *= idouble(180 / M_PI);
     }
     return rad;
 }
 
 idouble MainWindow::toRad(idouble deg) {
-    if (ui->actionDegrees->isChecked()) {
+    if (isDegrees) {
         deg *= idouble(M_PI / 180);
     }
     return deg;
@@ -590,4 +536,26 @@ QString MainWindow::evaluateExpression(QString expression) {
     yyparse();
     yy_delete_buffer(bufferState);
     return ui->answerLabel->text();
+}
+
+void MainWindow::assignValue(QString identifier, idouble value) {
+    if (explicitEvaluation) {
+        ui->answerLabel->setText(tr("%1 assigned to %2").arg(identifier, idbToString(value)));
+    } else {
+        ui->answerLabel->setText(tr("Assign %1 to %2").arg(identifier, idbToString(value)));
+    }
+}
+
+void MainWindow::on_actionDegrees_triggered(bool checked)
+{
+    if (checked) {
+        isDegrees = true;
+    }
+}
+
+void MainWindow::on_actionRadians_triggered(bool checked)
+{
+    if (checked) {
+        isDegrees = false;
+    }
 }

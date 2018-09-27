@@ -3,11 +3,60 @@
 #include <QDesktopWidget>
 #include <QCommandLineParser>
 
-MainWindow* MainWin;
+#include "calc.bison.hpp"
+
+MainWindow* MainWin = nullptr;
+QMap<QString, std::function<idouble(QList<idouble>,QString&)>> customFunctions;
+QMap<QString, idouble> variables;
+bool explicitEvaluation = false;
+Result* res = nullptr;
+bool resSuccess = false;
+bool isDegrees = true;
+
+QString numberFormatToString(long double number) {
+    std::stringstream stream;
+    stream << std::setprecision(10) << number;
+
+    return QString::fromStdString(stream.str());
+}
+
+QString idbToString(idouble db) {
+    long double real = db.real();
+    long double imag = db.imag();
+    if (real != 0 && imag == 0) {
+        return numberFormatToString(real);
+    } else if (real == 0 && imag == 0) {
+        return "0";
+    } else if (real != 0 && imag == 1) {
+        return numberFormatToString(real) + " + i";
+    } else if (real != 0 && imag > 0) {
+        return numberFormatToString(real) + " + " + numberFormatToString(imag) + "i";
+    } else if (real != 0 && imag == -1) {
+        return numberFormatToString(imag) + " - i";
+    } else if (real != 0 && imag < 0) {
+        return numberFormatToString(real) + " - " + numberFormatToString(-imag) + "i";
+    } else if (imag == 1) {
+        return "i";
+    } else if (imag == -1) {
+        return "-i";
+    } else {
+        return numberFormatToString(imag) + "i";
+    }
+}
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    //Determine whether to start a QApplication or QCoreApplication
+    QCoreApplication* a = nullptr;
+    for (int i = 1; i < argc; i++) {
+        if (qstrcmp(argv[i], "-e") == 0 || qstrcmp(argv[i], "--evaluate") == 0) {
+            a = new QCoreApplication(argc, argv);
+        }
+    }
+
+    if (a == nullptr) {
+        a = new QApplication(argc, argv);
+    }
 
     QCommandLineOption expressionOption(QStringList() << "e" << "evaluate");
     expressionOption.setDescription(QApplication::translate("main", "Evaluate <expression>, print the result to standard output, then exit"));
@@ -18,19 +67,30 @@ int main(int argc, char *argv[])
     parser.addHelpOption();
     parser.addVersionOption();
     parser.addOption(expressionOption);
-    parser.process(a);
+    parser.process(*a);
 
-    MainWin = new MainWindow();
+    MainWindow::setupBuiltinFunctions();
+
     if (parser.value(expressionOption) == "") {
+        res = new Result();
+        MainWin = new MainWindow();
         MainWin->show();
-        return a.exec();
-
+        return a->exec();
     } else {
+        explicitEvaluation = true;
         QList<QPair<QString, QString>> outputs;
         for (QString e : parser.value(expressionOption).split(":")) {
-            QString result = MainWin->evaluateExpression(e) + "\n";
-            if (!result.contains(QApplication::translate("main", "assigned to"))) {
-                outputs.append(QPair<QString, QString>(e, result.trimmed()));
+            if (res != nullptr) delete res;
+            res = new Result();
+
+            YY_BUFFER_STATE bufferState = yy_scan_string(e.append("\n").toUtf8().constData());
+            yyparse();
+            yy_delete_buffer(bufferState);
+
+            if (resSuccess && !res->assigned) {
+                outputs.append(QPair<QString, QString>(e, idbToString(res->result)));
+            } else if (!resSuccess) {
+                outputs.append(QPair<QString, QString>(e, QString::fromLocal8Bit(res->error)));
             }
         }
 
