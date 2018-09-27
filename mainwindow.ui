@@ -14,7 +14,7 @@
    <string>theCalculator</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="accessories-calculator" resource="icons.qrc">
+   <iconset theme="accessories-calculator">
     <normaloff>:/icon.svg</normaloff>:/icon.svg</iconset>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
@@ -70,7 +70,7 @@
            </size>
           </property>
           <property name="text">
-           <string>&lt;</string>
+           <string notr="true">&lt;</string>
           </property>
          </widget>
         </item>
@@ -89,7 +89,7 @@
            </size>
           </property>
           <property name="text">
-           <string>%</string>
+           <string notr="true">%</string>
           </property>
          </widget>
         </item>
@@ -119,7 +119,7 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-52</y>
+             <y>-125</y>
              <width>240</width>
              <height>250</height>
             </rect>
@@ -149,56 +149,56 @@
                </size>
               </property>
               <property name="text">
-               <string>x³</string>
+               <string notr="true">x³</string>
               </property>
              </widget>
             </item>
             <item row="1" column="2">
              <widget class="CalcButton" name="pushButton_7">
               <property name="text">
-               <string>ⁿ√</string>
+               <string notr="true">ⁿ√</string>
               </property>
              </widget>
             </item>
             <item row="7" column="0">
              <widget class="CalcButton" name="pushButton_14">
               <property name="text">
-               <string>asinh</string>
+               <string notr="true">asinh</string>
               </property>
              </widget>
             </item>
             <item row="3" column="2">
              <widget class="CalcButton" name="pushButton_10">
               <property name="text">
-               <string>atan</string>
+               <string notr="true">atan</string>
               </property>
              </widget>
             </item>
             <item row="2" column="1">
              <widget class="CalcButton" name="CosineButton">
               <property name="text">
-               <string>cos</string>
+               <string notr="true">cos</string>
               </property>
              </widget>
             </item>
             <item row="6" column="2">
              <widget class="CalcButton" name="pushButton_4">
               <property name="text">
-               <string>tanh</string>
+               <string notr="true">tanh</string>
               </property>
              </widget>
             </item>
             <item row="1" column="0">
              <widget class="CalcButton" name="pushButton_5">
               <property name="text">
-               <string>√</string>
+               <string notr="true">√</string>
               </property>
              </widget>
             </item>
             <item row="4" column="0">
              <widget class="CalcButton" name="LogButton">
               <property name="text">
-               <string>log</string>
+               <string notr="true">log</string>
               </property>
              </widget>
             </item>
@@ -211,28 +211,28 @@
                </size>
               </property>
               <property name="text">
-               <string>x²</string>
+               <string notr="true">x²</string>
               </property>
              </widget>
             </item>
             <item row="3" column="0">
              <widget class="CalcButton" name="pushButton_8">
               <property name="text">
-               <string>asin</string>
+               <string notr="true">asin</string>
               </property>
              </widget>
             </item>
             <item row="6" column="0">
              <widget class="CalcButton" name="pushButton_13">
               <property name="text">
-               <string>sinh</string>
+               <string notr="true">sinh</string>
               </property>
              </widget>
             </item>
             <item row="5" column="0">
              <widget class="CalcButton" name="pushButton_12">
               <property name="text">
-               <string>1/x</string>
+               <string notr="true">1/x</string>
               </property>
              </widget>
             </item>
@@ -245,14 +245,14 @@
                </size>
               </property>
               <property name="text">
-               <string>xⁿ</string>
+               <string notr="true">xⁿ</string>
               </property>
              </widget>
             </item>
             <item row="5" column="1">
              <widget class="CalcButton" name="pushButton">
               <property name="text">
-               <string>!</string>
+               <string notr="true">!</string>
               </property>
              </widget>
             </item>
@@ -262,112 +262,112 @@
                <bool>false</bool>
               </property>
               <property name="text">
-               <string>logₓy</string>
+               <string notr="true">logₓy</string>
               </property>
              </widget>
             </item>
             <item row="2" column="0">
              <widget class="CalcButton" name="SineButton">
               <property name="text">
-               <string>sin</string>
+               <string notr="true">sin</string>
               </property>
              </widget>
             </item>
             <item row="3" column="1">
              <widget class="CalcButton" name="pushButton_9">
               <property name="text">
-               <string>acos</string>
+               <string notr="true">acos</string>
               </property>
              </widget>
             </item>
             <item row="5" column="2">
              <widget class="CalcButton" name="pushButton_2">
               <property name="text">
-               <string>abs</string>
+               <string notr="true">abs</string>
               </property>
              </widget>
             </item>
             <item row="8" column="0">
              <widget class="CalcButton" name="pushButton_15">
               <property name="text">
-               <string>sec</string>
+               <string notr="true">sec</string>
               </property>
              </widget>
             </item>
             <item row="6" column="1">
              <widget class="CalcButton" name="pushButton_3">
               <property name="text">
-               <string>cosh</string>
+               <string notr="true">cosh</string>
               </property>
              </widget>
             </item>
             <item row="7" column="2">
              <widget class="CalcButton" name="pushButton_16">
               <property name="text">
-               <string>atanh</string>
+               <string notr="true">atanh</string>
               </property>
              </widget>
             </item>
             <item row="4" column="1">
              <widget class="CalcButton" name="LnButton">
               <property name="text">
-               <string>ln</string>
+               <string notr="true">ln</string>
               </property>
              </widget>
             </item>
             <item row="2" column="2">
              <widget class="CalcButton" name="TanButton">
               <property name="text">
-               <string>tan</string>
+               <string notr="true">tan</string>
               </property>
              </widget>
             </item>
             <item row="1" column="1">
              <widget class="CalcButton" name="pushButton_6">
               <property name="text">
-               <string>³√</string>
+               <string notr="true">³√</string>
               </property>
              </widget>
             </item>
             <item row="7" column="1">
              <widget class="CalcButton" name="pushButton_11">
               <property name="text">
-               <string>acosh</string>
+               <string notr="true">acosh</string>
               </property>
              </widget>
             </item>
             <item row="8" column="1">
              <widget class="CalcButton" name="pushButton_17">
               <property name="text">
-               <string>csc</string>
+               <string notr="true">csc</string>
               </property>
              </widget>
             </item>
             <item row="8" column="2">
              <widget class="CalcButton" name="pushButton_19">
               <property name="text">
-               <string>cot</string>
+               <string notr="true">cot</string>
               </property>
              </widget>
             </item>
             <item row="9" column="0">
              <widget class="CalcButton" name="pushButton_20">
               <property name="text">
-               <string>asec</string>
+               <string notr="true">asec</string>
               </property>
              </widget>
             </item>
             <item row="9" column="1">
              <widget class="CalcButton" name="pushButton_21">
               <property name="text">
-               <string>acsc</string>
+               <string notr="true">acsc</string>
               </property>
              </widget>
             </item>
             <item row="9" column="2">
              <widget class="CalcButton" name="pushButton_22">
               <property name="text">
-               <string>acot</string>
+               <string notr="true">acot</string>
               </property>
              </widget>
             </item>
@@ -384,7 +384,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>e</string>
+           <string notr="true">e</string>
           </property>
          </widget>
         </item>
@@ -397,7 +397,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>+</string>
+           <string notr="true">+</string>
           </property>
          </widget>
         </item>
@@ -416,7 +416,7 @@
            </size>
           </property>
           <property name="text">
-           <string>C</string>
+           <string notr="true">C</string>
           </property>
          </widget>
         </item>
@@ -435,7 +435,7 @@
            </size>
           </property>
           <property name="text">
-           <string>(</string>
+           <string notr="true">(</string>
           </property>
          </widget>
         </item>
@@ -448,7 +448,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>=</string>
+           <string notr="true">=</string>
           </property>
          </widget>
         </item>
@@ -461,7 +461,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>.</string>
+           <string notr="true">.</string>
           </property>
          </widget>
         </item>
@@ -474,7 +474,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>0</string>
+           <string notr="true">0</string>
           </property>
          </widget>
         </item>
@@ -535,7 +535,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>i</string>
+           <string notr="true">i</string>
           </property>
          </widget>
         </item>
@@ -548,7 +548,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>9</string>
+           <string notr="true">9</string>
           </property>
          </widget>
         </item>
@@ -561,7 +561,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>&lt;&lt;</string>
+           <string notr="true">&lt;&lt;</string>
           </property>
          </widget>
         </item>
@@ -574,7 +574,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>6</string>
+           <string notr="true">6</string>
           </property>
          </widget>
         </item>
@@ -587,7 +587,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>7</string>
+           <string notr="true">7</string>
           </property>
          </widget>
         </item>
@@ -618,7 +618,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>×</string>
+           <string notr="true">×</string>
           </property>
          </widget>
         </item>
@@ -631,7 +631,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>5</string>
+           <string notr="true">5</string>
           </property>
          </widget>
         </item>
@@ -650,7 +650,7 @@
            </size>
           </property>
           <property name="text">
-           <string>÷</string>
+           <string notr="true">÷</string>
           </property>
          </widget>
         </item>
@@ -669,7 +669,7 @@
            </size>
           </property>
           <property name="text">
-           <string>f(x)</string>
+           <string notr="true">f(x)</string>
           </property>
          </widget>
         </item>
@@ -688,7 +688,7 @@
            </size>
           </property>
           <property name="text">
-           <string>)</string>
+           <string notr="true">)</string>
           </property>
          </widget>
         </item>
@@ -701,7 +701,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>π</string>
+           <string notr="true">π</string>
           </property>
          </widget>
         </item>
@@ -731,7 +731,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>-</string>
+           <string notr="true">-</string>
           </property>
          </widget>
         </item>
@@ -744,7 +744,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>&gt;&gt;</string>
+           <string notr="true">&gt;&gt;</string>
           </property>
          </widget>
         </item>
@@ -757,7 +757,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>8</string>
+           <string notr="true">8</string>
           </property>
          </widget>
         </item>
@@ -770,7 +770,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>Ans</string>
+           <string notr="true">Ans</string>
           </property>
          </widget>
         </item>
@@ -783,7 +783,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>3</string>
+           <string notr="true">3</string>
           </property>
          </widget>
         </item>
@@ -796,7 +796,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>1</string>
+           <string notr="true">1</string>
           </property>
          </widget>
         </item>
@@ -809,7 +809,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>2</string>
+           <string notr="true">2</string>
           </property>
          </widget>
         </item>
@@ -822,7 +822,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>4</string>
+           <string notr="true">4</string>
           </property>
          </widget>
         </item>
@@ -1059,8 +1059,6 @@
    <header>calcbutton.h</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="icons.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
