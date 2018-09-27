@@ -23,7 +23,7 @@ class MainWindow;
 }
 
 struct Result {
-    char* error = nullptr;
+    QString error;
     idouble result;
     bool assigned;
 };

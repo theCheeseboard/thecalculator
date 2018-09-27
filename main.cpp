@@ -2,8 +2,14 @@
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QCommandLineParser>
+#include <QTranslator>
+#include <QLibraryInfo>
 
 #include "calc.bison.hpp"
+
+#ifdef Q_OS_MAC
+    #include <CoreFoundation/CFBundle.h>
+#endif
 
 MainWindow* MainWin = nullptr;
 QMap<QString, std::function<idouble(QList<idouble>,QString&)>> customFunctions;
@@ -58,6 +64,35 @@ int main(int argc, char *argv[])
         a = new QApplication(argc, argv);
     }
 
+    a->setOrganizationName("theSuite");
+    a->setOrganizationDomain("");
+    a->setApplicationName("theShell");
+
+    QTranslator qtTranslator;
+    qtTranslator.load("qt_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    a->installTranslator(&qtTranslator);
+
+    QTranslator localTranslator;
+#ifdef Q_OS_MAC
+    a.setAttribute(Qt::AA_DontShowIconsInMenus, true);
+
+    CFURLRef appUrlRef = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    CFStringRef macPath = CFURLCopyFileSystemPath(appUrlRef, kCFURLPOSIXPathStyle);
+    const char *pathPtr = CFStringGetCStringPtr(macPath, CFStringGetSystemEncoding());
+
+    localTranslator.load(QLocale::system().name(), QString::fromLocal8Bit(pathPtr) + "/Contents/translations/");
+
+    CFRelease(appUrlRef);
+    CFRelease(macPath);
+#endif
+
+#ifdef Q_OS_LINUX
+    localTranslator.load(QLocale::system().name(), "/usr/share/thecalculator/translations");
+#endif
+
+    a->installTranslator(&localTranslator);
+
+
     QCommandLineOption expressionOption(QStringList() << "e" << "evaluate");
     expressionOption.setDescription(QApplication::translate("main", "Evaluate <expression>, print the result to standard output, then exit"));
     expressionOption.setValueName(QApplication::translate("main", "expression"));
@@ -80,6 +115,8 @@ int main(int argc, char *argv[])
         explicitEvaluation = true;
         QList<QPair<QString, QString>> outputs;
         for (QString e : parser.value(expressionOption).split(":")) {
+            e = e.remove(" "); //Remove all spaces
+
             if (res != nullptr) delete res;
             res = new Result();
 
@@ -90,7 +127,8 @@ int main(int argc, char *argv[])
             if (resSuccess && !res->assigned) {
                 outputs.append(QPair<QString, QString>(e, idbToString(res->result)));
             } else if (!resSuccess) {
-                outputs.append(QPair<QString, QString>(e, QString::fromLocal8Bit(res->error)));
+                outputs.append(QPair<QString, QString>(e, res->error));
+                break;
             }
         }
 
@@ -103,6 +141,12 @@ int main(int argc, char *argv[])
             for (QPair<QString, QString> output : outputs) {
                 out << output.first.append(": ").append(output.second).append("\n");
             }
+        }
+
+        if (resSuccess) {
+            return 0;
+        } else {
+            return 1;
         }
     }
 }

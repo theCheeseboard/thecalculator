@@ -19,7 +19,7 @@ extern bool resSuccess;
 idouble callFunction(QString name, QList<idouble> args, QString& error) {
     //qDebug() << "Calling function:" << name << "with arguments" << args;
     if (!customFunctions.contains(name)) {
-        error = QApplication::tr("parser", "%1: undefined function").arg(name);
+        error = QApplication::translate("parser", "%1: undefined function").arg(name);
         return 0;
     } else {
         return customFunctions.value(name)(args, error);
@@ -180,7 +180,7 @@ function: IDENTIFIER LBRACKET arguments RBRACKET {CALL_MAINWINDOW_FUNCTION(*$1, 
 %%
 
 void yyerror(const char* s) {
-    res->error = (char*) s;
+    res->error = QString::fromLocal8Bit(s);
     resSuccess = false;
 
     if (MainWin != nullptr) {

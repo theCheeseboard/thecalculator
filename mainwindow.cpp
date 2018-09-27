@@ -6,6 +6,7 @@
 #include <QMenu>
 #include <QStackedWidget>
 #include "aboutwindow.h"
+#include <QRandomGenerator>
 
 extern MainWindow* MainWin;
 extern float getDPIScaling();
@@ -429,6 +430,36 @@ void MainWindow::setupBuiltinFunctions() {
     customFunctions.insert("ceil", createSingleArgFunction([=](idouble arg, QString& error) {
         return ceil(arg.real());
     }, "ceil"));
+
+    customFunctions.insert("random", [=](QList<idouble> args, QString& error) -> idouble {
+        QRandomGenerator gen;
+
+        if (args.length() == 0) {
+            return idouble(gen.generate());
+        } else if (args.length() == 1) {
+            if (args.first().imag() != 0) {
+                error = tr("random: arg1 (%1) not a real number").arg(idbToString(args.first()));
+                return 0;
+            }
+
+            return idouble(gen.bounded((double) args.first().real()));
+        } else if (args.length() == 2) {
+            if (args.first().imag() != 0) {
+                error = tr("random: arg1 (%1) not a real number").arg(idbToString(args.first()));
+                return 0;
+            }
+
+            if (args.last().imag() != 0) {
+                error = tr("random: arg2 (%1) not a real number").arg(idbToString(args.last()));
+                return 0;
+            }
+
+            return idouble(gen.bounded((int) args.first().real(), (int) args.last().real()));
+        } else {
+            error = tr("random: expected 0, 1 or 2 arguments, got %1").arg(args.length());
+            return 0;
+        }
+    });
 }
 
 void MainWindow::resizeAnswerLabel() {
