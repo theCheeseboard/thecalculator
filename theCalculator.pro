@@ -39,15 +39,18 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     calcbutton.cpp \
-    expression.cpp
+    expression.cpp \
+    aboutwindow.cpp
 
 HEADERS += \
         mainwindow.h \
     calcbutton.h \
-    expression.h
+    expression.h \
+    aboutwindow.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    aboutwindow.ui
 
 DISTFILES += \
     parser/calc.y \

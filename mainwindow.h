@@ -34,6 +34,8 @@ class MainWindow : public QMainWindow
         QString idbToString(idouble db);
         QString numberFormatToString(long double format);
 
+        QString evaluateExpression(QString expression);
+
     public slots:
         void parserError(const char* error);
         void parserResult(idouble result);
@@ -63,6 +65,8 @@ class MainWindow : public QMainWindow
 
         void on_expressionBox_returnPressed();
 
+        void on_actionAbout_triggered();
+
     private:
         Ui::MainWindow *ui;
 
@@ -78,6 +82,7 @@ class MainWindow : public QMainWindow
         idouble toDeg(idouble rad);
 
         void resizeEvent(QResizeEvent* event);
+        void changeEvent(QEvent* event);
         bool eventFilter(QObject *watched, QEvent *event);
 
         idouble currentAnswer;

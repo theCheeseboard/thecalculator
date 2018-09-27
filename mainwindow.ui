@@ -119,7 +119,7 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-125</y>
              <width>240</width>
              <height>250</height>
             </rect>
@@ -862,7 +862,8 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset theme="go-previous"/>
+             <iconset theme="go-previous">
+              <normaloff>.</normaloff>.</iconset>
             </property>
             <property name="flat">
              <bool>true</bool>
@@ -1002,12 +1003,20 @@
     <addaction name="actionDegrees"/>
     <addaction name="actionRadians"/>
    </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuTrigonometry"/>
+   <addaction name="menuHelp"/>
   </widget>
   <action name="actionExit">
    <property name="icon">
-    <iconset theme="application-exit"/>
+    <iconset theme="application-exit">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>&amp;Exit</string>
@@ -1030,6 +1039,14 @@
    </property>
    <property name="text">
     <string>&amp;Radians</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset theme="help-about"/>
+   </property>
+   <property name="text">
+    <string>About</string>
    </property>
   </action>
  </widget>

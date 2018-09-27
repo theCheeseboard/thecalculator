@@ -137,6 +137,5 @@ function: IDENTIFIER LBRACKET arguments RBRACKET {CALL_MAINWINDOW_FUNCTION(*$1, 
 %%
 
 void yyerror(const char* s) {
-    printf("ERROR: %s\n", s);
     MainWin->parserError(s);
 }

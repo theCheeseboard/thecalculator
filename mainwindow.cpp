@@ -5,6 +5,8 @@
 #include <QActionGroup>
 #include <QMenu>
 #include <QStackedWidget>
+#include "aboutwindow.h"
+
 extern MainWindow* MainWin;
 extern float getDPIScaling();
 
@@ -297,6 +299,30 @@ void MainWindow::setupBuiltinFunctions() {
         Q_UNUSED(error)
         return toDeg(atan(idouble(1) / arg));
     }, "acot"));
+    customFunctions.insert("sinh", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
+        return sinh(arg);
+    }, "sinh"));
+    customFunctions.insert("cosh", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
+        return cosh(arg);
+    }, "cosh"));
+    customFunctions.insert("tanh", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
+        return tanh(arg);
+    }, "tanh"));
+    customFunctions.insert("asinh", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
+        return asinh(arg);
+    }, "asinh"));
+    customFunctions.insert("acosh", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
+        return acosh(arg);
+    }, "acosh"));
+    customFunctions.insert("atanh", createSingleArgFunction([=](idouble arg, QString& error) {
+        Q_UNUSED(error)
+        return atanh(arg);
+    }, "atanh"));
 
     customFunctions.insert("log", [=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() == 1) {
@@ -537,4 +563,31 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
         }
     }
     return false;
+}
+
+void MainWindow::on_actionAbout_triggered()
+{
+    AboutWindow a;
+    a.exec();
+}
+
+void MainWindow::changeEvent(QEvent *event) {
+    QMainWindow::changeEvent(event);
+    if (event->type() == QEvent::ActivationChange) {
+        if (this->isActiveWindow()) {
+            ui->expressionBox->grabKeyboard();
+        } else {
+            ui->expressionBox->releaseKeyboard();
+        }
+    } else if (event->type() == QEvent::LanguageChange) {
+        ui->retranslateUi(this);
+    }
+}
+
+QString MainWindow::evaluateExpression(QString expression) {
+    explicitEvaluation = true;
+    bufferState = yy_scan_string(expression.append("\n").toUtf8().constData());
+    yyparse();
+    yy_delete_buffer(bufferState);
+    return ui->answerLabel->text();
 }
