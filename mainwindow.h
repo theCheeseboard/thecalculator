@@ -74,6 +74,12 @@ class MainWindow : public QMainWindow
 
         void on_actionRadians_triggered(bool checked);
 
+        void on_actionTheCalculatorHelp_triggered();
+
+        void on_actionFileBug_triggered();
+
+        void on_actionSources_triggered();
+
     private:
         Ui::MainWindow *ui;
 

@@ -7,6 +7,7 @@
 #include <QStackedWidget>
 #include "aboutwindow.h"
 #include <QRandomGenerator>
+#include <QProcess>
 
 extern MainWindow* MainWin;
 extern float getDPIScaling();
@@ -322,17 +323,41 @@ void MainWindow::setupBuiltinFunctions() {
     customFunctions.insert("log", [=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() == 1) {
             //log base 10
+            if (args.first().real() == 0 && args.first().imag() == 0) {
+                error = tr("log: input (%1) out of bounds (not 0)").arg(idbToString(args.first()));
+                return 0;
+            }
+
             return log10(args.first());
         } else if (args.length() == 2) {
             //log base %2
+            if (args.first().real() == 0 && args.first().imag() == 0) {
+                error = tr("log: arg1 (%1) out of bounds (not 0)").arg(idbToString(args.first()));
+                return 0;
+            }
+
+            if (args.last().real() == 1 && args.last().imag() == 0) {
+                error = tr("log: arg2 (%1) out of bounds (not 1)").arg(idbToString(args.last()));
+                return 0;
+            }
+
+            if (args.last().real() == 0 && args.last().imag() == 0) {
+                error = tr("log: arg2 (%1) out of bounds (not 0)").arg(idbToString(args.last()));
+                return 0;
+            }
+
             return log(args.first()) / log(args.at(1));
         } else {
             error = tr("log: expected 1 or 2 arguments, got %1").arg(args.length());
             return 0;
         }
     });
-    customFunctions.insert("ln", createSingleArgFunction([=](idouble arg, QString& error) {
-        Q_UNUSED(error)
+    customFunctions.insert("ln", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
+        if (arg.real() == 0 && arg.imag() == 0) {
+            error = tr("ln: input (%1) out of bounds (not 0)").arg(idbToString(arg));
+            return 0;
+        }
+
         return log(arg);
     }, "ln"));
 
@@ -589,4 +614,19 @@ void MainWindow::on_actionRadians_triggered(bool checked)
     if (checked) {
         isDegrees = false;
     }
+}
+
+void MainWindow::on_actionTheCalculatorHelp_triggered()
+{
+    QProcess::startDetached("xdg-open https://vicr123.com/thecalculator/help");
+}
+
+void MainWindow::on_actionFileBug_triggered()
+{
+    QProcess::startDetached("xdg-open https://github.com/vicr123/thecalculator/issues");
+}
+
+void MainWindow::on_actionSources_triggered()
+{
+    QProcess::startDetached("xdg-open https://github.com/vicr123/thecalculator");
 }
