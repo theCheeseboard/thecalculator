@@ -4,6 +4,7 @@ Type=Application
 Version=1.0
 Name=theCalculator
 GenericName=Calculator
+GenericName[vi]=Máy tính
 Exec=/usr/bin/thecalculator
 Icon=accessories-calculator
 Categories=Utility;
