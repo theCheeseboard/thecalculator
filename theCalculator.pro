@@ -128,12 +128,12 @@ unix:!macx {
     target.path = /usr/bin
 
     translations.path = /usr/share/thecalculator/translations
-    translations.files = translations/*
+    translations.files = translations/*.qm
 
     desktop.path = /usr/share/applications
     desktop.files = thecalculator.desktop
 
-    INSTALLS += target desktop #translations
+    INSTALLS += target desktop translations
 }
 
 RESOURCES += \
