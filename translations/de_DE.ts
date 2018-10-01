@@ -6,27 +6,27 @@
     <message>
         <location filename="../aboutwindow.ui" line="14"/>
         <source>About theCalculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Über theCalculator</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="25"/>
         <source>theCalculator 2.0</source>
-        <translation type="unfinished"></translation>
+        <translation>theCalculator 2.0</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="32"/>
         <source>Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Taschenrechner</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="52"/>
         <source>Licensed under the GNU General Public License, version 3 (or greater)</source>
-        <translation type="unfinished"></translation>
+        <translation>Lizenziert unter der GNU General Public License, Version 3 (oder höher)</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="77"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>Ok</translation>
     </message>
 </context>
 <context>
@@ -34,37 +34,37 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>theCalculator</source>
-        <translation type="unfinished"></translation>
+        <translation>theCalculator</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="719"/>
         <source>Expression...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ausdruck...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1068"/>
         <source>f(x)</source>
-        <translation type="unfinished"></translation>
+        <translation>f (x)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1022"/>
         <source>Custom Functions</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzerdefinierte Funktionen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="73"/>
         <source>Backspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Rücktaste</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="95"/>
         <source>Percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>Prozente</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="158"/>
         <source>Cube</source>
-        <translation type="unfinished"></translation>
+        <translation>Würfel</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="168"/>
