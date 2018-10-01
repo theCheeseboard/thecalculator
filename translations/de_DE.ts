@@ -44,7 +44,7 @@
     <message>
         <location filename="../mainwindow.ui" line="1068"/>
         <source>f(x)</source>
-        <translation>f (x)</translation>
+        <translation>f(x)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1022"/>
@@ -69,37 +69,37 @@
     <message>
         <location filename="../mainwindow.ui" line="168"/>
         <source>Nth Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Nte Wurzel</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="178"/>
         <source>Hyperbolic Arc Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Hyperbolische Arc Sine</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="188"/>
         <source>Arc Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Arc Tangente</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="198"/>
         <source>Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Kosinus</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="208"/>
         <source>Hyperbolic Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Hyperbolische Tangente</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="218"/>
         <source>Square Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Quadratwurzel</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="228"/>
         <source>Base 10 Logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>Basis 10 Logarithmus</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="244"/>
@@ -109,17 +109,17 @@
     <message>
         <location filename="../mainwindow.ui" line="254"/>
         <source>Arc Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Bogensinus</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="264"/>
         <source>Hyperbolic Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Hyperbolische Sine</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="274"/>
         <source>Reciporical</source>
-        <translation type="unfinished"></translation>
+        <translation>Gegenseitig</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="290"/>
