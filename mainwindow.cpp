@@ -8,6 +8,7 @@
 #include "aboutwindow.h"
 #include <QRandomGenerator>
 #include <QProcess>
+#include <QDesktopServices>
 
 extern MainWindow* MainWin;
 extern float getDPIScaling();
@@ -618,15 +619,15 @@ void MainWindow::on_actionRadians_triggered(bool checked)
 
 void MainWindow::on_actionTheCalculatorHelp_triggered()
 {
-    QProcess::startDetached("xdg-open https://vicr123.com/thecalculator/help");
+    QDesktopServices::openUrl(QUrl("https://vicr123.com/thecalculator/help"));
 }
 
 void MainWindow::on_actionFileBug_triggered()
 {
-    QProcess::startDetached("xdg-open https://github.com/vicr123/thecalculator/issues");
+    QDesktopServices::openUrl(QUrl("https://github.com/vicr123/thecalculator/issues"));
 }
 
 void MainWindow::on_actionSources_triggered()
 {
-    QProcess::startDetached("xdg-open https://github.com/vicr123/thecalculator");
+    QDesktopServices::openUrl(QUrl("https://github.com/vicr123/thecalculator"));
 }
