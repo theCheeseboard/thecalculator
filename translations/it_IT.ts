@@ -6,27 +6,27 @@
     <message>
         <location filename="../aboutwindow.ui" line="14"/>
         <source>About theCalculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Informazioni su theCalculator</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="25"/>
         <source>theCalculator 2.0</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">theCalculator 2.0</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="32"/>
         <source>Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Calcolatrice</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="52"/>
         <source>Licensed under the GNU General Public License, version 3 (or greater)</source>
-        <translation type="unfinished"></translation>
+        <translation>Rilasciato sotto licenza GNU General Public License, versione 3 (o superiore)</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="77"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -34,227 +34,227 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>theCalculator</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">theCalculator</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="719"/>
         <source>Expression...</source>
-        <translation type="unfinished"></translation>
+        <translation>Espressione...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1068"/>
         <source>f(x)</source>
-        <translation type="unfinished"></translation>
+        <translation>f(x)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1022"/>
         <source>Custom Functions</source>
-        <translation type="unfinished"></translation>
+        <translation>Funzioni Personalizzabili</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="73"/>
         <source>Backspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Backspace</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="95"/>
         <source>Percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>Percentuale</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="158"/>
         <source>Cube</source>
-        <translation type="unfinished"></translation>
+        <translation>Cubo</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="168"/>
         <source>Nth Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Radice N-esima</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="178"/>
         <source>Hyperbolic Arc Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Arcoseno Iperbolico</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="188"/>
         <source>Arc Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>ArcoTangente</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="198"/>
         <source>Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Coseno</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="208"/>
         <source>Hyperbolic Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangente Iperbolica</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="218"/>
         <source>Square Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Radice Quadrata</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="228"/>
         <source>Base 10 Logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>Logaritmo in Base 10</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="244"/>
         <source>Square</source>
-        <translation type="unfinished"></translation>
+        <translation>Quadrato</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="254"/>
         <source>Arc Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Arcoseno</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="264"/>
         <source>Hyperbolic Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Seno Iperbolico</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="274"/>
         <source>Reciporical</source>
-        <translation type="unfinished"></translation>
+        <translation>Reciproco</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="290"/>
         <source>Raise to a power</source>
-        <translation type="unfinished"></translation>
+        <translation>Elevare a Potenza</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="300"/>
         <source>Factorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Fattoriale</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="320"/>
         <source>Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Seno</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="330"/>
         <source>Arc Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Arcocoseno</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="340"/>
         <source>Absolute</source>
-        <translation type="unfinished"></translation>
+        <translation>Assoluto</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="350"/>
         <source>Secant</source>
-        <translation type="unfinished"></translation>
+        <translation>Secante</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="360"/>
         <source>Hyperbolic Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Coseno Iperbolico</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="370"/>
         <source>Hyperbolic Arc Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Arcotangente Iperbolica</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="380"/>
         <source>Natural Logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>Logaritmo Naturale</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="390"/>
         <source>Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangente</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="400"/>
         <source>Cube Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Radice Cubica</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="410"/>
         <source>Hyperbolic Arc Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Arcocoseno Iperbolico</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="420"/>
         <source>Cosecant</source>
-        <translation type="unfinished"></translation>
+        <translation>Cosecante</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="430"/>
         <source>Cotangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Cotangente</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="440"/>
         <source>Arc Secant</source>
-        <translation type="unfinished"></translation>
+        <translation>Arcosecante</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="450"/>
         <source>Arc Cosecant</source>
-        <translation type="unfinished"></translation>
+        <translation>Arcocosecante</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="460"/>
         <source>Arc Cotangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Arcocotangente</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="480"/>
         <source>Euler&apos;s Constant</source>
-        <translation type="unfinished"></translation>
+        <translation>Costante di Eulero</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="496"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungere</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="518"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancellare</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="553"/>
         <source>Evaluate</source>
-        <translation type="unfinished"></translation>
+        <translation>Valutare</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="643"/>
         <source>Imaginary Unit</source>
-        <translation type="unfinished"></translation>
+        <translation>Unità Immaginaria</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="672"/>
         <source>Left Shift</source>
-        <translation type="unfinished"></translation>
+        <translation>Shift Sinistro</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="732"/>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Moltiplicare</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="767"/>
         <source>Divide</source>
-        <translation type="unfinished"></translation>
+        <translation>Dividere</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="789"/>
         <source>Functions</source>
-        <translation type="unfinished"></translation>
+        <translation>Funzioni</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="824"/>
         <source>Pi</source>
-        <translation type="unfinished"></translation>
+        <translation>Pi-Greco</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="840"/>
@@ -264,27 +264,27 @@
     <message>
         <location filename="../mainwindow.ui" line="860"/>
         <source>Subtract</source>
-        <translation type="unfinished"></translation>
+        <translation>Sottrarre</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="876"/>
         <source>Right Shift</source>
-        <translation type="unfinished"></translation>
+        <translation>Shift Destro</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="905"/>
         <source>Previous Answer</source>
-        <translation type="unfinished"></translation>
+        <translation>Risposta Precedente</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1083"/>
         <source>Custom functions are coming soon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Le funzioni personalizzabili stanno arrivando.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1093"/>
         <source>Stay tuned for this feature!</source>
-        <translation type="unfinished"></translation>
+        <translation>Restate aggiornati per l&apos;arrivo di questa funzionalità!</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1130"/>
@@ -294,67 +294,67 @@
     <message>
         <location filename="../mainwindow.ui" line="1136"/>
         <source>Tri&amp;gonometry</source>
-        <translation type="unfinished"></translation>
+        <translation>Trigonometria</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1143"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Aiuto</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1162"/>
         <source>&amp;Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Esci</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1165"/>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1176"/>
         <source>&amp;Degrees</source>
-        <translation type="unfinished"></translation>
+        <translation>Gradi</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1184"/>
         <source>&amp;Radians</source>
-        <translation type="unfinished"></translation>
+        <translation>Radianti</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1193"/>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>Informazioni su</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1201"/>
         <source>theCalculator Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Aiuto per theCalculator</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1204"/>
         <source>F1</source>
-        <translation type="unfinished"></translation>
+        <translation>F1</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1212"/>
         <source>File Bug</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">File Bug</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1220"/>
         <source>Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Fonti</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="186"/>
         <source>%1: expected 1 argument, got %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: atteso 1 argomento, ricevuti %2</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="206"/>
         <source>fact: input (%1) not a real number</source>
-        <translation type="unfinished"></translation>
+        <translation>fatto: l&apos;input (%1) non è un numero reale</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="209"/>
