@@ -6,27 +6,27 @@
     <message>
         <location filename="../aboutwindow.ui" line="14"/>
         <source>About theCalculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Om Kalkylatorn</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="25"/>
         <source>theCalculator 2.0</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalkylator 2.0</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="32"/>
         <source>Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalkylator</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="52"/>
         <source>Licensed under the GNU General Public License, version 3 (or greater)</source>
-        <translation type="unfinished"></translation>
+        <translation>Licensierad under GNU General Public License, version 3 (eller högre)</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="77"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -34,7 +34,7 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>theCalculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalkylator</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="719"/>
