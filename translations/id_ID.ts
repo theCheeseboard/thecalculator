@@ -6,27 +6,27 @@
     <message>
         <location filename="../aboutwindow.ui" line="14"/>
         <source>About theCalculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Tentang theKalkulator</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="25"/>
         <source>theCalculator 2.0</source>
-        <translation type="unfinished"></translation>
+        <translation>theKalkulator 2.0</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="32"/>
         <source>Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalkulator</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="52"/>
         <source>Licensed under the GNU General Public License, version 3 (or greater)</source>
-        <translation type="unfinished"></translation>
+        <translation>Terlisensi dibawah GNU General Public License, versi 3 (atau lebih besar)</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="77"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -34,22 +34,22 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>theCalculator</source>
-        <translation type="unfinished"></translation>
+        <translation>theKalkulator</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="719"/>
         <source>Expression...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekspresi...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1068"/>
         <source>f(x)</source>
-        <translation type="unfinished"></translation>
+        <translation>f(x)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1022"/>
         <source>Custom Functions</source>
-        <translation type="unfinished"></translation>
+        <translation>Fungsi Kustom</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="73"/>
