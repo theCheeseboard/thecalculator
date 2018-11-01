@@ -54,7 +54,7 @@
     <message>
         <location filename="../mainwindow.ui" line="73"/>
         <source>Backspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Backspace</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="95"/>
@@ -109,7 +109,7 @@
     <message>
         <location filename="../mainwindow.ui" line="254"/>
         <source>Arc Sine</source>
-        <translation>arcsinus</translation>
+        <translation>Arcsinus</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="264"/>
