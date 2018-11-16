@@ -6,27 +6,27 @@
     <message>
         <location filename="../aboutwindow.ui" line="14"/>
         <source>About theCalculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Sobre theCalculator</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="25"/>
         <source>theCalculator 2.0</source>
-        <translation type="unfinished"></translation>
+        <translation>theCalculator 2.0</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="32"/>
         <source>Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Calculadora</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="52"/>
         <source>Licensed under the GNU General Public License, version 3 (or greater)</source>
-        <translation type="unfinished"></translation>
+        <translation>Licenciado sob a GNU General Public License, versão 3 (ou posterior)</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="77"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -34,57 +34,57 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>theCalculator</source>
-        <translation type="unfinished"></translation>
+        <translation>theCalculator</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="719"/>
         <source>Expression...</source>
-        <translation type="unfinished"></translation>
+        <translation>Expressão…</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1068"/>
         <source>f(x)</source>
-        <translation type="unfinished"></translation>
+        <translation>f(x)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1022"/>
         <source>Custom Functions</source>
-        <translation type="unfinished"></translation>
+        <translation>Funções Customizáveis</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="73"/>
         <source>Backspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Backspace</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="95"/>
         <source>Percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>Porcentagem</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="158"/>
         <source>Cube</source>
-        <translation type="unfinished"></translation>
+        <translation>Cubo</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="168"/>
         <source>Nth Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Raiz n-ésima</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="178"/>
         <source>Hyperbolic Arc Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Arco-seno Hiperbólico</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="188"/>
         <source>Arc Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Arco Tangente</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="198"/>
         <source>Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Coseno</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="208"/>
