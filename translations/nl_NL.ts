@@ -6,27 +6,27 @@
     <message>
         <location filename="../aboutwindow.ui" line="14"/>
         <source>About theCalculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Over theCalculator</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="25"/>
         <source>theCalculator 2.0</source>
-        <translation type="unfinished"></translation>
+        <translation>theCalculator 2.0</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="32"/>
         <source>Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Rekenmachine</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="52"/>
         <source>Licensed under the GNU General Public License, version 3 (or greater)</source>
-        <translation type="unfinished"></translation>
+        <translation>Gelicenseerd onder de GNU General Public License, versie 3 (of hoger)</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="77"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -34,87 +34,87 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>theCalculator</source>
-        <translation type="unfinished"></translation>
+        <translation>theCalculator</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="719"/>
         <source>Expression...</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitdruiking...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1068"/>
         <source>f(x)</source>
-        <translation type="unfinished"></translation>
+        <translation>f(x)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1022"/>
         <source>Custom Functions</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Aangepaste Functies</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="73"/>
         <source>Backspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Backspace</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="95"/>
         <source>Percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>Percentage</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="158"/>
         <source>Cube</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Derdemacht</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="168"/>
         <source>Nth Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Nste wortel</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="178"/>
         <source>Hyperbolic Arc Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Hyperbolische Arcsinus</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="188"/>
         <source>Arc Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Arctangens</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="198"/>
         <source>Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Cosinus</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="208"/>
         <source>Hyperbolic Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Hyperbolische tangens</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="218"/>
         <source>Square Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Wortel</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="228"/>
         <source>Base 10 Logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Grondtal 10 Logaritme</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="244"/>
         <source>Square</source>
-        <translation type="unfinished"></translation>
+        <translation>Kwadraat</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="254"/>
         <source>Arc Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Arcsinus</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="264"/>
         <source>Hyperbolic Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Hyperbolische Sinus</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="274"/>
