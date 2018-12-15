@@ -7,6 +7,7 @@ GenericName=Calculator
 GenericName[de]=Taschenrechner
 GenericName[nl]=Rekenmachine
 GenericName[vi]=Máy tính
+GenericName[pt]=Calculadora
 Exec=/usr/bin/thecalculator
 Icon=accessories-calculator
 Categories=Utility;

@@ -7,14 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>779</width>
-    <height>242</height>
+    <height>277</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>theCalculator</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="accessories-calculator">
+   <iconset theme="accessories-calculator" resource="icons.qrc">
     <normaloff>:/icon.svg</normaloff>:/icon.svg</iconset>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
@@ -41,7 +41,7 @@
      <number>0</number>
     </property>
     <item>
-     <widget class="QStackedWidget" name="stackedWidget">
+     <widget class="tStackedWidget" name="stackedWidget">
       <property name="currentIndex">
        <number>0</number>
       </property>
@@ -125,9 +125,9 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-125</y>
+             <y>0</y>
              <width>240</width>
-             <height>250</height>
+             <height>320</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
@@ -1195,10 +1195,11 @@
   </action>
   <action name="actionTheCalculatorHelp">
    <property name="icon">
-    <iconset theme="help-contents"/>
+    <iconset theme="help-contents">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>theCalculator Help</string>
+    <string>&amp;theCalculator Help</string>
    </property>
    <property name="shortcut">
     <string>F1</string>
@@ -1206,18 +1207,20 @@
   </action>
   <action name="actionFileBug">
    <property name="icon">
-    <iconset theme="tools-report-bug"/>
+    <iconset theme="tools-report-bug">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>File Bug</string>
+    <string>&amp;File Bug</string>
    </property>
   </action>
   <action name="actionSources">
    <property name="icon">
-    <iconset theme="commit"/>
+    <iconset theme="commit">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>Sources</string>
+    <string>&amp;Sources</string>
    </property>
   </action>
  </widget>
@@ -1228,7 +1231,15 @@
    <extends>QPushButton</extends>
    <header>calcbutton.h</header>
   </customwidget>
+  <customwidget>
+   <class>tStackedWidget</class>
+   <extends>QStackedWidget</extends>
+   <header location="global">tstackedwidget.h</header>
+   <container>1</container>
+  </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

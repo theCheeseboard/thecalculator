@@ -33,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->expressionBox->grabKeyboard();
     ui->expressionBox->installEventFilter(this);
+    ui->stackedWidget->setCurrentAnimation(tStackedWidget::SlideHorizontal);
 
     ui->ZeroButton->setShiftedOutput("⁰");
     ui->OneButton->setShiftedOutput("¹");
@@ -436,11 +437,6 @@ void MainWindow::setupBuiltinFunctions() {
             if (first.real() == 0 && first.imag() == 0 && second.real() == 0 && second.imag() != 0) {
                 error = tr("pow: arg2 (%1) out of bounds for arg1 (0) (should be a real number)").arg(idbToString(second));
                 return 0;
-            }
-
-            if (first.real() == 0 && first.imag() == 0 &&
-                    second.real() > 0) {
-                error = tr("pow: arg2 (%1) out of bounds for arg1 (0) (should be positive)").arg(idbToString(second));
             }
 
             return pow(first, second);
