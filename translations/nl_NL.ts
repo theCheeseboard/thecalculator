@@ -49,7 +49,7 @@
     <message>
         <location filename="../mainwindow.ui" line="1022"/>
         <source>Custom Functions</source>
-        <translation type="unfinished">Aangepaste Functies</translation>
+        <translation>Aangepaste Functies</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="73"/>
@@ -64,7 +64,7 @@
     <message>
         <location filename="../mainwindow.ui" line="158"/>
         <source>Cube</source>
-        <translation type="unfinished">Derdemacht</translation>
+        <translation>Derdemacht</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="168"/>
@@ -99,7 +99,7 @@
     <message>
         <location filename="../mainwindow.ui" line="228"/>
         <source>Base 10 Logarithm</source>
-        <translation type="unfinished">Grondtal 10 Logaritme</translation>
+        <translation>Grondtal 10 Logaritme</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="244"/>
@@ -124,27 +124,27 @@
     <message>
         <location filename="../mainwindow.ui" line="290"/>
         <source>Raise to a power</source>
-        <translation type="unfinished"></translation>
+        <translation>Machtsverheffen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="300"/>
         <source>Factorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Factoriaal</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="320"/>
         <source>Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Sinus</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="330"/>
         <source>Arc Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Arccosinus</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="340"/>
         <source>Absolute</source>
-        <translation type="unfinished"></translation>
+        <translation>Absoluut</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="350"/>
