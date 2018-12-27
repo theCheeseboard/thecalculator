@@ -73,6 +73,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->scrollArea->setPalette(functionPalette);
 
     QScroller::grabGesture(ui->scrollArea, QScroller::LeftMouseButtonGesture);
+    QScroller::grabGesture(ui->historyWidget, QScroller::LeftMouseButtonGesture);
 
     historyDelegate = new HistoryDelegate();
 
@@ -83,6 +84,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->SquareButton->setTypedOutput("²");
     ui->CubeButton->setTypedOutput("³");
     ui->ExponentButton->setTypedOutput("^");
+    ui->inverseButton->setTypedOutput("⁻¹");
     for (CalcButton* b : buttons) {
         connect(b, SIGNAL(output(QString)), this, SLOT(ButtonPressed(QString)));
     }
