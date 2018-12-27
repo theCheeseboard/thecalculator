@@ -8,17 +8,19 @@ typedef std::complex<long double> idouble;
 %}
 
 %option noyywrap
+%option reentrant bison-bridge
+%option header-file="calc.yy.h"
 
 %%
 [0-9]+(\.[0-9]+)?i?|i {
     QString token = QString::fromLocal8Bit(yytext);
     if (token == "i") {
-        yylval.number = new idouble(0, 1);
+        yylval->number = new idouble(0, 1);
     } else if (token.endsWith("i")) {
         token.chop(1);
-        yylval.number = new idouble(0, token.toDouble());
+        yylval->number = new idouble(0, token.toDouble());
     } else {
-        yylval.number = new idouble(token.toDouble());
+        yylval->number = new idouble(token.toDouble());
     }
     return NUMBER;
 }
@@ -39,12 +41,12 @@ typedef std::complex<long double> idouble;
                    else if (c == "ⁱ") number.append("i");
                    }
                   if (number == "i") {
-                      yylval.number = new idouble(0, 1);
+                      yylval->number = new idouble(0, 1);
                   } else if (number.endsWith("i")) {
                       token.chop(1);
-                      yylval.number = new idouble(0, number.toDouble());
+                      yylval->number = new idouble(0, number.toDouble());
                   } else {
-                      yylval.number = new idouble(number.toDouble());
+                      yylval->number = new idouble(number.toDouble());
                   }
     return SUPER;
 }
@@ -66,16 +68,19 @@ typedef std::complex<long double> idouble;
 "!" {return FACTORIAL;}
 "<<" {return LSH;}
 ">>" {return RSH;}
+">" {return GREATER;}
+"<" {return LESS;}
+"==" {return EQUALITY;}
 [[:alpha:]_][[:alnum:]_]* {
     if (strcmp("e", yytext) == 0) {
-        yylval.number = new idouble(M_E, 0);
+        yylval->number = new idouble(M_E, 0);
         return NUMBER;
     } else {
-        yylval.string = new QString(yytext);
+        yylval->string = new QString(yytext);
         return IDENTIFIER;
     }
 }
 "," {return ARGSEPARATOR;}
-"π" {yylval.number = new idouble(M_PI, 0); return NUMBER; }
+"π" {yylval->number = new idouble(M_PI, 0); return NUMBER; }
 "=" {return ASSIGNMENT;}
 

@@ -3,17 +3,14 @@
 #include <QString>
 #include <cstdio>
 #include <complex>
+#include <functional>
 #include "mainwindow.h"
+#include "calc.yy.h"
 
-//Define flex functions
-extern int yylex(void);
-extern void yyterminate();
-void yyerror(const char* s);
 extern MainWindow* MainWin;
 extern QMap<QString, std::function<idouble(QList<idouble>,QString&)>> customFunctions;
 extern QMap<QString, idouble> variables;
 extern bool explicitEvaluation;
-extern Result* res;
 extern bool resSuccess;
 
 idouble callFunction(QString name, QList<idouble> args, QString& error) {
@@ -26,19 +23,6 @@ idouble callFunction(QString name, QList<idouble> args, QString& error) {
     }
 }
 
-void assignValue(QString identifier, idouble value) {
-    if (explicitEvaluation) {
-        variables.insert(identifier, value);
-    }
-
-    if (MainWin != nullptr) {
-        MainWin->assignValue(identifier, value);
-    }
-
-    res->assigned = true;
-    resSuccess = true;
-}
-
 
 bool valueExists(QString identifier) {
     return variables.contains(identifier);
@@ -49,24 +33,55 @@ idouble getValue(QString identifier) {
 }
 
 //Define helper functions
+
+#define YYE(desc) yyerror(scanner, resultFunction, errorFunction, assignFunction, equalityFunction, desc);
 #define CALL_MAINWINDOW_FUNCTION(arg1, arg2, result) { \
         QString error; \
         result = new idouble(callFunction(arg1, arg2, error)); \
         if (error != "") { \
-            yyerror(error.toUtf8().constData()); \
+            YYE(error.toUtf8().constData()); \
             YYABORT; \
         } \
     }
+
 %}
 
 %define parse.error verbose
 %define parse.lac full
+%define api.pure full
+
+%param { yyscan_t scanner }
+
+%parse-param { std::function<void(idouble)> resultFunction }
+             { std::function <void(const char*)> errorFunction }
+             { std::function<void(QString, idouble)> assignFunction }
+             { std::function<void(bool)> equalityFunction }
 
 %union {
     QString* string;
     idouble* number;
     QList<idouble>* arguments;
+    bool* boolean;
 }
+
+%{
+    //Define flex functions
+    extern int yylex(YYSTYPE* yylvalp, yyscan_t scanner);
+    extern void yyterminate();
+    void yyerror(yyscan_t scanner, std::function<void(idouble)> resultFunction, std::function <void(const char*)> errorFunction, std::function<void(QString, idouble)> assignFunction, std::function<void(bool)> equalityFunction, const char* s);
+
+    void assignValue(QString identifier, idouble value, std::function<void(QString, idouble)> assignFunction) {
+        if (explicitEvaluation) {
+            variables.insert(identifier, value);
+        }
+
+        if (MainWin != nullptr) {
+            assignFunction(identifier, value);
+        }
+
+        resSuccess = true;
+    }
+%}
 
 %token<number> NUMBER SUPER
 %token<number> LBRACKET RBRACKET
@@ -81,6 +96,7 @@ idouble getValue(QString identifier) {
 %type<number> function
 %type<number> power
 %type<number> line
+%type<boolean> truefalse
 %type<arguments> arguments
 
 %destructor { delete $$; } <string>
@@ -94,17 +110,23 @@ idouble getValue(QString identifier) {
 %left EXPONENTIATE RADICAL SUPER
 %left FACTORIAL PERCENT
 %left LBRACKET RBRACKET
-%left ASSIGNMENT
+%left ASSIGNMENT GREATER LESS EQUALITY
 
 %%
 line: expression EOL {
-          res->result = *$1;
           resSuccess = true;
-          if (MainWin != nullptr) {
-              MainWin->parserResult(*$1);
-          }
+          resultFunction(*$1);
     }
-|   IDENTIFIER ASSIGNMENT expression EOL { assignValue(*$1, *$3); }
+|   IDENTIFIER ASSIGNMENT expression EOL { assignValue(*$1, *$3, assignFunction); }
+|   truefalse EOL {
+        resSuccess = true;
+        equalityFunction(*$1);
+}
+
+truefalse: expression EQUALITY expression { *$$ = (*$1 == *$3); }
+|   expression ASSIGNMENT expression { *$$ = (*$1 == *$3); }
+|   expression GREATER expression { *$$ = (abs(*$1) > abs(*$3)); }
+|   expression LESS expression { *$$ = (abs(*$1) < abs(*$3)); }
 
 expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
 |   NUMBER {$$ = new idouble(*$1);}
@@ -115,7 +137,7 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
 //|   NUMBER expression {$$ = new idouble(*$1 * *$2);}
 |   expression DIVIDE expression {
         if ($3->real() == 0 && $3->imag() == 0) {
-            yyerror("div: division by 0 undefined");
+            YYE("div: division by 0 undefined");
             YYABORT;
         } else {
             $$ = new idouble(*$1 / *$3);
@@ -128,7 +150,7 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
         if (valueExists(*$1)) {
             $$ = new idouble(pow(getValue(*$1), *$3));
         } else {
-            yyerror((*$1).append(": unknown variable").toLocal8Bit().constData());
+            YYE((*$1).append(": unknown variable").toLocal8Bit().constData());
             YYABORT;
         }
     }
@@ -136,7 +158,7 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
         if (valueExists(*$1)) {
             $$ = new idouble(pow(getValue(*$1), *$2));
         } else {
-            yyerror((*$1).append(": unknown variable").toLocal8Bit().constData());
+            YYE((*$1).append(": unknown variable").toLocal8Bit().constData());
             YYABORT;
         }
     }
@@ -150,7 +172,7 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
         if (valueExists(*$1)) {
             $$ = new idouble(getValue(*$1));
         } else {
-            yyerror((*$1).append(": unknown variable").toLocal8Bit().constData());
+            YYE((*$1).append(": unknown variable").toLocal8Bit().constData());
             YYABORT;
         }
     }
@@ -179,11 +201,8 @@ function: IDENTIFIER LBRACKET arguments RBRACKET {CALL_MAINWINDOW_FUNCTION(*$1, 
     }
 %%
 
-void yyerror(const char* s) {
-    res->error = QString::fromLocal8Bit(s);
+void yyerror(yyscan_t scanner, std::function<void(idouble)> resultFunction, std::function <void(const char*)> errorFunction, std::function<void(QString, idouble)> assignFunction, std::function<void(bool)> equalityFunction, const char* s) {
     resSuccess = false;
 
-    if (MainWin != nullptr) {
-        MainWin->parserError(s);
-    }
+    errorFunction(s);
 }

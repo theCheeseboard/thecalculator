@@ -3,6 +3,8 @@
 
 #include <QLineEdit>
 #include <QJsonArray>
+#include <ttoast.h>
+#include <tvariantanimation.h>
 #include "branchbox.h"
 
 OverloadBox::OverloadBox(QWidget *parent) :
@@ -59,6 +61,24 @@ void OverloadBox::on_addBranchButton_clicked()
 }
 
 bool OverloadBox::check() {
+    for (QLineEdit* e : argumentNames) {
+        if (e->text() == "") {
+            //Each argument needs a name
+            tToast* toast = new tToast();
+            toast->setTitle(tr("Overload Arguments"));
+            toast->setText(tr("Each argument must have a name"));
+            toast->show(this->window());
+            connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
+            this->flashError();
+            return false;
+        }
+    }
+
+    for (int i = 0; i < ui->branchesWidget->layout()->count(); i++) {
+        QObject* o = ui->branchesWidget->layout()->itemAt(i)->widget();
+        if (!((BranchBox*) o)->check()) return false;
+    }
+
     return true;
 }
 
@@ -115,4 +135,19 @@ void OverloadBox::load(QJsonObject obj) {
         });
         ui->branchesWidget->layout()->addWidget(branch);
     }
+}
+
+void OverloadBox::flashError() {
+    tVariantAnimation* a = new tVariantAnimation();
+    a->setStartValue(QColor(200, 0, 0));
+    a->setEndValue(this->palette().color(QPalette::Window));
+    a->setDuration(1000);
+    a->setEasingCurve(QEasingCurve::Linear);
+    connect(a, &tVariantAnimation::finished, a, &tVariantAnimation::deleteLater);
+    connect(a, &tVariantAnimation::valueChanged, [=](QVariant value) {
+        QPalette pal = this->palette();
+        pal.setColor(QPalette::Window, value.value<QColor>());
+        this->setPalette(pal);
+    });
+    a->start();
 }

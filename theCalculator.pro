@@ -45,7 +45,8 @@ SOURCES += \
     customs/overloadbox.cpp \
     customs/branchbox.cpp \
     customs/conditionbox.cpp \
-    expressionlineedit.cpp
+    expressionlineedit.cpp \
+    evaluationengine.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -56,7 +57,8 @@ HEADERS += \
     customs/overloadbox.h \
     customs/branchbox.h \
     customs/conditionbox.h \
-    expressionlineedit.h
+    expressionlineedit.h \
+    evaluationengine.h
 
 FORMS += \
         mainwindow.ui \

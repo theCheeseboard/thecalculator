@@ -19,6 +19,7 @@ class BranchBox : public QFrame
         bool check();
         QJsonObject save();
         void load(QJsonObject obj);
+        void flashError();
 
     signals:
         void remove();

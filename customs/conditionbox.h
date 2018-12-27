@@ -19,6 +19,7 @@ class ConditionBox : public QWidget
         bool check();
         QJsonObject save();
         void load(QJsonObject obj);
+        void flashError();
 
     signals:
         void remove();

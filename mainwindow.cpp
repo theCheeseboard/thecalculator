@@ -14,6 +14,7 @@
 #include <QJsonDocument>
 #include <QMessageBox>
 #include <ttoast.h>
+#include "evaluationengine.h"
 
 #include "customs/overloadbox.h"
 
@@ -143,9 +144,35 @@ void MainWindow::on_EqualButton_clicked()
     ui->expressionBox->setText(e.evaluate());*/
     explicitEvaluation = true;
     QString expression = ui->expressionBox->text();
-    bufferState = yy_scan_string(expression.append("\n").toUtf8().constData());
-    yyparse();
-    yy_delete_buffer(bufferState);
+
+    EvaluationEngine::evaluate(expression)->then([=](EvaluationEngine::Result r) {
+        switch (r.type) {
+            case EvaluationEngine::Result::Scalar:
+                currentAnswer = r.result;
+                ui->answerLabel->setText(idbToString(r.result));
+                resizeAnswerLabel();
+                break;
+            case EvaluationEngine::Result::Error: {
+                QString answerText;
+                ui->answerLabel->setText(r.error);
+
+                resizeAnswerLabel();
+                break;
+            }
+            case EvaluationEngine::Result::Assign: {
+                ui->answerLabel->setText(tr("%1 assigned to %2").arg(r.identifier, idbToString(r.value)));
+
+                QListWidgetItem* historyItem = new QListWidgetItem();
+                historyItem->setText(r.identifier + " = " + idbToString(r.value));
+                historyItem->setIcon(QIcon::fromTheme("dialog-information"));
+                ui->historyWidget->addItem(historyItem);
+                break;
+            }
+            case EvaluationEngine::Result::Equality: {
+                ui->answerLabel->setText(r.isTrue ? tr("TRUE") : tr("FALSE"));
+            }
+        }
+    });
 
     if (resultSuccess) {
         variables.insert("Ans", currentAnswer);
@@ -162,15 +189,6 @@ void MainWindow::on_EqualButton_clicked()
 }
 
 void MainWindow::parserError(const char *error) {
-    QString errorText = QString::fromLocal8Bit(error);
-    QString answerText;
-    if (errorText.startsWith("syntax error") && !explicitEvaluation) {
-        ui->answerLabel->setText("");
-    } else {
-        ui->answerLabel->setText(errorText);
-    }
-
-    resizeAnswerLabel();
     resultSuccess = false;
 }
 
@@ -489,6 +507,39 @@ void MainWindow::setupFunctions() {
     //Set up all the custom functions
     QSettings settings;
     settings.beginGroup("customFunctions");
+    for (QString function : settings.allKeys()) {
+        QJsonDocument doc = QJsonDocument::fromBinaryData(settings.value(function).toByteArray());
+        if (doc.isObject()) {
+            QJsonObject obj = doc.object();
+            customFunctions.insert(function, [=](QList<idouble> args, QString& error) -> idouble {
+                QStringList argCounts;
+
+                QJsonArray overloads = obj.value("overloads").toArray();
+                for (QJsonValue overload : overloads) {
+                    QJsonObject o = overload.toObject();
+
+                    QJsonArray fnArgs = o.value("args").toArray();
+                    if (fnArgs.count() == args.count()) {
+                        //Found the correct overload to use
+                        return 601;
+                    } else {
+                        argCounts.append(QString::number(fnArgs.count()));
+                    }
+                }
+
+                QString argSpecification = argCounts.join(", ");
+                if (argCounts.count() == 1) {
+                    error = tr("%1: expected %n arguments, got %2", nullptr, argCounts.first().toInt()).arg(function, QString::number(args.length()));
+                } else {
+                    int last = argSpecification.lastIndexOf(", ");
+                    argSpecification = argSpecification.replace(last, 2, " " + tr("or", "Expected 1, 2 or 3 arguments") + " ");
+                    error = tr("%1: expected %2 arguments, got %3").arg(function, argSpecification, QString::number(args.length()));
+                }
+
+                return 0;
+            });
+        }
+    }
     settings.endGroup();
 }
 
@@ -576,14 +627,6 @@ void MainWindow::changeEvent(QEvent *event) {
     }
 }
 
-QString MainWindow::evaluateExpression(QString expression) {
-    explicitEvaluation = true;
-    bufferState = yy_scan_string(expression.append("\n").toUtf8().constData());
-    yyparse();
-    yy_delete_buffer(bufferState);
-    return ui->answerLabel->text();
-}
-
 void MainWindow::assignValue(QString identifier, idouble value) {
     if (explicitEvaluation) {
         ui->answerLabel->setText(tr("%1 assigned to %2").arg(identifier, idbToString(value)));
@@ -663,9 +706,25 @@ void MainWindow::on_newOverloadButton_clicked()
 
 void MainWindow::on_expressionBox_expressionUpdated(const QString &newString)
 {
-    bufferState = yy_scan_string(QString(newString + "\n").toUtf8().constData());
-    yyparse();
-    yy_delete_buffer(bufferState);
+    EvaluationEngine::evaluate(newString)->then([=](EvaluationEngine::Result r) {
+        switch (r.type) {
+            case EvaluationEngine::Result::Scalar:
+                ui->answerLabel->setText(idbToString(r.result));
+                break;
+            case EvaluationEngine::Result::Error:
+                if (r.error.startsWith("syntax error")) {
+                    ui->answerLabel->setText("");
+                } else {
+                    ui->answerLabel->setText(r.error);
+                }
+                break;
+            case EvaluationEngine::Result::Assign:
+                ui->answerLabel->setText(tr("Assign %1 to %2").arg(r.identifier, idbToString(r.value)));
+                break;
+            case EvaluationEngine::Result::Equality:
+                ui->answerLabel->setText(r.isTrue ? tr("TRUE") : tr("FALSE"));
+        }
+    });
 }
 
 void MainWindow::on_saveCustomFunctionButton_clicked()
@@ -678,18 +737,32 @@ void MainWindow::on_saveCustomFunctionButton_clicked()
         toast->setTitle(tr("Function Name Required"));
         toast->setText(tr("A function name needs to be set"));
         toast->show(this);
-        connect(toast, &tToast::dismiss, toast, &QObject::deleteLater);
+        connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
         return;
     }
     obj.insert("name", ui->functionName->text());
 
     QJsonArray overloads;
+    QList<int> argNumbers;
     for (int i = 0; i < ui->customFunctionDefinitionWidget->layout()->count(); i++) {
         QObject* o = ui->customFunctionDefinitionWidget->layout()->itemAt(i)->widget();
         OverloadBox* box = (OverloadBox*) o;
 
         if (!box->check()) return; //Error occurred during check, don't save
-        overloads.append(box->save());
+
+        QJsonObject save = box->save();
+        int argCount = save.value("args").toArray().count();
+        if (argNumbers.contains(argCount)) {
+            //More than one overload with same number of arguments
+            tToast* toast = new tToast();
+            toast->setTitle(tr("Overload Arguments"));
+            toast->setText(tr("Only one overload can have %n arguments", nullptr, argCount));
+            toast->show(this);
+            connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
+            return;
+        }
+        argNumbers.append(argCount);
+        overloads.append(save);
     }
     obj.insert("overloads", overloads);
 

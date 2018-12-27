@@ -3,6 +3,8 @@
 
 #include "conditionbox.h"
 #include <QJsonArray>
+#include <tvariantanimation.h>
+#include <ttoast.h>
 
 BranchBox::BranchBox(bool isOtherwise, QWidget *parent) :
     QFrame(parent),
@@ -47,6 +49,23 @@ void BranchBox::on_removeBranchButton_clicked()
 }
 
 bool BranchBox::check() {
+    if (ui->returnValue->text() == "") {
+        //Return value required
+        tToast* toast = new tToast();
+        toast->setTitle(tr("Return value required"));
+        toast->setText(tr("A return value is required for this branch"));
+        toast->show(this->window());
+        connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
+        this->flashError();
+        return false;
+    }
+
+    for (int i = 0; i < ui->conditionsWidget->layout()->count(); i++) {
+        QObject* o = ui->conditionsWidget->layout()->itemAt(i)->widget();
+        if (!((ConditionBox*) o)->check()) {
+            return false;
+        }
+    }
     return true;
 }
 
@@ -106,4 +125,20 @@ void BranchBox::load(QJsonObject obj) {
     QJsonObject ret = obj.value("return").toObject();
     ui->returnValue->setText(ret.value("expression").toString());
     ui->errorCheck->setChecked(ret.value("isError").toBool());
+}
+
+
+void BranchBox::flashError() {
+    tVariantAnimation* a = new tVariantAnimation();
+    a->setStartValue(QColor(200, 0, 0));
+    a->setEndValue(this->palette().color(QPalette::Window));
+    a->setDuration(1000);
+    a->setEasingCurve(QEasingCurve::Linear);
+    connect(a, &tVariantAnimation::finished, a, &tVariantAnimation::deleteLater);
+    connect(a, &tVariantAnimation::valueChanged, [=](QVariant value) {
+        QPalette pal = this->palette();
+        pal.setColor(QPalette::Window, value.value<QColor>());
+        this->setPalette(pal);
+    });
+    a->start();
 }

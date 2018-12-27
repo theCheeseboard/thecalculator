@@ -20,6 +20,7 @@ class OverloadBox : public QFrame
         bool check();
         QJsonObject save();
         void load(QJsonObject obj);
+        void flashError();
 
     private slots:
         void on_addArgButton_clicked();

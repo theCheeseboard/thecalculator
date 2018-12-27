@@ -24,12 +24,6 @@ namespace Ui {
 class MainWindow;
 }
 
-struct Result {
-    QString error;
-    idouble result;
-    bool assigned;
-};
-
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -41,7 +35,6 @@ class MainWindow : public QMainWindow
         QList<CalcButton*> buttons;
         void assignValue(QString identifier, idouble value);
 
-        QString evaluateExpression(QString expression);
         static void setupFunctions();
 
 
