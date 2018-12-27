@@ -8,6 +8,7 @@
 #include "aboutwindow.h"
 #include <QRandomGenerator>
 #include <QProcess>
+#include "historydelegate.h"
 #include <QDesktopServices>
 
 extern MainWindow* MainWin;
@@ -72,6 +73,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->scrollArea->setPalette(functionPalette);
 
     QScroller::grabGesture(ui->scrollArea, QScroller::LeftMouseButtonGesture);
+
+    historyDelegate = new HistoryDelegate();
 
     ui->scrollArea->setFixedWidth(0);
     this->setFixedWidth(this->sizeHint().width() * getDPIScaling());
@@ -141,6 +144,11 @@ void MainWindow::on_EqualButton_clicked()
         variables.insert("Ans", currentAnswer);
         ui->answerLabel->setText("");
         ui->expressionBox->setText(idbToString(currentAnswer));
+
+        QListWidgetItem* historyItem = new QListWidgetItem();
+        historyItem->setText(expression + " = " + idbToString(currentAnswer));
+        ui->historyWidget->addItem(historyItem);
+        ui->historyWidget->setItemDelegateForRow(ui->historyWidget->row(historyItem), historyDelegate);
     }
 
     explicitEvaluation = false;
@@ -497,6 +505,8 @@ void MainWindow::resizeAnswerLabel() {
 
 void MainWindow::resizeEvent(QResizeEvent* event) {
     resizeAnswerLabel();
+
+    ui->buttonsWidget->setFixedHeight(ui->ClearButton->sizeHint().height() * 5);
 }
 
 void MainWindow::on_actionExit_triggered()
@@ -594,6 +604,11 @@ QString MainWindow::evaluateExpression(QString expression) {
 void MainWindow::assignValue(QString identifier, idouble value) {
     if (explicitEvaluation) {
         ui->answerLabel->setText(tr("%1 assigned to %2").arg(identifier, idbToString(value)));
+
+        QListWidgetItem* historyItem = new QListWidgetItem();
+        historyItem->setText(identifier + " = " + idbToString(value));
+        historyItem->setIcon(QIcon::fromTheme("dialog-information"));
+        ui->historyWidget->addItem(historyItem);
     } else {
         ui->answerLabel->setText(tr("Assign %1 to %2").arg(identifier, idbToString(value)));
     }

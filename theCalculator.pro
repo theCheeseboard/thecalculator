@@ -40,13 +40,15 @@ SOURCES += \
         mainwindow.cpp \
     calcbutton.cpp \
     expression.cpp \
-    aboutwindow.cpp
+    aboutwindow.cpp \
+    historydelegate.cpp
 
 HEADERS += \
         mainwindow.h \
     calcbutton.h \
     expression.h \
-    aboutwindow.h
+    aboutwindow.h \
+    historydelegate.h
 
 FORMS += \
         mainwindow.ui \

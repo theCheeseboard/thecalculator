@@ -14,6 +14,7 @@
 #include "calc.h"
 #include <complex>
 #include <iomanip>
+#include "historydelegate.h"
 
 typedef std::complex<long double> idouble;
 
@@ -96,6 +97,7 @@ class MainWindow : public QMainWindow
         bool eventFilter(QObject *watched, QEvent *event);
 
         idouble currentAnswer;
+        HistoryDelegate* historyDelegate;
 
         YY_BUFFER_STATE bufferState;
 };

@@ -106,7 +106,7 @@ line: expression EOL {
     }
 |   IDENTIFIER ASSIGNMENT expression EOL { assignValue(*$1, *$3); }
 
-expression: SUBTRACT expression {$$ = new idouble(-$2->real(), $2->imag());}
+expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
 |   NUMBER {$$ = new idouble(*$1);}
 |   expression power {CALL_MAINWINDOW_FUNCTION("pow", QList<idouble>() << *$1 << *$2, $$)}
 |   expression ADD expression {$$ = new idouble(*$1 + *$3);}
