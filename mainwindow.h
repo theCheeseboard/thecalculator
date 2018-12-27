@@ -14,6 +14,7 @@
 #include "calc.h"
 #include <complex>
 #include <iomanip>
+#include <QListWidgetItem>
 #include "historydelegate.h"
 
 typedef std::complex<long double> idouble;
@@ -41,7 +42,7 @@ class MainWindow : public QMainWindow
         void assignValue(QString identifier, idouble value);
 
         QString evaluateExpression(QString expression);
-        static void setupBuiltinFunctions();
+        static void setupFunctions();
 
 
     public slots:
@@ -58,8 +59,6 @@ class MainWindow : public QMainWindow
         void on_BackspaceButton_clicked();
 
         void on_EqualButton_clicked();
-
-        void on_expressionBox_textEdited(const QString &arg1);
 
         void on_actionExit_triggered();
 
@@ -81,6 +80,18 @@ class MainWindow : public QMainWindow
 
         void on_actionSources_triggered();
 
+        void on_addCustomFunction_clicked();
+
+        void on_backButton_2_clicked();
+
+        void on_newOverloadButton_clicked();
+
+        void on_expressionBox_expressionUpdated(const QString &);
+
+        void on_saveCustomFunctionButton_clicked();
+
+        void on_customFunctionsList_itemActivated(QListWidgetItem *item);
+
     private:
         Ui::MainWindow *ui;
 
@@ -94,10 +105,11 @@ class MainWindow : public QMainWindow
 
         void resizeEvent(QResizeEvent* event);
         void changeEvent(QEvent* event);
-        bool eventFilter(QObject *watched, QEvent *event);
 
         idouble currentAnswer;
         HistoryDelegate* historyDelegate;
+        QSettings settings;
+        QString editingFunction = "";
 
         YY_BUFFER_STATE bufferState;
 };

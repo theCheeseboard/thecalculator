@@ -41,18 +41,29 @@ SOURCES += \
     calcbutton.cpp \
     expression.cpp \
     aboutwindow.cpp \
-    historydelegate.cpp
+    historydelegate.cpp \
+    customs/overloadbox.cpp \
+    customs/branchbox.cpp \
+    customs/conditionbox.cpp \
+    expressionlineedit.cpp
 
 HEADERS += \
         mainwindow.h \
     calcbutton.h \
     expression.h \
     aboutwindow.h \
-    historydelegate.h
+    historydelegate.h \
+    customs/overloadbox.h \
+    customs/branchbox.h \
+    customs/conditionbox.h \
+    expressionlineedit.h
 
 FORMS += \
         mainwindow.ui \
-    aboutwindow.ui
+    aboutwindow.ui \
+    customs/overloadbox.ui \
+    customs/branchbox.ui \
+    customs/conditionbox.ui
 
 DISTFILES += \
     parser/calc.y \

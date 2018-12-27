@@ -10,6 +10,12 @@
 #include <QProcess>
 #include "historydelegate.h"
 #include <QDesktopServices>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QMessageBox>
+#include <ttoast.h>
+
+#include "customs/overloadbox.h"
 
 extern MainWindow* MainWin;
 extern float getDPIScaling();
@@ -33,7 +39,6 @@ MainWindow::MainWindow(QWidget *parent) :
     group->addAction(ui->actionRadians);
 
     ui->expressionBox->grabKeyboard();
-    ui->expressionBox->installEventFilter(this);
     ui->stackedWidget->setCurrentAnimation(tStackedWidget::SlideHorizontal);
 
     ui->ZeroButton->setShiftedOutput("⁰");
@@ -156,22 +161,6 @@ void MainWindow::on_EqualButton_clicked()
     explicitEvaluation = false;
 }
 
-void MainWindow::on_expressionBox_textEdited(const QString &arg1)
-{
-    int anchorPosition = ui->expressionBox->cursorPosition();
-
-    QString newString = arg1;
-    if (newString.contains("/")) newString.replace("/", "÷");
-    if (newString.contains("*")) newString.replace("*", "×");
-    if (newString.contains(" ")) newString.replace(" ", "⋅");
-    ui->expressionBox->setText(newString);
-    ui->expressionBox->setCursorPosition(anchorPosition);
-
-    bufferState = yy_scan_string(QString(newString + "\n").toUtf8().constData());
-    yyparse();
-    yy_delete_buffer(bufferState);
-}
-
 void MainWindow::parserError(const char *error) {
     QString errorText = QString::fromLocal8Bit(error);
     QString answerText;
@@ -203,7 +192,11 @@ std::function<idouble(QList<idouble>,QString&)> MainWindow::createSingleArgFunct
     };
 }
 
-void MainWindow::setupBuiltinFunctions() {
+void MainWindow::setupFunctions() {
+    //Clear all the functions
+    customFunctions.clear();
+
+    //Insert all the builtin functions
     customFunctions.insert("abs", createSingleArgFunction([=](idouble arg, QString& error) {
         return abs(arg);
     }, "abs"));
@@ -492,6 +485,11 @@ void MainWindow::setupBuiltinFunctions() {
             return 0;
         }
     });
+
+    //Set up all the custom functions
+    QSettings settings;
+    settings.beginGroup("customFunctions");
+    settings.endGroup();
 }
 
 void MainWindow::resizeAnswerLabel() {
@@ -534,10 +532,22 @@ void MainWindow::on_backButton_clicked()
 {
     ui->menuBar->setVisible(true);
     ui->stackedWidget->setCurrentIndex(0);
+    ui->expressionBox->grabKeyboard();
 }
 
 void MainWindow::on_FunctionsButton_clicked()
 {
+    QSettings settings;
+    settings.beginGroup("customFunctions");
+
+    //Load up all the custom functions
+    ui->customFunctionsList->clear();
+    for (QString key : settings.allKeys()) {
+        ui->customFunctionsList->addItem(key);
+    }
+    settings.endGroup();
+
+    ui->expressionBox->releaseKeyboard();
     ui->menuBar->setVisible(false);
     ui->stackedWidget->setCurrentIndex(1);
 }
@@ -545,35 +555,6 @@ void MainWindow::on_FunctionsButton_clicked()
 void MainWindow::on_expressionBox_returnPressed()
 {
     ui->EqualButton->click();
-}
-
-bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
-    if (watched == ui->expressionBox) {
-        if (event->type() == QEvent::KeyPress) {
-            QKeyEvent* e = (QKeyEvent*) event;
-
-            if (e->modifiers() & Qt::ControlModifier) {
-                switch (e->key()) {
-                    case Qt::Key_P: ui->expressionBox->insert("π"); break;
-                    case Qt::Key_0: ui->expressionBox->insert("⁰"); break;
-                    case Qt::Key_1: ui->expressionBox->insert("¹"); break;
-                    case Qt::Key_2: ui->expressionBox->insert("²"); break;
-                    case Qt::Key_3: ui->expressionBox->insert("³"); break;
-                    case Qt::Key_4: ui->expressionBox->insert("⁴"); break;
-                    case Qt::Key_5: ui->expressionBox->insert("⁵"); break;
-                    case Qt::Key_6: ui->expressionBox->insert("⁶"); break;
-                    case Qt::Key_7: ui->expressionBox->insert("⁷"); break;
-                    case Qt::Key_8: ui->expressionBox->insert("⁸"); break;
-                    case Qt::Key_9: ui->expressionBox->insert("⁹"); break;
-                    case Qt::Key_I: ui->expressionBox->insert("ⁱ"); break;
-                    case Qt::Key_Equal: ui->expressionBox->insert("⁺"); break;
-                    case Qt::Key_Minus: ui->expressionBox->insert("⁻"); break;
-                    case Qt::Key_R: ui->expressionBox->insert("√"); break;
-                }
-            }
-        }
-    }
-    return false;
 }
 
 void MainWindow::on_actionAbout_triggered()
@@ -585,7 +566,7 @@ void MainWindow::on_actionAbout_triggered()
 void MainWindow::changeEvent(QEvent *event) {
     QMainWindow::changeEvent(event);
     if (event->type() == QEvent::ActivationChange) {
-        if (this->isActiveWindow()) {
+        if (this->isActiveWindow() && ui->stackedWidget->currentIndex() == 0) {
             ui->expressionBox->grabKeyboard();
         } else {
             ui->expressionBox->releaseKeyboard();
@@ -643,4 +624,128 @@ void MainWindow::on_actionFileBug_triggered()
 void MainWindow::on_actionSources_triggered()
 {
     QDesktopServices::openUrl(QUrl("https://github.com/vicr123/thecalculator"));
+}
+
+void MainWindow::on_addCustomFunction_clicked()
+{
+    editingFunction = "";
+    ui->functionName->setText("");
+    QLayoutItem* i = ui->customFunctionDefinitionWidget->layout()->takeAt(0);
+    while (i != nullptr) {
+        i->widget()->deleteLater();
+        i = ui->customFunctionDefinitionWidget->layout()->takeAt(0);
+    }
+
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+void MainWindow::on_backButton_2_clicked()
+{
+    QMessageBox::StandardButton b = QMessageBox::warning(this, tr("Save this function?"), tr("Do you want to save this function?"), QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel, QMessageBox::Save);
+    if (b == QMessageBox::Save) {
+        //Save the function
+        ui->saveCustomFunctionButton->click();
+    } else if (b == QMessageBox::Discard) {
+        //Don't save the function
+        ui->stackedWidget->setCurrentIndex(1);
+    }
+}
+
+void MainWindow::on_newOverloadButton_clicked()
+{
+    OverloadBox* overload = new OverloadBox();
+    connect(overload, &OverloadBox::remove, [=] {
+        ui->customFunctionDefinitionWidget->layout()->removeWidget(overload);
+        overload->deleteLater();
+    });
+    ui->customFunctionDefinitionWidget->layout()->addWidget(overload);
+}
+
+void MainWindow::on_expressionBox_expressionUpdated(const QString &newString)
+{
+    bufferState = yy_scan_string(QString(newString + "\n").toUtf8().constData());
+    yyparse();
+    yy_delete_buffer(bufferState);
+}
+
+void MainWindow::on_saveCustomFunctionButton_clicked()
+{
+    QJsonObject obj;
+
+    if (ui->functionName->text() == "") {
+        //Name is required
+        tToast* toast = new tToast();
+        toast->setTitle(tr("Function Name Required"));
+        toast->setText(tr("A function name needs to be set"));
+        toast->show(this);
+        connect(toast, &tToast::dismiss, toast, &QObject::deleteLater);
+        return;
+    }
+    obj.insert("name", ui->functionName->text());
+
+    QJsonArray overloads;
+    for (int i = 0; i < ui->customFunctionDefinitionWidget->layout()->count(); i++) {
+        QObject* o = ui->customFunctionDefinitionWidget->layout()->itemAt(i)->widget();
+        OverloadBox* box = (OverloadBox*) o;
+
+        if (!box->check()) return; //Error occurred during check, don't save
+        overloads.append(box->save());
+    }
+    obj.insert("overloads", overloads);
+
+    QJsonDocument doc(obj);
+    QSettings settings;
+    settings.beginGroup("customFunctions");
+
+    //Save the function
+    if (editingFunction != "" && settings.contains(ui->functionName->text())) {
+        settings.remove(ui->functionName->text());
+    }
+    settings.setValue(ui->functionName->text(), doc.toBinaryData());
+
+    //Load up all the custom functions
+    ui->customFunctionsList->clear();
+    for (QString key : settings.allKeys()) {
+        ui->customFunctionsList->addItem(key);
+    }
+
+    settings.endGroup();
+    settings.sync();
+
+    setupFunctions();
+
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_customFunctionsList_itemActivated(QListWidgetItem *item)
+{
+    editingFunction = item->text();
+
+    QSettings settings;
+    settings.beginGroup("customFunctions");
+    QJsonDocument doc = QJsonDocument::fromBinaryData(settings.value(item->text()).toByteArray());
+    settings.endGroup();
+
+    QJsonObject obj = doc.object();
+    ui->functionName->setText(obj.value("name").toString());
+
+    //Clear overloads
+    QLayoutItem* i = ui->customFunctionDefinitionWidget->layout()->takeAt(0);
+    while (i != nullptr) {
+        i->widget()->deleteLater();
+        i = ui->customFunctionDefinitionWidget->layout()->takeAt(0);
+    }
+
+    QJsonArray overloads = obj.value("overloads").toArray();
+    for (QJsonValue v : overloads) {
+        OverloadBox* overload = new OverloadBox();
+        overload->load(v.toObject());
+        connect(overload, &OverloadBox::remove, [=] {
+            ui->customFunctionDefinitionWidget->layout()->removeWidget(overload);
+            overload->deleteLater();
+        });
+        ui->customFunctionDefinitionWidget->layout()->addWidget(overload);
+    }
+
+    ui->stackedWidget->setCurrentIndex(2);
 }

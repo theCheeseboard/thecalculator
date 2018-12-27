@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include <QApplication>
+#include <tapplication.h>
 #include <QDesktopWidget>
 #include <QCommandLineParser>
 #include <QTranslator>
@@ -61,12 +61,12 @@ int main(int argc, char *argv[])
     }
 
     if (a == nullptr) {
-        a = new QApplication(argc, argv);
+        a = new tApplication(argc, argv);
     }
 
     a->setOrganizationName("theSuite");
     a->setOrganizationDomain("");
-    a->setApplicationName("theShell");
+    a->setApplicationName("theCalculator");
 
     QTranslator qtTranslator;
     qtTranslator.load("qt_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
     parser.addOption(expressionOption);
     parser.process(*a);
 
-    MainWindow::setupBuiltinFunctions();
+    MainWindow::setupFunctions();
 
     if (parser.value(expressionOption) == "") {
         res = new Result();
