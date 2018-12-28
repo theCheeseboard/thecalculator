@@ -39,48 +39,48 @@
     <message>
         <location filename="../customs/branchbox.ui" line="59"/>
         <source>RETURN</source>
-        <translation type="unfinished"></translation>
+        <translation>CÂU TRẢ LỜI</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="66"/>
         <location filename="../customs/branchbox.cpp" line="100"/>
         <source>Expression to calculate</source>
-        <translation type="unfinished"></translation>
+        <translation>Biểu thức để tính</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="73"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Lỗi</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="85"/>
         <source>Add Condition</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm điều kiện</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="95"/>
         <source>Remove Branch</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa nhánh</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="29"/>
         <source>OTHERWISE RETURN</source>
-        <translation type="unfinished"></translation>
+        <translation>KHÔNG ĐIỀU KIỆN PHÙ HỢP THÌ TRẢ LỜI</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="57"/>
         <source>Return value required</source>
-        <translation type="unfinished"></translation>
+        <translation>Bắt buộc câu trả lời</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="58"/>
         <source>A return value is required for this branch</source>
-        <translation type="unfinished"></translation>
+        <translation>Một câu trả lời là bắt buộc cho nhánh này</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="98"/>
         <source>Error Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Mô tả lỗi</translation>
     </message>
 </context>
 <context>
@@ -93,57 +93,57 @@
     <message>
         <location filename="../customs/conditionbox.ui" line="33"/>
         <source>WHEN</source>
-        <translation type="unfinished"></translation>
+        <translation>KHI</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="38"/>
         <source>WHEN NOT</source>
-        <translation type="unfinished"></translation>
+        <translation>KHI KHÔNG</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="47"/>
         <source>AND</source>
-        <translation type="unfinished"></translation>
+        <translation>VÀ</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="52"/>
         <source>OR</source>
-        <translation type="unfinished"></translation>
+        <translation>HOẶC</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="57"/>
         <source>XOR</source>
-        <translation type="unfinished"></translation>
+        <translation>XOR</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="62"/>
         <source>AND NOT</source>
-        <translation type="unfinished"></translation>
+        <translation>VÀ KHÔNG</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="67"/>
         <source>OR NOT</source>
-        <translation type="unfinished"></translation>
+        <translation>HOẶC KHÔNG</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="72"/>
         <source>XOR NOT</source>
-        <translation type="unfinished"></translation>
+        <translation>XOR KHÔNG</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="80"/>
         <source>Expression to check</source>
-        <translation type="unfinished"></translation>
+        <translation>Biểu thức để kiểm tra</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.cpp" line="43"/>
         <source>Expression required</source>
-        <translation type="unfinished"></translation>
+        <translation>Bắt buộc biểu thức</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.cpp" line="44"/>
         <source>An expression is required for this condition</source>
-        <translation type="unfinished"></translation>
+        <translation>Một biểu thức là bắt buộc cho điều kiện này</translation>
     </message>
 </context>
 <context>
@@ -391,17 +391,17 @@
     <message>
         <location filename="../mainwindow.ui" line="1159"/>
         <source>Add Custom Function</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm hàm số tùy chỉnh</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1224"/>
         <source>Function Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Tên hàm số</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1282"/>
         <source>Add New Overload</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm quá tải</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1312"/>
@@ -612,20 +612,18 @@
     <message numerus="yes">
         <location filename="../mainwindow.cpp" line="649"/>
         <source>%1: expected %n arguments, got %2</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-        </translation>
-    </message>
+        <translation><numerusform>%1: Cần %n số dự kiến, đá nhận đươc %2</numerusform>
+        </translation></message>
     <message>
         <location filename="../mainwindow.cpp" line="652"/>
         <source>or</source>
         <comment>Expected 1, 2 or 3 arguments</comment>
-        <translation type="unfinished"></translation>
+        <translation>hoặc</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="653"/>
         <source>%1: expected %2 arguments, got %3</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Cần %2 số dự kiến, đá nhận đươc %2</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="170"/>
@@ -637,19 +635,19 @@
         <location filename="../mainwindow.cpp" line="179"/>
         <location filename="../mainwindow.cpp" line="842"/>
         <source>TRUE</source>
-        <translation type="unfinished"></translation>
+        <translation>THẬT</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="179"/>
         <location filename="../mainwindow.cpp" line="842"/>
         <source>FALSE</source>
-        <translation type="unfinished"></translation>
+        <translation>SAI</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="576"/>
         <location filename="../mainwindow.cpp" line="638"/>
         <source>%1: expected scalar or boolean value, got assignment</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: cần số vô hướng hoặc giá trị boolean, đã nhận được phân công</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="756"/>
@@ -660,35 +658,33 @@
     <message>
         <location filename="../mainwindow.cpp" line="804"/>
         <source>Save this function?</source>
-        <translation type="unfinished"></translation>
+        <translation>Lưu hàm số này?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="804"/>
         <source>Do you want to save this function?</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn có muốn lưu hàm số này không?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="854"/>
         <source>Function Name Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Bắt buộc tên hàm số</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="855"/>
         <source>A function name needs to be set</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn cần đặt tên hàm số</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="875"/>
         <source>Overload Arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Tham số quá tải</translation>
     </message>
     <message numerus="yes">
         <location filename="../mainwindow.cpp" line="876"/>
         <source>Only one overload can have %n arguments</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-        </translation>
-    </message>
+        <translation><numerusform>Chỉ một quá tải được có %n hàm số</numerusform>
+        </translation></message>
 </context>
 <context>
     <name>OverloadBox</name>
@@ -700,35 +696,33 @@
     <message>
         <location filename="../customs/overloadbox.ui" line="28"/>
         <source>Arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Tham số</translation>
     </message>
     <message>
         <location filename="../customs/overloadbox.ui" line="143"/>
         <source>Add New Branch</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm nhánh</translation>
     </message>
     <message>
         <location filename="../customs/overloadbox.ui" line="153"/>
         <source>Remove Overload</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa quá tải</translation>
     </message>
     <message numerus="yes">
         <location filename="../customs/overloadbox.cpp" line="35"/>
         <location filename="../customs/overloadbox.cpp" line="118"/>
         <source>Argument %n Name</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-        </translation>
-    </message>
+        <translation><numerusform>Tên hàm số %n</numerusform>
+        </translation></message>
     <message>
         <location filename="../customs/overloadbox.cpp" line="70"/>
         <source>Overload Arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Tham số quá tải</translation>
     </message>
     <message>
         <location filename="../customs/overloadbox.cpp" line="71"/>
         <source>Each argument must have a name</source>
-        <translation type="unfinished"></translation>
+        <translation>Mỗi tham số bắt buộc cần đặt tên</translation>
     </message>
 </context>
 <context>
