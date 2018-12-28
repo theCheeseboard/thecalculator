@@ -11,7 +11,6 @@
 #include <QLabel>
 #include <functional>
 #include "expression.h"
-#include "calc.h"
 #include <complex>
 #include <iomanip>
 #include <QListWidgetItem>
@@ -104,8 +103,6 @@ class MainWindow : public QMainWindow
         QSettings settings;
         QString editingFunction = "";
         QMap<QString, idouble> variables;
-
-        YY_BUFFER_STATE bufferState;
 };
 
 #endif // MAINWINDOW_H
