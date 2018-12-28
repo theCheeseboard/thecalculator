@@ -43,7 +43,7 @@
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="66"/>
-        <location filename="../customs/branchbox.cpp" line="98"/>
+        <location filename="../customs/branchbox.cpp" line="100"/>
         <source>Expression to calculate</source>
         <translation type="unfinished"></translation>
     </message>
@@ -63,22 +63,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../customs/branchbox.cpp" line="27"/>
+        <location filename="../customs/branchbox.cpp" line="29"/>
         <source>OTHERWISE RETURN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../customs/branchbox.cpp" line="55"/>
+        <location filename="../customs/branchbox.cpp" line="57"/>
         <source>Return value required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../customs/branchbox.cpp" line="56"/>
+        <location filename="../customs/branchbox.cpp" line="58"/>
         <source>A return value is required for this branch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../customs/branchbox.cpp" line="96"/>
+        <location filename="../customs/branchbox.cpp" line="98"/>
         <source>Error Description</source>
         <translation type="unfinished"></translation>
     </message>
@@ -464,153 +464,153 @@
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="205"/>
+        <location filename="../mainwindow.cpp" line="217"/>
         <source>%1: expected 1 argument, got %2</source>
         <translation>%1: atteso 1 argomento, ricevuti %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="229"/>
+        <location filename="../mainwindow.cpp" line="241"/>
         <source>fact: input (%1) not a real number</source>
         <translation>fatto: l&apos;input (%1) non è un numero reale</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="232"/>
+        <location filename="../mainwindow.cpp" line="244"/>
         <source>fact: input (%1) out of bounds (0 and above)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="253"/>
+        <location filename="../mainwindow.cpp" line="265"/>
         <source>tan: input (%1) out of bounds (not 90° + 180n)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="258"/>
+        <location filename="../mainwindow.cpp" line="270"/>
         <source>tan: input (%1) out of bounds (not π/2 + πn)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="279"/>
+        <location filename="../mainwindow.cpp" line="291"/>
         <source>asin: input (%1) out of bounds (between -1 and 1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="287"/>
+        <location filename="../mainwindow.cpp" line="299"/>
         <source>acos: input (%1) out of bounds (between -1 and 1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="350"/>
+        <location filename="../mainwindow.cpp" line="362"/>
         <source>log: input (%1) out of bounds (not 0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="358"/>
+        <location filename="../mainwindow.cpp" line="370"/>
         <source>log: arg1 (%1) out of bounds (not 0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="363"/>
+        <location filename="../mainwindow.cpp" line="375"/>
         <source>log: arg2 (%1) out of bounds (not 1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="368"/>
+        <location filename="../mainwindow.cpp" line="380"/>
         <source>log: arg2 (%1) out of bounds (not 0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="374"/>
+        <location filename="../mainwindow.cpp" line="386"/>
         <source>log: expected 1 or 2 arguments, got %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="380"/>
+        <location filename="../mainwindow.cpp" line="392"/>
         <source>ln: input (%1) out of bounds (not 0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="393"/>
+        <location filename="../mainwindow.cpp" line="405"/>
         <source>lsh: arg1 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="397"/>
+        <location filename="../mainwindow.cpp" line="409"/>
         <source>lsh: arg2 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="402"/>
+        <location filename="../mainwindow.cpp" line="414"/>
         <source>lsh: arg1 (%1) not an integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="407"/>
+        <location filename="../mainwindow.cpp" line="419"/>
         <source>lsh: arg2 (%2) not an integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="413"/>
+        <location filename="../mainwindow.cpp" line="425"/>
         <source>lsh: expected 2 arguments, got %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="423"/>
+        <location filename="../mainwindow.cpp" line="435"/>
         <source>rsh: arg1 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="427"/>
+        <location filename="../mainwindow.cpp" line="439"/>
         <source>rsh: arg2 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="432"/>
+        <location filename="../mainwindow.cpp" line="444"/>
         <source>rsh: arg1 (%1) not an integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="437"/>
+        <location filename="../mainwindow.cpp" line="449"/>
         <source>rsh: arg2 (%2) not an integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="443"/>
+        <location filename="../mainwindow.cpp" line="455"/>
         <source>rsh: expected 2 arguments, got %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="454"/>
+        <location filename="../mainwindow.cpp" line="466"/>
         <source>pow: arg2 (%1) out of bounds for arg1 (0) (should be positive)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="459"/>
+        <location filename="../mainwindow.cpp" line="471"/>
         <source>pow: arg2 (%1) out of bounds for arg1 (0) (should be a real number)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="465"/>
+        <location filename="../mainwindow.cpp" line="477"/>
         <source>pow: expected 2 arguments, got %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="484"/>
-        <location filename="../mainwindow.cpp" line="491"/>
+        <location filename="../mainwindow.cpp" line="496"/>
+        <location filename="../mainwindow.cpp" line="503"/>
         <source>random: arg1 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="496"/>
+        <location filename="../mainwindow.cpp" line="508"/>
         <source>random: arg2 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="502"/>
+        <location filename="../mainwindow.cpp" line="514"/>
         <source>random: expected 0, 1 or 2 arguments, got %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../mainwindow.cpp" line="532"/>
+        <location filename="../mainwindow.cpp" line="544"/>
         <source>%1: expected %n arguments, got %2</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -618,67 +618,67 @@
         </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="535"/>
+        <location filename="../mainwindow.cpp" line="547"/>
         <source>or</source>
         <comment>Expected 1, 2 or 3 arguments</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="536"/>
+        <location filename="../mainwindow.cpp" line="548"/>
         <source>%1: expected %2 arguments, got %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="163"/>
-        <location filename="../mainwindow.cpp" line="632"/>
+        <location filename="../mainwindow.cpp" line="170"/>
+        <location filename="../mainwindow.cpp" line="644"/>
         <source>%1 assigned to %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="172"/>
-        <location filename="../mainwindow.cpp" line="725"/>
+        <location filename="../mainwindow.cpp" line="179"/>
+        <location filename="../mainwindow.cpp" line="737"/>
         <source>TRUE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="172"/>
-        <location filename="../mainwindow.cpp" line="725"/>
+        <location filename="../mainwindow.cpp" line="179"/>
+        <location filename="../mainwindow.cpp" line="737"/>
         <source>FALSE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="639"/>
-        <location filename="../mainwindow.cpp" line="722"/>
+        <location filename="../mainwindow.cpp" line="651"/>
+        <location filename="../mainwindow.cpp" line="734"/>
         <source>Assign %1 to %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="687"/>
+        <location filename="../mainwindow.cpp" line="699"/>
         <source>Save this function?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="687"/>
+        <location filename="../mainwindow.cpp" line="699"/>
         <source>Do you want to save this function?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="737"/>
+        <location filename="../mainwindow.cpp" line="749"/>
         <source>Function Name Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="738"/>
+        <location filename="../mainwindow.cpp" line="750"/>
         <source>A function name needs to be set</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="758"/>
+        <location filename="../mainwindow.cpp" line="770"/>
         <source>Overload Arguments</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../mainwindow.cpp" line="759"/>
+        <location filename="../mainwindow.cpp" line="771"/>
         <source>Only one overload can have %n arguments</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -709,8 +709,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../customs/overloadbox.cpp" line="33"/>
-        <location filename="../customs/overloadbox.cpp" line="116"/>
+        <location filename="../customs/overloadbox.cpp" line="35"/>
+        <location filename="../customs/overloadbox.cpp" line="118"/>
         <source>Argument %n Name</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -718,12 +718,12 @@
         </translation>
     </message>
     <message>
-        <location filename="../customs/overloadbox.cpp" line="68"/>
+        <location filename="../customs/overloadbox.cpp" line="70"/>
         <source>Overload Arguments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../customs/overloadbox.cpp" line="69"/>
+        <location filename="../customs/overloadbox.cpp" line="71"/>
         <source>Each argument must have a name</source>
         <translation type="unfinished"></translation>
     </message>

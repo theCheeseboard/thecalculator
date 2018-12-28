@@ -12,6 +12,8 @@ BranchBox::BranchBox(bool isOtherwise, QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->removeBranchButton->setProperty("type", "destructive");
+
     this->isOtherwise = isOtherwise;
     init();
 }

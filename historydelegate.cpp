@@ -8,8 +8,10 @@ HistoryDelegate::HistoryDelegate(QObject *parent) : QAbstractItemDelegate(parent
 
 void HistoryDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const {
     QString text = index.data(Qt::DisplayRole).toString();
-    QString firstText = text.split("=").first().trimmed();
-    QString secondText = "= " + text.split("=").at(1).trimmed();
+
+    QString secondText = "= " + text.split("=").last().trimmed();
+    QString firstText = text.trimmed();
+    firstText.chop(secondText.length());
 
     if (option.state & QStyle::State_Selected) {
         painter->setPen(Qt::transparent);

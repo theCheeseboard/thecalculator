@@ -2,6 +2,7 @@
 #include <QString>
 #include <qmath.h>
 #include <complex>
+#include <functional>
 typedef std::complex<long double> idouble;
 
 #include "calc.bison.hpp"
@@ -70,7 +71,10 @@ typedef std::complex<long double> idouble;
 ">>" {return RSH;}
 ">" {return GREATER;}
 "<" {return LESS;}
+"≥" {return GREATEREQUAL;}
+"≤" {return LESSEQUAL;}
 "==" {return EQUALITY;}
+"≠" {return NOTEQUALITY;}
 [[:alpha:]_][[:alnum:]_]* {
     if (strcmp("e", yytext) == 0) {
         yylval->number = new idouble(M_E, 0);

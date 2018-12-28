@@ -13,6 +13,8 @@ OverloadBox::OverloadBox(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->removeOverloadButton->setProperty("type", "destructive");
+
     //Add an argument
     ui->addArgButton->click();
 

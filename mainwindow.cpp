@@ -81,7 +81,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QScroller::grabGesture(ui->scrollArea, QScroller::LeftMouseButtonGesture);
     QScroller::grabGesture(ui->historyWidget, QScroller::LeftMouseButtonGesture);
 
+
     historyDelegate = new HistoryDelegate();
+    ui->historyWidget->setItemDelegate(historyDelegate);
 
     ui->scrollArea->setFixedWidth(0);
     this->setFixedWidth(this->sizeHint().width() * getDPIScaling());
@@ -147,11 +149,16 @@ void MainWindow::on_EqualButton_clicked()
 
     EvaluationEngine::evaluate(expression)->then([=](EvaluationEngine::Result r) {
         switch (r.type) {
-            case EvaluationEngine::Result::Scalar:
+            case EvaluationEngine::Result::Scalar: {
                 currentAnswer = r.result;
-                ui->answerLabel->setText(idbToString(r.result));
-                resizeAnswerLabel();
+                ui->expressionBox->setText(idbToString(r.result));
+
+                QListWidgetItem* historyItem = new QListWidgetItem();
+                historyItem->setText(expression + " = " + idbToString(r.result));
+                historyItem->setIcon(QIcon::fromTheme("dialog-information"));
+                ui->historyWidget->addItem(historyItem);
                 break;
+            }
             case EvaluationEngine::Result::Error: {
                 QString answerText;
                 ui->answerLabel->setText(r.error);
@@ -170,6 +177,11 @@ void MainWindow::on_EqualButton_clicked()
             }
             case EvaluationEngine::Result::Equality: {
                 ui->answerLabel->setText(r.isTrue ? tr("TRUE") : tr("FALSE"));
+
+                QListWidgetItem* historyItem = new QListWidgetItem();
+                historyItem->setText(expression + " = " + ui->answerLabel->text());
+                historyItem->setIcon(QIcon::fromTheme("dialog-information"));
+                ui->historyWidget->addItem(historyItem);
             }
         }
     });

@@ -110,7 +110,7 @@ idouble getValue(QString identifier) {
 %left EXPONENTIATE RADICAL SUPER
 %left FACTORIAL PERCENT
 %left LBRACKET RBRACKET
-%left ASSIGNMENT GREATER LESS EQUALITY
+%left ASSIGNMENT GREATER LESS GREATEREQUAL LESSEQUAL EQUALITY NOTEQUALITY
 
 %%
 line: expression EOL {
@@ -127,6 +127,9 @@ truefalse: expression EQUALITY expression { *$$ = (*$1 == *$3); }
 |   expression ASSIGNMENT expression { *$$ = (*$1 == *$3); }
 |   expression GREATER expression { *$$ = (abs(*$1) > abs(*$3)); }
 |   expression LESS expression { *$$ = (abs(*$1) < abs(*$3)); }
+|   expression GREATEREQUAL expression { *$$ = (abs(*$1) >= abs(*$3)); }
+|   expression LESSEQUAL expression { *$$ = (abs(*$1) <= abs(*$3)); }
+|   expression NOTEQUALITY expression { *$$ = (abs(*$1) != abs(*$3)); }
 
 expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
 |   NUMBER {$$ = new idouble(*$1);}
