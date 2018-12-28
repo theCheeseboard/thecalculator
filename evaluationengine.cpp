@@ -3,7 +3,6 @@
 typedef void* yyscan_t;
 #include "calc.bison.hpp"
 #include "calc.yy.h"
-#include "calc.h"
 
 EvaluationEngine::EvaluationEngine(QObject *parent) : QObject(parent)
 {

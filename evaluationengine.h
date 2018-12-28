@@ -4,7 +4,6 @@
 #include <QObject>
 #include <complex>
 #include <tpromise.h>
-//#include "calc.bison.hpp"
 typedef void* yyscan_t;
 
 typedef std::complex<long double> idouble;
