@@ -14,7 +14,6 @@
 
 MainWindow* MainWin = nullptr;
 QMap<QString, std::function<idouble(QList<idouble>,QString&)>> customFunctions;
-QMap<QString, idouble> variables;
 bool explicitEvaluation = false;
 bool resSuccess = false;
 bool isDegrees = true;
@@ -113,12 +112,13 @@ int main(int argc, char *argv[])
     } else {
         explicitEvaluation = true;
         QList<QPair<QString, QString>> outputs;
+        QMap<QString, idouble> variables;
         for (QString e : parser.value(expressionOption).split(":")) {
             e = e.remove(" "); //Remove all spaces
 
             EvaluationEngine::Result* res;
             QEventLoop* loop = new QEventLoop;
-            EvaluationEngine::evaluate(e)->then([=, &res](EvaluationEngine::Result r) {
+            EvaluationEngine::evaluate(e, variables)->then([=, &res](EvaluationEngine::Result r) {
                 res = new EvaluationEngine::Result(r);
                 loop->quit();
             });

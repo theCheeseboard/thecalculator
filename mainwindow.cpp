@@ -21,7 +21,6 @@
 extern MainWindow* MainWin;
 extern float getDPIScaling();
 extern QMap<QString, std::function<idouble(QList<idouble>,QString&)>> customFunctions;
-extern QMap<QString, idouble> variables;
 extern bool explicitEvaluation;
 extern QString idbToString(idouble db);
 extern bool isDegrees;
@@ -147,7 +146,7 @@ void MainWindow::on_EqualButton_clicked()
     explicitEvaluation = true;
     QString expression = ui->expressionBox->text();
 
-    EvaluationEngine::evaluate(expression)->then([=](EvaluationEngine::Result r) {
+    EvaluationEngine::evaluate(expression, variables)->then([=](EvaluationEngine::Result r) {
         switch (r.type) {
             case EvaluationEngine::Result::Scalar: {
                 currentAnswer = r.result;
@@ -167,6 +166,7 @@ void MainWindow::on_EqualButton_clicked()
                 break;
             }
             case EvaluationEngine::Result::Assign: {
+                variables.insert(r.identifier, r.value);
                 ui->answerLabel->setText(tr("%1 assigned to %2").arg(r.identifier, idbToString(r.value)));
 
                 QListWidgetItem* historyItem = new QListWidgetItem();
@@ -525,15 +525,120 @@ void MainWindow::setupFunctions() {
             QJsonObject obj = doc.object();
             customFunctions.insert(function, [=](QList<idouble> args, QString& error) -> idouble {
                 QStringList argCounts;
+                EvaluationEngine engine;
+                QMap<QString, idouble> variables;
 
                 QJsonArray overloads = obj.value("overloads").toArray();
-                for (QJsonValue overload : overloads) {
-                    QJsonObject o = overload.toObject();
+                for (QJsonValue o : overloads) {
+                    QJsonObject overload = o.toObject();
 
-                    QJsonArray fnArgs = o.value("args").toArray();
+                    QJsonArray fnArgs = overload.value("args").toArray();
                     if (fnArgs.count() == args.count()) {
                         //Found the correct overload to use
-                        return 601;
+                        //Populate the arguments
+                        for (int i = 0; i < args.count(); i++) {
+                            variables.insert(fnArgs.at(i).toString(), args.at(i));
+                        }
+                        engine.setVariables(variables);
+
+                        //For each branch, evaluate the conditions and choose the branch
+                        QJsonObject selectedBranch;
+                        QJsonArray branches = overload.value("branches").toArray();
+                        for (QJsonValue b : branches) {
+                            QJsonObject branch = b.toObject();
+                            if (branch.value("isOtherwise").toBool()) {
+                                //Reached the final branch
+                                selectedBranch = branch;
+                                break;
+                            } else {
+                                bool currentConditionState = false;
+                                QJsonArray conditions = branch.value("conditions").toArray();
+                                for (QJsonValue c : conditions) {
+                                    QJsonObject condition = c.toObject();
+                                    engine.setExpression(condition.value("expression").toString());
+                                    int connective = condition.value("connective").toInt();
+                                    EvaluationEngine::Result result = engine.evaluate();
+                                    bool boolResult;
+
+                                    switch (result.type) {
+                                        case EvaluationEngine::Result::Scalar:
+                                            boolResult = result.result != idouble(0, 0);
+                                            break;
+                                        case EvaluationEngine::Result::Equality:
+                                            boolResult = result.isTrue;
+                                            break;
+                                        case EvaluationEngine::Result::Error:
+                                            //Return an error
+                                            error = result.error;
+                                            return 0;
+                                        case EvaluationEngine::Result::Assign:
+                                            //Return an error
+                                            error = tr("%1: expected scalar or boolean value, got assignment").arg(function);
+                                            return 0;
+                                    }
+
+                                    if (condition.value("isFirst").toBool()) {
+                                        if (connective == 0) { //WHEN
+                                            currentConditionState = boolResult;
+                                        } else { //WHEN NOT
+                                            currentConditionState = !boolResult;
+                                        }
+                                    } else {
+                                        switch (connective) {
+                                            case 0: //AND
+                                                currentConditionState &= boolResult;
+                                                break;
+                                            case 1: //OR
+                                                currentConditionState |= boolResult;
+                                                break;
+                                            case 2: //XOR
+                                                currentConditionState ^= boolResult;
+                                                break;
+                                            case 3: //AND NOT
+                                                currentConditionState &= !boolResult;
+                                                break;
+                                            case 4: //OR NOT
+                                                currentConditionState |= !boolResult;
+                                                break;
+                                            case 5: //XOR NOT
+                                                currentConditionState ^= !boolResult;
+                                                break;
+                                        }
+                                    }
+                                }
+
+                                if (currentConditionState) { //This is the branch we need
+                                    selectedBranch = branch;
+                                    break;
+                                }
+                            }
+                        }
+
+                        //Now that we've selected a branch, evaluate the expression
+                        QJsonObject retval = selectedBranch.value("return").toObject();
+                        if (retval.value("isError").toBool()) {
+                            //This is an error branch
+                            error = function + ": " + retval.value("expression").toString();
+                            return 0;
+                        } else {
+                            engine.setExpression(retval.value("expression").toString());
+                            EvaluationEngine::Result result = engine.evaluate();
+
+                            switch (result.type) {
+                                case EvaluationEngine::Result::Scalar:
+                                    return result.result;
+                                case EvaluationEngine::Result::Equality:
+                                    return idouble(result.isTrue);
+                                case EvaluationEngine::Result::Error:
+                                    //Return an error
+                                    error = result.error;
+                                    return 0;
+                                case EvaluationEngine::Result::Assign:
+                                    //Return an error
+                                    error = tr("%1: expected scalar or boolean value, got assignment").arg(function);
+                                    return 0;
+                            }
+                        }
                     } else {
                         argCounts.append(QString::number(fnArgs.count()));
                     }
@@ -718,7 +823,7 @@ void MainWindow::on_newOverloadButton_clicked()
 
 void MainWindow::on_expressionBox_expressionUpdated(const QString &newString)
 {
-    EvaluationEngine::evaluate(newString)->then([=](EvaluationEngine::Result r) {
+    EvaluationEngine::evaluate(newString, variables)->then([=](EvaluationEngine::Result r) {
         switch (r.type) {
             case EvaluationEngine::Result::Scalar:
                 ui->answerLabel->setText(idbToString(r.result));

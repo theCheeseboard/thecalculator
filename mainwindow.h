@@ -103,6 +103,7 @@ class MainWindow : public QMainWindow
         HistoryDelegate* historyDelegate;
         QSettings settings;
         QString editingFunction = "";
+        QMap<QString, idouble> variables;
 
         YY_BUFFER_STATE bufferState;
 };

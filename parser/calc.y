@@ -6,10 +6,10 @@
 #include <functional>
 #include "mainwindow.h"
 #include "calc.yy.h"
+#include "evaluationengine.h"
 
 extern MainWindow* MainWin;
 extern QMap<QString, std::function<idouble(QList<idouble>,QString&)>> customFunctions;
-extern QMap<QString, idouble> variables;
 extern bool explicitEvaluation;
 extern bool resSuccess;
 
@@ -24,17 +24,26 @@ idouble callFunction(QString name, QList<idouble> args, QString& error) {
 }
 
 
-bool valueExists(QString identifier) {
-    return variables.contains(identifier);
+bool valueExists(QString identifier, EvaluationEngineParameters p) {
+    return p.variables.contains(identifier);
 }
 
-idouble getValue(QString identifier) {
-    return variables.value(identifier);
+idouble getValue(QString identifier, EvaluationEngineParameters p) {
+    return p.variables.value(identifier);
+}
+
+double absArg(idouble n) {
+    double retval = abs(n);
+    if ((n.real() == 0 && n.imag() < 0) || (abs(arg(n)) > M_PI_2)) {
+        //Make it negative
+        retval *= -1;
+    }
+    return retval;
 }
 
 //Define helper functions
 
-#define YYE(desc) yyerror(scanner, resultFunction, errorFunction, assignFunction, equalityFunction, desc);
+#define YYE(desc) yyerror(scanner, p, desc);
 #define CALL_MAINWINDOW_FUNCTION(arg1, arg2, result) { \
         QString error; \
         result = new idouble(callFunction(arg1, arg2, error)); \
@@ -52,10 +61,7 @@ idouble getValue(QString identifier) {
 
 %param { yyscan_t scanner }
 
-%parse-param { std::function<void(idouble)> resultFunction }
-             { std::function <void(const char*)> errorFunction }
-             { std::function<void(QString, idouble)> assignFunction }
-             { std::function<void(bool)> equalityFunction }
+%parse-param { EvaluationEngineParameters p }
 
 %union {
     QString* string;
@@ -68,19 +74,7 @@ idouble getValue(QString identifier) {
     //Define flex functions
     extern int yylex(YYSTYPE* yylvalp, yyscan_t scanner);
     extern void yyterminate();
-    void yyerror(yyscan_t scanner, std::function<void(idouble)> resultFunction, std::function <void(const char*)> errorFunction, std::function<void(QString, idouble)> assignFunction, std::function<void(bool)> equalityFunction, const char* s);
-
-    void assignValue(QString identifier, idouble value, std::function<void(QString, idouble)> assignFunction) {
-        if (explicitEvaluation) {
-            variables.insert(identifier, value);
-        }
-
-        if (MainWin != nullptr) {
-            assignFunction(identifier, value);
-        }
-
-        resSuccess = true;
-    }
+    void yyerror(yyscan_t scanner, EvaluationEngineParameters p, const char* s);
 %}
 
 %token<number> NUMBER SUPER
@@ -115,21 +109,21 @@ idouble getValue(QString identifier) {
 %%
 line: expression EOL {
           resSuccess = true;
-          resultFunction(*$1);
+          p.resultFunction(*$1);
     }
-|   IDENTIFIER ASSIGNMENT expression EOL { assignValue(*$1, *$3, assignFunction); }
+|   IDENTIFIER ASSIGNMENT expression EOL { p.assignFunction(*$1, *$3); }
 |   truefalse EOL {
         resSuccess = true;
-        equalityFunction(*$1);
+        p.equalityFunction(*$1);
 }
 
 truefalse: expression EQUALITY expression { *$$ = (*$1 == *$3); }
 |   expression ASSIGNMENT expression { *$$ = (*$1 == *$3); }
-|   expression GREATER expression { *$$ = (abs(*$1) > abs(*$3)); }
-|   expression LESS expression { *$$ = (abs(*$1) < abs(*$3)); }
-|   expression GREATEREQUAL expression { *$$ = (abs(*$1) >= abs(*$3)); }
-|   expression LESSEQUAL expression { *$$ = (abs(*$1) <= abs(*$3)); }
-|   expression NOTEQUALITY expression { *$$ = (abs(*$1) != abs(*$3)); }
+|   expression GREATER expression { *$$ = (absArg(*$1) > absArg(*$3)); }
+|   expression LESS expression { *$$ = (absArg(*$1) < absArg(*$3)); }
+|   expression GREATEREQUAL expression { *$$ = (absArg(*$1) >= absArg(*$3)); }
+|   expression LESSEQUAL expression { *$$ = (absArg(*$1) <= absArg(*$3)); }
+|   expression NOTEQUALITY expression { *$$ = (*$1 != *$3); }
 
 expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
 |   NUMBER {$$ = new idouble(*$1);}
@@ -150,16 +144,16 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
 |   expression PERCENT {$$ = new idouble(*$1 / idouble(100));}
 |   expression EXPONENTIATE expression {CALL_MAINWINDOW_FUNCTION("pow", QList<idouble>() << *$1 << *$3, $$)}
 |   IDENTIFIER EXPONENTIATE expression {
-        if (valueExists(*$1)) {
-            $$ = new idouble(pow(getValue(*$1), *$3));
+        if (valueExists(*$1, p)) {
+            $$ = new idouble(pow(getValue(*$1, p), *$3));
         } else {
             YYE((*$1).append(": unknown variable").toLocal8Bit().constData());
             YYABORT;
         }
     }
 |   IDENTIFIER power {
-        if (valueExists(*$1)) {
-            $$ = new idouble(pow(getValue(*$1), *$2));
+        if (valueExists(*$1, p)) {
+            $$ = new idouble(pow(getValue(*$1, p), *$2));
         } else {
             YYE((*$1).append(": unknown variable").toLocal8Bit().constData());
             YYABORT;
@@ -172,8 +166,8 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
 |   power RADICAL expression {CALL_MAINWINDOW_FUNCTION("pow", QList<idouble>() << *$3 << idouble(1.0) / *$1, $$)}
 |   function
 |   IDENTIFIER {
-        if (valueExists(*$1)) {
-            $$ = new idouble(getValue(*$1));
+        if (valueExists(*$1, p)) {
+            $$ = new idouble(getValue(*$1, p));
         } else {
             YYE((*$1).append(": unknown variable").toLocal8Bit().constData());
             YYABORT;
@@ -204,8 +198,8 @@ function: IDENTIFIER LBRACKET arguments RBRACKET {CALL_MAINWINDOW_FUNCTION(*$1, 
     }
 %%
 
-void yyerror(yyscan_t scanner, std::function<void(idouble)> resultFunction, std::function <void(const char*)> errorFunction, std::function<void(QString, idouble)> assignFunction, std::function<void(bool)> equalityFunction, const char* s) {
+void yyerror(yyscan_t scanner, EvaluationEngineParameters p, const char* s) {
     resSuccess = false;
 
-    errorFunction(s);
+    p.errorFunction(s);
 }
