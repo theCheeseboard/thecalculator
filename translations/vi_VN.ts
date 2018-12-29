@@ -141,7 +141,7 @@
     <message>
         <location filename="../evaluationengine.cpp" line="40"/>
         <source>Stack Overflow</source>
-        <translation type="unfinished"></translation>
+        <translation>Lỗi tràn ngăn xếp</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="112"/>
@@ -489,22 +489,22 @@
     <message>
         <location filename="../mainwindow.ui" line="1375"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Giới thiệu</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1384"/>
         <source>theCalculator Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Trợ giúp với theCalculator</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1396"/>
         <source>File Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>Báo cáo lỗi</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1405"/>
         <source>Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Mã nguồn</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="269"/>
