@@ -82,6 +82,10 @@ class MainWindow : public QMainWindow
 
         void on_expressionBox_cursorPositionChanged(int arg1, int arg2);
 
+        void on_nextOverload_clicked();
+
+        void on_previousOverload_clicked();
+
     private:
         Ui::MainWindow *ui;
 
@@ -98,6 +102,10 @@ class MainWindow : public QMainWindow
         QSettings settings;
         QString editingFunction = "";
         QMap<QString, idouble> variables;
+
+        int currentOverload = 0;
+        int numOverloads;
+        QString currentFunctionHelp;
 };
 
 #endif // MAINWINDOW_H

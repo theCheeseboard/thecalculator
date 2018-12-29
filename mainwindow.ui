@@ -141,9 +141,84 @@
                  <number>9</number>
                 </property>
                 <item>
-                 <widget class="QLabel" name="label_4">
+                 <layout class="QHBoxLayout" name="horizontalLayout_7">
+                  <item>
+                   <widget class="QLabel" name="funHelpName">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string notr="true">TextLabel</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="widget" native="true">
+                    <layout class="QHBoxLayout" name="horizontalLayout_8">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <widget class="QPushButton" name="previousOverload">
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="icon">
+                        <iconset theme="go-previous"/>
+                       </property>
+                       <property name="flat">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="funHelpOverloads">
+                       <property name="text">
+                        <string notr="true">0/0</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="nextOverload">
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="icon">
+                        <iconset theme="go-next"/>
+                       </property>
+                       <property name="flat">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QLabel" name="funHelpDesc">
                   <property name="text">
-                   <string>TextLabel</string>
+                   <string notr="true">Function Description</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="funHelpArgs">
+                  <property name="text">
+                   <string notr="true">Function Arguments</string>
                   </property>
                  </widget>
                 </item>
@@ -467,8 +542,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>248</width>
-                <height>190</height>
+                <width>244</width>
+                <height>250</height>
                </rect>
               </property>
               <layout class="QGridLayout" name="gridLayout_2">
@@ -1302,8 +1377,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>125</width>
-             <height>70</height>
+             <width>165</width>
+             <height>90</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -1396,7 +1471,7 @@
      <x>0</x>
      <y>0</y>
      <width>779</width>
-     <height>18</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

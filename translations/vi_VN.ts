@@ -139,177 +139,485 @@
 <context>
     <name>EvaluationEngine</name>
     <message>
-        <location filename="../evaluationengine.cpp" line="52"/>
+        <location filename="../evaluationengine.cpp" line="85"/>
         <source>Stack Overflow</source>
         <translation>Lỗi tràn ngăn xếp</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="124"/>
+        <location filename="../evaluationengine.cpp" line="148"/>
+        <location filename="../evaluationengine.cpp" line="151"/>
+        <location filename="../evaluationengine.cpp" line="154"/>
+        <location filename="../evaluationengine.cpp" line="192"/>
+        <location filename="../evaluationengine.cpp" line="196"/>
+        <location filename="../evaluationengine.cpp" line="200"/>
+        <location filename="../evaluationengine.cpp" line="204"/>
+        <location filename="../evaluationengine.cpp" line="305"/>
+        <location filename="../evaluationengine.cpp" line="306"/>
+        <location filename="../evaluationengine.cpp" line="307"/>
+        <location filename="../evaluationengine.cpp" line="319"/>
+        <source>number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="148"/>
+        <location filename="../evaluationengine.cpp" line="151"/>
+        <location filename="../evaluationengine.cpp" line="154"/>
+        <location filename="../evaluationengine.cpp" line="192"/>
+        <location filename="../evaluationengine.cpp" line="196"/>
+        <location filename="../evaluationengine.cpp" line="200"/>
+        <location filename="../evaluationengine.cpp" line="204"/>
+        <source>Calculates the %1 of a %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="148"/>
+        <source>absolute value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="148"/>
+        <location filename="../evaluationengine.cpp" line="151"/>
+        <location filename="../evaluationengine.cpp" line="154"/>
+        <location filename="../evaluationengine.cpp" line="167"/>
+        <location filename="../evaluationengine.cpp" line="171"/>
+        <location filename="../evaluationengine.cpp" line="175"/>
+        <location filename="../evaluationengine.cpp" line="192"/>
+        <location filename="../evaluationengine.cpp" line="196"/>
+        <location filename="../evaluationengine.cpp" line="200"/>
+        <location filename="../evaluationengine.cpp" line="204"/>
+        <location filename="../evaluationengine.cpp" line="212"/>
+        <location filename="../evaluationengine.cpp" line="220"/>
+        <location filename="../evaluationengine.cpp" line="224"/>
+        <location filename="../evaluationengine.cpp" line="228"/>
+        <location filename="../evaluationengine.cpp" line="232"/>
+        <location filename="../evaluationengine.cpp" line="236"/>
+        <location filename="../evaluationengine.cpp" line="240"/>
+        <location filename="../evaluationengine.cpp" line="244"/>
+        <location filename="../evaluationengine.cpp" line="248"/>
+        <location filename="../evaluationengine.cpp" line="252"/>
+        <location filename="../evaluationengine.cpp" line="256"/>
+        <location filename="../evaluationengine.cpp" line="260"/>
+        <location filename="../evaluationengine.cpp" line="264"/>
+        <location filename="../evaluationengine.cpp" line="268"/>
+        <location filename="../evaluationengine.cpp" line="272"/>
+        <location filename="../evaluationengine.cpp" line="305"/>
+        <location filename="../evaluationengine.cpp" line="307"/>
+        <location filename="../evaluationengine.cpp" line="319"/>
+        <source>The %1 to calculate the %2 of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="151"/>
+        <source>square root</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="154"/>
+        <source>cube root</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="157"/>
         <source>fact: input (%1) not a real number</source>
         <translation type="unfinished">fact: Số dự kiến (%1) không phải số thực</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="127"/>
+        <location filename="../evaluationengine.cpp" line="160"/>
         <source>fact: input (%1) out of bounds (0 and above)</source>
         <translation type="unfinished">fact: số dự kiến (%1) ở ngoài giới hạn (0 va hơn)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="148"/>
+        <location filename="../evaluationengine.cpp" line="167"/>
+        <location filename="../evaluationengine.cpp" line="171"/>
+        <location filename="../evaluationengine.cpp" line="175"/>
+        <location filename="../evaluationengine.cpp" line="212"/>
+        <location filename="../evaluationengine.cpp" line="220"/>
+        <location filename="../evaluationengine.cpp" line="224"/>
+        <location filename="../evaluationengine.cpp" line="228"/>
+        <location filename="../evaluationengine.cpp" line="232"/>
+        <location filename="../evaluationengine.cpp" line="236"/>
+        <location filename="../evaluationengine.cpp" line="240"/>
+        <location filename="../evaluationengine.cpp" line="244"/>
+        <location filename="../evaluationengine.cpp" line="248"/>
+        <location filename="../evaluationengine.cpp" line="252"/>
+        <location filename="../evaluationengine.cpp" line="256"/>
+        <location filename="../evaluationengine.cpp" line="260"/>
+        <location filename="../evaluationengine.cpp" line="264"/>
+        <location filename="../evaluationengine.cpp" line="268"/>
+        <location filename="../evaluationengine.cpp" line="272"/>
+        <location filename="../evaluationengine.cpp" line="305"/>
+        <location filename="../evaluationengine.cpp" line="306"/>
+        <location filename="../evaluationengine.cpp" line="319"/>
+        <source>Calculates the %1 of an %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="167"/>
+        <source>factorial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="167"/>
+        <location filename="../evaluationengine.cpp" line="171"/>
+        <location filename="../evaluationengine.cpp" line="175"/>
+        <location filename="../evaluationengine.cpp" line="212"/>
+        <location filename="../evaluationengine.cpp" line="220"/>
+        <location filename="../evaluationengine.cpp" line="224"/>
+        <location filename="../evaluationengine.cpp" line="228"/>
+        <location filename="../evaluationengine.cpp" line="232"/>
+        <location filename="../evaluationengine.cpp" line="236"/>
+        <location filename="../evaluationengine.cpp" line="240"/>
+        <location filename="../evaluationengine.cpp" line="244"/>
+        <location filename="../evaluationengine.cpp" line="248"/>
+        <location filename="../evaluationengine.cpp" line="252"/>
+        <location filename="../evaluationengine.cpp" line="256"/>
+        <location filename="../evaluationengine.cpp" line="260"/>
+        <location filename="../evaluationengine.cpp" line="264"/>
+        <location filename="../evaluationengine.cpp" line="268"/>
+        <location filename="../evaluationengine.cpp" line="272"/>
+        <source>angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="171"/>
+        <source>sine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="175"/>
+        <source>cosine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="181"/>
         <source>tan: input (%1) out of bounds (not 90° + 180n)</source>
         <translation type="unfinished">tan: số dự kiến (%1) ở ngoài giới hạn (không phải 90° + 180n)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="153"/>
+        <location filename="../evaluationengine.cpp" line="186"/>
         <source>tan: input (%1) out of bounds (not π/2 + πn)</source>
         <translation type="unfinished">tan: số dự kiến (%1) ở ngoài giới hạn (không phải π/2 + πn)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="174"/>
+        <location filename="../evaluationengine.cpp" line="192"/>
+        <source>tangent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="196"/>
+        <source>conjugate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="196"/>
+        <location filename="../evaluationengine.cpp" line="200"/>
+        <location filename="../evaluationengine.cpp" line="204"/>
+        <source>complex number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="200"/>
+        <source>imaginary portion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="204"/>
+        <source>real portion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="207"/>
         <source>asin: input (%1) out of bounds (between -1 and 1)</source>
         <translation type="unfinished">asin: số dự kiến (%1) ở ngoài giới hạn (từ -1 đến 1)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="182"/>
+        <location filename="../evaluationengine.cpp" line="212"/>
+        <source>arcsine (inverse sine)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="212"/>
+        <source>arcsine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="215"/>
         <source>acos: input (%1) out of bounds (between -1 and 1)</source>
         <translation type="unfinished">acos: số dự kiến (%1) ở ngoài giới hạn (từ -1 đến 1)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="245"/>
+        <location filename="../evaluationengine.cpp" line="220"/>
+        <source>arccosine (inverse cosine)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="220"/>
+        <source>arccosine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="224"/>
+        <source>arctangent (inverse tangent)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="224"/>
+        <source>arctangent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="228"/>
+        <source>secant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="232"/>
+        <source>cosecant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="236"/>
+        <source>cotangent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="240"/>
+        <source>arcsecant (inverse secant)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="240"/>
+        <source>arcsecant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="244"/>
+        <source>arccosecant (inverse cosecant)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="244"/>
+        <source>arccosecant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="248"/>
+        <source>arccotangent (inverse cotangent)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="248"/>
+        <source>arccotangent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="252"/>
+        <source>hyperbolic sine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="256"/>
+        <source>hyperbolic cosine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="260"/>
+        <source>hyperbolic tangent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="264"/>
+        <source>hyperbolic arcsine (inverse hyperbolic arcsine)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="264"/>
+        <source>hyperbolic arcsine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="268"/>
+        <source>hyperbolic arccosine (inverse hyperbolic arccosine)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="268"/>
+        <source>hyperbolic arccosine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="272"/>
+        <source>hyperbolic arctangent (inverse hyperbolic arctangent)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="272"/>
+        <source>hyperbolic arctangent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="278"/>
         <source>log: input (%1) out of bounds (not 0)</source>
         <translation type="unfinished">log: số dự kiến (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="253"/>
+        <location filename="../evaluationengine.cpp" line="286"/>
         <source>log: arg1 (%1) out of bounds (not 0)</source>
         <translation type="unfinished">log: số dự kiến nhất (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="258"/>
+        <location filename="../evaluationengine.cpp" line="291"/>
         <source>log: arg2 (%1) out of bounds (not 1)</source>
         <translation type="unfinished">log: số dự kiến thứ 2 (%1) ở ngoài giới hạn (không phải 1)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="263"/>
+        <location filename="../evaluationengine.cpp" line="296"/>
         <source>log: arg2 (%1) out of bounds (not 0)</source>
         <translation type="unfinished">log: số dự kiến thứ 2 (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="269"/>
+        <location filename="../evaluationengine.cpp" line="302"/>
         <source>log: expected 1 or 2 arguments, got %1</source>
         <translation type="unfinished">log: Cần 1 hoặc 2 số dự kiến, đá nhận đươc %1</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="275"/>
+        <location filename="../evaluationengine.cpp" line="305"/>
+        <source>base 10 logarithm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="306"/>
+        <location filename="../evaluationengine.cpp" line="307"/>
+        <source>logarithm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="308"/>
+        <source>base</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="308"/>
+        <source>The base of the logarithm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="314"/>
         <source>ln: input (%1) out of bounds (not 0)</source>
         <translation type="unfinished">ln: số dự kiến (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="288"/>
+        <location filename="../evaluationengine.cpp" line="319"/>
+        <source>base e logarithm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="327"/>
         <source>lsh: arg1 (%1) not a real number</source>
         <translation type="unfinished">lsh: Số dự kiến nhất (%1) không phải số thực</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="292"/>
+        <location filename="../evaluationengine.cpp" line="331"/>
         <source>lsh: arg2 (%1) not a real number</source>
         <translation type="unfinished">lsh: Số dự kiến thứ 2 (%1) không phải số thực</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="297"/>
+        <location filename="../evaluationengine.cpp" line="336"/>
         <source>lsh: arg1 (%1) not an integer</source>
         <translation type="unfinished">lsh: Số dự kiến nhất (%1) không phải số nguyên</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="302"/>
+        <location filename="../evaluationengine.cpp" line="341"/>
         <source>lsh: arg2 (%2) not an integer</source>
         <translation type="unfinished">lsh: Số dự kiến thứ 2 (%1) không phải số nguyên</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="308"/>
+        <location filename="../evaluationengine.cpp" line="347"/>
         <source>lsh: expected 2 arguments, got %1</source>
         <translation type="unfinished">lsh: Cần 2 số dự kiến, đá nhận đươc %1</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="318"/>
+        <location filename="../evaluationengine.cpp" line="357"/>
         <source>rsh: arg1 (%1) not a real number</source>
         <translation type="unfinished">rsh: Số dự kiến nhất (%1) không phải số thực</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="322"/>
+        <location filename="../evaluationengine.cpp" line="361"/>
         <source>rsh: arg2 (%1) not a real number</source>
         <translation type="unfinished">rsh: Số dự kiến thứ 2 (%1) không phải số thực</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="327"/>
+        <location filename="../evaluationengine.cpp" line="366"/>
         <source>rsh: arg1 (%1) not an integer</source>
         <translation type="unfinished">rsh: Số dự kiến nhất (%1) không phải số nguyên</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="332"/>
+        <location filename="../evaluationengine.cpp" line="371"/>
         <source>rsh: arg2 (%2) not an integer</source>
         <translation type="unfinished">rsh: Số dự kiến thứ 2 (%1) không phải số nguyên</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="338"/>
+        <location filename="../evaluationengine.cpp" line="377"/>
         <source>rsh: expected 2 arguments, got %1</source>
         <translation type="unfinished">rsh: Cần 2 số dự kiến, đá nhận đươc %1</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="349"/>
+        <location filename="../evaluationengine.cpp" line="388"/>
         <source>pow: arg2 (%1) out of bounds for arg1 (0) (should be positive)</source>
         <translation type="unfinished">pow: số dự kiến thứ 2 (%1) ở ngoài giới hạn cho số dữ kiện nhất(0) (cần số dương)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="354"/>
+        <location filename="../evaluationengine.cpp" line="393"/>
         <source>pow: arg2 (%1) out of bounds for arg1 (0) (should be a real number)</source>
         <translation type="unfinished">pow: số dự kiến thứ 2 (%1) ở ngoài giới hạn cho số dữ kiện nhất(0) (cần số thực)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="360"/>
+        <location filename="../evaluationengine.cpp" line="399"/>
         <source>pow: expected 2 arguments, got %1</source>
         <translation type="unfinished">pow: cần 2 số dự kiến, đá nhận đươc %1</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="379"/>
-        <location filename="../evaluationengine.cpp" line="386"/>
+        <location filename="../evaluationengine.cpp" line="418"/>
+        <location filename="../evaluationengine.cpp" line="425"/>
         <source>random: arg1 (%1) not a real number</source>
         <translation type="unfinished">random: số dự kiến nhất (%1) không phải số thực</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="391"/>
+        <location filename="../evaluationengine.cpp" line="430"/>
         <source>random: arg2 (%1) not a real number</source>
         <translation type="unfinished">random: sở du nhiên thứ 2 (%1) không phải số thực</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="397"/>
+        <location filename="../evaluationengine.cpp" line="436"/>
         <source>random: expected 0, 1 or 2 arguments, got %1</source>
         <translation type="unfinished">random: cần 0, 1 hoặc 2 số dự kiến, đá nhận đươc %1</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="459"/>
-        <location filename="../evaluationengine.cpp" line="521"/>
+        <location filename="../evaluationengine.cpp" line="498"/>
+        <location filename="../evaluationengine.cpp" line="560"/>
         <source>%1: expected scalar or boolean value, got assignment</source>
         <translation type="unfinished">%1: cần số vô hướng hoặc giá trị boolean, đã nhận được phân công</translation>
     </message>
     <message numerus="yes">
-        <location filename="../evaluationengine.cpp" line="532"/>
+        <location filename="../evaluationengine.cpp" line="571"/>
         <source>%1: expected %n arguments, got %2</source>
         <translation type="unfinished">
             <numerusform>%1: Cần %n số dự kiến, đá nhận đươc %2</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="535"/>
+        <location filename="../evaluationengine.cpp" line="574"/>
         <source>or</source>
         <comment>Expected 1, 2 or 3 arguments</comment>
         <translation type="unfinished">hoặc</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="536"/>
+        <location filename="../evaluationengine.cpp" line="575"/>
         <source>%1: expected %2 arguments, got %3</source>
         <translation type="unfinished">%1: Cần %2 số dự kiến, đá nhận đươc %2</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="568"/>
+        <location filename="../evaluationengine.cpp" line="607"/>
         <source>%1: expected 1 argument, got %2</source>
         <translation type="unfinished">%1: Cần 1 số dự kiến, đá nhận đươc %2</translation>
     </message>
@@ -322,317 +630,312 @@
         <translation>theCalculator</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="172"/>
+        <location filename="../mainwindow.ui" line="247"/>
         <source>Expression...</source>
         <translation>Biểu thức...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1143"/>
+        <location filename="../mainwindow.ui" line="1218"/>
         <source>Custom Functions</source>
         <translation>Hàm số tùy chỉnh</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="827"/>
+        <location filename="../mainwindow.ui" line="902"/>
         <source>Backspace</source>
         <translation>Backspace</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="146"/>
-        <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="302"/>
+        <location filename="../mainwindow.ui" line="377"/>
         <source>Percentage</source>
         <translation>Phần trăm</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="499"/>
+        <location filename="../mainwindow.ui" line="574"/>
         <source>Cube</source>
         <translation>Lập phương</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="509"/>
+        <location filename="../mainwindow.ui" line="584"/>
         <source>Nth Root</source>
         <translation>Căn bậc</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="519"/>
+        <location filename="../mainwindow.ui" line="594"/>
         <source>Hyperbolic Arc Sine</source>
         <translation>Nghịch đảo sin hyperbol</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="529"/>
+        <location filename="../mainwindow.ui" line="604"/>
         <source>Arc Tangent</source>
         <translation>Nghịch đảo tang</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="539"/>
+        <location filename="../mainwindow.ui" line="614"/>
         <source>Cosine</source>
         <translation>Côsin</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="549"/>
+        <location filename="../mainwindow.ui" line="624"/>
         <source>Hyperbolic Tangent</source>
         <translation>Tang hyperbol</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="559"/>
+        <location filename="../mainwindow.ui" line="634"/>
         <source>Square Root</source>
         <translation>Căn bậc hai</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="569"/>
+        <location filename="../mainwindow.ui" line="644"/>
         <source>Base 10 Logarithm</source>
         <translation>Logarit cơ số 10</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="585"/>
+        <location filename="../mainwindow.ui" line="660"/>
         <source>Square</source>
         <translation>Bình phương</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="595"/>
+        <location filename="../mainwindow.ui" line="670"/>
         <source>Arc Sine</source>
         <translation>Nghịch đảo sin</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="605"/>
+        <location filename="../mainwindow.ui" line="680"/>
         <source>Hyperbolic Sine</source>
         <translation>Sin hyperbol</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="615"/>
+        <location filename="../mainwindow.ui" line="690"/>
         <source>Reciporical</source>
         <translation>Nghịch đảo</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="631"/>
+        <location filename="../mainwindow.ui" line="706"/>
         <source>Raise to a power</source>
         <translation>Lũy thừa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="641"/>
+        <location filename="../mainwindow.ui" line="716"/>
         <source>Factorial</source>
         <translation>Giai thừa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="661"/>
+        <location filename="../mainwindow.ui" line="736"/>
         <source>Sine</source>
         <translation>Sin</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="671"/>
+        <location filename="../mainwindow.ui" line="746"/>
         <source>Arc Cosine</source>
         <translation>Nghịch đảo côsin</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="681"/>
+        <location filename="../mainwindow.ui" line="756"/>
         <source>Absolute</source>
         <translation>Giá trị tuyệt đối</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="691"/>
+        <location filename="../mainwindow.ui" line="766"/>
         <source>Secant</source>
         <translation>Sec</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="701"/>
+        <location filename="../mainwindow.ui" line="776"/>
         <source>Hyperbolic Cosine</source>
         <translation>Côsin hyperbol</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="711"/>
+        <location filename="../mainwindow.ui" line="786"/>
         <source>Hyperbolic Arc Tangent</source>
         <translation>Nghịch đảo tang hyperbol</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="721"/>
+        <location filename="../mainwindow.ui" line="796"/>
         <source>Natural Logarithm</source>
         <translation>Logarit tự nhiên</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="731"/>
+        <location filename="../mainwindow.ui" line="806"/>
         <source>Tangent</source>
         <translation>Tang</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="741"/>
+        <location filename="../mainwindow.ui" line="816"/>
         <source>Cube Root</source>
         <translation>Căn bậc ba</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="751"/>
+        <location filename="../mainwindow.ui" line="826"/>
         <source>Hyperbolic Arc Cosine</source>
         <translation>Nghịch đảo côsin hyperbol</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="761"/>
+        <location filename="../mainwindow.ui" line="836"/>
         <source>Cosecant</source>
         <translation>Côsec</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="771"/>
+        <location filename="../mainwindow.ui" line="846"/>
         <source>Cotangent</source>
         <translation>Côtang</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="781"/>
+        <location filename="../mainwindow.ui" line="856"/>
         <source>Arc Secant</source>
         <translation>Nghịch đảo sec</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="791"/>
+        <location filename="../mainwindow.ui" line="866"/>
         <source>Arc Cosecant</source>
         <translation>Nghịch đảo côsec</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="801"/>
+        <location filename="../mainwindow.ui" line="876"/>
         <source>Arc Cotangent</source>
         <translation>Nghịch đảo côtang</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1488"/>
+        <location filename="../mainwindow.ui" line="1563"/>
         <source>&amp;File Bug</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1497"/>
+        <location filename="../mainwindow.ui" line="1572"/>
         <source>&amp;Sources</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="369"/>
+        <location filename="../mainwindow.ui" line="444"/>
         <source>Euler&apos;s Constant</source>
         <translation>Số Euler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="318"/>
+        <location filename="../mainwindow.ui" line="393"/>
         <source>Add</source>
         <translation>Cộng</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="391"/>
+        <location filename="../mainwindow.ui" line="466"/>
         <source>Clear</source>
         <translation>Xóa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1049"/>
+        <location filename="../mainwindow.ui" line="1124"/>
         <source>Evaluate</source>
         <translation>Tính</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="407"/>
+        <location filename="../mainwindow.ui" line="482"/>
         <source>Imaginary Unit</source>
         <translation>Đơn vị ảo</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="888"/>
+        <location filename="../mainwindow.ui" line="963"/>
         <source>Left Shift</source>
         <translation>Dịch trái</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="334"/>
+        <location filename="../mainwindow.ui" line="409"/>
         <source>Multiply</source>
         <translation>Nhân</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1013"/>
+        <location filename="../mainwindow.ui" line="1088"/>
         <source>Divide</source>
         <translation>Chia</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="936"/>
+        <location filename="../mainwindow.ui" line="1011"/>
         <source>Functions</source>
         <translation>Hàm số</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="251"/>
+        <location filename="../mainwindow.ui" line="326"/>
         <source>Pi</source>
         <translation>Số Pi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1029"/>
+        <location filename="../mainwindow.ui" line="1104"/>
         <source>Extended Palette</source>
         <translation>Mở rộng</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="991"/>
+        <location filename="../mainwindow.ui" line="1066"/>
         <source>Subtract</source>
         <translation>Trừ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="280"/>
+        <location filename="../mainwindow.ui" line="355"/>
         <source>Right Shift</source>
         <translation>Dịch phải</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="423"/>
+        <location filename="../mainwindow.ui" line="498"/>
         <source>Previous Answer</source>
         <translation>Biểu thức tính trước</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1250"/>
+        <location filename="../mainwindow.ui" line="1325"/>
         <source>Add Custom Function</source>
         <translation>Thêm hàm số tùy chỉnh</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1315"/>
+        <location filename="../mainwindow.ui" line="1390"/>
         <source>Function Name</source>
         <translation>Tên hàm số</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1373"/>
+        <location filename="../mainwindow.ui" line="1448"/>
         <source>Add New Overload</source>
         <translation>Thêm quá tải</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1404"/>
+        <location filename="../mainwindow.ui" line="1479"/>
         <source>Fi&amp;le</source>
         <translation>&amp;Tệp</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1410"/>
+        <location filename="../mainwindow.ui" line="1485"/>
         <source>Tri&amp;gonometry</source>
         <translation>&amp;Lượng giác</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1417"/>
+        <location filename="../mainwindow.ui" line="1492"/>
         <source>Help</source>
         <translation>Trợ giúp</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1436"/>
+        <location filename="../mainwindow.ui" line="1511"/>
         <source>&amp;Exit</source>
         <translation>&amp;Thoát</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1439"/>
+        <location filename="../mainwindow.ui" line="1514"/>
         <source>Ctrl+Q</source>
         <translation>CTRL+Q</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1450"/>
+        <location filename="../mainwindow.ui" line="1525"/>
         <source>&amp;Degrees</source>
         <translation>Đơn vị &amp;độ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1458"/>
+        <location filename="../mainwindow.ui" line="1533"/>
         <source>&amp;Radians</source>
         <translation>Đơn vị &amp;rađian</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1467"/>
+        <location filename="../mainwindow.ui" line="1542"/>
         <source>&amp;About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1476"/>
+        <location filename="../mainwindow.ui" line="1551"/>
         <source>&amp;theCalculator Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1479"/>
+        <location filename="../mainwindow.ui" line="1554"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
@@ -691,6 +994,16 @@
         <translation>
             <numerusform>Chỉ một quá tải được có %n hàm số</numerusform>
         </translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="542"/>
+        <source>function</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="552"/>
+        <source>No arguments</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

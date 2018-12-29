@@ -481,19 +481,24 @@ void MainWindow::on_expressionBox_cursorPositionChanged(int arg1, int arg2)
 
     //Select the appropriate match
     QStack<QString> matchSelector;
+    QStack<int> matchPositions;
     QChar lastChar = ' ';
-    for (QChar c : relevantText) {
+    for (int i = 0; i < relevantText.count(); i++) {
+        QChar c = relevantText.at(i);
         if (c == '(') {
             if (matchIterator.hasNext() && QRegularExpression("\\w").match(lastChar).hasMatch()) {
                 QRegularExpressionMatch m = matchIterator.next();
                 matchSelector.push(m.captured());
+                matchPositions.push(m.capturedEnd());
             } else {
                 //Push an empty string so it will be popped when it finds )
                 matchSelector.push("");
+                matchPositions.push(i);
             }
         } else if (c == ')') {
             if (!matchSelector.isEmpty()) {
                 matchSelector.pop();
+                matchPositions.pop();
                 //Otherwise we'll continue and try to get the function anyway
             }
         }
@@ -506,12 +511,65 @@ void MainWindow::on_expressionBox_cursorPositionChanged(int arg1, int arg2)
     if (!matchSelector.isEmpty()) {
         //We're currently in a function definition
         QString currentFunction = matchSelector.pop();
+        int currentPosition = matchPositions.pop();
         while (currentFunction == "" && !matchSelector.isEmpty()) {
             currentFunction = matchSelector.pop();
+            currentPosition = matchPositions.pop();
         }
 
         if (EvaluationEngine::customFunctions.contains(currentFunction)) {
-            ui->label_4->setText(currentFunction + " : function");
+            //Figure out the current argument
+            int currentArgument = 0;
+            int bracketCount = -1;
+            for (int i = currentPosition; i < relevantText.count(); i++) {
+                QChar c = relevantText.at(i);
+                if (c == '(') {
+                    bracketCount++;
+                } else if (c == ')') {
+                    bracketCount--;
+                    if (bracketCount < 0) break; //Too many closing brackets
+                } else if (c == ',') {
+                    if (bracketCount == 0) currentArgument++;
+                }
+            }
+
+            CustomFunction fn = EvaluationEngine::customFunctions.value(currentFunction);
+            if (currentFunctionHelp != currentFunction) {
+                currentOverload = 0;
+                currentFunctionHelp = currentFunction;
+                numOverloads = fn.overloads();
+            }
+            ui->funHelpName->setText(currentFunction + " : " + tr("function"));
+
+            int usedOverload = currentOverload;
+            if (fn.getArgs(usedOverload).count() <= currentArgument && usedOverload + 1 < numOverloads) {
+                usedOverload++;
+            }
+            ui->funHelpDesc->setText(fn.getDescription(usedOverload));
+
+            QStringList args = fn.getArgs(usedOverload);
+            if (args.count() == 0) {
+                ui->funHelpArgs->setText(tr("No arguments"));
+            } else {
+                QStringList argList;
+                for (int i = 0; i < args.count(); i++) {
+                    QString arg = args.at(i);
+                    QString argName = arg.left(arg.indexOf(":"));
+                    QString argDesc = arg.mid(arg.indexOf(":") + 1);
+
+                    if (currentArgument == i) {
+                        argList.append("<b>" + argName + ": " + argDesc + "</b>");
+                    } else {
+                        argList.append(argName);
+                    }
+                }
+
+                ui->funHelpArgs->setText(argList.join(" · "));
+            }
+
+            ui->funHelpOverloads->setText(QString::number(usedOverload + 1) + "/" + QString::number(numOverloads));
+            currentOverload = usedOverload;
+
             anim->setEndValue(ui->helpWidget->sizeHint().height());
         }
     }
@@ -522,4 +580,24 @@ void MainWindow::on_expressionBox_cursorPositionChanged(int arg1, int arg2)
     });
     connect(anim, &tVariantAnimation::finished, anim, &tVariantAnimation::deleteLater);
     anim->start();
+
+    if (anim->endValue() == 0) {
+        currentFunctionHelp = "";
+    }
+}
+
+void MainWindow::on_nextOverload_clicked()
+{
+    if (currentOverload + 1 != numOverloads) {
+        currentOverload++;
+        on_expressionBox_cursorPositionChanged(ui->expressionBox->cursorPosition(), ui->expressionBox->cursorPosition());
+    }
+}
+
+void MainWindow::on_previousOverload_clicked()
+{
+    if (currentOverload != 0) {
+        currentOverload--;
+        on_expressionBox_cursorPositionChanged(ui->expressionBox->cursorPosition(), ui->expressionBox->cursorPosition());
+    }
 }

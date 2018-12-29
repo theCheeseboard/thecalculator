@@ -6,16 +6,23 @@
 #include <tpromise.h>
 #include "evaluationengineheaders.h"
 
+class CustomFunctionPrivate;
 typedef std::function<idouble(QList<idouble>,QString&)> CustomFunctionDefinition;
 class CustomFunction {
     public:
         CustomFunction();
         CustomFunction(CustomFunctionDefinition function);
+        CustomFunction(CustomFunctionDefinition function, QString desc, QStringList args);
 
         CustomFunctionDefinition getFunction() const;
+        QString getDescription(int overload = 0) const;
+        QStringList getArgs(int overload = 0) const;
+
+        void addOverload(QString desc, QStringList args);
+        int overloads();
 
     private:
-        CustomFunctionDefinition fn;
+        QSharedPointer<CustomFunctionPrivate> d;
 };
 
 typedef QMap<QString, CustomFunction> CustomFunctionMap;
@@ -33,7 +40,7 @@ class EvaluationEngine : public QObject
         };
 
         static void setupFunctions();
-        static std::function<idouble(QList<idouble>,QString&)> createSingleArgFunction(std::function<idouble(idouble, QString&)> fn, QString fnName);
+        static CustomFunction createSingleArgFunction(std::function<idouble(idouble, QString&)> fn, QString fnName, QString fnDesc = "", QString argName = "", QString argDesc = "");
 
         static CustomFunctionMap customFunctions;
 
