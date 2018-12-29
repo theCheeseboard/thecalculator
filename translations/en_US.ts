@@ -139,177 +139,177 @@
 <context>
     <name>EvaluationEngine</name>
     <message>
-        <location filename="../evaluationengine.cpp" line="40"/>
+        <location filename="../evaluationengine.cpp" line="52"/>
         <source>Stack Overflow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="112"/>
+        <location filename="../evaluationengine.cpp" line="124"/>
         <source>fact: input (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="115"/>
+        <location filename="../evaluationengine.cpp" line="127"/>
         <source>fact: input (%1) out of bounds (0 and above)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="136"/>
+        <location filename="../evaluationengine.cpp" line="148"/>
         <source>tan: input (%1) out of bounds (not 90° + 180n)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="141"/>
+        <location filename="../evaluationengine.cpp" line="153"/>
         <source>tan: input (%1) out of bounds (not π/2 + πn)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="162"/>
+        <location filename="../evaluationengine.cpp" line="174"/>
         <source>asin: input (%1) out of bounds (between -1 and 1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="170"/>
+        <location filename="../evaluationengine.cpp" line="182"/>
         <source>acos: input (%1) out of bounds (between -1 and 1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="233"/>
+        <location filename="../evaluationengine.cpp" line="245"/>
         <source>log: input (%1) out of bounds (not 0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="241"/>
+        <location filename="../evaluationengine.cpp" line="253"/>
         <source>log: arg1 (%1) out of bounds (not 0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="246"/>
+        <location filename="../evaluationengine.cpp" line="258"/>
         <source>log: arg2 (%1) out of bounds (not 1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="251"/>
+        <location filename="../evaluationengine.cpp" line="263"/>
         <source>log: arg2 (%1) out of bounds (not 0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="257"/>
+        <location filename="../evaluationengine.cpp" line="269"/>
         <source>log: expected 1 or 2 arguments, got %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="263"/>
+        <location filename="../evaluationengine.cpp" line="275"/>
         <source>ln: input (%1) out of bounds (not 0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="276"/>
+        <location filename="../evaluationengine.cpp" line="288"/>
         <source>lsh: arg1 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="280"/>
+        <location filename="../evaluationengine.cpp" line="292"/>
         <source>lsh: arg2 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="285"/>
+        <location filename="../evaluationengine.cpp" line="297"/>
         <source>lsh: arg1 (%1) not an integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="290"/>
+        <location filename="../evaluationengine.cpp" line="302"/>
         <source>lsh: arg2 (%2) not an integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="296"/>
+        <location filename="../evaluationengine.cpp" line="308"/>
         <source>lsh: expected 2 arguments, got %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="306"/>
+        <location filename="../evaluationengine.cpp" line="318"/>
         <source>rsh: arg1 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="310"/>
+        <location filename="../evaluationengine.cpp" line="322"/>
         <source>rsh: arg2 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="315"/>
+        <location filename="../evaluationengine.cpp" line="327"/>
         <source>rsh: arg1 (%1) not an integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="320"/>
+        <location filename="../evaluationengine.cpp" line="332"/>
         <source>rsh: arg2 (%2) not an integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="326"/>
+        <location filename="../evaluationengine.cpp" line="338"/>
         <source>rsh: expected 2 arguments, got %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="337"/>
+        <location filename="../evaluationengine.cpp" line="349"/>
         <source>pow: arg2 (%1) out of bounds for arg1 (0) (should be positive)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="342"/>
+        <location filename="../evaluationengine.cpp" line="354"/>
         <source>pow: arg2 (%1) out of bounds for arg1 (0) (should be a real number)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="348"/>
+        <location filename="../evaluationengine.cpp" line="360"/>
         <source>pow: expected 2 arguments, got %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="367"/>
-        <location filename="../evaluationengine.cpp" line="374"/>
+        <location filename="../evaluationengine.cpp" line="379"/>
+        <location filename="../evaluationengine.cpp" line="386"/>
         <source>random: arg1 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="379"/>
+        <location filename="../evaluationengine.cpp" line="391"/>
         <source>random: arg2 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="385"/>
+        <location filename="../evaluationengine.cpp" line="397"/>
         <source>random: expected 0, 1 or 2 arguments, got %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="447"/>
-        <location filename="../evaluationengine.cpp" line="509"/>
+        <location filename="../evaluationengine.cpp" line="459"/>
+        <location filename="../evaluationengine.cpp" line="521"/>
         <source>%1: expected scalar or boolean value, got assignment</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../evaluationengine.cpp" line="520"/>
+        <location filename="../evaluationengine.cpp" line="532"/>
         <source>%1: expected %n arguments, got %2</source>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="523"/>
+        <location filename="../evaluationengine.cpp" line="535"/>
         <source>or</source>
         <comment>Expected 1, 2 or 3 arguments</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="524"/>
+        <location filename="../evaluationengine.cpp" line="536"/>
         <source>%1: expected %2 arguments, got %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="556"/>
+        <location filename="../evaluationengine.cpp" line="568"/>
         <source>%1: expected 1 argument, got %2</source>
         <translation type="unfinished"></translation>
     </message>

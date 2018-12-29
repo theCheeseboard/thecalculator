@@ -14,6 +14,18 @@ CustomFunctionMap EvaluationEngine::customFunctions = CustomFunctionMap();
 
 extern QString idbToString(idouble db);
 
+CustomFunction::CustomFunction() {
+
+}
+
+CustomFunction::CustomFunction(CustomFunctionDefinition fn) {
+    this->fn = fn;
+}
+
+CustomFunctionDefinition CustomFunction::getFunction() const {
+    return this->fn;
+}
+
 EvaluationEngine::EvaluationEngine(QObject *parent) : QObject(parent)
 {
 
@@ -226,7 +238,7 @@ void EvaluationEngine::setupFunctions() {
         return atanh(arg);
     }, "atanh"));
 
-    customFunctions.insert("log", [=](QList<idouble> args, QString& error) -> idouble {
+    customFunctions.insert("log", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() == 1) {
             //log base 10
             if (args.first().real() == 0 && args.first().imag() == 0) {
@@ -257,7 +269,7 @@ void EvaluationEngine::setupFunctions() {
             error = tr("log: expected 1 or 2 arguments, got %1").arg(args.length());
             return 0;
         }
-    });
+    }));
     customFunctions.insert("ln", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         if (arg.real() == 0 && arg.imag() == 0) {
             error = tr("ln: input (%1) out of bounds (not 0)").arg(idbToString(arg));
@@ -267,7 +279,7 @@ void EvaluationEngine::setupFunctions() {
         return log(arg);
     }, "ln"));
 
-    customFunctions.insert("lsh", [=](QList<idouble> args, QString& error) -> idouble {
+    customFunctions.insert("lsh", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() == 2) {
             idouble first = args.first();
             idouble second = args.at(1);
@@ -296,8 +308,8 @@ void EvaluationEngine::setupFunctions() {
             error = tr("lsh: expected 2 arguments, got %1").arg(args.length());
             return 0;
         }
-    });
-    customFunctions.insert("rsh", [=](QList<idouble> args, QString& error) -> idouble {
+    }));
+    customFunctions.insert("rsh", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() == 2) {
             idouble first = args.first();
             idouble second = args.at(1);
@@ -326,8 +338,8 @@ void EvaluationEngine::setupFunctions() {
             error = tr("rsh: expected 2 arguments, got %1").arg(args.length());
             return 0;
         }
-    });
-    customFunctions.insert("pow", [=](QList<idouble> args, QString& error) -> idouble {
+    }));
+    customFunctions.insert("pow", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() == 2) {
             idouble first = args.first();
             idouble second = args.at(1);
@@ -348,7 +360,7 @@ void EvaluationEngine::setupFunctions() {
             error = tr("pow: expected 2 arguments, got %1").arg(args.length());
             return 0;
         }
-    });
+    }));
 
     customFunctions.insert("floor", createSingleArgFunction([=](idouble arg, QString& error) {
         return floor(arg.real());
@@ -357,7 +369,7 @@ void EvaluationEngine::setupFunctions() {
         return ceil(arg.real());
     }, "ceil"));
 
-    customFunctions.insert("random", [=](QList<idouble> args, QString& error) -> idouble {
+    customFunctions.insert("random", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
         QRandomGenerator gen;
 
         if (args.length() == 0) {
@@ -385,7 +397,7 @@ void EvaluationEngine::setupFunctions() {
             error = tr("random: expected 0, 1 or 2 arguments, got %1").arg(args.length());
             return 0;
         }
-    });
+    }));
 
     //Set up all the custom functions
     QSettings settings;
@@ -394,7 +406,7 @@ void EvaluationEngine::setupFunctions() {
         QJsonDocument doc = QJsonDocument::fromBinaryData(settings.value(function).toByteArray());
         if (doc.isObject()) {
             QJsonObject obj = doc.object();
-            customFunctions.insert(function, [=](QList<idouble> args, QString& error) -> idouble {
+            customFunctions.insert(function, CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
                 QStringList argCounts;
                 EvaluationEngine engine;
                 QMap<QString, idouble> variables;
@@ -525,7 +537,7 @@ void EvaluationEngine::setupFunctions() {
                 }
 
                 return 0;
-            });
+            }));
         }
     }
     settings.endGroup();

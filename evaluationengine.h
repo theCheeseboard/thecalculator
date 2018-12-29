@@ -6,7 +6,19 @@
 #include <tpromise.h>
 #include "evaluationengineheaders.h"
 
-typedef QMap<QString, std::function<idouble(QList<idouble>,QString&)>> CustomFunctionMap;
+typedef std::function<idouble(QList<idouble>,QString&)> CustomFunctionDefinition;
+class CustomFunction {
+    public:
+        CustomFunction();
+        CustomFunction(CustomFunctionDefinition function);
+
+        CustomFunctionDefinition getFunction() const;
+
+    private:
+        CustomFunctionDefinition fn;
+};
+
+typedef QMap<QString, CustomFunction> CustomFunctionMap;
 
 class EvaluationEngine : public QObject
 {

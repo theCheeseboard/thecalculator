@@ -14,7 +14,7 @@ idouble callFunction(QString name, QList<idouble> args, QString& error) {
         error = QApplication::translate("parser", "%1: undefined function").arg(name);
         return 0;
     } else {
-        return EvaluationEngine::customFunctions.value(name)(args, error);
+        return EvaluationEngine::customFunctions.value(name).getFunction()(args, error);
     }
 }
 
