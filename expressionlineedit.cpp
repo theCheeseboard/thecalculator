@@ -38,9 +38,9 @@ void ExpressionLineEdit::keyPressEvent(QKeyEvent *event) {
             case Qt::Key_R: this->insert("√"); break;
             default: QLineEdit::keyPressEvent(event);
         }
-    } else {
+    } else if (this->cursorPosition() != 0) {
+        QChar charBefore = this->text().at(this->cursorPosition() - 1);
         if (event->text() == "=") {
-            QChar charBefore = this->text().at(this->cursorPosition() - 1);
             if (charBefore == '>') {
                 //Change into greater than or equal to sign
                 this->backspace();
@@ -52,6 +52,13 @@ void ExpressionLineEdit::keyPressEvent(QKeyEvent *event) {
                 this->insert("≤");
                 return; //Don't do the normal stuff
             } else if (charBefore == '!') {
+                //Change into not equal to sign
+                this->backspace();
+                this->insert("≠");
+                return; //Don't do the normal stuff
+            }
+        } else if (event->text() == "/") {
+            if (charBefore == '=') {
                 //Change into not equal to sign
                 this->backspace();
                 this->insert("≠");

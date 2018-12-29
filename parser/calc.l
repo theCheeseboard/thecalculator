@@ -1,10 +1,7 @@
 %{
 #include <QString>
 #include <qmath.h>
-#include <complex>
-#include <functional>
-typedef std::complex<long double> idouble;
-
+#include "evaluationengineheaders.h"
 #include "calc.bison.hpp"
 %}
 

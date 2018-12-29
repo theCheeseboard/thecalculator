@@ -110,27 +110,32 @@ int main(int argc, char *argv[])
         MainWin->show();
         return a->exec();
     } else {
-        explicitEvaluation = true;
+        EvaluationEngine engine;
         QList<QPair<QString, QString>> outputs;
         QMap<QString, idouble> variables;
         for (QString e : parser.value(expressionOption).split(":")) {
             e = e.remove(" "); //Remove all spaces
 
-            EvaluationEngine::Result* res;
-            QEventLoop* loop = new QEventLoop;
-            EvaluationEngine::evaluate(e, variables)->then([=, &res](EvaluationEngine::Result r) {
-                res = new EvaluationEngine::Result(r);
-                loop->quit();
-            });
-            loop->exec();
-            loop->deleteLater();
+            engine.setExpression(e);
+            engine.setVariables(variables);
+            EvaluationEngine::Result res = engine.evaluate();
 
-            if (resSuccess && !res->assigned) {
-                outputs.append(QPair<QString, QString>(e, idbToString(res->result)));
-            } else if (!resSuccess) {
-                outputs.append(QPair<QString, QString>(e, res->error));
-                break;
+            switch (res.type) {
+                case EvaluationEngine::Result::Scalar:
+                    outputs.append(QPair<QString, QString>(e, idbToString(res.result)));
+                    break;
+                case EvaluationEngine::Result::Equality:
+                    outputs.append(QPair<QString, QString>(e, res.isTrue ? QApplication::translate("MainWindow", "TRUE") : QApplication::translate("MainWindow", "FALSE")));
+                    break;
+                case EvaluationEngine::Result::Assign:
+                    variables.insert(res.identifier, res.value);
+                    break;
+                case EvaluationEngine::Result::Error:
+                    outputs.append(QPair<QString, QString>(e, res.error));
+                    break;
             }
+
+            if (res.type == EvaluationEngine::Result::Error) break; //Abort calculations here
         }
 
         QTextStream out(stdout);

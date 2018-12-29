@@ -58,7 +58,8 @@ HEADERS += \
     customs/branchbox.h \
     customs/conditionbox.h \
     expressionlineedit.h \
-    evaluationengine.h
+    evaluationengine.h \
+    evaluationengineheaders.h
 
 FORMS += \
         mainwindow.ui \

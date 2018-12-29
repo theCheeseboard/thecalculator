@@ -2,11 +2,8 @@
 //Include headers
 #include <QString>
 #include <cstdio>
-#include <complex>
-#include <functional>
 #include "mainwindow.h"
-#include "calc.yy.h"
-#include "evaluationengine.h"
+#include "evaluationengineheaders.h"
 
 extern MainWindow* MainWin;
 extern QMap<QString, std::function<idouble(QList<idouble>,QString&)>> customFunctions;

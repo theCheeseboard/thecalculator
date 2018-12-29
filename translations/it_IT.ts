@@ -32,11 +32,6 @@
 <context>
     <name>BranchBox</name>
     <message>
-        <location filename="../customs/branchbox.ui" line="14"/>
-        <source>Frame</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../customs/branchbox.ui" line="59"/>
         <source>RETURN</source>
         <translation type="unfinished"></translation>
@@ -85,11 +80,6 @@
 </context>
 <context>
     <name>ConditionBox</name>
-    <message>
-        <location filename="../customs/conditionbox.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="33"/>
         <source>WHEN</source>
@@ -143,6 +133,14 @@
     <message>
         <location filename="../customs/conditionbox.cpp" line="44"/>
         <source>An expression is required for this condition</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EvaluationEngine</name>
+    <message>
+        <location filename="../evaluationengine.cpp" line="33"/>
+        <source>Stack Overflow</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -319,6 +317,26 @@
         <translation>Arcocotangente</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="1375"/>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1384"/>
+        <source>theCalculator Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1396"/>
+        <source>File Bug</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1405"/>
+        <source>Sources</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="269"/>
         <source>Euler&apos;s Constant</source>
         <translation>Costante di Eulero</translation>
@@ -437,26 +455,6 @@
         <location filename="../mainwindow.ui" line="1366"/>
         <source>&amp;Radians</source>
         <translation>Radianti</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="1375"/>
-        <source>&amp;About</source>
-        <translation>Informazioni su</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="1384"/>
-        <source>&amp;theCalculator Help</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="1396"/>
-        <source>&amp;File Bug</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="1405"/>
-        <source>&amp;Sources</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1387"/>
@@ -635,12 +633,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../main.cpp" line="128"/>
         <location filename="../mainwindow.cpp" line="179"/>
         <location filename="../mainwindow.cpp" line="842"/>
         <source>TRUE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../main.cpp" line="128"/>
         <location filename="../mainwindow.cpp" line="179"/>
         <location filename="../mainwindow.cpp" line="842"/>
         <source>FALSE</source>
@@ -695,11 +695,6 @@
 <context>
     <name>OverloadBox</name>
     <message>
-        <location filename="../customs/overloadbox.ui" line="14"/>
-        <source>Frame</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../customs/overloadbox.ui" line="28"/>
         <source>Arguments</source>
         <translation type="unfinished"></translation>
@@ -747,7 +742,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="138"/>
+        <location filename="../main.cpp" line="143"/>
         <source>Nothing to evaluate</source>
         <translation type="unfinished"></translation>
     </message>

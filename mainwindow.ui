@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>779</width>
-    <height>242</height>
+    <height>478</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -380,7 +380,7 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>240</width>
+                <width>244</width>
                 <height>250</height>
                </rect>
               </property>
@@ -1372,7 +1372,7 @@
      <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>&amp;About</string>
+    <string>About</string>
    </property>
   </action>
   <action name="actionTheCalculatorHelp">
@@ -1381,7 +1381,7 @@
      <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>&amp;theCalculator Help</string>
+    <string>theCalculator Help</string>
    </property>
    <property name="shortcut">
     <string>F1</string>
@@ -1393,7 +1393,7 @@
      <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>&amp;File Bug</string>
+    <string>File Bug</string>
    </property>
   </action>
   <action name="actionSources">
@@ -1402,7 +1402,7 @@
      <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>&amp;Sources</string>
+    <string>Sources</string>
    </property>
   </action>
  </widget>

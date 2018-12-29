@@ -32,11 +32,6 @@
 <context>
     <name>BranchBox</name>
     <message>
-        <location filename="../customs/branchbox.ui" line="14"/>
-        <source>Frame</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../customs/branchbox.ui" line="59"/>
         <source>RETURN</source>
         <translation>CÂU TRẢ LỜI</translation>
@@ -85,11 +80,6 @@
 </context>
 <context>
     <name>ConditionBox</name>
-    <message>
-        <location filename="../customs/conditionbox.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="33"/>
         <source>WHEN</source>
@@ -144,6 +134,14 @@
         <location filename="../customs/conditionbox.cpp" line="44"/>
         <source>An expression is required for this condition</source>
         <translation>Một biểu thức là bắt buộc cho điều kiện này</translation>
+    </message>
+</context>
+<context>
+    <name>EvaluationEngine</name>
+    <message>
+        <location filename="../evaluationengine.cpp" line="33"/>
+        <source>Stack Overflow</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -319,6 +317,26 @@
         <translation>Nghịch đảo côtang</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="1375"/>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1384"/>
+        <source>theCalculator Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1396"/>
+        <source>File Bug</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1405"/>
+        <source>Sources</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="269"/>
         <source>Euler&apos;s Constant</source>
         <translation>Số Euler</translation>
@@ -437,26 +455,6 @@
         <location filename="../mainwindow.ui" line="1366"/>
         <source>&amp;Radians</source>
         <translation>Đơn vị &amp;rađian</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="1375"/>
-        <source>&amp;About</source>
-        <translation>&amp;Giới thiệu</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="1384"/>
-        <source>&amp;theCalculator Help</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="1396"/>
-        <source>&amp;File Bug</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="1405"/>
-        <source>&amp;Sources</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1387"/>
@@ -612,8 +610,10 @@
     <message numerus="yes">
         <location filename="../mainwindow.cpp" line="649"/>
         <source>%1: expected %n arguments, got %2</source>
-        <translation><numerusform>%1: Cần %n số dự kiến, đá nhận đươc %2</numerusform>
-        </translation></message>
+        <translation>
+            <numerusform>%1: Cần %n số dự kiến, đá nhận đươc %2</numerusform>
+        </translation>
+    </message>
     <message>
         <location filename="../mainwindow.cpp" line="652"/>
         <source>or</source>
@@ -632,12 +632,14 @@
         <translation>%1 được gán cho %2</translation>
     </message>
     <message>
+        <location filename="../main.cpp" line="128"/>
         <location filename="../mainwindow.cpp" line="179"/>
         <location filename="../mainwindow.cpp" line="842"/>
         <source>TRUE</source>
         <translation>THẬT</translation>
     </message>
     <message>
+        <location filename="../main.cpp" line="128"/>
         <location filename="../mainwindow.cpp" line="179"/>
         <location filename="../mainwindow.cpp" line="842"/>
         <source>FALSE</source>
@@ -683,16 +685,13 @@
     <message numerus="yes">
         <location filename="../mainwindow.cpp" line="876"/>
         <source>Only one overload can have %n arguments</source>
-        <translation><numerusform>Chỉ một quá tải được có %n hàm số</numerusform>
-        </translation></message>
+        <translation>
+            <numerusform>Chỉ một quá tải được có %n hàm số</numerusform>
+        </translation>
+    </message>
 </context>
 <context>
     <name>OverloadBox</name>
-    <message>
-        <location filename="../customs/overloadbox.ui" line="14"/>
-        <source>Frame</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../customs/overloadbox.ui" line="28"/>
         <source>Arguments</source>
@@ -712,8 +711,10 @@
         <location filename="../customs/overloadbox.cpp" line="35"/>
         <location filename="../customs/overloadbox.cpp" line="118"/>
         <source>Argument %n Name</source>
-        <translation><numerusform>Tên hàm số %n</numerusform>
-        </translation></message>
+        <translation>
+            <numerusform>Tên hàm số %n</numerusform>
+        </translation>
+    </message>
     <message>
         <location filename="../customs/overloadbox.cpp" line="70"/>
         <source>Overload Arguments</source>
@@ -738,7 +739,7 @@
         <translation>biểu thức</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="138"/>
+        <location filename="../main.cpp" line="143"/>
         <source>Nothing to evaluate</source>
         <translation>Không có gì để tính</translation>
     </message>

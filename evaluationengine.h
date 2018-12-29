@@ -4,18 +4,7 @@
 #include <QObject>
 #include <complex>
 #include <tpromise.h>
-typedef void* yyscan_t;
-
-typedef std::complex<long double> idouble;
-
-struct EvaluationEngineParameters {
-    yyscan_t scanner;
-    std::function<void(idouble)> resultFunction;
-    std::function <void(const char*)> errorFunction;
-    std::function<void(QString, idouble)> assignFunction;
-    std::function<void(bool)> equalityFunction;
-    QMap<QString, idouble> variables;
-};
+#include "evaluationengineheaders.h"
 
 
 class EvaluationEngine : public QObject
@@ -23,6 +12,7 @@ class EvaluationEngine : public QObject
         Q_OBJECT
     public:
         explicit EvaluationEngine(QObject *parent = nullptr);
+        ~EvaluationEngine();
 
         struct Result {
             enum ResultType {
@@ -57,6 +47,9 @@ class EvaluationEngine : public QObject
     private:
         QString expression;
         QMap<QString, idouble> variables;
+
+        static int runningEngines;
+        static QMutex* runningEnginesLocker;
 };
 
 #endif // EVALUATIONENGINE_H
