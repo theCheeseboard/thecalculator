@@ -4,19 +4,17 @@
 #include <cstdio>
 #include "mainwindow.h"
 #include "evaluationengineheaders.h"
+#include "evaluationengine.h"
 
 extern MainWindow* MainWin;
-extern QMap<QString, std::function<idouble(QList<idouble>,QString&)>> customFunctions;
-extern bool explicitEvaluation;
-extern bool resSuccess;
 
 idouble callFunction(QString name, QList<idouble> args, QString& error) {
     //qDebug() << "Calling function:" << name << "with arguments" << args;
-    if (!customFunctions.contains(name)) {
+    if (!EvaluationEngine::customFunctions.contains(name)) {
         error = QApplication::translate("parser", "%1: undefined function").arg(name);
         return 0;
     } else {
-        return customFunctions.value(name)(args, error);
+        return EvaluationEngine::customFunctions.value(name)(args, error);
     }
 }
 
@@ -105,12 +103,10 @@ double absArg(idouble n) {
 
 %%
 line: expression EOL {
-          resSuccess = true;
           p.resultFunction(*$1);
     }
 |   IDENTIFIER ASSIGNMENT expression EOL { p.assignFunction(*$1, *$3); }
 |   truefalse EOL {
-        resSuccess = true;
         p.equalityFunction(*$1);
 }
 
@@ -196,7 +192,5 @@ function: IDENTIFIER LBRACKET arguments RBRACKET {CALL_MAINWINDOW_FUNCTION(*$1, 
 %%
 
 void yyerror(yyscan_t scanner, EvaluationEngineParameters p, const char* s) {
-    resSuccess = false;
-
     p.errorFunction(s);
 }

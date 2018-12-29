@@ -6,6 +6,7 @@
 #include <tpromise.h>
 #include "evaluationengineheaders.h"
 
+typedef QMap<QString, std::function<idouble(QList<idouble>,QString&)>> CustomFunctionMap;
 
 class EvaluationEngine : public QObject
 {
@@ -13,6 +14,16 @@ class EvaluationEngine : public QObject
     public:
         explicit EvaluationEngine(QObject *parent = nullptr);
         ~EvaluationEngine();
+
+        enum TrigonometricUnit {
+            Degrees,
+            Radians
+        };
+
+        static void setupFunctions();
+        static std::function<idouble(QList<idouble>,QString&)> createSingleArgFunction(std::function<idouble(idouble, QString&)> fn, QString fnName);
+
+        static CustomFunctionMap customFunctions;
 
         struct Result {
             enum ResultType {
@@ -39,6 +50,7 @@ class EvaluationEngine : public QObject
         Result evaluate();
         void setExpression(QString expression);
         void setVariables(QMap<QString, idouble> vars);
+        static void setTrigonometricUnit(TrigonometricUnit trigUnit);
 
     signals:
 
@@ -47,9 +59,14 @@ class EvaluationEngine : public QObject
     private:
         QString expression;
         QMap<QString, idouble> variables;
+        static TrigonometricUnit trigUnit;
 
         static int runningEngines;
-        static QMutex* runningEnginesLocker;
+        static QMutex *runningEnginesLocker, *trigUnitLocker;
+
+
+        static idouble toRad(idouble deg);
+        static idouble toDeg(idouble rad);
 };
 
 #endif // EVALUATIONENGINE_H

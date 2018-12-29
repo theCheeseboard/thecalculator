@@ -32,10 +32,6 @@ class MainWindow : public QMainWindow
         ~MainWindow();
     
         QList<CalcButton*> buttons;
-        void assignValue(QString identifier, idouble value);
-
-        static void setupFunctions();
-
 
     public slots:
         void parserError(const char* error);
@@ -89,11 +85,7 @@ class MainWindow : public QMainWindow
 
         bool extended = false;
         bool resultSuccess = false;
-        static std::function<idouble(QList<idouble>,QString&)> createSingleArgFunction(std::function<idouble(idouble, QString&)> fn, QString fnName);
         void resizeAnswerLabel();
-
-        static idouble toRad(idouble deg);
-        static idouble toDeg(idouble rad);
 
         void resizeEvent(QResizeEvent* event);
         void changeEvent(QEvent* event);

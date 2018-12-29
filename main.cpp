@@ -13,10 +13,6 @@
 #endif
 
 MainWindow* MainWin = nullptr;
-QMap<QString, std::function<idouble(QList<idouble>,QString&)>> customFunctions;
-bool explicitEvaluation = false;
-bool resSuccess = false;
-bool isDegrees = true;
 
 QString numberFormatToString(long double number) {
     std::stringstream stream;
@@ -103,7 +99,7 @@ int main(int argc, char *argv[])
     parser.addOption(expressionOption);
     parser.process(*a);
 
-    MainWindow::setupFunctions();
+    EvaluationEngine::setupFunctions();
 
     if (parser.value(expressionOption) == "") {
         MainWin = new MainWindow();
@@ -113,6 +109,7 @@ int main(int argc, char *argv[])
         EvaluationEngine engine;
         QList<QPair<QString, QString>> outputs;
         QMap<QString, idouble> variables;
+        bool didError = false;
         for (QString e : parser.value(expressionOption).split(":")) {
             e = e.remove(" "); //Remove all spaces
 
@@ -135,7 +132,10 @@ int main(int argc, char *argv[])
                     break;
             }
 
-            if (res.type == EvaluationEngine::Result::Error) break; //Abort calculations here
+            if (res.type == EvaluationEngine::Result::Error) {
+                didError = true;
+                break; //Abort calculations here
+            }
         }
 
         QTextStream out(stdout);
@@ -149,7 +149,7 @@ int main(int argc, char *argv[])
             }
         }
 
-        if (resSuccess) {
+        if (!didError) {
             return 0;
         } else {
             return 1;
