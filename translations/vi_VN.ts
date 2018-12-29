@@ -322,366 +322,371 @@
         <translation>theCalculator</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="120"/>
+        <location filename="../mainwindow.ui" line="172"/>
         <source>Expression...</source>
         <translation>Biểu thức...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1053"/>
+        <location filename="../mainwindow.ui" line="1143"/>
         <source>Custom Functions</source>
         <translation>Hàm số tùy chỉnh</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="740"/>
+        <location filename="../mainwindow.ui" line="827"/>
         <source>Backspace</source>
         <translation>Backspace</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="202"/>
+        <location filename="../mainwindow.ui" line="146"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="302"/>
         <source>Percentage</source>
         <translation>Phần trăm</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="412"/>
+        <location filename="../mainwindow.ui" line="499"/>
         <source>Cube</source>
         <translation>Lập phương</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="422"/>
+        <location filename="../mainwindow.ui" line="509"/>
         <source>Nth Root</source>
         <translation>Căn bậc</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="432"/>
+        <location filename="../mainwindow.ui" line="519"/>
         <source>Hyperbolic Arc Sine</source>
         <translation>Nghịch đảo sin hyperbol</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="442"/>
+        <location filename="../mainwindow.ui" line="529"/>
         <source>Arc Tangent</source>
         <translation>Nghịch đảo tang</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="452"/>
+        <location filename="../mainwindow.ui" line="539"/>
         <source>Cosine</source>
         <translation>Côsin</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="462"/>
+        <location filename="../mainwindow.ui" line="549"/>
         <source>Hyperbolic Tangent</source>
         <translation>Tang hyperbol</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="472"/>
+        <location filename="../mainwindow.ui" line="559"/>
         <source>Square Root</source>
         <translation>Căn bậc hai</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="482"/>
+        <location filename="../mainwindow.ui" line="569"/>
         <source>Base 10 Logarithm</source>
         <translation>Logarit cơ số 10</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="498"/>
+        <location filename="../mainwindow.ui" line="585"/>
         <source>Square</source>
         <translation>Bình phương</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="508"/>
+        <location filename="../mainwindow.ui" line="595"/>
         <source>Arc Sine</source>
         <translation>Nghịch đảo sin</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="518"/>
+        <location filename="../mainwindow.ui" line="605"/>
         <source>Hyperbolic Sine</source>
         <translation>Sin hyperbol</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="528"/>
+        <location filename="../mainwindow.ui" line="615"/>
         <source>Reciporical</source>
         <translation>Nghịch đảo</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="544"/>
+        <location filename="../mainwindow.ui" line="631"/>
         <source>Raise to a power</source>
         <translation>Lũy thừa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="554"/>
+        <location filename="../mainwindow.ui" line="641"/>
         <source>Factorial</source>
         <translation>Giai thừa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="574"/>
+        <location filename="../mainwindow.ui" line="661"/>
         <source>Sine</source>
         <translation>Sin</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="584"/>
+        <location filename="../mainwindow.ui" line="671"/>
         <source>Arc Cosine</source>
         <translation>Nghịch đảo côsin</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="594"/>
+        <location filename="../mainwindow.ui" line="681"/>
         <source>Absolute</source>
         <translation>Giá trị tuyệt đối</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="604"/>
+        <location filename="../mainwindow.ui" line="691"/>
         <source>Secant</source>
         <translation>Sec</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="614"/>
+        <location filename="../mainwindow.ui" line="701"/>
         <source>Hyperbolic Cosine</source>
         <translation>Côsin hyperbol</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="624"/>
+        <location filename="../mainwindow.ui" line="711"/>
         <source>Hyperbolic Arc Tangent</source>
         <translation>Nghịch đảo tang hyperbol</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="634"/>
+        <location filename="../mainwindow.ui" line="721"/>
         <source>Natural Logarithm</source>
         <translation>Logarit tự nhiên</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="644"/>
+        <location filename="../mainwindow.ui" line="731"/>
         <source>Tangent</source>
         <translation>Tang</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="654"/>
+        <location filename="../mainwindow.ui" line="741"/>
         <source>Cube Root</source>
         <translation>Căn bậc ba</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="664"/>
+        <location filename="../mainwindow.ui" line="751"/>
         <source>Hyperbolic Arc Cosine</source>
         <translation>Nghịch đảo côsin hyperbol</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="674"/>
+        <location filename="../mainwindow.ui" line="761"/>
         <source>Cosecant</source>
         <translation>Côsec</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="684"/>
+        <location filename="../mainwindow.ui" line="771"/>
         <source>Cotangent</source>
         <translation>Côtang</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="694"/>
+        <location filename="../mainwindow.ui" line="781"/>
         <source>Arc Secant</source>
         <translation>Nghịch đảo sec</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="704"/>
+        <location filename="../mainwindow.ui" line="791"/>
         <source>Arc Cosecant</source>
         <translation>Nghịch đảo côsec</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="714"/>
+        <location filename="../mainwindow.ui" line="801"/>
         <source>Arc Cotangent</source>
         <translation>Nghịch đảo côtang</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1375"/>
-        <source>About</source>
-        <translation>Giới thiệu</translation>
+        <location filename="../mainwindow.ui" line="1488"/>
+        <source>&amp;File Bug</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1384"/>
-        <source>theCalculator Help</source>
-        <translation>Trợ giúp với theCalculator</translation>
+        <location filename="../mainwindow.ui" line="1497"/>
+        <source>&amp;Sources</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1396"/>
-        <source>File Bug</source>
-        <translation>Báo cáo lỗi</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="1405"/>
-        <source>Sources</source>
-        <translation>Mã nguồn</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="269"/>
+        <location filename="../mainwindow.ui" line="369"/>
         <source>Euler&apos;s Constant</source>
         <translation>Số Euler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="218"/>
+        <location filename="../mainwindow.ui" line="318"/>
         <source>Add</source>
         <translation>Cộng</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="291"/>
+        <location filename="../mainwindow.ui" line="391"/>
         <source>Clear</source>
         <translation>Xóa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="975"/>
+        <location filename="../mainwindow.ui" line="1049"/>
         <source>Evaluate</source>
         <translation>Tính</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="307"/>
+        <location filename="../mainwindow.ui" line="407"/>
         <source>Imaginary Unit</source>
         <translation>Đơn vị ảo</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="814"/>
+        <location filename="../mainwindow.ui" line="888"/>
         <source>Left Shift</source>
         <translation>Dịch trái</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="234"/>
+        <location filename="../mainwindow.ui" line="334"/>
         <source>Multiply</source>
         <translation>Nhân</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="939"/>
+        <location filename="../mainwindow.ui" line="1013"/>
         <source>Divide</source>
         <translation>Chia</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="862"/>
+        <location filename="../mainwindow.ui" line="936"/>
         <source>Functions</source>
         <translation>Hàm số</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="151"/>
+        <location filename="../mainwindow.ui" line="251"/>
         <source>Pi</source>
         <translation>Số Pi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="955"/>
+        <location filename="../mainwindow.ui" line="1029"/>
         <source>Extended Palette</source>
         <translation>Mở rộng</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="917"/>
+        <location filename="../mainwindow.ui" line="991"/>
         <source>Subtract</source>
         <translation>Trừ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="180"/>
+        <location filename="../mainwindow.ui" line="280"/>
         <source>Right Shift</source>
         <translation>Dịch phải</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="323"/>
+        <location filename="../mainwindow.ui" line="423"/>
         <source>Previous Answer</source>
         <translation>Biểu thức tính trước</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1159"/>
+        <location filename="../mainwindow.ui" line="1250"/>
         <source>Add Custom Function</source>
         <translation>Thêm hàm số tùy chỉnh</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1224"/>
+        <location filename="../mainwindow.ui" line="1315"/>
         <source>Function Name</source>
         <translation>Tên hàm số</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1282"/>
+        <location filename="../mainwindow.ui" line="1373"/>
         <source>Add New Overload</source>
         <translation>Thêm quá tải</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1312"/>
+        <location filename="../mainwindow.ui" line="1404"/>
         <source>Fi&amp;le</source>
         <translation>&amp;Tệp</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1318"/>
+        <location filename="../mainwindow.ui" line="1410"/>
         <source>Tri&amp;gonometry</source>
         <translation>&amp;Lượng giác</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1325"/>
+        <location filename="../mainwindow.ui" line="1417"/>
         <source>Help</source>
         <translation>Trợ giúp</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1344"/>
+        <location filename="../mainwindow.ui" line="1436"/>
         <source>&amp;Exit</source>
         <translation>&amp;Thoát</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1347"/>
+        <location filename="../mainwindow.ui" line="1439"/>
         <source>Ctrl+Q</source>
         <translation>CTRL+Q</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1358"/>
+        <location filename="../mainwindow.ui" line="1450"/>
         <source>&amp;Degrees</source>
         <translation>Đơn vị &amp;độ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1366"/>
+        <location filename="../mainwindow.ui" line="1458"/>
         <source>&amp;Radians</source>
         <translation>Đơn vị &amp;rađian</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1387"/>
+        <location filename="../mainwindow.ui" line="1467"/>
+        <source>&amp;About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1476"/>
+        <source>&amp;theCalculator Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1479"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="169"/>
+        <location filename="../mainwindow.cpp" line="180"/>
         <source>%1 assigned to %2</source>
         <translation>%1 được gán cho %2</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="125"/>
-        <location filename="../mainwindow.cpp" line="178"/>
-        <location filename="../mainwindow.cpp" line="363"/>
+        <location filename="../mainwindow.cpp" line="189"/>
+        <location filename="../mainwindow.cpp" line="374"/>
         <source>TRUE</source>
         <translation>THẬT</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="125"/>
-        <location filename="../mainwindow.cpp" line="178"/>
-        <location filename="../mainwindow.cpp" line="363"/>
+        <location filename="../mainwindow.cpp" line="189"/>
+        <location filename="../mainwindow.cpp" line="374"/>
         <source>FALSE</source>
         <translation>SAI</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="360"/>
+        <location filename="../mainwindow.cpp" line="371"/>
         <source>Assign %1 to %2</source>
         <translation>Gán %1 cho %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="325"/>
+        <location filename="../mainwindow.cpp" line="336"/>
         <source>Save this function?</source>
         <translation>Lưu hàm số này?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="325"/>
+        <location filename="../mainwindow.cpp" line="336"/>
         <source>Do you want to save this function?</source>
         <translation>Bạn có muốn lưu hàm số này không?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="375"/>
+        <location filename="../mainwindow.cpp" line="386"/>
         <source>Function Name Required</source>
         <translation>Bắt buộc tên hàm số</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="376"/>
+        <location filename="../mainwindow.cpp" line="387"/>
         <source>A function name needs to be set</source>
         <translation>Bạn cần đặt tên hàm số</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="396"/>
+        <location filename="../mainwindow.cpp" line="407"/>
         <source>Overload Arguments</source>
         <translation>Tham số quá tải</translation>
     </message>
     <message numerus="yes">
-        <location filename="../mainwindow.cpp" line="397"/>
+        <location filename="../mainwindow.cpp" line="408"/>
         <source>Only one overload can have %n arguments</source>
         <translation>
             <numerusform>Chỉ một quá tải được có %n hàm số</numerusform>

@@ -14,6 +14,7 @@
 #include <QJsonDocument>
 #include <QMessageBox>
 #include <QTimer>
+#include <QScrollBar>
 #include <ttoast.h>
 #include "evaluationengine.h"
 
@@ -38,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
     group->addAction(ui->actionRadians);
 
     ui->expressionBox->grabKeyboard();
+    ui->helpWidget->setFixedHeight(0);
     ui->stackedWidget->setCurrentAnimation(tStackedWidget::SlideHorizontal);
 
     ui->ZeroButton->setShiftedOutput("⁰");
@@ -79,9 +81,18 @@ MainWindow::MainWindow(QWidget *parent) :
     QScroller::grabGesture(ui->scrollArea, QScroller::LeftMouseButtonGesture);
     QScroller::grabGesture(ui->historyWidget, QScroller::LeftMouseButtonGesture);
 
-
     historyDelegate = new HistoryDelegate();
     ui->historyWidget->setItemDelegate(historyDelegate);
+    connect(ui->historyWidget->verticalScrollBar(), &QScrollBar::rangeChanged, [=](int min, int max) {
+        if (historyAtBottom) ui->historyWidget->verticalScrollBar()->setValue(max);
+    });
+    connect(ui->historyWidget->verticalScrollBar(), &QScrollBar::valueChanged, [=](int value) {
+        if (value == ui->historyWidget->verticalScrollBar()->maximum()) {
+            historyAtBottom = true;
+        } else {
+            historyAtBottom = false;
+        }
+    });
 
     ui->scrollArea->setFixedWidth(0);
     ui->answerContainer->setFixedHeight(ui->answerLabel->height());
@@ -459,4 +470,56 @@ void MainWindow::on_customFunctionsList_itemActivated(QListWidgetItem *item)
     }
 
     ui->stackedWidget->setCurrentIndex(2);
+}
+
+void MainWindow::on_expressionBox_cursorPositionChanged(int arg1, int arg2)
+{
+    QString relevantText = ui->expressionBox->text().left(arg2);
+    //Find the previous function
+    QRegularExpression regex("\\w+?(?=\\()");
+    QRegularExpressionMatchIterator matchIterator = regex.globalMatch(relevantText);
+
+    //Select the appropriate match
+    QStack<QString> matchSelector;
+    QChar lastChar = ' ';
+    for (QChar c : relevantText) {
+        if (c == '(') {
+            if (matchIterator.hasNext() && QRegularExpression("\\w").match(lastChar).hasMatch()) {
+                QRegularExpressionMatch m = matchIterator.next();
+                matchSelector.push(m.captured());
+            } else {
+                //Push an empty string so it will be popped when it finds )
+                matchSelector.push("");
+            }
+        } else if (c == ')') {
+            if (!matchSelector.isEmpty()) {
+                matchSelector.pop();
+                //Otherwise we'll continue and try to get the function anyway
+            }
+        }
+        lastChar = c;
+    }
+
+    tVariantAnimation* anim = new tVariantAnimation();
+    anim->setStartValue(ui->helpWidget->height());
+    anim->setEndValue(0);
+    if (!matchSelector.isEmpty()) {
+        //We're currently in a function definition
+        QString currentFunction = matchSelector.pop();
+        while (currentFunction == "" && !matchSelector.isEmpty()) {
+            currentFunction = matchSelector.pop();
+        }
+
+        if (EvaluationEngine::customFunctions.contains(currentFunction)) {
+            ui->label_4->setText(currentFunction + " : function");
+            anim->setEndValue(ui->helpWidget->sizeHint().height());
+        }
+    }
+    anim->setDuration(250);
+    anim->setEasingCurve(QEasingCurve::OutCubic);
+    connect(anim, &tVariantAnimation::valueChanged, [=](QVariant value) {
+       ui->helpWidget->setFixedHeight(value.toInt());
+    });
+    connect(anim, &tVariantAnimation::finished, anim, &tVariantAnimation::deleteLater);
+    anim->start();
 }

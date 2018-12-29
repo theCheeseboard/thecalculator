@@ -80,11 +80,14 @@ class MainWindow : public QMainWindow
 
         void on_customFunctionsList_itemActivated(QListWidgetItem *item);
 
+        void on_expressionBox_cursorPositionChanged(int arg1, int arg2);
+
     private:
         Ui::MainWindow *ui;
 
         bool extended = false;
         bool resultSuccess = false;
+        bool historyAtBottom = true;
         void resizeAnswerLabel();
 
         void resizeEvent(QResizeEvent* event);
