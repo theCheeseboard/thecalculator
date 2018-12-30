@@ -160,7 +160,7 @@
         <location filename="../evaluationengine.cpp" line="413"/>
         <location filename="../evaluationengine.cpp" line="416"/>
         <source>number</source>
-        <translation type="unfinished"></translation>
+        <translation>số</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="155"/>
@@ -171,12 +171,12 @@
         <location filename="../evaluationengine.cpp" line="207"/>
         <location filename="../evaluationengine.cpp" line="211"/>
         <source>Calculates the %1 of a %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Tính %1 của %2</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="155"/>
         <source>absolute value</source>
-        <translation type="unfinished"></translation>
+        <translation>mô-đun</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="155"/>
@@ -210,17 +210,17 @@
         <location filename="../evaluationengine.cpp" line="413"/>
         <location filename="../evaluationengine.cpp" line="416"/>
         <source>The %1 to calculate the %2 of</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 để tính %2</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="158"/>
         <source>square root</source>
-        <translation type="unfinished"></translation>
+        <translation>căn bậc hai</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="161"/>
         <source>cube root</source>
-        <translation type="unfinished"></translation>
+        <translation>căn bậc ba</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="164"/>
@@ -257,12 +257,12 @@
         <location filename="../evaluationengine.cpp" line="413"/>
         <location filename="../evaluationengine.cpp" line="416"/>
         <source>Calculates the %1 of an %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Tính %1 của %2</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="174"/>
         <source>factorial</source>
-        <translation type="unfinished"></translation>
+        <translation>giai thừa</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="174"/>
@@ -284,17 +284,17 @@
         <location filename="../evaluationengine.cpp" line="275"/>
         <location filename="../evaluationengine.cpp" line="279"/>
         <source>angle</source>
-        <translation type="unfinished"></translation>
+        <translation>góc</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="178"/>
         <source>sine</source>
-        <translation type="unfinished"></translation>
+        <translation>sin</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="182"/>
         <source>cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>côsin</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="188"/>
@@ -309,29 +309,29 @@
     <message>
         <location filename="../evaluationengine.cpp" line="199"/>
         <source>tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>tang</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="203"/>
         <source>conjugate</source>
-        <translation type="unfinished"></translation>
+        <translation>liên hợp</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="203"/>
         <location filename="../evaluationengine.cpp" line="207"/>
         <location filename="../evaluationengine.cpp" line="211"/>
         <source>complex number</source>
-        <translation type="unfinished"></translation>
+        <translation>số phức</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="207"/>
         <source>imaginary portion</source>
-        <translation type="unfinished"></translation>
+        <translation>phần ảo</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="211"/>
         <source>real portion</source>
-        <translation type="unfinished"></translation>
+        <translation>phần thực</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="214"/>
@@ -341,12 +341,12 @@
     <message>
         <location filename="../evaluationengine.cpp" line="219"/>
         <source>arcsine (inverse sine)</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo sin</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="219"/>
         <source>arcsine</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="222"/>
@@ -356,112 +356,112 @@
     <message>
         <location filename="../evaluationengine.cpp" line="227"/>
         <source>arccosine (inverse cosine)</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo côsin</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="227"/>
         <source>arccosine</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo côsin</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="231"/>
         <source>arctangent (inverse tangent)</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo tang</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="231"/>
         <source>arctangent</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo tang</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="235"/>
         <source>secant</source>
-        <translation type="unfinished"></translation>
+        <translation>sec</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="239"/>
         <source>cosecant</source>
-        <translation type="unfinished"></translation>
+        <translation>côsec</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="243"/>
         <source>cotangent</source>
-        <translation type="unfinished"></translation>
+        <translation>côtang</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="247"/>
         <source>arcsecant (inverse secant)</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo sec</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="247"/>
         <source>arcsecant</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo sec</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="251"/>
         <source>arccosecant (inverse cosecant)</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo côsec</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="251"/>
         <source>arccosecant</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo côsec</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="255"/>
         <source>arccotangent (inverse cotangent)</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo côtang</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="255"/>
         <source>arccotangent</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo côtang</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="259"/>
         <source>hyperbolic sine</source>
-        <translation type="unfinished"></translation>
+        <translation>sin hyperbol</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="263"/>
         <source>hyperbolic cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>côsin hyperbol</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="267"/>
         <source>hyperbolic tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>tang hyperbol</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="271"/>
         <source>hyperbolic arcsine (inverse hyperbolic arcsine)</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo sin hyperbol</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="271"/>
         <source>hyperbolic arcsine</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo sin hyperbol</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="275"/>
         <source>hyperbolic arccosine (inverse hyperbolic arccosine)</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo côsin hyperbol</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="275"/>
         <source>hyperbolic arccosine</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo côsin hyperbol</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="279"/>
         <source>hyperbolic arctangent (inverse hyperbolic arctangent)</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo tang hyperbol</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="279"/>
         <source>hyperbolic arctangent</source>
-        <translation type="unfinished"></translation>
+        <translation>nghịch đảo tang hyperbol</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="285"/>
@@ -491,24 +491,24 @@
     <message>
         <location filename="../evaluationengine.cpp" line="312"/>
         <source>base 10 logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>logarit cơ số 10</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="313"/>
         <location filename="../evaluationengine.cpp" line="314"/>
         <source>logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>logarit</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="315"/>
         <location filename="../evaluationengine.cpp" line="409"/>
         <source>base</source>
-        <translation type="unfinished"></translation>
+        <translation>cơ</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="315"/>
         <source>The base of the logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>Cơ số của logarit</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="321"/>
@@ -518,7 +518,7 @@
     <message>
         <location filename="../evaluationengine.cpp" line="326"/>
         <source>base e logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>logarit cơ số e</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="334"/>
@@ -548,25 +548,25 @@
     <message>
         <location filename="../evaluationengine.cpp" line="357"/>
         <source>Shifts a number to the left by a specified number of bits</source>
-        <translation type="unfinished"></translation>
+        <translation>Dịch số sang bên trái bởi số bit</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="357"/>
         <location filename="../evaluationengine.cpp" line="387"/>
         <source>The number to shift</source>
-        <translation type="unfinished"></translation>
+        <translation>Số để dịch</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="357"/>
         <location filename="../evaluationengine.cpp" line="387"/>
         <source>The number of bits to shift by</source>
-        <translation type="unfinished"></translation>
+        <translation>Số bit để dịch bởi</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="357"/>
         <location filename="../evaluationengine.cpp" line="387"/>
         <source>amount</source>
-        <translation type="unfinished"></translation>
+        <translation>lượng</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="364"/>
@@ -596,7 +596,7 @@
     <message>
         <location filename="../evaluationengine.cpp" line="387"/>
         <source>Shifts a number to the right by a specified number of bits</source>
-        <translation type="unfinished"></translation>
+        <translation>Dịch số sang bên phải bởi số bit</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="395"/>
@@ -616,32 +616,32 @@
     <message>
         <location filename="../evaluationengine.cpp" line="409"/>
         <source>Calculates an exponent</source>
-        <translation type="unfinished"></translation>
+        <translation>Tính lũy thừa</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="409"/>
         <source>The base of the exponent</source>
-        <translation type="unfinished"></translation>
+        <translation>Cơ sở luỹ thừa</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="409"/>
         <source>exponent</source>
-        <translation type="unfinished"></translation>
+        <translation>mũ</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="409"/>
         <source>The number to exponentiate by</source>
-        <translation type="unfinished"></translation>
+        <translation>Số mũ lũy thừa</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="413"/>
         <source>floor</source>
-        <translation type="unfinished"></translation>
+        <translation>floor</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="416"/>
         <source>ceiling</source>
-        <translation type="unfinished"></translation>
+        <translation>ceiling</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="425"/>
@@ -662,43 +662,43 @@
     <message>
         <location filename="../evaluationengine.cpp" line="446"/>
         <source>Returns a random number</source>
-        <translation type="unfinished"></translation>
+        <translation>Trả lời với số ngẫu nhiên</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="447"/>
         <source>Returns a random number in the range [0-number)</source>
-        <translation type="unfinished"></translation>
+        <translation>Trả lời với số ngẫu nhiên nằm giữa [0-số)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="447"/>
         <source>bound</source>
-        <translation type="unfinished"></translation>
+        <translation>giới hạn</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="447"/>
         <location filename="../evaluationengine.cpp" line="448"/>
         <source>The exclusive high bound</source>
-        <translation type="unfinished"></translation>
+        <translation>Giới hạn cao nhất</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="448"/>
         <source>Returns a random number in the range [low-high)</source>
-        <translation type="unfinished"></translation>
+        <translation>Trả lời với số ngẫu nhiên nằm giữa [thấp-cao)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="448"/>
         <source>low</source>
-        <translation type="unfinished"></translation>
+        <translation>thấp</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="448"/>
         <source>The inclusive low bound</source>
-        <translation type="unfinished"></translation>
+        <translation>Giới hạn ít nhất</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="448"/>
         <source>high</source>
-        <translation type="unfinished"></translation>
+        <translation>cao</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="514"/>
@@ -1107,12 +1107,12 @@
         <location filename="../mainwindow.cpp" line="557"/>
         <location filename="../mainwindow.cpp" line="574"/>
         <source>function</source>
-        <translation type="unfinished"></translation>
+        <translation>hàm số</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="556"/>
         <source>No arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Không có tham số</translation>
     </message>
 </context>
 <context>
@@ -1120,12 +1120,12 @@
     <message>
         <location filename="../customs/overloadbox.ui" line="28"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Sự miêu tả</translation>
     </message>
     <message>
         <location filename="../customs/overloadbox.ui" line="42"/>
         <source>Argument Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Miêu tả tham số</translation>
     </message>
     <message>
         <location filename="../customs/overloadbox.ui" line="73"/>
@@ -1158,7 +1158,7 @@
         <location filename="../customs/overloadbox.cpp" line="157"/>
         <location filename="../customs/overloadbox.cpp" line="159"/>
         <source>Description for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Miêu tả cho %1</translation>
     </message>
     <message>
         <location filename="../customs/overloadbox.cpp" line="85"/>
