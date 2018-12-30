@@ -520,16 +520,21 @@ void MainWindow::on_expressionBox_cursorPositionChanged(int arg1, int arg2)
         if (EvaluationEngine::customFunctions.contains(currentFunction)) {
             //Figure out the current argument
             int currentArgument = 0;
-            int bracketCount = -1;
-            for (int i = currentPosition; i < relevantText.count(); i++) {
-                QChar c = relevantText.at(i);
-                if (c == '(') {
-                    bracketCount++;
-                } else if (c == ')') {
-                    bracketCount--;
-                    if (bracketCount < 0) break; //Too many closing brackets
-                } else if (c == ',') {
-                    if (bracketCount == 0) currentArgument++;
+
+            if (relevantText.count() - currentPosition == 1) {
+                currentArgument = -1;
+            } else {
+                int bracketCount = -1;
+                for (int i = currentPosition; i < relevantText.count(); i++) {
+                    QChar c = relevantText.at(i);
+                    if (c == '(') {
+                        bracketCount++;
+                    } else if (c == ')') {
+                        bracketCount--;
+                        if (bracketCount < 0) break; //Too many closing brackets
+                    } else if (c == ',') {
+                        if (bracketCount == 0) currentArgument++;
+                    }
                 }
             }
 
@@ -539,7 +544,6 @@ void MainWindow::on_expressionBox_cursorPositionChanged(int arg1, int arg2)
                 currentFunctionHelp = currentFunction;
                 numOverloads = fn.overloads();
             }
-            ui->funHelpName->setText(currentFunction + " : " + tr("function"));
 
             int usedOverload = currentOverload;
             if (fn.getArgs(usedOverload).count() <= currentArgument && usedOverload + 1 < numOverloads) {
@@ -550,20 +554,24 @@ void MainWindow::on_expressionBox_cursorPositionChanged(int arg1, int arg2)
             QStringList args = fn.getArgs(usedOverload);
             if (args.count() == 0) {
                 ui->funHelpArgs->setText(tr("No arguments"));
+                ui->funHelpName->setText(currentFunction + "() : " + tr("function"));
             } else {
+                QStringList functionArgList;
                 QStringList argList;
                 for (int i = 0; i < args.count(); i++) {
                     QString arg = args.at(i);
                     QString argName = arg.left(arg.indexOf(":"));
                     QString argDesc = arg.mid(arg.indexOf(":") + 1);
 
-                    if (currentArgument == i) {
+                    if (currentArgument == i || (currentArgument == -1 && i == 0)) {
                         argList.append("<b>" + argName + ": " + argDesc + "</b>");
                     } else {
                         argList.append(argName);
                     }
+                    functionArgList.append(argName);
                 }
 
+                ui->funHelpName->setText(currentFunction + "(" + functionArgList.join(",") + ") : " + tr("function"));
                 ui->funHelpArgs->setText(argList.join(" · "));
             }
 

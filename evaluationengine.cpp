@@ -18,6 +18,7 @@ struct CustomFunctionPrivate {
     CustomFunctionDefinition fn;
     QStringList desc;
     QList<QStringList> args;
+    bool waitingForDocs = false;
 };
 
 CustomFunction::CustomFunction() {
@@ -29,6 +30,7 @@ CustomFunction::CustomFunction(CustomFunctionDefinition fn) {
     d->fn = fn;
     d->desc.append("A function");
     d->args.append(QStringList());
+    d->waitingForDocs = true;
 }
 
 CustomFunction::CustomFunction(CustomFunctionDefinition function, QString desc, QStringList args) {
@@ -51,6 +53,11 @@ QStringList CustomFunction::getArgs(int overload) const {
 }
 
 void CustomFunction::addOverload(QString desc, QStringList args) {
+    if (d->waitingForDocs) {
+        d->desc.clear();
+        d->args.clear();
+        d->waitingForDocs = false;
+    }
     d->desc.append(desc);
     d->args.append(args);
 }
@@ -347,7 +354,7 @@ void EvaluationEngine::setupFunctions() {
             error = tr("lsh: expected 2 arguments, got %1").arg(args.length());
             return 0;
         }
-    }));
+    }, tr("Shifts a number to the left by a specified number of bits"), QStringList() << tr("number") + ":" + tr("The number to shift") << tr("amount") + ":" + tr("The number of bits to shift by")));
     customFunctions.insert("rsh", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() == 2) {
             idouble first = args.first();
@@ -377,7 +384,7 @@ void EvaluationEngine::setupFunctions() {
             error = tr("rsh: expected 2 arguments, got %1").arg(args.length());
             return 0;
         }
-    }));
+    }, tr("Shifts a number to the right by a specified number of bits"), QStringList() << tr("number") + ":" + tr("The number to shift") << tr("amount") + ":" + tr("The number of bits to shift by")));
     customFunctions.insert("pow", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() == 2) {
             idouble first = args.first();
@@ -399,27 +406,27 @@ void EvaluationEngine::setupFunctions() {
             error = tr("pow: expected 2 arguments, got %1").arg(args.length());
             return 0;
         }
-    }));
+    }, tr("Calculates an exponent"), QStringList() << tr("base") + ":" + tr("The base of the exponent") << tr("exponent") + ":" + tr("The number to exponentiate by")));
 
     customFunctions.insert("floor", createSingleArgFunction([=](idouble arg, QString& error) {
         return floor(arg.real());
-    }, "floor"));
+    }, "floor", tr("Calculates the %1 of an %2").arg(tr("floor"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("floor"))));
     customFunctions.insert("ceil", createSingleArgFunction([=](idouble arg, QString& error) {
         return ceil(arg.real());
-    }, "ceil"));
+    }, "ceil", tr("Calculates the %1 of an %2").arg(tr("ceiling"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("ceiling"))));
 
-    customFunctions.insert("random", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
-        QRandomGenerator gen;
+    CustomFunction randomFunction([=](QList<idouble> args, QString& error) -> idouble {
+        QRandomGenerator* gen = QRandomGenerator::system();
 
         if (args.length() == 0) {
-            return idouble(gen.generate());
+            return idouble(gen->generate());
         } else if (args.length() == 1) {
             if (args.first().imag() != 0) {
                 error = tr("random: arg1 (%1) not a real number").arg(idbToString(args.first()));
                 return 0;
             }
 
-            return idouble(gen.bounded((double) args.first().real()));
+            return idouble(gen->bounded((double) args.first().real()));
         } else if (args.length() == 2) {
             if (args.first().imag() != 0) {
                 error = tr("random: arg1 (%1) not a real number").arg(idbToString(args.first()));
@@ -431,12 +438,15 @@ void EvaluationEngine::setupFunctions() {
                 return 0;
             }
 
-            return idouble(gen.bounded((int) args.first().real(), (int) args.last().real()));
+            return idouble(gen->bounded((int) args.first().real(), (int) args.last().real()));
         } else {
             error = tr("random: expected 0, 1 or 2 arguments, got %1").arg(args.length());
             return 0;
         }
-    }));
+    }, tr("Returns a random number"), QStringList());
+    randomFunction.addOverload(tr("Returns a random number in the range [0-number)"), QStringList() << tr("bound") + ":" + tr("The exclusive high bound"));
+    randomFunction.addOverload(tr("Returns a random number in the range [low-high)"), QStringList() << tr("low") + ":" + tr("The inclusive low bound") << tr("high") + ":" + tr("The exclusive high bound"));
+    customFunctions.insert("random", randomFunction);
 
     //Set up all the custom functions
     QSettings settings;
@@ -445,12 +455,13 @@ void EvaluationEngine::setupFunctions() {
         QJsonDocument doc = QJsonDocument::fromBinaryData(settings.value(function).toByteArray());
         if (doc.isObject()) {
             QJsonObject obj = doc.object();
-            customFunctions.insert(function, CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
+            QJsonArray overloads = obj.value("overloads").toArray();
+
+            CustomFunction func([=](QList<idouble> args, QString& error) -> idouble {
                 QStringList argCounts;
                 EvaluationEngine engine;
                 QMap<QString, idouble> variables;
 
-                QJsonArray overloads = obj.value("overloads").toArray();
                 for (QJsonValue o : overloads) {
                     QJsonObject overload = o.toObject();
 
@@ -459,7 +470,12 @@ void EvaluationEngine::setupFunctions() {
                         //Found the correct overload to use
                         //Populate the arguments
                         for (int i = 0; i < args.count(); i++) {
-                            variables.insert(fnArgs.at(i).toString(), args.at(i));
+                            QJsonValue arg = fnArgs.at(i);
+                            if (arg.isObject()) {
+                                variables.insert(arg.toObject().value("name").toString(), args.at(i));
+                            } else {
+                                variables.insert(arg.toString(), args.at(i));
+                            }
                         }
                         engine.setVariables(variables);
 
@@ -576,7 +592,26 @@ void EvaluationEngine::setupFunctions() {
                 }
 
                 return 0;
-            }));
+            });
+
+            for (QJsonValue o : overloads) {
+                QJsonObject overload = o.toObject();
+                QStringList argList;
+
+                QJsonArray args = overload.value("args").toArray();
+
+                for (QJsonValue v : args) {
+                    if (v.isObject()) {
+                        QJsonObject o = v.toObject();
+                        argList.append(o.value("name").toString() + ":" + o.value("desc").toString());
+                    } else {
+                        argList.append(v.toString() + ":");
+                    }
+                }
+
+                func.addOverload(overload.value("desc").toString(), argList);
+            }
+            customFunctions.insert(function, func);
         }
     }
     settings.endGroup();

@@ -38,6 +38,7 @@ class OverloadBox : public QFrame
         Ui::OverloadBox *ui;
 
         QList<QLineEdit*> argumentNames;
+        QList<QLineEdit*> argumentDesc;
 };
 
 #endif // OVERLOADBOX_H

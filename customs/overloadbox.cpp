@@ -30,17 +30,32 @@ OverloadBox::~OverloadBox()
 
 void OverloadBox::on_addArgButton_clicked()
 {
-    QLineEdit* edit = new QLineEdit;
-    argumentNames.append(edit);
-    edit->setPlaceholderText(tr("Argument %n Name", nullptr, argumentNames.count()));
-    ui->argumentsBox->layout()->addWidget(edit);
+    QLineEdit* name = new QLineEdit;
+    argumentNames.append(name);
+    name->setPlaceholderText(tr("Argument %n Name", nullptr, argumentNames.count()));
+    ui->argumentsBox->layout()->addWidget(name);
+
+    QLineEdit* desc = new QLineEdit;
+    argumentDesc.append(desc);
+    desc->setPlaceholderText(tr("Description for %1").arg(argumentDesc.count()));
+    ui->argumentsDescBox->layout()->addWidget(desc);
+
+    connect(name, &QLineEdit::textChanged, [=](QString text) {
+        if (text == "") {
+            desc->setPlaceholderText(tr("Description for %1").arg(argumentDesc.count()));
+        } else {
+            desc->setPlaceholderText(tr("Description for %1").arg(text));
+        }
+    });
 }
 
 void OverloadBox::on_removeArgButton_clicked()
 {
     if (argumentNames.count() > 1) {
         ui->argumentsBox->layout()->removeWidget(argumentNames.last());
+        ui->argumentsDescBox->layout()->removeWidget(argumentDesc.last());
         argumentNames.takeLast()->deleteLater();
+        argumentDesc.takeLast()->deleteLater();
     }
 }
 
@@ -87,9 +102,14 @@ bool OverloadBox::check() {
 QJsonObject OverloadBox::save() {
     QJsonObject obj;
 
+    obj.insert("desc", ui->descriptionBox->text());
+
     QJsonArray args;
-    for (QLineEdit* e : argumentNames) {
-        args.append(e->text());
+    for (int i = 0; i < argumentNames.count(); i++) {
+        QJsonObject o;
+        o.insert("name", argumentNames.value(i)->text());
+        o.insert("desc", argumentDesc.value(i)->text());
+        args.append(o);
     }
     obj.insert("args", args);
 
@@ -104,20 +124,49 @@ QJsonObject OverloadBox::save() {
 }
 
 void OverloadBox::load(QJsonObject obj) {
+    //Populate description
+    ui->descriptionBox->setText(obj.value("desc").toString());
+
     //Populate arguments
     QJsonArray args = obj.value("args").toArray();
     argumentNames.clear();
+    argumentDesc.clear();
     QLayoutItem* i = ui->argumentsBox->layout()->takeAt(0);
     while (i != nullptr) {
         i->widget()->deleteLater();
         i = ui->argumentsBox->layout()->takeAt(0);
     }
+    i = ui->argumentsDescBox->layout()->takeAt(0);
+    while (i != nullptr) {
+        i->widget()->deleteLater();
+        i = ui->argumentsDescBox->layout()->takeAt(0);
+    }
     for (QJsonValue v : args) {
-        QLineEdit* edit = new QLineEdit;
-        argumentNames.append(edit);
-        edit->setPlaceholderText(tr("Argument %n Name", nullptr, argumentNames.count()));
-        edit->setText(v.toString());
-        ui->argumentsBox->layout()->addWidget(edit);
+        QLineEdit* name = new QLineEdit;
+        argumentNames.append(name);
+        name->setPlaceholderText(tr("Argument %n Name", nullptr, argumentNames.count()));
+        ui->argumentsBox->layout()->addWidget(name);
+
+        QLineEdit* desc = new QLineEdit;
+        argumentDesc.append(desc);
+        desc->setPlaceholderText(tr("Description for %1").arg(argumentDesc.count()));
+        ui->argumentsDescBox->layout()->addWidget(desc);
+
+        connect(name, &QLineEdit::textChanged, [=](QString text) {
+            if (text == "") {
+                desc->setPlaceholderText(tr("Description for %1").arg(argumentDesc.count()));
+            } else {
+                desc->setPlaceholderText(tr("Description for %1").arg(text));
+            }
+        });
+
+        if (v.isObject()) {
+            QJsonObject o = v.toObject();
+            name->setText(o.value("name").toString());
+            desc->setText(o.value("desc").toString());
+        } else {
+            name->setText(v.toString());
+        }
     }
 
     //Populate branches
