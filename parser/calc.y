@@ -11,7 +11,7 @@ extern MainWindow* MainWin;
 idouble callFunction(QString name, QList<idouble> args, QString& error) {
     //qDebug() << "Calling function:" << name << "with arguments" << args;
     if (!EvaluationEngine::customFunctions.contains(name)) {
-        error = QApplication::translate("parser", "%1: undefined function").arg(name);
+        error = QApplication::translate("EvaluationEngine", "%1: undefined function").arg(name);
         return 0;
     } else {
         return EvaluationEngine::customFunctions.value(name).getFunction()(args, error);
@@ -47,7 +47,7 @@ double absArg(idouble n) {
             YYABORT; \
         } \
     }
-
+#define tr(str) QApplication::translate("EvaluationEngine", str)
 %}
 
 %define parse.error verbose
@@ -127,7 +127,7 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
 //|   NUMBER expression {$$ = new idouble(*$1 * *$2);}
 |   expression DIVIDE expression {
         if ($3->real() == 0 && $3->imag() == 0) {
-            YYE("div: division by 0 undefined");
+            YYE(tr("div: division by 0 undefined").toLocal8Bit().constData());
             YYABORT;
         } else {
             $$ = new idouble(*$1 / *$3);
@@ -140,7 +140,7 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
         if (valueExists(*$1, p)) {
             $$ = new idouble(pow(getValue(*$1, p), *$3));
         } else {
-            YYE((*$1).append(": unknown variable").toLocal8Bit().constData());
+            YYE(tr("%1: unknown variable").arg(*$1).toLocal8Bit().constData());
             YYABORT;
         }
     }
@@ -148,7 +148,7 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
         if (valueExists(*$1, p)) {
             $$ = new idouble(pow(getValue(*$1, p), *$2));
         } else {
-            YYE((*$1).append(": unknown variable").toLocal8Bit().constData());
+            YYE(tr("%1: unknown variable").arg(*$1).toLocal8Bit().constData());
             YYABORT;
         }
     }
@@ -162,7 +162,7 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
         if (valueExists(*$1, p)) {
             $$ = new idouble(getValue(*$1, p));
         } else {
-            YYE((*$1).append(": unknown variable").toLocal8Bit().constData());
+            YYE(tr("%1: unknown variable").arg(*$1).toLocal8Bit().constData());
             YYABORT;
         }
     }

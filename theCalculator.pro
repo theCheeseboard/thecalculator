@@ -18,7 +18,7 @@ unix:!macx {
 
 macx {
     INCLUDEPATH += "/usr/local/include/the-libs"
-    LIBS += -L/usr/local/lib -lthe-libs
+    LIBS += -L/usr/local/lib -lthe-libs -framework CoreFoundation -framework AppKit
     ICON = icon.icns
 }
 

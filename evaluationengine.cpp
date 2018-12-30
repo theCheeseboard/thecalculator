@@ -68,7 +68,9 @@ int CustomFunction::overloads() {
 
 EvaluationEngine::EvaluationEngine(QObject *parent) : QObject(parent)
 {
-
+    QT_TR_NOOP("%1: unknown variable");
+    QT_TR_NOOP("div: division by 0 undefined");
+    QT_TR_NOOP("%1: undefined function");
 }
 
 EvaluationEngine::~EvaluationEngine() {
