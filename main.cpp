@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
 
     QTranslator localTranslator;
 #ifdef Q_OS_MAC
-    a.setAttribute(Qt::AA_DontShowIconsInMenus, true);
+    a->setAttribute(Qt::AA_DontShowIconsInMenus, true);
 
     CFURLRef appUrlRef = CFBundleCopyBundleURL(CFBundleGetMainBundle());
     CFStringRef macPath = CFURLCopyFileSystemPath(appUrlRef, kCFURLPOSIXPathStyle);

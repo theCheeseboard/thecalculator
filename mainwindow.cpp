@@ -476,7 +476,7 @@ void MainWindow::on_expressionBox_cursorPositionChanged(int arg1, int arg2)
 {
     QString relevantText = ui->expressionBox->text().left(arg2);
     //Find the previous function
-    QRegularExpression regex("\\w+?(?=\\()");
+    QRegularExpression regex("\\w+?(?=[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁱ]*\\()");
     QRegularExpressionMatchIterator matchIterator = regex.globalMatch(relevantText);
 
     //Select the appropriate match
@@ -502,7 +502,11 @@ void MainWindow::on_expressionBox_cursorPositionChanged(int arg1, int arg2)
                 //Otherwise we'll continue and try to get the function anyway
             }
         }
-        lastChar = c;
+
+        //Ignore exponents
+        if (!QRegularExpression("[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁱ]").match(c).hasMatch()) {
+            lastChar = c;
+        }
     }
 
     tVariantAnimation* anim = new tVariantAnimation();
