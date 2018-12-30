@@ -225,12 +225,12 @@
     <message>
         <location filename="../evaluationengine.cpp" line="164"/>
         <source>fact: input (%1) not a real number</source>
-        <translation type="unfinished">fact: Số dự kiến (%1) không phải số thực</translation>
+        <translation>fact: Số dự kiến (%1) không phải số thực</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="167"/>
         <source>fact: input (%1) out of bounds (0 and above)</source>
-        <translation type="unfinished">fact: số dự kiến (%1) ở ngoài giới hạn (0 va hơn)</translation>
+        <translation>fact: số dự kiến (%1) ở ngoài giới hạn (0 va hơn)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="174"/>
@@ -299,12 +299,12 @@
     <message>
         <location filename="../evaluationengine.cpp" line="188"/>
         <source>tan: input (%1) out of bounds (not 90° + 180n)</source>
-        <translation type="unfinished">tan: số dự kiến (%1) ở ngoài giới hạn (không phải 90° + 180n)</translation>
+        <translation>tan: số dự kiến (%1) ở ngoài giới hạn (không phải 90° + 180n)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="193"/>
         <source>tan: input (%1) out of bounds (not π/2 + πn)</source>
-        <translation type="unfinished">tan: số dự kiến (%1) ở ngoài giới hạn (không phải π/2 + πn)</translation>
+        <translation>tan: số dự kiến (%1) ở ngoài giới hạn (không phải π/2 + πn)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="199"/>
@@ -336,7 +336,7 @@
     <message>
         <location filename="../evaluationengine.cpp" line="214"/>
         <source>asin: input (%1) out of bounds (between -1 and 1)</source>
-        <translation type="unfinished">asin: số dự kiến (%1) ở ngoài giới hạn (từ -1 đến 1)</translation>
+        <translation>asin: số dự kiến (%1) ở ngoài giới hạn (từ -1 đến 1)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="219"/>
@@ -351,7 +351,7 @@
     <message>
         <location filename="../evaluationengine.cpp" line="222"/>
         <source>acos: input (%1) out of bounds (between -1 and 1)</source>
-        <translation type="unfinished">acos: số dự kiến (%1) ở ngoài giới hạn (từ -1 đến 1)</translation>
+        <translation>acos: số dự kiến (%1) ở ngoài giới hạn (từ -1 đến 1)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="227"/>
@@ -466,27 +466,27 @@
     <message>
         <location filename="../evaluationengine.cpp" line="285"/>
         <source>log: input (%1) out of bounds (not 0)</source>
-        <translation type="unfinished">log: số dự kiến (%1) ở ngoài giới hạn (không phải 0)</translation>
+        <translation>log: số dự kiến (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="293"/>
         <source>log: arg1 (%1) out of bounds (not 0)</source>
-        <translation type="unfinished">log: số dự kiến nhất (%1) ở ngoài giới hạn (không phải 0)</translation>
+        <translation>log: số dự kiến nhất (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="298"/>
         <source>log: arg2 (%1) out of bounds (not 1)</source>
-        <translation type="unfinished">log: số dự kiến thứ 2 (%1) ở ngoài giới hạn (không phải 1)</translation>
+        <translation>log: số dự kiến thứ 2 (%1) ở ngoài giới hạn (không phải 1)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="303"/>
         <source>log: arg2 (%1) out of bounds (not 0)</source>
-        <translation type="unfinished">log: số dự kiến thứ 2 (%1) ở ngoài giới hạn (không phải 0)</translation>
+        <translation>log: số dự kiến thứ 2 (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="309"/>
         <source>log: expected 1 or 2 arguments, got %1</source>
-        <translation type="unfinished">log: Cần 1 hoặc 2 số dự kiến, đá nhận đươc %1</translation>
+        <translation>log: Cần 1 hoặc 2 số dự kiến, đá nhận đươc %1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="312"/>
@@ -513,7 +513,7 @@
     <message>
         <location filename="../evaluationengine.cpp" line="321"/>
         <source>ln: input (%1) out of bounds (not 0)</source>
-        <translation type="unfinished">ln: số dự kiến (%1) ở ngoài giới hạn (không phải 0)</translation>
+        <translation>ln: số dự kiến (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="326"/>
@@ -523,27 +523,27 @@
     <message>
         <location filename="../evaluationengine.cpp" line="334"/>
         <source>lsh: arg1 (%1) not a real number</source>
-        <translation type="unfinished">lsh: Số dự kiến nhất (%1) không phải số thực</translation>
+        <translation>lsh: Số dự kiến nhất (%1) không phải số thực</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="338"/>
         <source>lsh: arg2 (%1) not a real number</source>
-        <translation type="unfinished">lsh: Số dự kiến thứ 2 (%1) không phải số thực</translation>
+        <translation>lsh: Số dự kiến thứ 2 (%1) không phải số thực</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="343"/>
         <source>lsh: arg1 (%1) not an integer</source>
-        <translation type="unfinished">lsh: Số dự kiến nhất (%1) không phải số nguyên</translation>
+        <translation>lsh: Số dự kiến nhất (%1) không phải số nguyên</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="348"/>
         <source>lsh: arg2 (%2) not an integer</source>
-        <translation type="unfinished">lsh: Số dự kiến thứ 2 (%1) không phải số nguyên</translation>
+        <translation>lsh: Số dự kiến thứ 2 (%1) không phải số nguyên</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="354"/>
         <source>lsh: expected 2 arguments, got %1</source>
-        <translation type="unfinished">lsh: Cần 2 số dự kiến, đá nhận đươc %1</translation>
+        <translation>lsh: Cần 2 số dự kiến, đá nhận đươc %1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="357"/>
@@ -571,27 +571,27 @@
     <message>
         <location filename="../evaluationengine.cpp" line="364"/>
         <source>rsh: arg1 (%1) not a real number</source>
-        <translation type="unfinished">rsh: Số dự kiến nhất (%1) không phải số thực</translation>
+        <translation>rsh: Số dự kiến nhất (%1) không phải số thực</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="368"/>
         <source>rsh: arg2 (%1) not a real number</source>
-        <translation type="unfinished">rsh: Số dự kiến thứ 2 (%1) không phải số thực</translation>
+        <translation>rsh: Số dự kiến thứ 2 (%1) không phải số thực</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="373"/>
         <source>rsh: arg1 (%1) not an integer</source>
-        <translation type="unfinished">rsh: Số dự kiến nhất (%1) không phải số nguyên</translation>
+        <translation>rsh: Số dự kiến nhất (%1) không phải số nguyên</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="378"/>
         <source>rsh: arg2 (%2) not an integer</source>
-        <translation type="unfinished">rsh: Số dự kiến thứ 2 (%1) không phải số nguyên</translation>
+        <translation>rsh: Số dự kiến thứ 2 (%1) không phải số nguyên</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="384"/>
         <source>rsh: expected 2 arguments, got %1</source>
-        <translation type="unfinished">rsh: Cần 2 số dự kiến, đá nhận đươc %1</translation>
+        <translation>rsh: Cần 2 số dự kiến, đá nhận đươc %1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="387"/>
@@ -601,17 +601,17 @@
     <message>
         <location filename="../evaluationengine.cpp" line="395"/>
         <source>pow: arg2 (%1) out of bounds for arg1 (0) (should be positive)</source>
-        <translation type="unfinished">pow: số dự kiến thứ 2 (%1) ở ngoài giới hạn cho số dữ kiện nhất(0) (cần số dương)</translation>
+        <translation>pow: số dự kiến thứ 2 (%1) ở ngoài giới hạn cho số dữ kiện nhất(0) (cần số dương)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="400"/>
         <source>pow: arg2 (%1) out of bounds for arg1 (0) (should be a real number)</source>
-        <translation type="unfinished">pow: số dự kiến thứ 2 (%1) ở ngoài giới hạn cho số dữ kiện nhất(0) (cần số thực)</translation>
+        <translation>pow: số dự kiến thứ 2 (%1) ở ngoài giới hạn cho số dữ kiện nhất(0) (cần số thực)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="406"/>
         <source>pow: expected 2 arguments, got %1</source>
-        <translation type="unfinished">pow: cần 2 số dự kiến, đá nhận đươc %1</translation>
+        <translation>pow: cần 2 số dự kiến, đá nhận đươc %1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="409"/>
@@ -647,17 +647,17 @@
         <location filename="../evaluationengine.cpp" line="425"/>
         <location filename="../evaluationengine.cpp" line="432"/>
         <source>random: arg1 (%1) not a real number</source>
-        <translation type="unfinished">random: số dự kiến nhất (%1) không phải số thực</translation>
+        <translation>random: số dự kiến nhất (%1) không phải số thực</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="437"/>
         <source>random: arg2 (%1) not a real number</source>
-        <translation type="unfinished">random: sở du nhiên thứ 2 (%1) không phải số thực</translation>
+        <translation>random: sở du nhiên thứ 2 (%1) không phải số thực</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="443"/>
         <source>random: expected 0, 1 or 2 arguments, got %1</source>
-        <translation type="unfinished">random: cần 0, 1 hoặc 2 số dự kiến, đá nhận đươc %1</translation>
+        <translation>random: cần 0, 1 hoặc 2 số dự kiến, đá nhận đươc %1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="446"/>
@@ -704,12 +704,12 @@
         <location filename="../evaluationengine.cpp" line="514"/>
         <location filename="../evaluationengine.cpp" line="576"/>
         <source>%1: expected scalar or boolean value, got assignment</source>
-        <translation type="unfinished">%1: cần số vô hướng hoặc giá trị boolean, đã nhận được phân công</translation>
+        <translation>%1: cần số vô hướng hoặc giá trị boolean, đã nhận được phân công</translation>
     </message>
     <message numerus="yes">
         <location filename="../evaluationengine.cpp" line="587"/>
         <source>%1: expected %n arguments, got %2</source>
-        <translation type="unfinished">
+        <translation>
             <numerusform>%1: Cần %n số dự kiến, đá nhận đươc %2</numerusform>
         </translation>
     </message>
@@ -717,17 +717,17 @@
         <location filename="../evaluationengine.cpp" line="590"/>
         <source>or</source>
         <comment>Expected 1, 2 or 3 arguments</comment>
-        <translation type="unfinished">hoặc</translation>
+        <translation>hoặc</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="591"/>
         <source>%1: expected %2 arguments, got %3</source>
-        <translation type="unfinished">%1: Cần %2 số dự kiến, đá nhận đươc %2</translation>
+        <translation>%1: Cần %2 số dự kiến, đá nhận đươc %2</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="642"/>
         <source>%1: expected 1 argument, got %2</source>
-        <translation type="unfinished">%1: Cần 1 số dự kiến, đá nhận đươc %2</translation>
+        <translation>%1: Cần 1 số dự kiến, đá nhận đươc %2</translation>
     </message>
 </context>
 <context>
