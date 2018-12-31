@@ -409,6 +409,32 @@ void EvaluationEngine::setupFunctions() {
             return 0;
         }
     }, tr("Calculates an exponent"), QStringList() << tr("base") + ":" + tr("The base of the exponent") << tr("exponent") + ":" + tr("The number to exponentiate by")));
+    customFunctions.insert("mod", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
+        if (args.length() == 2) {
+            idouble first = args.first();
+            idouble second = args.at(1);
+
+            if (floor(first.real()) != first.real() || first.imag() != 0) {
+                error = tr("mod: arg1 (%1) not an integer").arg(idbToString(first));
+                return 0;
+            }
+
+            if (floor(second.real()) != second.real() || second.imag() != 0) {
+                error = tr("mod: arg2 (%1) not an integer").arg(idbToString(second));
+                return 0;
+            }
+
+            if (second.real() == 0) {
+                error = tr("mod: division by 0 undefined").arg(idbToString(second));
+                return 0;
+            }
+
+            return (int) first.real() % (int) second.real();
+        } else {
+            error = tr("mod: expected 2 arguments, got %1").arg(args.length());
+            return 0;
+        }
+    }, tr("Calculates the remainder when dividing two numbers"), QStringList() << tr("divisor") + ":" + tr("The number to be divided") << tr("dividend") + ":" + tr("The number to divide by")));
 
     customFunctions.insert("floor", createSingleArgFunction([=](idouble arg, QString& error) {
         return floor(arg.real());

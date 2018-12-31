@@ -133,6 +133,7 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
             $$ = new idouble(*$1 / *$3);
         }
     }
+|   expression PERCENT expression {CALL_MAINWINDOW_FUNCTION("mod", QList<idouble>() << *$1 << *$3, $$)}
 |   LBRACKET expression RBRACKET {$$ = new idouble(*$2);}
 |   expression PERCENT {$$ = new idouble(*$1 / idouble(100));}
 |   expression EXPONENTIATE expression {CALL_MAINWINDOW_FUNCTION("pow", QList<idouble>() << *$1 << *$3, $$)}

@@ -84,4 +84,3 @@
 "," {return ARGSEPARATOR;}
 "π" {yylval->number = new idouble(M_PI, 0); return NUMBER; }
 "=" {return ASSIGNMENT;}
-
