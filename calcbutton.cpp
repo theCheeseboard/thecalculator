@@ -20,7 +20,12 @@ void CalcButton::setTypedOutput(QString typed) {
 
 void CalcButton::setText(const QString &text) {
     QPushButton::setText(text);
-    to = text;
+
+    if (QRegularExpression("[a-z]+").match(text).captured() == text) {
+        to = text + "(";
+    } else {
+        to = text;
+    }
 }
 
 QString CalcButton::shiftedOutput() {
