@@ -1,3 +1,23 @@
+/****************************************
+ *
+ *   theCalculator - Calculator
+ *   Copyright (C) 2019 Victor Tran
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * *************************************/
+
 %{
 #include <QString>
 #include <qmath.h>
@@ -20,6 +40,18 @@
     } else {
         yylval->number = new idouble(token.toDouble());
     }
+    return NUMBER;
+}
+("0b")[0-1]+ {
+    QString token = QString::fromLocal8Bit(yytext);
+    token = token.remove(0, 2);
+    yylval->number = new idouble(token.toInt(nullptr, 2));
+    return NUMBER;
+}
+("0x")[0-9|A-F|a-f]+ {
+    QString token = QString::fromLocal8Bit(yytext);
+    token = token.remove(0, 2);
+    yylval->number = new idouble(token.toInt(nullptr, 16));
     return NUMBER;
 }
 ("⁰"|"¹"|"²"|"³"|"⁴"|"⁵"|"⁶"|"⁷"|"⁸"|"⁹")+"ⁱ"?|"ⁱ" {
