@@ -149,7 +149,6 @@ void BranchBox::load(QJsonObject obj) {
     ui->errorCheck->setChecked(ret.value("isError").toBool());
 }
 
-
 void BranchBox::flashError() {
     tVariantAnimation* a = new tVariantAnimation();
     a->setStartValue(QColor(200, 0, 0));

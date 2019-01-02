@@ -73,6 +73,7 @@ class CalculatorWidget : public QWidget
         Ui::CalculatorWidget *ui;
 
         void resizeAnswerLabel();
+        void flashError();
 
         void resizeEvent(QResizeEvent* event);
 

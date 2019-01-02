@@ -74,6 +74,7 @@ double absArg(idouble n) {
 %define parse.lac full
 %define api.pure full
 
+
 %param { yyscan_t scanner }
 
 %parse-param { EvaluationEngineParameters p }

@@ -91,260 +91,260 @@
         <translation type="unfinished">Uitdruiking...</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="290"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="293"/>
         <source>Pi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="319"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="322"/>
         <source>Right Shift</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="341"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="344"/>
         <source>Percentage</source>
         <translation type="unfinished">Percentage</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="357"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="360"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="373"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="376"/>
         <source>Multiply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="408"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="411"/>
         <source>Euler&apos;s Constant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="430"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="433"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="446"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="449"/>
         <source>Imaginary Unit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="462"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="465"/>
         <source>Previous Answer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="538"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="541"/>
         <source>Cube</source>
         <translation type="unfinished">Derdemacht</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="548"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="551"/>
         <source>Nth Root</source>
         <translation type="unfinished">Nste wortel</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="558"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="561"/>
         <source>Hyperbolic Arc Sine</source>
         <translation type="unfinished">Hyperbolische Arcsinus</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="568"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="571"/>
         <source>Arc Tangent</source>
         <translation type="unfinished">Arctangens</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="578"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="581"/>
         <source>Cosine</source>
         <translation type="unfinished">Cosinus</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="588"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="591"/>
         <source>Hyperbolic Tangent</source>
         <translation type="unfinished">Hyperbolische tangens</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="598"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="601"/>
         <source>Square Root</source>
         <translation type="unfinished">Wortel</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="608"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="611"/>
         <source>Base 10 Logarithm</source>
         <translation type="unfinished">Grondtal 10 Logaritme</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="624"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="627"/>
         <source>Square</source>
         <translation type="unfinished">Kwadraat</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="634"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="637"/>
         <source>Arc Sine</source>
         <translation type="unfinished">Arcsinus</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="644"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="647"/>
         <source>Hyperbolic Sine</source>
         <translation type="unfinished">Hyperbolische Sinus</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="654"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="657"/>
         <source>Reciporical</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="670"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="673"/>
         <source>Raise to a power</source>
         <translation type="unfinished">Machtsverheffen</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="680"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="683"/>
         <source>Factorial</source>
         <translation type="unfinished">Factoriaal</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="700"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="703"/>
         <source>Sine</source>
         <translation type="unfinished">Sinus</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="710"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="713"/>
         <source>Arc Cosine</source>
         <translation type="unfinished">Arccosinus</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="720"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="723"/>
         <source>Absolute</source>
         <translation type="unfinished">Absoluut</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="730"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="733"/>
         <source>Secant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="740"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="743"/>
         <source>Hyperbolic Cosine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="750"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="753"/>
         <source>Hyperbolic Arc Tangent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="760"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="763"/>
         <source>Natural Logarithm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="770"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="773"/>
         <source>Tangent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="780"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="783"/>
         <source>Cube Root</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="790"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="793"/>
         <source>Hyperbolic Arc Cosine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="800"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="803"/>
         <source>Cosecant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="810"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="813"/>
         <source>Cotangent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="820"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="823"/>
         <source>Arc Secant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="830"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="833"/>
         <source>Arc Cosecant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="840"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="843"/>
         <source>Arc Cotangent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="866"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="869"/>
         <source>Backspace</source>
         <translation type="unfinished">Backspace</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="927"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="930"/>
         <source>Left Shift</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="975"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="978"/>
         <source>Functions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="1030"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="1033"/>
         <source>Subtract</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="1052"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="1055"/>
         <source>Divide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="1068"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="1071"/>
         <source>Extended Palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="1088"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="1091"/>
         <source>Evaluate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="182"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="183"/>
         <source>%1 assigned to %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="191"/>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="238"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="192"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="239"/>
         <source>TRUE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="191"/>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="238"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="192"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="239"/>
         <source>FALSE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="235"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="236"/>
         <source>Assign %1 to %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="329"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="330"/>
         <source>No arguments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="330"/>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="347"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="331"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="348"/>
         <source>function</source>
         <translation type="unfinished"></translation>
     </message>

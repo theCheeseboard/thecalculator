@@ -175,6 +175,7 @@ void CalculatorWidget::on_EqualButton_clicked()
                 ui->answerLabel->setText(r.error);
 
                 resizeAnswerLabel();
+                flashError();
                 break;
             }
             case EvaluationEngine::Result::Assign: {
@@ -402,4 +403,20 @@ QSize CalculatorWidget::sizeHint() const {
         initialSizeHint.setWidth(forceWidth);
     }
     return initialSizeHint;
+}
+
+void CalculatorWidget::flashError() {
+    tVariantAnimation* a = new tVariantAnimation();
+    a->setStartValue(QColor(200, 0, 0));
+    a->setEndValue(this->palette().color(QPalette::Window));
+    a->setDuration(1000);
+    a->setEasingCurve(QEasingCurve::Linear);
+    connect(a, &tVariantAnimation::finished, a, &tVariantAnimation::deleteLater);
+    connect(a, &tVariantAnimation::valueChanged, [=](QVariant value) {
+        QPalette pal = this->palette();
+        pal.setColor(QPalette::Window, value.value<QColor>());
+        ui->expressionBox->setPalette(pal);
+        ui->answerContainer->setPalette(pal);
+    });
+    a->start();
 }
