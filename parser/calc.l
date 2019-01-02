@@ -30,16 +30,9 @@
 %option header-file="calc.yy.h"
 
 %%
-[0-9]+(\.[0-9]+)?i?|i {
+[0-9]+(\.[0-9]+)? {
     QString token = QString::fromLocal8Bit(yytext);
-    if (token == "i") {
-        yylval->number = new idouble(0, 1);
-    } else if (token.endsWith("i")) {
-        token.chop(1);
-        yylval->number = new idouble(0, token.toDouble());
-    } else {
-        yylval->number = new idouble(token.toDouble());
-    }
+    yylval->number = new idouble(token.toDouble());
     return NUMBER;
 }
 ("0b")[0-1]+ {
@@ -107,6 +100,9 @@
 [[:alpha:]_][[:alnum:]_]* {
     if (strcmp("e", yytext) == 0) {
         yylval->number = new idouble(M_E, 0);
+        return NUMBER;
+    } else if (strcmp("i", yytext) == 0) {
+        yylval->number = new idouble(0, 1);
         return NUMBER;
     } else {
         yylval->string = new QString(yytext);
