@@ -50,31 +50,18 @@ class MainWindow : public QMainWindow
     public:
         explicit MainWindow(QWidget *parent = 0);
         ~MainWindow();
-    
-        QList<CalcButton*> buttons;
+
+        QMap<QString, idouble> variables;
 
     public slots:
         void parserError(const char* error);
-        void parserResult(idouble result);
 
     private slots:
-        void on_expandButton_clicked();
-
-        void ButtonPressed(QString text);
-
-        void on_ClearButton_clicked();
-
-        void on_BackspaceButton_clicked();
-
-        void on_EqualButton_clicked();
-
         void on_actionExit_triggered();
 
         void on_backButton_clicked();
 
         void on_FunctionsButton_clicked();
-
-        void on_expressionBox_returnPressed();
 
         void on_actionAbout_triggered();
 
@@ -94,38 +81,26 @@ class MainWindow : public QMainWindow
 
         void on_newOverloadButton_clicked();
 
-        void on_expressionBox_expressionUpdated(const QString &);
-
         void on_saveCustomFunctionButton_clicked();
 
         void on_customFunctionsList_itemActivated(QListWidgetItem *item);
 
-        void on_expressionBox_cursorPositionChanged(int arg1, int arg2);
+        void on_calcWidget_manageFunctions();
 
-        void on_nextOverload_clicked();
+        void on_calcWidget_sizeHintChanged();
 
-        void on_previousOverload_clicked();
+        void on_stackedWidget_currentChanged(int arg1);
 
     private:
         Ui::MainWindow *ui;
 
-        bool extended = false;
         bool resultSuccess = false;
-        bool historyAtBottom = true;
-        void resizeAnswerLabel();
 
-        void resizeEvent(QResizeEvent* event);
         void changeEvent(QEvent* event);
 
         idouble currentAnswer;
-        HistoryDelegate* historyDelegate;
         QSettings settings;
         QString editingFunction = "";
-        QMap<QString, idouble> variables;
-
-        int currentOverload = 0;
-        int numOverloads;
-        QString currentFunctionHelp;
 };
 
 #endif // MAINWINDOW_H

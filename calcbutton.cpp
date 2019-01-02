@@ -19,6 +19,7 @@
  * *************************************/
 
 #include "calcbutton.h"
+#include <QRegularExpression>
 
 extern MainWindow* MainWin;
 
@@ -27,7 +28,7 @@ CalcButton::CalcButton(QWidget *parent) : QPushButton(parent)
     /*connect(this, &CalcButton::clicked, [=] {
         emit output(to);
     });*/
-    MainWin->buttons.append(this);
+    CalculatorWidget::buttons.append(this);
 }
 
 QString CalcButton::typedOutput() {

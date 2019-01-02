@@ -24,7 +24,7 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QMouseEvent>
-#include "mainwindow.h"
+#include "parts/calculator/calculatorwidget.h"
 
 class MainWindow;
 class CalcButton : public QPushButton
