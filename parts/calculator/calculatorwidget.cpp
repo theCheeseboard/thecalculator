@@ -102,6 +102,8 @@ CalculatorWidget::CalculatorWidget(QWidget *parent) :
     ui->CubeButton->setTypedOutput("³");
     ui->ExponentButton->setTypedOutput("^");
     ui->inverseButton->setTypedOutput("⁻¹");
+    ui->imaginaryButton->setTypedOutput("i");
+    ui->eButton->setTypedOutput("e");
     for (CalcButton* b : buttons) {
         connect(b, SIGNAL(output(QString)), this, SLOT(ButtonPressed(QString)));
     }

@@ -56,7 +56,8 @@ class EvaluationEngine : public QObject
 
         enum TrigonometricUnit {
             Degrees,
-            Radians
+            Radians,
+            Gradians
         };
 
         static void setupFunctions();
@@ -105,7 +106,7 @@ class EvaluationEngine : public QObject
 
 
         static idouble toRad(idouble deg);
-        static idouble toDeg(idouble rad);
+        static idouble fromRad(idouble rad);
 };
 
 #endif // EVALUATIONENGINE_H

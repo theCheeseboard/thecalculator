@@ -210,6 +210,11 @@ void EvaluationEngine::setupFunctions() {
                 error = tr("tan: input (%1) out of bounds (not 90° + 180n)").arg(idbToString(arg));
                 return 0;
             }
+        } else if (trigUnit == Gradians) {
+            if (fmod(arg.real() - 100, 200) == 0) {
+                error = tr("tan: input (%1) out of bounds (not 100ᵍ + 200n)").arg(idbToString(arg));
+                return 0;
+            }
         } else {
             if (fmod(arg.real() - (M_PI / 2), M_PI) == 0) {
                 error = tr("tan: input (%1) out of bounds (not π/2 + πn)").arg(idbToString(arg));
@@ -236,7 +241,7 @@ void EvaluationEngine::setupFunctions() {
             error = tr("asin: input (%1) out of bounds (between -1 and 1)").arg(idbToString(arg));
             return 0;
         } else {
-            return toDeg(asin(arg));
+            return fromRad(asin(arg));
         }
     }, "asin", tr("Calculates the %1 of an %2").arg(tr("arcsine (inverse sine)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arcsine"))));
     customFunctions.insert("acos", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
@@ -244,12 +249,12 @@ void EvaluationEngine::setupFunctions() {
             error = tr("acos: input (%1) out of bounds (between -1 and 1)").arg(idbToString(arg));
             return 0;
         } else {
-            return toDeg(acos(arg));
+            return fromRad(acos(arg));
         }
     }, "acos", tr("Calculates the %1 of an %2").arg(tr("arccosine (inverse cosine)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arccosine"))));
     customFunctions.insert("atan", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         Q_UNUSED(error)
-        return toDeg(atan(arg));
+        return fromRad(atan(arg));
     }, "atan", tr("Calculates the %1 of an %2").arg(tr("arctangent (inverse tangent)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arctangent"))));
     customFunctions.insert("sec", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
@@ -265,15 +270,15 @@ void EvaluationEngine::setupFunctions() {
     }, "cot", tr("Calculates the %1 of an %2").arg(tr("cotangent"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("cotangent"))));
     customFunctions.insert("asec", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
-        return toDeg(acos(idouble(1) / arg));
+        return fromRad(acos(idouble(1) / arg));
     }, "asec", tr("Calculates the %1 of an %2").arg(tr("arcsecant (inverse secant)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arcsecant"))));
     customFunctions.insert("acsc", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
-        return toDeg(asin(idouble(1) / arg));
+        return fromRad(asin(idouble(1) / arg));
     }, "acsc", tr("Calculates the %1 of an %2").arg(tr("arccosecant (inverse cosecant)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arccosecant"))));
     customFunctions.insert("acot", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
-        return toDeg(atan(idouble(1) / arg));
+        return fromRad(atan(idouble(1) / arg));
     }, "acot", tr("Calculates the %1 of an %2").arg(tr("arccotangent (inverse cotangent)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arccotangent"))));
     customFunctions.insert("sinh", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
@@ -670,9 +675,11 @@ void EvaluationEngine::setTrigonometricUnit(TrigonometricUnit trigUnit) {
     EvaluationEngine::trigUnit = trigUnit;
 }
 
-idouble EvaluationEngine::toDeg(idouble rad) {
+idouble EvaluationEngine::fromRad(idouble rad) {
     if (trigUnit == Degrees) {
         rad *= idouble(180 / M_PI);
+    } else if (trigUnit == Gradians) {
+        rad *= idouble(200 / M_PI);
     }
     return rad;
 }
@@ -680,6 +687,8 @@ idouble EvaluationEngine::toDeg(idouble rad) {
 idouble EvaluationEngine::toRad(idouble deg) {
     if (trigUnit == Degrees) {
         deg *= idouble(M_PI / 180);
+    } else if (trigUnit == Gradians) {
+        deg *= idouble(M_PI / 200);
     }
     return deg;
 }

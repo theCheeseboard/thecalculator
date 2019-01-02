@@ -399,6 +399,7 @@
     </property>
     <addaction name="actionDegrees"/>
     <addaction name="actionRadians"/>
+    <addaction name="actionGradians"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -485,6 +486,14 @@
     <string>&amp;Sources</string>
    </property>
   </action>
+  <action name="actionGradians">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Gradians</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -501,6 +510,7 @@
    <container>1</container>
    <slots>
     <signal>manageFunctions()</signal>
+    <signal>sizeHintChanged()</signal>
    </slots>
   </customwidget>
  </customwidgets>

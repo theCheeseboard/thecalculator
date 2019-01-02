@@ -59,6 +59,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QActionGroup* group = new QActionGroup(this);
     group->addAction(ui->actionDegrees);
     group->addAction(ui->actionRadians);
+    group->addAction(ui->actionGradians);
 
     QTimer::singleShot(0, [=] {
         this->setFixedWidth(ui->calcWidget->sizeHint().width());
@@ -317,5 +318,12 @@ void MainWindow::on_stackedWidget_currentChanged(int arg1)
             this->setFixedWidth(anim->currentValue().toInt());
             anim->deleteLater();
         });
+    }
+}
+
+void MainWindow::on_actionGradians_triggered(bool checked)
+{
+    if (checked) {
+        EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Gradians);
     }
 }

@@ -91,6 +91,8 @@ class MainWindow : public QMainWindow
 
         void on_stackedWidget_currentChanged(int arg1);
 
+        void on_actionGradians_triggered(bool checked);
+
     private:
         Ui::MainWindow *ui;
 
