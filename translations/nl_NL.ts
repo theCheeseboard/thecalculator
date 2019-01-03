@@ -428,18 +428,21 @@
         <location filename="../evaluationengine.cpp" line="177"/>
         <location filename="../evaluationengine.cpp" line="180"/>
         <location filename="../evaluationengine.cpp" line="183"/>
-        <location filename="../evaluationengine.cpp" line="227"/>
-        <location filename="../evaluationengine.cpp" line="231"/>
-        <location filename="../evaluationengine.cpp" line="235"/>
-        <location filename="../evaluationengine.cpp" line="239"/>
-        <location filename="../evaluationengine.cpp" line="340"/>
-        <location filename="../evaluationengine.cpp" line="341"/>
-        <location filename="../evaluationengine.cpp" line="342"/>
-        <location filename="../evaluationengine.cpp" line="354"/>
-        <location filename="../evaluationengine.cpp" line="385"/>
-        <location filename="../evaluationengine.cpp" line="415"/>
-        <location filename="../evaluationengine.cpp" line="467"/>
-        <location filename="../evaluationengine.cpp" line="470"/>
+        <location filename="../evaluationengine.cpp" line="200"/>
+        <location filename="../evaluationengine.cpp" line="201"/>
+        <location filename="../evaluationengine.cpp" line="247"/>
+        <location filename="../evaluationengine.cpp" line="251"/>
+        <location filename="../evaluationengine.cpp" line="255"/>
+        <location filename="../evaluationengine.cpp" line="259"/>
+        <location filename="../evaluationengine.cpp" line="266"/>
+        <location filename="../evaluationengine.cpp" line="368"/>
+        <location filename="../evaluationengine.cpp" line="369"/>
+        <location filename="../evaluationengine.cpp" line="370"/>
+        <location filename="../evaluationengine.cpp" line="382"/>
+        <location filename="../evaluationengine.cpp" line="413"/>
+        <location filename="../evaluationengine.cpp" line="443"/>
+        <location filename="../evaluationengine.cpp" line="495"/>
+        <location filename="../evaluationengine.cpp" line="498"/>
         <source>number</source>
         <translation type="unfinished"></translation>
     </message>
@@ -447,10 +450,12 @@
         <location filename="../evaluationengine.cpp" line="177"/>
         <location filename="../evaluationengine.cpp" line="180"/>
         <location filename="../evaluationengine.cpp" line="183"/>
-        <location filename="../evaluationengine.cpp" line="227"/>
-        <location filename="../evaluationengine.cpp" line="231"/>
-        <location filename="../evaluationengine.cpp" line="235"/>
-        <location filename="../evaluationengine.cpp" line="239"/>
+        <location filename="../evaluationengine.cpp" line="200"/>
+        <location filename="../evaluationengine.cpp" line="247"/>
+        <location filename="../evaluationengine.cpp" line="251"/>
+        <location filename="../evaluationengine.cpp" line="255"/>
+        <location filename="../evaluationengine.cpp" line="259"/>
+        <location filename="../evaluationengine.cpp" line="266"/>
         <source>Calculates the %1 of a %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -463,21 +468,16 @@
         <location filename="../evaluationengine.cpp" line="177"/>
         <location filename="../evaluationengine.cpp" line="180"/>
         <location filename="../evaluationengine.cpp" line="183"/>
-        <location filename="../evaluationengine.cpp" line="196"/>
-        <location filename="../evaluationengine.cpp" line="200"/>
-        <location filename="../evaluationengine.cpp" line="204"/>
-        <location filename="../evaluationengine.cpp" line="227"/>
-        <location filename="../evaluationengine.cpp" line="231"/>
-        <location filename="../evaluationengine.cpp" line="235"/>
-        <location filename="../evaluationengine.cpp" line="239"/>
+        <location filename="../evaluationengine.cpp" line="201"/>
+        <location filename="../evaluationengine.cpp" line="216"/>
+        <location filename="../evaluationengine.cpp" line="220"/>
+        <location filename="../evaluationengine.cpp" line="224"/>
         <location filename="../evaluationengine.cpp" line="247"/>
+        <location filename="../evaluationengine.cpp" line="251"/>
         <location filename="../evaluationengine.cpp" line="255"/>
         <location filename="../evaluationengine.cpp" line="259"/>
-        <location filename="../evaluationengine.cpp" line="263"/>
-        <location filename="../evaluationengine.cpp" line="267"/>
-        <location filename="../evaluationengine.cpp" line="271"/>
+        <location filename="../evaluationengine.cpp" line="266"/>
         <location filename="../evaluationengine.cpp" line="275"/>
-        <location filename="../evaluationengine.cpp" line="279"/>
         <location filename="../evaluationengine.cpp" line="283"/>
         <location filename="../evaluationengine.cpp" line="287"/>
         <location filename="../evaluationengine.cpp" line="291"/>
@@ -485,11 +485,18 @@
         <location filename="../evaluationengine.cpp" line="299"/>
         <location filename="../evaluationengine.cpp" line="303"/>
         <location filename="../evaluationengine.cpp" line="307"/>
-        <location filename="../evaluationengine.cpp" line="340"/>
-        <location filename="../evaluationengine.cpp" line="342"/>
-        <location filename="../evaluationengine.cpp" line="354"/>
-        <location filename="../evaluationengine.cpp" line="467"/>
-        <location filename="../evaluationengine.cpp" line="470"/>
+        <location filename="../evaluationengine.cpp" line="311"/>
+        <location filename="../evaluationengine.cpp" line="315"/>
+        <location filename="../evaluationengine.cpp" line="319"/>
+        <location filename="../evaluationengine.cpp" line="323"/>
+        <location filename="../evaluationengine.cpp" line="327"/>
+        <location filename="../evaluationengine.cpp" line="331"/>
+        <location filename="../evaluationengine.cpp" line="335"/>
+        <location filename="../evaluationengine.cpp" line="368"/>
+        <location filename="../evaluationengine.cpp" line="370"/>
+        <location filename="../evaluationengine.cpp" line="382"/>
+        <location filename="../evaluationengine.cpp" line="495"/>
+        <location filename="../evaluationengine.cpp" line="498"/>
         <source>The %1 to calculate the %2 of</source>
         <translation type="unfinished"></translation>
     </message>
@@ -504,27 +511,51 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="186"/>
+        <location filename="../evaluationengine.cpp" line="190"/>
+        <source>root: arg1 (%1) out of bounds (not 0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="196"/>
+        <source>root: expected 2 arguments, got %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="200"/>
+        <location filename="../evaluationengine.cpp" line="201"/>
+        <source>root</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="201"/>
+        <source>radicand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="202"/>
+        <source>index</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="202"/>
+        <source>The number to root by</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="206"/>
         <source>fact: input (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="189"/>
+        <location filename="../evaluationengine.cpp" line="209"/>
         <source>fact: input (%1) out of bounds (0 and above)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="196"/>
-        <location filename="../evaluationengine.cpp" line="200"/>
-        <location filename="../evaluationengine.cpp" line="204"/>
-        <location filename="../evaluationengine.cpp" line="247"/>
-        <location filename="../evaluationengine.cpp" line="255"/>
-        <location filename="../evaluationengine.cpp" line="259"/>
-        <location filename="../evaluationengine.cpp" line="263"/>
-        <location filename="../evaluationengine.cpp" line="267"/>
-        <location filename="../evaluationengine.cpp" line="271"/>
+        <location filename="../evaluationengine.cpp" line="216"/>
+        <location filename="../evaluationengine.cpp" line="220"/>
+        <location filename="../evaluationengine.cpp" line="224"/>
         <location filename="../evaluationengine.cpp" line="275"/>
-        <location filename="../evaluationengine.cpp" line="279"/>
         <location filename="../evaluationengine.cpp" line="283"/>
         <location filename="../evaluationengine.cpp" line="287"/>
         <location filename="../evaluationengine.cpp" line="291"/>
@@ -532,31 +563,31 @@
         <location filename="../evaluationengine.cpp" line="299"/>
         <location filename="../evaluationengine.cpp" line="303"/>
         <location filename="../evaluationengine.cpp" line="307"/>
-        <location filename="../evaluationengine.cpp" line="340"/>
-        <location filename="../evaluationengine.cpp" line="341"/>
-        <location filename="../evaluationengine.cpp" line="354"/>
-        <location filename="../evaluationengine.cpp" line="467"/>
-        <location filename="../evaluationengine.cpp" line="470"/>
+        <location filename="../evaluationengine.cpp" line="311"/>
+        <location filename="../evaluationengine.cpp" line="315"/>
+        <location filename="../evaluationengine.cpp" line="319"/>
+        <location filename="../evaluationengine.cpp" line="323"/>
+        <location filename="../evaluationengine.cpp" line="327"/>
+        <location filename="../evaluationengine.cpp" line="331"/>
+        <location filename="../evaluationengine.cpp" line="335"/>
+        <location filename="../evaluationengine.cpp" line="368"/>
+        <location filename="../evaluationengine.cpp" line="369"/>
+        <location filename="../evaluationengine.cpp" line="382"/>
+        <location filename="../evaluationengine.cpp" line="495"/>
+        <location filename="../evaluationengine.cpp" line="498"/>
         <source>Calculates the %1 of an %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="196"/>
+        <location filename="../evaluationengine.cpp" line="216"/>
         <source>factorial</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="196"/>
-        <location filename="../evaluationengine.cpp" line="200"/>
-        <location filename="../evaluationengine.cpp" line="204"/>
-        <location filename="../evaluationengine.cpp" line="247"/>
-        <location filename="../evaluationengine.cpp" line="255"/>
-        <location filename="../evaluationengine.cpp" line="259"/>
-        <location filename="../evaluationengine.cpp" line="263"/>
-        <location filename="../evaluationengine.cpp" line="267"/>
-        <location filename="../evaluationengine.cpp" line="271"/>
+        <location filename="../evaluationengine.cpp" line="216"/>
+        <location filename="../evaluationengine.cpp" line="220"/>
+        <location filename="../evaluationengine.cpp" line="224"/>
         <location filename="../evaluationengine.cpp" line="275"/>
-        <location filename="../evaluationengine.cpp" line="279"/>
         <location filename="../evaluationengine.cpp" line="283"/>
         <location filename="../evaluationengine.cpp" line="287"/>
         <location filename="../evaluationengine.cpp" line="291"/>
@@ -564,471 +595,489 @@
         <location filename="../evaluationengine.cpp" line="299"/>
         <location filename="../evaluationengine.cpp" line="303"/>
         <location filename="../evaluationengine.cpp" line="307"/>
+        <location filename="../evaluationengine.cpp" line="311"/>
+        <location filename="../evaluationengine.cpp" line="315"/>
+        <location filename="../evaluationengine.cpp" line="319"/>
+        <location filename="../evaluationengine.cpp" line="323"/>
+        <location filename="../evaluationengine.cpp" line="327"/>
+        <location filename="../evaluationengine.cpp" line="331"/>
+        <location filename="../evaluationengine.cpp" line="335"/>
         <source>angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="200"/>
+        <location filename="../evaluationengine.cpp" line="220"/>
         <source>sine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="204"/>
+        <location filename="../evaluationengine.cpp" line="224"/>
         <source>cosine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="208"/>
+        <location filename="../evaluationengine.cpp" line="228"/>
         <source>tan: input (%1) out of bounds (not %2)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="227"/>
+        <location filename="../evaluationengine.cpp" line="247"/>
         <source>tangent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="231"/>
+        <location filename="../evaluationengine.cpp" line="251"/>
         <source>conjugate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="231"/>
-        <location filename="../evaluationengine.cpp" line="235"/>
-        <location filename="../evaluationengine.cpp" line="239"/>
+        <location filename="../evaluationengine.cpp" line="251"/>
+        <location filename="../evaluationengine.cpp" line="255"/>
+        <location filename="../evaluationengine.cpp" line="259"/>
+        <location filename="../evaluationengine.cpp" line="266"/>
         <source>complex number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="235"/>
+        <location filename="../evaluationengine.cpp" line="255"/>
         <source>imaginary portion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="239"/>
+        <location filename="../evaluationengine.cpp" line="259"/>
         <source>real portion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="242"/>
+        <location filename="../evaluationengine.cpp" line="262"/>
+        <source>arg: phase angle of 0 undefined</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="266"/>
+        <source>phase angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="270"/>
         <source>asin: input (%1) out of bounds (between -1 and 1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="247"/>
+        <location filename="../evaluationengine.cpp" line="275"/>
         <source>arcsine (inverse sine)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="247"/>
+        <location filename="../evaluationengine.cpp" line="275"/>
         <source>arcsine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="250"/>
+        <location filename="../evaluationengine.cpp" line="278"/>
         <source>acos: input (%1) out of bounds (between -1 and 1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="255"/>
+        <location filename="../evaluationengine.cpp" line="283"/>
         <source>arccosine (inverse cosine)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="255"/>
+        <location filename="../evaluationengine.cpp" line="283"/>
         <source>arccosine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="259"/>
+        <location filename="../evaluationengine.cpp" line="287"/>
         <source>arctangent (inverse tangent)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="259"/>
+        <location filename="../evaluationengine.cpp" line="287"/>
         <source>arctangent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="263"/>
+        <location filename="../evaluationengine.cpp" line="291"/>
         <source>secant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="267"/>
+        <location filename="../evaluationengine.cpp" line="295"/>
         <source>cosecant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="271"/>
+        <location filename="../evaluationengine.cpp" line="299"/>
         <source>cotangent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="275"/>
+        <location filename="../evaluationengine.cpp" line="303"/>
         <source>arcsecant (inverse secant)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="275"/>
+        <location filename="../evaluationengine.cpp" line="303"/>
         <source>arcsecant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="279"/>
+        <location filename="../evaluationengine.cpp" line="307"/>
         <source>arccosecant (inverse cosecant)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="279"/>
+        <location filename="../evaluationengine.cpp" line="307"/>
         <source>arccosecant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="283"/>
+        <location filename="../evaluationengine.cpp" line="311"/>
         <source>arccotangent (inverse cotangent)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="283"/>
+        <location filename="../evaluationengine.cpp" line="311"/>
         <source>arccotangent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="287"/>
+        <location filename="../evaluationengine.cpp" line="315"/>
         <source>hyperbolic sine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="291"/>
+        <location filename="../evaluationengine.cpp" line="319"/>
         <source>hyperbolic cosine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="295"/>
+        <location filename="../evaluationengine.cpp" line="323"/>
         <source>hyperbolic tangent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="299"/>
+        <location filename="../evaluationengine.cpp" line="327"/>
         <source>hyperbolic arcsine (inverse hyperbolic arcsine)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="299"/>
+        <location filename="../evaluationengine.cpp" line="327"/>
         <source>hyperbolic arcsine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="303"/>
+        <location filename="../evaluationengine.cpp" line="331"/>
         <source>hyperbolic arccosine (inverse hyperbolic arccosine)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="303"/>
+        <location filename="../evaluationengine.cpp" line="331"/>
         <source>hyperbolic arccosine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="307"/>
+        <location filename="../evaluationengine.cpp" line="335"/>
         <source>hyperbolic arctangent (inverse hyperbolic arctangent)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="307"/>
+        <location filename="../evaluationengine.cpp" line="335"/>
         <source>hyperbolic arctangent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="313"/>
+        <location filename="../evaluationengine.cpp" line="341"/>
         <source>log: input (%1) out of bounds (not 0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="321"/>
+        <location filename="../evaluationengine.cpp" line="349"/>
         <source>log: arg1 (%1) out of bounds (not 0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="326"/>
+        <location filename="../evaluationengine.cpp" line="354"/>
         <source>log: arg2 (%1) out of bounds (not 1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="331"/>
+        <location filename="../evaluationengine.cpp" line="359"/>
         <source>log: arg2 (%1) out of bounds (not 0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="337"/>
+        <location filename="../evaluationengine.cpp" line="365"/>
         <source>log: expected 1 or 2 arguments, got %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="340"/>
+        <location filename="../evaluationengine.cpp" line="368"/>
         <source>base 10 logarithm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="341"/>
-        <location filename="../evaluationengine.cpp" line="342"/>
+        <location filename="../evaluationengine.cpp" line="369"/>
+        <location filename="../evaluationengine.cpp" line="370"/>
         <source>logarithm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="343"/>
-        <location filename="../evaluationengine.cpp" line="437"/>
+        <location filename="../evaluationengine.cpp" line="371"/>
+        <location filename="../evaluationengine.cpp" line="465"/>
         <source>base</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="343"/>
+        <location filename="../evaluationengine.cpp" line="371"/>
         <source>The base of the logarithm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="349"/>
+        <location filename="../evaluationengine.cpp" line="377"/>
         <source>ln: input (%1) out of bounds (not 0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="354"/>
+        <location filename="../evaluationengine.cpp" line="382"/>
         <source>base e logarithm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="362"/>
+        <location filename="../evaluationengine.cpp" line="390"/>
         <source>lsh: arg1 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="366"/>
+        <location filename="../evaluationengine.cpp" line="394"/>
         <source>lsh: arg2 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="371"/>
+        <location filename="../evaluationengine.cpp" line="399"/>
         <source>lsh: arg1 (%1) not an integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="376"/>
+        <location filename="../evaluationengine.cpp" line="404"/>
         <source>lsh: arg2 (%1) not an integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="382"/>
+        <location filename="../evaluationengine.cpp" line="410"/>
         <source>lsh: expected 2 arguments, got %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="385"/>
+        <location filename="../evaluationengine.cpp" line="413"/>
         <source>Shifts a number to the left by a specified number of bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="385"/>
-        <location filename="../evaluationengine.cpp" line="415"/>
+        <location filename="../evaluationengine.cpp" line="413"/>
+        <location filename="../evaluationengine.cpp" line="443"/>
         <source>The number to shift</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="385"/>
-        <location filename="../evaluationengine.cpp" line="415"/>
+        <location filename="../evaluationengine.cpp" line="413"/>
+        <location filename="../evaluationengine.cpp" line="443"/>
         <source>The number of bits to shift by</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="385"/>
-        <location filename="../evaluationengine.cpp" line="415"/>
+        <location filename="../evaluationengine.cpp" line="413"/>
+        <location filename="../evaluationengine.cpp" line="443"/>
         <source>amount</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="392"/>
+        <location filename="../evaluationengine.cpp" line="420"/>
         <source>rsh: arg1 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="396"/>
+        <location filename="../evaluationengine.cpp" line="424"/>
         <source>rsh: arg2 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="401"/>
+        <location filename="../evaluationengine.cpp" line="429"/>
         <source>rsh: arg1 (%1) not an integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="406"/>
+        <location filename="../evaluationengine.cpp" line="434"/>
         <source>rsh: arg2 (%1) not an integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="412"/>
+        <location filename="../evaluationengine.cpp" line="440"/>
         <source>rsh: expected 2 arguments, got %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="415"/>
+        <location filename="../evaluationengine.cpp" line="443"/>
         <source>Shifts a number to the right by a specified number of bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="423"/>
+        <location filename="../evaluationengine.cpp" line="451"/>
         <source>pow: arg2 (%1) out of bounds for arg1 (0) (should be positive)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="428"/>
+        <location filename="../evaluationengine.cpp" line="456"/>
         <source>pow: arg2 (%1) out of bounds for arg1 (0) (should be a real number)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="434"/>
+        <location filename="../evaluationengine.cpp" line="462"/>
         <source>pow: expected 2 arguments, got %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="437"/>
+        <location filename="../evaluationengine.cpp" line="465"/>
         <source>Calculates an exponent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="437"/>
+        <location filename="../evaluationengine.cpp" line="465"/>
         <source>The base of the exponent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="437"/>
+        <location filename="../evaluationengine.cpp" line="465"/>
         <source>exponent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="437"/>
+        <location filename="../evaluationengine.cpp" line="465"/>
         <source>The number to exponentiate by</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="444"/>
+        <location filename="../evaluationengine.cpp" line="472"/>
         <source>mod: arg1 (%1) not an integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="449"/>
+        <location filename="../evaluationengine.cpp" line="477"/>
         <source>mod: arg2 (%1) not an integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="454"/>
+        <location filename="../evaluationengine.cpp" line="482"/>
         <source>mod: division by 0 undefined</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="460"/>
+        <location filename="../evaluationengine.cpp" line="488"/>
         <source>mod: expected 2 arguments, got %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="463"/>
+        <location filename="../evaluationengine.cpp" line="491"/>
         <source>Calculates the remainder when dividing two numbers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="463"/>
+        <location filename="../evaluationengine.cpp" line="491"/>
         <source>divisor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="463"/>
+        <location filename="../evaluationengine.cpp" line="491"/>
         <source>The number to be divided</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="463"/>
+        <location filename="../evaluationengine.cpp" line="491"/>
         <source>dividend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="463"/>
+        <location filename="../evaluationengine.cpp" line="491"/>
         <source>The number to divide by</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="467"/>
+        <location filename="../evaluationengine.cpp" line="495"/>
         <source>floor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="470"/>
+        <location filename="../evaluationengine.cpp" line="498"/>
         <source>ceiling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="479"/>
-        <location filename="../evaluationengine.cpp" line="486"/>
+        <location filename="../evaluationengine.cpp" line="507"/>
+        <location filename="../evaluationengine.cpp" line="514"/>
         <source>random: arg1 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="491"/>
+        <location filename="../evaluationengine.cpp" line="519"/>
         <source>random: arg2 (%1) not a real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="497"/>
+        <location filename="../evaluationengine.cpp" line="525"/>
         <source>random: expected 0, 1 or 2 arguments, got %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="500"/>
+        <location filename="../evaluationengine.cpp" line="528"/>
         <source>Returns a random number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="501"/>
+        <location filename="../evaluationengine.cpp" line="529"/>
         <source>Returns a random number in the range [0-number)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="501"/>
+        <location filename="../evaluationengine.cpp" line="529"/>
         <source>bound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="501"/>
-        <location filename="../evaluationengine.cpp" line="502"/>
+        <location filename="../evaluationengine.cpp" line="529"/>
+        <location filename="../evaluationengine.cpp" line="530"/>
         <source>The exclusive high bound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="502"/>
+        <location filename="../evaluationengine.cpp" line="530"/>
         <source>Returns a random number in the range [low-high)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="502"/>
+        <location filename="../evaluationengine.cpp" line="530"/>
         <source>low</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="502"/>
+        <location filename="../evaluationengine.cpp" line="530"/>
         <source>The inclusive low bound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="502"/>
+        <location filename="../evaluationengine.cpp" line="530"/>
         <source>high</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="568"/>
-        <location filename="../evaluationengine.cpp" line="630"/>
+        <location filename="../evaluationengine.cpp" line="596"/>
+        <location filename="../evaluationengine.cpp" line="658"/>
         <source>%1: expected scalar or boolean value, got assignment</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../evaluationengine.cpp" line="641"/>
+        <location filename="../evaluationengine.cpp" line="669"/>
         <source>%1: expected %n arguments, got %2</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -1036,18 +1085,18 @@
         </translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="644"/>
+        <location filename="../evaluationengine.cpp" line="672"/>
         <source>or</source>
         <comment>Expected 1, 2 or 3 arguments</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="645"/>
+        <location filename="../evaluationengine.cpp" line="673"/>
         <source>%1: expected %2 arguments, got %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="700"/>
+        <location filename="../evaluationengine.cpp" line="728"/>
         <source>%1: expected 1 argument, got %2</source>
         <translation type="unfinished"></translation>
     </message>

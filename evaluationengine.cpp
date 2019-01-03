@@ -181,6 +181,26 @@ void EvaluationEngine::setupFunctions() {
     customFunctions.insert("cbrt", createSingleArgFunction([=](idouble arg, QString& error) {
         return pow(arg, 1 / (float) 3);
     }, "cbrt", tr("Calculates the %1 of a %2").arg(tr("cube root"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("cube root"))));
+    customFunctions.insert("root", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
+        if (args.length() == 2) {
+            idouble first = args.first();
+            idouble second = args.at(1);
+
+            if (second.real() == 0 && second.imag() == 0) {
+                error = tr("root: arg1 (%1) out of bounds (not 0)").arg(idbToString(first));
+                return 0;
+            }
+
+            return pow(first, idouble(1.0) / second);
+        } else {
+            error = tr("root: expected 2 arguments, got %1").arg(args.length());
+            return 0;
+        }
+        return 0;
+    }, tr("Calculates the %1 of a %2").arg(tr("root"), tr("number")),
+        QStringList() << tr("radicand") + ":" + tr("The %1 to calculate the %2 of").arg(tr("number"), tr("root"))
+                      << tr("index") + ":" + tr("The number to root by")
+    ));
     customFunctions.insert("fact", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         if (arg.imag() != 0) {
             error = tr("fact: input (%1) not a real number").arg(idbToString(arg));
@@ -237,6 +257,14 @@ void EvaluationEngine::setupFunctions() {
         Q_UNUSED(error)
         return arg.real();
     }, "re", tr("Calculates the %1 of a %2").arg(tr("real portion"), tr("complex number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("real portion"))));
+    customFunctions.insert("arg", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
+        if (arg.real() == 0 && arg.imag() == 0) {
+            error = tr("arg: phase angle of 0 undefined");
+            return 0;
+        }
+        return fromRad(std::arg(arg));
+    }, "arg", tr("Calculates the %1 of a %2").arg(tr("phase angle"), tr("complex number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("phase angle"))));
+
     customFunctions.insert("asin", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         if (abs(arg) > 1) {
             error = tr("asin: input (%1) out of bounds (between -1 and 1)").arg(idbToString(arg));

@@ -179,7 +179,9 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
 |   expression RSH expression {CALL_MAINWINDOW_FUNCTION("rsh", QList<idouble>() << *$1 << *$3, $$)}
 |   expression FACTORIAL {CALL_MAINWINDOW_FUNCTION("fact", QList<idouble>() << *$1, $$)}
 |   RADICAL expression {$$ = new idouble(sqrt(*$2));}
-|   power RADICAL expression {CALL_MAINWINDOW_FUNCTION("pow", QList<idouble>() << *$3 << idouble(1.0) / *$1, $$)}
+|   power RADICAL expression {
+        CALL_MAINWINDOW_FUNCTION("root", QList<idouble>() << *$3 << *$1, $$)
+    }
 |   function
 |   IDENTIFIER {
         if (valueExists(*$1, p)) {
