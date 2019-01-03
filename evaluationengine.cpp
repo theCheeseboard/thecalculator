@@ -373,7 +373,7 @@ void EvaluationEngine::setupFunctions() {
             }
 
             if (floor(second.real()) != second.real()) {
-                error = tr("lsh: arg2 (%2) not an integer").arg(idbToString(second));
+                error = tr("lsh: arg2 (%1) not an integer").arg(idbToString(second));
                 return 0;
             }
 
@@ -403,7 +403,7 @@ void EvaluationEngine::setupFunctions() {
             }
 
             if (floor(second.real()) != second.real()) {
-                error = tr("rsh: arg2 (%2) not an integer").arg(idbToString(second));
+                error = tr("rsh: arg2 (%1) not an integer").arg(idbToString(second));
                 return 0;
             }
 

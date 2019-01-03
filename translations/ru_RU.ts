@@ -81,11 +81,6 @@
 <context>
     <name>CalculatorWidget</name>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="211"/>
         <source>Expression...</source>
         <translation type="unfinished"></translation>
@@ -818,7 +813,7 @@
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="376"/>
-        <source>lsh: arg2 (%2) not an integer</source>
+        <source>lsh: arg2 (%1) not an integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -866,7 +861,7 @@
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="406"/>
-        <source>rsh: arg2 (%2) not an integer</source>
+        <source>rsh: arg2 (%1) not an integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

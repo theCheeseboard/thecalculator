@@ -81,11 +81,6 @@
 <context>
     <name>CalculatorWidget</name>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="211"/>
         <source>Expression...</source>
         <translation>Biểu thức...</translation>
@@ -585,7 +580,7 @@
     <message>
         <location filename="../evaluationengine.cpp" line="208"/>
         <source>tan: input (%1) out of bounds (not %2)</source>
-        <translation type="unfinished"></translation>
+        <translation>fact: số dự kiến (%1) ở ngoài giới hạn (không phải %2)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="227"/>
@@ -818,7 +813,7 @@
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="376"/>
-        <source>lsh: arg2 (%2) not an integer</source>
+        <source>lsh: arg2 (%1) not an integer</source>
         <translation>lsh: Số dự kiến thứ 2 (%1) không phải số nguyên</translation>
     </message>
     <message>
@@ -866,7 +861,7 @@
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="406"/>
-        <source>rsh: arg2 (%2) not an integer</source>
+        <source>rsh: arg2 (%1) not an integer</source>
         <translation>rsh: Số dự kiến thứ 2 (%1) không phải số nguyên</translation>
     </message>
     <message>
@@ -917,47 +912,47 @@
     <message>
         <location filename="../evaluationengine.cpp" line="444"/>
         <source>mod: arg1 (%1) not an integer</source>
-        <translation type="unfinished"></translation>
+        <translation>mod: Số dự kiến nhất (%1) không phải số nguyên</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="449"/>
         <source>mod: arg2 (%1) not an integer</source>
-        <translation type="unfinished"></translation>
+        <translation>mod: Số dự kiến thứ 2 (%1) không phải số nguyên</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="454"/>
         <source>mod: division by 0 undefined</source>
-        <translation type="unfinished"></translation>
+        <translation>mod: chia cho số 0 không xác định</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="460"/>
         <source>mod: expected 2 arguments, got %1</source>
-        <translation type="unfinished"></translation>
+        <translation>mod: cần 2 số dự kiến, đá nhận đươc %1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="463"/>
         <source>Calculates the remainder when dividing two numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>Tính phần còn lại khi chia hai số</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="463"/>
         <source>divisor</source>
-        <translation type="unfinished"></translation>
+        <translation>ước số</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="463"/>
         <source>The number to be divided</source>
-        <translation type="unfinished"></translation>
+        <translation>Số để bị chia</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="463"/>
         <source>dividend</source>
-        <translation type="unfinished"></translation>
+        <translation>phần chia lời</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="463"/>
         <source>The number to divide by</source>
-        <translation type="unfinished"></translation>
+        <translation>Số để chia bởi</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="467"/>
@@ -1048,7 +1043,7 @@
     <message>
         <location filename="../evaluationengine.cpp" line="645"/>
         <source>%1: expected %2 arguments, got %3</source>
-        <translation>%1: Cần %2 số dự kiến, đá nhận đươc %2</translation>
+        <translation>%1: Cần %2 số dự kiến, đá nhận đươc %3</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="700"/>
@@ -1146,7 +1141,7 @@
     <message>
         <location filename="../mainwindow.ui" line="497"/>
         <source>&amp;Gradians</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Građian</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="145"/>
@@ -1193,12 +1188,12 @@
     <message>
         <location filename="../mainwindow.cpp" line="336"/>
         <source>For %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Cho %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="337"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa</translation>
     </message>
 </context>
 <context>
