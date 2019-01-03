@@ -21,21 +21,13 @@
 #include "expressionlineedit.h"
 
 #include <QKeyEvent>
+#include <QTextLayout>
+
+#define TYPED_PLACEHOLDER 0x200B
 
 ExpressionLineEdit::ExpressionLineEdit(QWidget *parent) : QLineEdit(parent)
 {
-    connect(this, &QLineEdit::textEdited, [=](QString arg1) {
-        int anchorPosition = this->cursorPosition();
 
-        QString newString = arg1;
-        if (newString.contains("/")) newString.replace("/", "÷");
-        if (newString.contains("*")) newString.replace("*", "×");
-        if (newString.contains(" ")) newString.replace(" ", "⋅");
-        this->setText(newString);
-        this->setCursorPosition(anchorPosition);
-
-        emit expressionUpdated(newString);
-    });
 }
 
 void ExpressionLineEdit::keyPressEvent(QKeyEvent *event) {
@@ -56,8 +48,11 @@ void ExpressionLineEdit::keyPressEvent(QKeyEvent *event) {
             case Qt::Key_Equal: this->insert("⁺"); break;
             case Qt::Key_Minus: this->insert("⁻"); break;
             case Qt::Key_R: this->insert("√"); break;
-            default: QLineEdit::keyPressEvent(event);
+            default: QLineEdit::keyPressEvent(event); return;
         }
+    } else if (event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter) {
+        emit returnPressed();
+        return;
     } else if (this->cursorPosition() != 0) {
         QChar charBefore = this->text().at(this->cursorPosition() - 1);
         if (event->text() == "=") {
@@ -87,5 +82,121 @@ void ExpressionLineEdit::keyPressEvent(QKeyEvent *event) {
         }
     }
 
-    QLineEdit::keyPressEvent(event);
+    if (event->key() == Qt::Key_Backspace) {
+        this->backspace();
+    } else if (event->key() == Qt::Key_Delete) {
+        this->del();
+    } else if (event->text() == "") {
+        QLineEdit::keyPressEvent(event);
+    } else {
+        this->insert(event->text());
+    }
+}
+
+void ExpressionLineEdit::insert(QString text) {
+    int curPos = this->cursorPosition();
+
+    QString leftPart = typedExpr.left(curPos);
+    for (int i = 0; i < leftPart.count(); i++) {
+        if (leftPart.at(i) == QChar(TYPED_PLACEHOLDER)) {
+            leftPart.replace(i, 1, fixedExpr.at(i));
+        }
+    }
+    typedExpr.replace(0, curPos, leftPart);
+    typedExpr.insert(curPos, text);
+    checkText(typedExpr, ++curPos);
+}
+
+void ExpressionLineEdit::backspace() {
+    int curPos = this->cursorPosition();
+    if (this->selectionLength() != 0) {
+        this->deleteRange(this->selectionStart(), this->selectionLength());
+    } else if (curPos != 0) {
+        typedExpr.remove(curPos - 1, 1);
+        checkText(typedExpr, --curPos);
+    }
+}
+
+void ExpressionLineEdit::del() {
+    int curPos = this->cursorPosition();
+    if (this->selectionLength() != 0) {
+        this->deleteRange(this->selectionStart(), this->selectionLength());
+    } else if (curPos != 0) {
+        typedExpr.remove(curPos, 1);
+        checkText(typedExpr, curPos);
+    }
+}
+
+void ExpressionLineEdit::deleteRange(int start, int length) {
+    typedExpr.remove(start, length);
+    checkText(typedExpr, start);
+}
+
+void ExpressionLineEdit::checkText(QString text, int originalPos) {
+    int oldPos = this->cursorPosition();
+    for (int i = 0; i < text.count(); i++) {
+        QChar c = text.at(i);
+        if (c.unicode() == TYPED_PLACEHOLDER) {
+            //Remove zero width spaces
+            text = text.remove(i, 1);
+            if (i < originalPos) originalPos--;
+            i--;
+        } else if (c == "/") {
+            text = text.replace(i, 1, "÷");
+        } else if (c == "*") {
+            text = text.replace(i, 1, "×");
+        } else if (c == " ") {
+            text = text.replace(i, 1, "⋅");
+        }
+    }
+
+    typedExpr = text;
+    fixedExpr = text;
+
+    QList<int> charsToGray;
+    int bracketCount = 0;
+    for (int i = 0; i < fixedExpr.length(); i++) {
+        if (fixedExpr.at(i) == '(') {
+            bracketCount++;
+        } else if (fixedExpr.at(i) == ')') {
+            bracketCount--;
+        }
+    }
+
+    while (bracketCount > 0) {
+        fixedExpr.append(')');
+        typedExpr.append(QChar(TYPED_PLACEHOLDER));
+        charsToGray.append(fixedExpr.count() - 1);
+        bracketCount--;
+    }
+
+    this->blockSignals(true);
+    this->setText(fixedExpr);
+    this->blockSignals(false);
+    this->setCursorPosition(originalPos);
+    emit cursorPositionChanged(oldPos, originalPos);
+
+    QTextCharFormat grayFormat;
+    grayFormat.setForeground(this->palette().brush(QPalette::Disabled, QPalette::WindowText));
+
+    QList<QInputMethodEvent::Attribute> attributes;
+    for (int i : charsToGray) {
+        attributes.append(QInputMethodEvent::Attribute(QInputMethodEvent::TextFormat, i - originalPos, 1, grayFormat));
+    }
+    QInputMethodEvent event(QString(), attributes);
+    inputMethodEvent(&event);
+
+    emit expressionUpdated(fixedExpr);
+}
+
+void ExpressionLineEdit::setExpression(QString expr) {
+    checkText(expr, expr.count());
+}
+
+QString ExpressionLineEdit::getFixedExpression() {
+    return fixedExpr;
+}
+
+QString ExpressionLineEdit::getTypedExpression() {
+    return typedExpr.remove(QChar(TYPED_PLACEHOLDER));
 }

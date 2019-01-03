@@ -29,13 +29,26 @@ class ExpressionLineEdit : public QLineEdit
     public:
         explicit ExpressionLineEdit(QWidget *parent = nullptr);
 
+        QString getFixedExpression();
+        QString getTypedExpression();
+
+        void insert(QString text);
+        void backspace();
+        void del();
+        void deleteRange(int start, int length);
+
     signals:
         void expressionUpdated(QString expression);
 
     public slots:
+        void setExpression(QString newExpr);
 
     private:
         void keyPressEvent(QKeyEvent* event);
+
+        void checkText(QString text, int originalPos);
+
+        QString typedExpr, fixedExpr;
 };
 
 #endif // EXPRESSIONLINEEDIT_H

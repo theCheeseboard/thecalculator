@@ -156,12 +156,12 @@ void CalculatorWidget::on_BackspaceButton_clicked()
 
 void CalculatorWidget::on_EqualButton_clicked()
 {
-    QString expression = ui->expressionBox->text();
+    QString expression = ui->expressionBox->getFixedExpression();
 
     EvaluationEngine::evaluate(expression, MainWin->variables)->then([=](EvaluationEngine::Result r) {
         switch (r.type) {
             case EvaluationEngine::Result::Scalar: {
-                ui->expressionBox->setText(idbToString(r.result));
+                ui->expressionBox->setExpression(idbToString(r.result));
 
                 QListWidgetItem* historyItem = new QListWidgetItem();
                 historyItem->setText(expression + " = " + idbToString(r.result));
@@ -245,7 +245,7 @@ void CalculatorWidget::on_expressionBox_expressionUpdated(const QString &newStri
 
 void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2)
 {
-    QString relevantText = ui->expressionBox->text().left(arg2);
+    QString relevantText = ui->expressionBox->getFixedExpression().left(arg2);
     //Find the previous function
     QRegularExpression regex("\\w+?(?=[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁱ]*\\()");
     QRegularExpressionMatchIterator matchIterator = regex.globalMatch(relevantText);
