@@ -104,6 +104,7 @@ CalculatorWidget::CalculatorWidget(QWidget *parent) :
     ui->inverseButton->setTypedOutput("⁻¹");
     ui->imaginaryButton->setTypedOutput("i");
     ui->eButton->setTypedOutput("e");
+    ui->PointButton->setText(QLocale().decimalPoint());
     for (CalcButton* b : buttons) {
         connect(b, SIGNAL(output(QString)), this, SLOT(ButtonPressed(QString)));
     }
@@ -279,6 +280,9 @@ void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2
         }
     }
 
+    QChar argSep = ',';
+    if (QLocale().decimalPoint() == ',') argSep = '.';
+
     tVariantAnimation* anim = new tVariantAnimation();
     anim->setStartValue(ui->helpWidget->height());
     anim->setEndValue(0);
@@ -306,7 +310,7 @@ void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2
                     } else if (c == ')') {
                         bracketCount--;
                         if (bracketCount < 0) break; //Too many closing brackets
-                    } else if (c == ',') {
+                    } else if (c == argSep) {
                         if (bracketCount == 0) currentArgument++;
                     }
                 }
@@ -345,7 +349,7 @@ void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2
                     functionArgList.append(argName);
                 }
 
-                ui->funHelpName->setText(currentFunction + "(" + functionArgList.join(",") + ") : " + tr("function"));
+                ui->funHelpName->setText(currentFunction + "(" + functionArgList.join(argSep) + ") : " + tr("function"));
                 ui->funHelpArgs->setText(argList.join(" · "));
             }
 

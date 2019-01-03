@@ -38,7 +38,12 @@ QString numberFormatToString(long double number) {
     std::stringstream stream;
     stream << std::setprecision(10) << number;
 
-    return QString::fromStdString(stream.str());
+    QString str = QString::fromStdString(stream.str());
+    if (QLocale().decimalPoint() == ',') {
+        //Replace all decimals with commas
+        str.replace(".", ",");
+    }
+    return str;
 }
 
 QString idbToString(idouble db) {

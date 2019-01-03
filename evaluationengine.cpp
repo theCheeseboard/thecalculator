@@ -122,6 +122,16 @@ EvaluationEngine::Result EvaluationEngine::evaluate() {
     Result* result = new Result();
 
     QString expr = expression;
+    if (QLocale().decimalPoint() == ',') {
+        //Swap the decimal point and comma
+        for (int i = 0; i < expr.count(); i++) {
+            if (expr.at(i) == ',') {
+                expr = expr.replace(i, 1, '.');
+            } else if (expr.at(i) == '.') {
+                expr = expr.replace(i, 1, ',');
+            }
+        }
+    }
     EvaluationEngineParameters p;
     p.resultFunction = [=](idouble r) { //Success
         result->result = r;
