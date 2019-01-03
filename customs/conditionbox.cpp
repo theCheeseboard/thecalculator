@@ -79,7 +79,7 @@ QJsonObject ConditionBox::save() {
     } else {
         obj.insert("connective", ui->comboBox->currentIndex());
     }
-    obj.insert("expression", ui->expressionBox->text());
+    obj.insert("expression", ui->expressionBox->getFixedExpression());
 
     return obj;
 }
@@ -93,9 +93,8 @@ void ConditionBox::load(QJsonObject obj) {
     } else {
         ui->comboBox->setCurrentIndex(obj.value("connective").toInt());
     }
-    ui->expressionBox->setText(obj.value("expression").toString());
+    ui->expressionBox->setExpression(obj.value("expression").toString());
 }
-
 
 void ConditionBox::flashError() {
     tVariantAnimation* a = new tVariantAnimation();

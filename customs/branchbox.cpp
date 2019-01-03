@@ -104,7 +104,7 @@ QJsonObject BranchBox::save() {
     obj.insert("conditions", conditions);
 
     QJsonObject ret;
-    ret.insert("expression", ui->returnValue->text());
+    ret.insert("expression", ui->returnValue->getFixedExpression());
     ret.insert("isError", ui->errorCheck->isChecked());
 
     obj.insert("return", ret);
@@ -145,7 +145,7 @@ void BranchBox::load(QJsonObject obj) {
     }
 
     QJsonObject ret = obj.value("return").toObject();
-    ui->returnValue->setText(ret.value("expression").toString());
+    ui->returnValue->setExpression(ret.value("expression").toString());
     ui->errorCheck->setChecked(ret.value("isError").toBool());
 }
 

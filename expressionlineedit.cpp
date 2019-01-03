@@ -48,8 +48,9 @@ void ExpressionLineEdit::keyPressEvent(QKeyEvent *event) {
             case Qt::Key_Equal: this->insert("⁺"); break;
             case Qt::Key_Minus: this->insert("⁻"); break;
             case Qt::Key_R: this->insert("√"); break;
-            default: QLineEdit::keyPressEvent(event); return;
+            default: QLineEdit::keyPressEvent(event);
         }
+        return;
     } else if (event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter) {
         emit returnPressed();
         return;
