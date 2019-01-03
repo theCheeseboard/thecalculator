@@ -36,6 +36,7 @@ class ExpressionLineEdit : public QLineEdit
         void backspace();
         void del();
         void deleteRange(int start, int length);
+        void clear();
 
     signals:
         void expressionUpdated(QString expression);

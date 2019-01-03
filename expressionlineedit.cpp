@@ -104,7 +104,7 @@ void ExpressionLineEdit::insert(QString text) {
     }
     typedExpr.replace(0, curPos, leftPart);
     typedExpr.insert(curPos, text);
-    checkText(typedExpr, ++curPos);
+    checkText(typedExpr, curPos + text.length());
 }
 
 void ExpressionLineEdit::backspace() {
@@ -187,6 +187,12 @@ void ExpressionLineEdit::checkText(QString text, int originalPos) {
     inputMethodEvent(&event);
 
     emit expressionUpdated(fixedExpr);
+}
+
+void ExpressionLineEdit::clear() {
+    typedExpr = "";
+    fixedExpr = "";
+    checkText(typedExpr, 0);
 }
 
 void ExpressionLineEdit::setExpression(QString expr) {
