@@ -205,19 +205,20 @@ void EvaluationEngine::setupFunctions() {
     customFunctions.insert("tan", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         Q_UNUSED(error)
 
+        QString errStr = tr("tan: input (%1) out of bounds (not %2)");
         if (trigUnit == Degrees) {
             if (fmod(arg.real() - 90, 180) == 0) {
-                error = tr("tan: input (%1) out of bounds (not 90° + 180n)").arg(idbToString(arg));
+                error = errStr.arg(idbToString(arg), "90° + 180n");
                 return 0;
             }
         } else if (trigUnit == Gradians) {
             if (fmod(arg.real() - 100, 200) == 0) {
-                error = tr("tan: input (%1) out of bounds (not 100ᵍ + 200n)").arg(idbToString(arg));
+                error = errStr.arg(idbToString(arg), "100ᵍ + 200n");
                 return 0;
             }
         } else {
             if (fmod(arg.real() - (M_PI / 2), M_PI) == 0) {
-                error = tr("tan: input (%1) out of bounds (not π/2 + πn)").arg(idbToString(arg));
+                error = errStr.arg(idbToString(arg), "π/2 + πn");
                 return 0;
             }
         }

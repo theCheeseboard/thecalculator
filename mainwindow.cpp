@@ -327,3 +327,25 @@ void MainWindow::on_actionGradians_triggered(bool checked)
         EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Gradians);
     }
 }
+
+void MainWindow::on_customFunctionsList_customContextMenuRequested(const QPoint &pos)
+{
+    QListWidgetItem* item = ui->customFunctionsList->itemAt(pos);
+    if (item != nullptr) {
+        QMenu* menu = new QMenu();
+        menu->addSection(tr("For %1").arg(item->text()));
+        menu->addAction(QIcon::fromTheme("edit-delete"), tr("Delete"), [=] {
+            QSettings settings;
+            settings.beginGroup("customFunctions");
+            settings.remove(item->text());
+            settings.endGroup();
+            settings.sync();
+
+            EvaluationEngine::setupFunctions();
+
+            ui->customFunctionsList->removeItemWidget(item);
+        });
+        menu->exec(ui->customFunctionsList->mapToGlobal(pos));
+        menu->deleteLater();
+    }
+}

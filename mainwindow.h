@@ -93,6 +93,8 @@ class MainWindow : public QMainWindow
 
         void on_actionGradians_triggered(bool checked);
 
+        void on_customFunctionsList_customContextMenuRequested(const QPoint &pos);
+
     private:
         Ui::MainWindow *ui;
 
