@@ -513,33 +513,33 @@
     <message>
         <location filename="../evaluationengine.cpp" line="200"/>
         <source>root: arg1 (%1) out of bounds (not 0)</source>
-        <translation type="unfinished"></translation>
+        <translation>root: số dự kiến (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="206"/>
         <source>root: expected 2 arguments, got %1</source>
-        <translation type="unfinished"></translation>
+        <translation>root: cần 2 số dự kiến, đã nhận được %1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="210"/>
         <location filename="../evaluationengine.cpp" line="211"/>
         <source>root</source>
-        <translation type="unfinished"></translation>
+        <translation>căn bậc</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="211"/>
         <source>radicand</source>
-        <translation type="unfinished"></translation>
+        <translation>số</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="212"/>
         <source>index</source>
-        <translation type="unfinished"></translation>
+        <translation>mũ</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="212"/>
         <source>The number to root by</source>
-        <translation type="unfinished"></translation>
+        <translation>Số để căn bậc bởi</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="216"/>
@@ -651,12 +651,12 @@
     <message>
         <location filename="../evaluationengine.cpp" line="272"/>
         <source>arg: phase angle of 0 undefined</source>
-        <translation type="unfinished"></translation>
+        <translation>arg: góc pha của 0 không xác định</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="276"/>
         <source>phase angle</source>
-        <translation type="unfinished"></translation>
+        <translation>góc pha</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="280"/>
@@ -1190,7 +1190,7 @@
     <message>
         <location filename="../mainwindow.ui" line="497"/>
         <source>&amp;Gradians</source>
-        <translation>&amp;Građian</translation>
+        <translation>Đơn vị &amp;građian</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="150"/>
