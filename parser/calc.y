@@ -58,22 +58,31 @@ double absArg(idouble n) {
 
 //Define helper functions
 
-#define YYE(desc) yyerror(scanner, p, desc);
-#define CALL_MAINWINDOW_FUNCTION(arg1, arg2, result) { \
+#define YYE(loc, desc) yyerror(&loc, scanner, p, desc);
+#define CALL_MAINWINDOW_FUNCTION(loc, arg1, arg2, result) { \
         QString error; \
         result = new idouble(callFunction(arg1, arg2, error)); \
         if (error != "") { \
-            YYE(error.toUtf8().constData()); \
+            YYE(loc, error.toUtf8().constData()); \
             YYABORT; \
         } \
     }
 #define tr(str) QApplication::translate("EvaluationEngine", str)
+
+# define YYLLOC_DEFAULT(Current, Rhs, N) \
+    if (N) { \
+        (Current).location = YYRHSLOC(Rhs, 1).location; \
+        (Current).length = 0; \
+        for (int i = 1; i <= N; i++) { \
+            (Current).length += YYRHSLOC(Rhs, i).length; \
+        } \
+    }
 %}
 
 %define parse.error verbose
 %define parse.lac full
 %define api.pure full
-
+%locations
 
 %param { yyscan_t scanner }
 
@@ -88,9 +97,9 @@ double absArg(idouble n) {
 
 %{
     //Define flex functions
-    extern int yylex(YYSTYPE* yylvalp, yyscan_t scanner);
+    extern int yylex(YYSTYPE* yylvalp, YYLTYPE* yylloc, yyscan_t scanner);
     extern void yyterminate();
-    void yyerror(yyscan_t scanner, EvaluationEngineParameters p, const char* s);
+    void yyerror(YYLTYPE* yylloc, yyscan_t scanner, EvaluationEngineParameters p, const char* s);
 %}
 
 %token<number> NUMBER SUPER
@@ -141,29 +150,29 @@ truefalse: expression EQUALITY expression { *$$ = (*$1 == *$3); }
 
 expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
 |   NUMBER {$$ = new idouble(*$1);}
-|   expression power {CALL_MAINWINDOW_FUNCTION("pow", QList<idouble>() << *$1 << *$2, $$)}
+|   expression power {CALL_MAINWINDOW_FUNCTION(@$, "pow", QList<idouble>() << *$1 << *$2, $$)}
 |   expression ADD expression {$$ = new idouble(*$1 + *$3);}
 |   expression SUBTRACT expression {$$ = new idouble(*$1 - *$3);}
 |   expression MULTIPLY expression {$$ = new idouble(*$1 * *$3);}
 //|   NUMBER expression {$$ = new idouble(*$1 * *$2);}
 |   expression DIVIDE expression {
         if ($3->real() == 0 && $3->imag() == 0) {
-            YYE(tr("div: division by 0 undefined").toLocal8Bit().constData());
+            YYE(@3, tr("div: division by 0 undefined").toLocal8Bit().constData());
             YYABORT;
         } else {
             $$ = new idouble(*$1 / *$3);
         }
     }
 |   expression NUMBER {$$ = new idouble(*$1 * *$2);}
-|   expression PERCENT expression {CALL_MAINWINDOW_FUNCTION("mod", QList<idouble>() << *$1 << *$3, $$)}
+|   expression PERCENT expression {CALL_MAINWINDOW_FUNCTION(@$, "mod", QList<idouble>() << *$1 << *$3, $$)}
 |   LBRACKET expression RBRACKET {$$ = new idouble(*$2);}
 |   expression PERCENT {$$ = new idouble(*$1 / idouble(100));}
-|   expression EXPONENTIATE expression {CALL_MAINWINDOW_FUNCTION("pow", QList<idouble>() << *$1 << *$3, $$)}
+|   expression EXPONENTIATE expression {CALL_MAINWINDOW_FUNCTION(@$, "pow", QList<idouble>() << *$1 << *$3, $$)}
 |   IDENTIFIER EXPONENTIATE expression {
         if (valueExists(*$1, p)) {
             $$ = new idouble(pow(getValue(*$1, p), *$3));
         } else {
-            YYE(tr("%1: unknown variable").arg(*$1).toLocal8Bit().constData());
+            YYE(@1, tr("%1: unknown variable").arg(*$1).toLocal8Bit().constData());
             YYABORT;
         }
     }
@@ -171,23 +180,23 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
         if (valueExists(*$1, p)) {
             $$ = new idouble(pow(getValue(*$1, p), *$2));
         } else {
-            YYE(tr("%1: unknown variable").arg(*$1).toLocal8Bit().constData());
+            YYE(@1, tr("%1: unknown variable").arg(*$1).toLocal8Bit().constData());
             YYABORT;
         }
     }
-|   expression LSH expression {CALL_MAINWINDOW_FUNCTION("lsh", QList<idouble>() << *$1 << *$3, $$)}
-|   expression RSH expression {CALL_MAINWINDOW_FUNCTION("rsh", QList<idouble>() << *$1 << *$3, $$)}
-|   expression FACTORIAL {CALL_MAINWINDOW_FUNCTION("fact", QList<idouble>() << *$1, $$)}
+|   expression LSH expression {CALL_MAINWINDOW_FUNCTION(@$, "lsh", QList<idouble>() << *$1 << *$3, $$)}
+|   expression RSH expression {CALL_MAINWINDOW_FUNCTION(@$, "rsh", QList<idouble>() << *$1 << *$3, $$)}
+|   expression FACTORIAL {CALL_MAINWINDOW_FUNCTION(@$, "fact", QList<idouble>() << *$1, $$)}
 |   RADICAL expression {$$ = new idouble(sqrt(*$2));}
 |   power RADICAL expression {
-        CALL_MAINWINDOW_FUNCTION("root", QList<idouble>() << *$3 << *$1, $$)
+        CALL_MAINWINDOW_FUNCTION(@$, "root", QList<idouble>() << *$3 << *$1, $$)
     }
 |   function
 |   IDENTIFIER {
         if (valueExists(*$1, p)) {
             $$ = new idouble(getValue(*$1, p));
         } else {
-            YYE(tr("%1: unknown variable").arg(*$1).toLocal8Bit().constData());
+            YYE(@1, tr("%1: unknown variable").arg(*$1).toLocal8Bit().constData());
             YYABORT;
         }
     }
@@ -201,21 +210,21 @@ arguments: expression {$$ = new QList<idouble>(); $$->append(*$1);}
 |   arguments ARGSEPARATOR expression {$$ = new QList<idouble>(*$1); $$->append(*$3);}
 |   %empty {$$ = new QList<idouble>();}
 
-function: IDENTIFIER LBRACKET arguments RBRACKET {CALL_MAINWINDOW_FUNCTION(*$1, *$3, $$)}
+function: IDENTIFIER LBRACKET arguments RBRACKET {CALL_MAINWINDOW_FUNCTION(@$, *$1, *$3, $$)}
 |   IDENTIFIER EXPONENTIATE expression LBRACKET arguments RBRACKET {
         idouble* result;
-        CALL_MAINWINDOW_FUNCTION(*$1, *$5, result)
-        CALL_MAINWINDOW_FUNCTION("pow", QList<idouble>() << *result << *$3, $$);
+        CALL_MAINWINDOW_FUNCTION(@$, *$1, *$5, result)
+        CALL_MAINWINDOW_FUNCTION(@$, "pow", QList<idouble>() << *result << *$3, $$);
         delete result;
     }
 |   IDENTIFIER power LBRACKET arguments RBRACKET {
         idouble* result;
-        CALL_MAINWINDOW_FUNCTION(*$1, *$4, result)
-        CALL_MAINWINDOW_FUNCTION("pow", QList<idouble>() << *result << *$2, $$);
+        CALL_MAINWINDOW_FUNCTION(@$, *$1, *$4, result)
+        CALL_MAINWINDOW_FUNCTION(@$, "pow", QList<idouble>() << *result << *$2, $$);
         delete result;
     }
 %%
 
-void yyerror(yyscan_t scanner, EvaluationEngineParameters p, const char* s) {
-    p.errorFunction(s);
+void yyerror(YYLTYPE* yylloc, yyscan_t scanner, EvaluationEngineParameters p, const char* s) {
+    p.errorFunction(yylloc->location, yylloc->length, s);
 }

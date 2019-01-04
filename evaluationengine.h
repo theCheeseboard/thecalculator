@@ -26,7 +26,7 @@
 #include <tpromise.h>
 #include "evaluationengineheaders.h"
 
-class CustomFunctionPrivate;
+struct CustomFunctionPrivate;
 typedef std::function<idouble(QList<idouble>,QString&)> CustomFunctionDefinition;
 class CustomFunction {
     public:
@@ -74,6 +74,8 @@ class EvaluationEngine : public QObject
             };
 
             QString error;
+            int location;
+            int length;
 
             idouble result;
 

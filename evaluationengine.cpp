@@ -137,8 +137,10 @@ EvaluationEngine::Result EvaluationEngine::evaluate() {
         result->result = r;
         result->type = Result::Scalar;
     };
-    p.errorFunction = [=](const char* s) { //Error
+    p.errorFunction = [=](int location, int length, const char* s) { //Error
         result->error = QString::fromLocal8Bit(s);
+        result->location = location;
+        result->length = length;
         result->type = Result::Error;
     };
     p.assignFunction = [=](QString identifier, idouble value) { //Assignment

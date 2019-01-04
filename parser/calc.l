@@ -20,13 +20,35 @@
 
 %{
 #include <QString>
+#include <QMap>
+#include <QMutex>
+#include <QMutexLocker>
 #include <qmath.h>
 #include "evaluationengineheaders.h"
 #include "calc.bison.hpp"
+
+#include <QDebug>
+
+QMutex colMutex;
+QMap<yyscan_t, int> cols;
+#define YY_USER_INIT init(yyscanner);
+#define YY_USER_ACTION setLocation(yyscanner, yylloc, QString::fromLocal8Bit(yytext).length());
+
+void init(yyscan_t scanner) {
+    QMutexLocker locker(&colMutex);
+    cols.insert(scanner, 0);
+}
+
+void setLocation(yyscan_t scanner, YYLTYPE* location, int len) {
+    QMutexLocker locker(&colMutex);
+    location->location = cols.value(scanner);
+    location->length = len;
+    cols.insert(scanner, cols.value(scanner) + len);
+}
 %}
 
 %option noyywrap
-%option reentrant bison-bridge
+%option reentrant bison-bridge bison-locations
 %option header-file="calc.yy.h"
 
 %%
@@ -112,3 +134,4 @@
 "," {return ARGSEPARATOR;}
 "π" {yylval->number = new idouble(M_PI, 0); return NUMBER; }
 "=" {return ASSIGNMENT;}
+.;

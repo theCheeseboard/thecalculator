@@ -28,10 +28,16 @@
 typedef std::complex<long double> idouble;
 typedef void* yyscan_t;
 
+typedef struct yyloc_t {
+    int location;
+    int length;
+} YYLTYPE;
+#define YYLTYPE yyloc_t
+
 struct EvaluationEngineParameters {
     yyscan_t scanner;
     std::function<void(idouble)> resultFunction;
-    std::function <void(const char*)> errorFunction;
+    std::function <void(int, int, const char*)> errorFunction;
     std::function<void(QString, idouble)> assignFunction;
     std::function<void(bool)> equalityFunction;
     QMap<QString, idouble> variables;

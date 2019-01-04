@@ -22,6 +22,7 @@
 #define EXPRESSIONLINEEDIT_H
 
 #include <QLineEdit>
+#include <QInputMethodEvent>
 
 class ExpressionLineEdit : public QLineEdit
 {
@@ -38,6 +39,8 @@ class ExpressionLineEdit : public QLineEdit
         void deleteRange(int start, int length);
         void clear();
 
+        void setErrorRange(int start, int length);
+
     signals:
         void expressionUpdated(QString expression);
 
@@ -48,8 +51,10 @@ class ExpressionLineEdit : public QLineEdit
         void keyPressEvent(QKeyEvent* event);
 
         void checkText(QString text, int originalPos);
+        void recolorText();
 
         QString typedExpr, fixedExpr;
+        int errorStart, errorLength;
 };
 
 #endif // EXPRESSIONLINEEDIT_H

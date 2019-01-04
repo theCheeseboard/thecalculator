@@ -95,6 +95,7 @@ void ExpressionLineEdit::keyPressEvent(QKeyEvent *event) {
 }
 
 void ExpressionLineEdit::insert(QString text) {
+    errorLength = 0;
     int curPos = this->cursorPosition();
 
     QString leftPart = typedExpr.left(curPos);
@@ -109,6 +110,7 @@ void ExpressionLineEdit::insert(QString text) {
 }
 
 void ExpressionLineEdit::backspace() {
+    errorLength = 0;
     int curPos = this->cursorPosition();
     if (this->selectionLength() != 0) {
         this->deleteRange(this->selectionStart(), this->selectionLength());
@@ -119,6 +121,7 @@ void ExpressionLineEdit::backspace() {
 }
 
 void ExpressionLineEdit::del() {
+    errorLength = 0;
     int curPos = this->cursorPosition();
     if (this->selectionLength() != 0) {
         this->deleteRange(this->selectionStart(), this->selectionLength());
@@ -154,7 +157,6 @@ void ExpressionLineEdit::checkText(QString text, int originalPos) {
     typedExpr = text;
     fixedExpr = text;
 
-    QList<int> charsToGray;
     int bracketCount = 0;
     for (int i = 0; i < fixedExpr.length(); i++) {
         if (fixedExpr.at(i) == '(') {
@@ -167,7 +169,6 @@ void ExpressionLineEdit::checkText(QString text, int originalPos) {
     while (bracketCount > 0) {
         fixedExpr.append(')');
         typedExpr.append(QChar(TYPED_PLACEHOLDER));
-        charsToGray.append(fixedExpr.count() - 1);
         bracketCount--;
     }
 
@@ -177,17 +178,31 @@ void ExpressionLineEdit::checkText(QString text, int originalPos) {
     this->setCursorPosition(originalPos);
     emit cursorPositionChanged(oldPos, originalPos);
 
+    recolorText();
+
+    emit expressionUpdated(fixedExpr);
+}
+
+void ExpressionLineEdit::recolorText() {
+
     QTextCharFormat grayFormat;
     grayFormat.setForeground(this->palette().brush(QPalette::Disabled, QPalette::WindowText));
 
     QList<QInputMethodEvent::Attribute> attributes;
-    for (int i : charsToGray) {
-        attributes.append(QInputMethodEvent::Attribute(QInputMethodEvent::TextFormat, i - originalPos, 1, grayFormat));
+    for (int i = 0; i < typedExpr.count(); i++) {
+        if (typedExpr.at(i) == QChar(TYPED_PLACEHOLDER)) {
+            attributes.append(QInputMethodEvent::Attribute(QInputMethodEvent::TextFormat, i - this->cursorPosition(), 1, grayFormat));
+        }
+    }
+    if (errorLength != 0) {
+        QTextCharFormat errFormat;
+        errFormat.setUnderlineStyle(QTextCharFormat::SingleUnderline);
+        errFormat.setUnderlineColor(QColor(255, 0, 0));
+
+        attributes.append(QInputMethodEvent::Attribute(QInputMethodEvent::TextFormat, errorStart - this->cursorPosition(), errorLength, errFormat));
     }
     QInputMethodEvent event(QString(), attributes);
     inputMethodEvent(&event);
-
-    emit expressionUpdated(fixedExpr);
 }
 
 void ExpressionLineEdit::clear() {
@@ -206,4 +221,11 @@ QString ExpressionLineEdit::getFixedExpression() {
 
 QString ExpressionLineEdit::getTypedExpression() {
     return typedExpr.remove(QChar(TYPED_PLACEHOLDER));
+}
+
+void ExpressionLineEdit::setErrorRange(int start, int length) {
+    errorStart = start;
+    errorLength = length;
+
+    recolorText();
 }

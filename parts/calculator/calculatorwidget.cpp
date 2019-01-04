@@ -174,6 +174,7 @@ void CalculatorWidget::on_EqualButton_clicked()
             case EvaluationEngine::Result::Error: {
                 QString answerText;
                 ui->answerLabel->setText(r.error);
+                ui->expressionBox->setErrorRange(r.location, r.length);
 
                 resizeAnswerLabel();
                 flashError();
@@ -229,8 +230,10 @@ void CalculatorWidget::on_expressionBox_expressionUpdated(const QString &newStri
             case EvaluationEngine::Result::Error:
                 if (r.error.startsWith("syntax error")) {
                     ui->answerLabel->setText("");
+                    ui->expressionBox->setErrorRange(0, 0);
                 } else {
                     ui->answerLabel->setText(r.error);
+                    ui->expressionBox->setErrorRange(r.location, r.length);
                 }
                 break;
             case EvaluationEngine::Result::Assign:
