@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>730</width>
+    <width>820</width>
     <height>365</height>
    </rect>
   </property>
@@ -508,9 +508,9 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>0</y>
-           <width>240</width>
-           <height>250</height>
+           <y>-73</y>
+           <width>244</width>
+           <height>275</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
@@ -529,6 +529,82 @@
           <property name="spacing">
            <number>0</number>
           </property>
+          <item row="3" column="1">
+           <widget class="CalcButton" name="pushButton_9">
+            <property name="toolTip">
+             <string>Arc Cosine</string>
+            </property>
+            <property name="text">
+             <string notr="true">acos</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="CalcButton" name="ExponentButton">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Raise to a power</string>
+            </property>
+            <property name="text">
+             <string notr="true">xⁿ</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="CalcButton" name="TanButton">
+            <property name="toolTip">
+             <string>Tangent</string>
+            </property>
+            <property name="text">
+             <string notr="true">tan</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="0">
+           <widget class="CalcButton" name="pushButton_15">
+            <property name="toolTip">
+             <string>Secant</string>
+            </property>
+            <property name="text">
+             <string notr="true">sec</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="CalcButton" name="pushButton_13">
+            <property name="toolTip">
+             <string>Hyperbolic Sine</string>
+            </property>
+            <property name="text">
+             <string notr="true">sinh</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="2">
+           <widget class="CalcButton" name="pushButton_16">
+            <property name="toolTip">
+             <string>Hyperbolic Arc Tangent</string>
+            </property>
+            <property name="text">
+             <string notr="true">atanh</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="2">
+           <widget class="CalcButton" name="pushButton_4">
+            <property name="toolTip">
+             <string>Hyperbolic Tangent</string>
+            </property>
+            <property name="text">
+             <string notr="true">tanh</string>
+            </property>
+           </widget>
+          </item>
           <item row="0" column="1">
            <widget class="CalcButton" name="CubeButton">
             <property name="minimumSize">
@@ -555,7 +631,57 @@
             </property>
            </widget>
           </item>
-          <item row="7" column="0">
+          <item row="5" column="1">
+           <widget class="CalcButton" name="pushButton">
+            <property name="toolTip">
+             <string>Factorial</string>
+            </property>
+            <property name="text">
+             <string notr="true">!</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="CalcButton" name="inverseButton">
+            <property name="toolTip">
+             <string>Reciporical</string>
+            </property>
+            <property name="text">
+             <string notr="true">1/x</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="CalcButton" name="SineButton">
+            <property name="toolTip">
+             <string>Sine</string>
+            </property>
+            <property name="text">
+             <string notr="true">sin</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="2">
+           <widget class="CalcButton" name="pushButton_19">
+            <property name="toolTip">
+             <string>Cotangent</string>
+            </property>
+            <property name="text">
+             <string notr="true">cot</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="2">
+           <widget class="CalcButton" name="LogBaseButton">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string notr="true">logₓy</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
            <widget class="CalcButton" name="pushButton_14">
             <property name="toolTip">
              <string>Hyperbolic Arc Sine</string>
@@ -565,43 +691,53 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="2">
-           <widget class="CalcButton" name="pushButton_10">
+          <item row="7" column="1">
+           <widget class="CalcButton" name="pushButton_3">
             <property name="toolTip">
-             <string>Arc Tangent</string>
+             <string>Hyperbolic Cosine</string>
             </property>
             <property name="text">
-             <string notr="true">atan</string>
+             <string notr="true">cosh</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="1">
-           <widget class="CalcButton" name="CosineButton">
+          <item row="5" column="2">
+           <widget class="CalcButton" name="pushButton_2">
             <property name="toolTip">
-             <string>Cosine</string>
+             <string>Absolute</string>
             </property>
             <property name="text">
-             <string notr="true">cos</string>
+             <string notr="true">abs</string>
             </property>
            </widget>
           </item>
-          <item row="6" column="2">
-           <widget class="CalcButton" name="pushButton_4">
+          <item row="3" column="0">
+           <widget class="CalcButton" name="pushButton_8">
             <property name="toolTip">
-             <string>Hyperbolic Tangent</string>
+             <string>Arc Sine</string>
             </property>
             <property name="text">
-             <string notr="true">tanh</string>
+             <string notr="true">asin</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="0">
-           <widget class="CalcButton" name="pushButton_5">
+          <item row="4" column="1">
+           <widget class="CalcButton" name="LnButton">
             <property name="toolTip">
-             <string>Square Root</string>
+             <string>Natural Logarithm</string>
             </property>
             <property name="text">
-             <string notr="true">√</string>
+             <string notr="true">ln</string>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="2">
+           <widget class="CalcButton" name="pushButton_22">
+            <property name="toolTip">
+             <string>Arc Cotangent</string>
+            </property>
+            <property name="text">
+             <string notr="true">acot</string>
             </property>
            </widget>
           </item>
@@ -631,149 +767,73 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="0">
-           <widget class="CalcButton" name="pushButton_8">
+          <item row="1" column="0">
+           <widget class="CalcButton" name="pushButton_5">
             <property name="toolTip">
-             <string>Arc Sine</string>
+             <string>Square Root</string>
             </property>
             <property name="text">
-             <string notr="true">asin</string>
+             <string notr="true">√</string>
             </property>
            </widget>
           </item>
-          <item row="6" column="0">
-           <widget class="CalcButton" name="pushButton_13">
+          <item row="2" column="1">
+           <widget class="CalcButton" name="CosineButton">
             <property name="toolTip">
-             <string>Hyperbolic Sine</string>
+             <string>Cosine</string>
             </property>
             <property name="text">
-             <string notr="true">sinh</string>
+             <string notr="true">cos</string>
             </property>
            </widget>
           </item>
-          <item row="5" column="0">
-           <widget class="CalcButton" name="inverseButton">
+          <item row="8" column="1">
+           <widget class="CalcButton" name="pushButton_11">
             <property name="toolTip">
-             <string>Reciporical</string>
+             <string>Hyperbolic Arc Cosine</string>
             </property>
             <property name="text">
-             <string notr="true">1/x</string>
+             <string notr="true">acosh</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="2">
-           <widget class="CalcButton" name="ExponentButton">
-            <property name="minimumSize">
-             <size>
-              <width>80</width>
-              <height>0</height>
-             </size>
-            </property>
+          <item row="9" column="1">
+           <widget class="CalcButton" name="pushButton_17">
             <property name="toolTip">
-             <string>Raise to a power</string>
+             <string>Cosecant</string>
             </property>
             <property name="text">
-             <string notr="true">xⁿ</string>
+             <string notr="true">csc</string>
             </property>
            </widget>
           </item>
-          <item row="5" column="1">
-           <widget class="CalcButton" name="pushButton">
+          <item row="10" column="1">
+           <widget class="CalcButton" name="pushButton_21">
             <property name="toolTip">
-             <string>Factorial</string>
+             <string>Arc Cosecant</string>
             </property>
             <property name="text">
-             <string notr="true">!</string>
+             <string notr="true">acsc</string>
             </property>
            </widget>
           </item>
-          <item row="4" column="2">
-           <widget class="CalcButton" name="LogBaseButton">
-            <property name="enabled">
-             <bool>false</bool>
+          <item row="3" column="2">
+           <widget class="CalcButton" name="pushButton_10">
+            <property name="toolTip">
+             <string>Arc Tangent</string>
             </property>
             <property name="text">
-             <string notr="true">logₓy</string>
+             <string notr="true">atan</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="0">
-           <widget class="CalcButton" name="SineButton">
+          <item row="10" column="0">
+           <widget class="CalcButton" name="pushButton_20">
             <property name="toolTip">
-             <string>Sine</string>
+             <string>Arc Secant</string>
             </property>
             <property name="text">
-             <string notr="true">sin</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="CalcButton" name="pushButton_9">
-            <property name="toolTip">
-             <string>Arc Cosine</string>
-            </property>
-            <property name="text">
-             <string notr="true">acos</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="2">
-           <widget class="CalcButton" name="pushButton_2">
-            <property name="toolTip">
-             <string>Absolute</string>
-            </property>
-            <property name="text">
-             <string notr="true">abs</string>
-            </property>
-           </widget>
-          </item>
-          <item row="8" column="0">
-           <widget class="CalcButton" name="pushButton_15">
-            <property name="toolTip">
-             <string>Secant</string>
-            </property>
-            <property name="text">
-             <string notr="true">sec</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="1">
-           <widget class="CalcButton" name="pushButton_3">
-            <property name="toolTip">
-             <string>Hyperbolic Cosine</string>
-            </property>
-            <property name="text">
-             <string notr="true">cosh</string>
-            </property>
-           </widget>
-          </item>
-          <item row="7" column="2">
-           <widget class="CalcButton" name="pushButton_16">
-            <property name="toolTip">
-             <string>Hyperbolic Arc Tangent</string>
-            </property>
-            <property name="text">
-             <string notr="true">atanh</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="CalcButton" name="LnButton">
-            <property name="toolTip">
-             <string>Natural Logarithm</string>
-            </property>
-            <property name="text">
-             <string notr="true">ln</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="2">
-           <widget class="CalcButton" name="TanButton">
-            <property name="toolTip">
-             <string>Tangent</string>
-            </property>
-            <property name="text">
-             <string notr="true">tan</string>
+             <string notr="true">asec</string>
             </property>
            </widget>
           </item>
@@ -787,63 +847,24 @@
             </property>
            </widget>
           </item>
-          <item row="7" column="1">
-           <widget class="CalcButton" name="pushButton_11">
-            <property name="toolTip">
-             <string>Hyperbolic Arc Cosine</string>
-            </property>
+          <item row="6" column="0">
+           <widget class="CalcButton" name="pushButton_12">
             <property name="text">
-             <string notr="true">acosh</string>
+             <string>re</string>
             </property>
            </widget>
           </item>
-          <item row="8" column="1">
-           <widget class="CalcButton" name="pushButton_17">
-            <property name="toolTip">
-             <string>Cosecant</string>
-            </property>
+          <item row="6" column="1">
+           <widget class="CalcButton" name="pushButton_18">
             <property name="text">
-             <string notr="true">csc</string>
+             <string>im</string>
             </property>
            </widget>
           </item>
-          <item row="8" column="2">
-           <widget class="CalcButton" name="pushButton_19">
-            <property name="toolTip">
-             <string>Cotangent</string>
-            </property>
+          <item row="6" column="2">
+           <widget class="CalcButton" name="pushButton_23">
             <property name="text">
-             <string notr="true">cot</string>
-            </property>
-           </widget>
-          </item>
-          <item row="9" column="0">
-           <widget class="CalcButton" name="pushButton_20">
-            <property name="toolTip">
-             <string>Arc Secant</string>
-            </property>
-            <property name="text">
-             <string notr="true">asec</string>
-            </property>
-           </widget>
-          </item>
-          <item row="9" column="1">
-           <widget class="CalcButton" name="pushButton_21">
-            <property name="toolTip">
-             <string>Arc Cosecant</string>
-            </property>
-            <property name="text">
-             <string notr="true">acsc</string>
-            </property>
-           </widget>
-          </item>
-          <item row="9" column="2">
-           <widget class="CalcButton" name="pushButton_22">
-            <property name="toolTip">
-             <string>Arc Cotangent</string>
-            </property>
-            <property name="text">
-             <string notr="true">acot</string>
+             <string>arg</string>
             </property>
            </widget>
           </item>
