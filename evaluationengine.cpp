@@ -199,7 +199,7 @@ void EvaluationEngine::setupFunctions() {
             idouble second = args.at(1);
 
             if (second.real() == 0 && second.imag() == 0) {
-                error = tr("root: arg1 (%1) out of bounds (not 0)").arg(idbToString(first));
+                error = tr("root: arg1 (%1) out of bounds (not 0)").arg(idbToString(second));
                 return 0;
             }
 
@@ -208,7 +208,6 @@ void EvaluationEngine::setupFunctions() {
             error = tr("root: expected 2 arguments, got %1").arg(args.length());
             return 0;
         }
-        return 0;
     }, tr("Calculates the %1 of a %2").arg(tr("root"), tr("number")),
         QStringList() << tr("radicand") + ":" + tr("The %1 to calculate the %2 of").arg(tr("number"), tr("root"))
                       << tr("index") + ":" + tr("The number to root by")

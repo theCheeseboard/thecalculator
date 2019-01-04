@@ -58,7 +58,7 @@ QString idbToString(idouble db) {
     } else if (real != 0 && imag > 0) {
         return numberFormatToString(real) + " + " + numberFormatToString(imag) + "i";
     } else if (real != 0 && imag == -1) {
-        return numberFormatToString(imag) + " - i";
+        return numberFormatToString(real) + " - i";
     } else if (real != 0 && imag < 0) {
         return numberFormatToString(real) + " - " + numberFormatToString(-imag) + "i";
     } else if (imag == 1) {

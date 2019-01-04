@@ -52,7 +52,7 @@ void setLocation(yyscan_t scanner, YYLTYPE* location, int len) {
 %option header-file="calc.yy.h"
 
 %%
-[0-9]+(\.[0-9]+)? {
+[0-9]+(\.[0-9]+)?(e[+\-][0-9]+)? {
     QString token = QString::fromLocal8Bit(yytext);
     yylval->number = new idouble(token.toDouble());
     return NUMBER;
@@ -134,4 +134,4 @@ void setLocation(yyscan_t scanner, YYLTYPE* location, int len) {
 "," {return ARGSEPARATOR;}
 "π" {yylval->number = new idouble(M_PI, 0); return NUMBER; }
 "=" {return ASSIGNMENT;}
-.;
+. {return TOKEN;}

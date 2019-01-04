@@ -106,7 +106,7 @@ double absArg(idouble n) {
 %token<number> LBRACKET RBRACKET
 %token<number> ADD SUBTRACT MULTIPLY DIVIDE LSH RSH SUPERSUBTRACT SUPERADD
 %token<number> PERCENT ABSOLUTE ENDABSOLUTE FACTORIAL RADICAL
-%token<number> EOL
+%token<number> EOL TOKEN
 %token<number> ARGSEPARATOR
 %token<number> ASSIGNMENT
 %token<string> IDENTIFIER
