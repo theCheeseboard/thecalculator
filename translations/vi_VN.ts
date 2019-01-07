@@ -332,29 +332,29 @@
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="194"/>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="243"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="245"/>
         <source>TRUE</source>
         <translation>THẬT</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="194"/>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="243"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="245"/>
         <source>FALSE</source>
         <translation>SAI</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="240"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="242"/>
         <source>Assign %1 to %2</source>
         <translation>Gán %1 cho %2</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="337"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="339"/>
         <source>No arguments</source>
         <translation>Không có tham số</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="338"/>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="355"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="340"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="357"/>
         <source>function</source>
         <translation>hàm số</translation>
     </message>

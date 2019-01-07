@@ -212,16 +212,26 @@ arguments: expression {$$ = new QList<idouble>(); $$->append(*$1);}
 
 function: IDENTIFIER LBRACKET arguments RBRACKET {CALL_MAINWINDOW_FUNCTION(@$, *$1, *$3, $$)}
 |   IDENTIFIER EXPONENTIATE expression LBRACKET arguments RBRACKET {
-        idouble* result;
-        CALL_MAINWINDOW_FUNCTION(@$, *$1, *$5, result)
-        CALL_MAINWINDOW_FUNCTION(@$, "pow", QList<idouble>() << *result << *$3, $$);
-        delete result;
+        if ($3->real() == -1 && $3->imag() == 0 && EvaluationEngine::customFunctions.contains("a" + *$1)) {
+            //Call special inverse function
+            CALL_MAINWINDOW_FUNCTION(@$, "a" + *$1, *$5, $$);
+        } else {
+            idouble* result;
+            CALL_MAINWINDOW_FUNCTION(@$, *$1, *$5, result)
+            CALL_MAINWINDOW_FUNCTION(@$, "pow", QList<idouble>() << *result << *$3, $$);
+            delete result;
+        }
     }
 |   IDENTIFIER power LBRACKET arguments RBRACKET {
-        idouble* result;
-        CALL_MAINWINDOW_FUNCTION(@$, *$1, *$4, result)
-        CALL_MAINWINDOW_FUNCTION(@$, "pow", QList<idouble>() << *result << *$2, $$);
-        delete result;
+        if ($2->real() == -1 && $2->imag() == 0 && EvaluationEngine::customFunctions.contains("a" + *$1)) {
+            //Call special inverse function
+            CALL_MAINWINDOW_FUNCTION(@$, "a" + *$1, *$4, $$);
+        } else {
+            idouble* result;
+            CALL_MAINWINDOW_FUNCTION(@$, *$1, *$4, result)
+            CALL_MAINWINDOW_FUNCTION(@$, "pow", QList<idouble>() << *result << *$2, $$);
+            delete result;
+        }
     }
 %%
 

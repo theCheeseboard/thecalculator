@@ -332,29 +332,29 @@
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="194"/>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="243"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="245"/>
         <source>TRUE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="194"/>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="243"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="245"/>
         <source>FALSE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="240"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="242"/>
         <source>Assign %1 to %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="337"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="339"/>
         <source>No arguments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="338"/>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="355"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="340"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="357"/>
         <source>function</source>
         <translation type="unfinished"></translation>
     </message>

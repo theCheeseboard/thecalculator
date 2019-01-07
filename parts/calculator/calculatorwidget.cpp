@@ -235,6 +235,8 @@ void CalculatorWidget::on_expressionBox_expressionUpdated(const QString &newStri
                     ui->answerLabel->setText(r.error);
                     ui->expressionBox->setErrorRange(r.location, r.length);
                 }
+
+                resizeAnswerLabel();
                 break;
             case EvaluationEngine::Result::Assign:
                 ui->answerLabel->setText(tr("Assign %1 to %2").arg(r.identifier, idbToString(r.value)));
