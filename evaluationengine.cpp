@@ -809,9 +809,11 @@ idouble EvaluationEngine::fromRad(idouble rad) {
 
 idouble EvaluationEngine::toRad(idouble deg) {
     if (trigUnit == Degrees) {
-        deg *= idouble(M_PI / 180, 1);
+        //deg *= idouble(M_PI / 180, 1);
+        deg = idouble(deg.real() * M_PI / 180, deg.imag());
     } else if (trigUnit == Gradians) {
-        deg *= idouble(M_PI / 200, 1);
+        //deg *= idouble(M_PI / 200, 1);
+        deg = idouble(deg.real() * M_PI / 200, deg.imag());
     }
     return deg;
 }

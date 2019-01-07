@@ -14,7 +14,7 @@
    <string>theCalculator</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="accessories-calculator" resource="icons.qrc">
+   <iconset theme="accessories-calculator">
     <normaloff>:/icon.svg</normaloff>:/icon.svg</iconset>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
@@ -517,8 +517,6 @@
    </slots>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="icons.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

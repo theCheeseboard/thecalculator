@@ -1135,7 +1135,7 @@
         <translation>%1: Cần %2 số dự kiến, đá nhận đươc %3</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="822"/>
+        <location filename="../evaluationengine.cpp" line="824"/>
         <source>%1: expected 1 argument, got %2</source>
         <translation>%1: Cần 1 số dự kiến, đá nhận đươc %2</translation>
     </message>
