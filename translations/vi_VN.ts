@@ -278,17 +278,17 @@
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="853"/>
         <source>re</source>
-        <translation type="unfinished"></translation>
+        <translation>re</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="860"/>
         <source>im</source>
-        <translation type="unfinished"></translation>
+        <translation>im</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="867"/>
         <source>arg</source>
-        <translation type="unfinished"></translation>
+        <translation>arg</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="890"/>
@@ -716,7 +716,7 @@
     <message>
         <location filename="../evaluationengine.cpp" line="305"/>
         <source>sec: input (%1) out of bounds (not %2)</source>
-        <translation type="unfinished"></translation>
+        <translation>sec: số dự kiến (%1) ở ngoài giới hạn (không phải %2)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="325"/>
@@ -726,7 +726,7 @@
     <message>
         <location filename="../evaluationengine.cpp" line="330"/>
         <source>csc: input (%1) out of bounds (not %2)</source>
-        <translation type="unfinished"></translation>
+        <translation>csc: số dự kiến (%1) ở ngoài giới hạn (không phải %2)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="350"/>
@@ -736,7 +736,7 @@
     <message>
         <location filename="../evaluationengine.cpp" line="355"/>
         <source>cot: input (%1) out of bounds (not %2)</source>
-        <translation type="unfinished"></translation>
+        <translation>cot: số dự kiến (%1) ở ngoài giới hạn (không phải %2)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="375"/>
@@ -746,7 +746,7 @@
     <message>
         <location filename="../evaluationengine.cpp" line="380"/>
         <source>asec: input (%1) out of bounds (not 0)</source>
-        <translation type="unfinished"></translation>
+        <translation>asec: số dự kiến (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="385"/>
@@ -761,7 +761,7 @@
     <message>
         <location filename="../evaluationengine.cpp" line="390"/>
         <source>acsc: input (%1) out of bounds (not 0)</source>
-        <translation type="unfinished"></translation>
+        <translation>acsc: số dự kiến (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="395"/>
