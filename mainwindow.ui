@@ -14,7 +14,7 @@
    <string>theCalculator</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="accessories-calculator">
+   <iconset theme="accessories-calculator" resource="icons.qrc">
     <normaloff>:/icon.svg</normaloff>:/icon.svg</iconset>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
@@ -46,11 +46,6 @@
        <number>0</number>
       </property>
       <widget class="QWidget" name="page">
-       <property name="font">
-        <font>
-         <pointsize>15</pointsize>
-        </font>
-       </property>
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <property name="spacing">
          <number>0</number>
@@ -293,8 +288,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>779</width>
-             <height>411</height>
+             <width>165</width>
+             <height>90</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -517,6 +512,8 @@
    </slots>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

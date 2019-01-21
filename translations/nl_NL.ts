@@ -131,197 +131,197 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="617"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="612"/>
         <source>Cube</source>
         <translation type="unfinished">Derdemacht</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="627"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="622"/>
         <source>Nth Root</source>
         <translation type="unfinished">Nste wortel</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="687"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="682"/>
         <source>Hyperbolic Arc Sine</source>
         <translation type="unfinished">Hyperbolische Arcsinus</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="823"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="818"/>
         <source>Arc Tangent</source>
         <translation type="unfinished">Arctangens</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="783"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="778"/>
         <source>Cosine</source>
         <translation type="unfinished">Cosinus</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="601"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="596"/>
         <source>Hyperbolic Tangent</source>
         <translation type="unfinished">Hyperbolische tangens</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="773"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="768"/>
         <source>Square Root</source>
         <translation type="unfinished">Wortel</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="747"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="742"/>
         <source>Base 10 Logarithm</source>
         <translation type="unfinished">Grondtal 10 Logaritme</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="763"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="758"/>
         <source>Square</source>
         <translation type="unfinished">Kwadraat</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="717"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="712"/>
         <source>Arc Sine</source>
         <translation type="unfinished">Arcsinus</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="581"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="576"/>
         <source>Hyperbolic Sine</source>
         <translation type="unfinished">Hyperbolische Sinus</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="647"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="642"/>
         <source>Reciporical</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="551"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="546"/>
         <source>Raise to a power</source>
         <translation type="unfinished">Machtsverheffen</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="637"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="632"/>
         <source>Factorial</source>
         <translation type="unfinished">Factoriaal</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="657"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="652"/>
         <source>Sine</source>
         <translation type="unfinished">Sinus</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="535"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="530"/>
         <source>Arc Cosine</source>
         <translation type="unfinished">Arccosinus</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="707"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="702"/>
         <source>Absolute</source>
         <translation type="unfinished">Absoluut</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="571"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="566"/>
         <source>Secant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="697"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="692"/>
         <source>Hyperbolic Cosine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="591"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="586"/>
         <source>Hyperbolic Arc Tangent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="727"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="722"/>
         <source>Natural Logarithm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="561"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="556"/>
         <source>Tangent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="843"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="838"/>
         <source>Cube Root</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="793"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="788"/>
         <source>Hyperbolic Arc Cosine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="803"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="798"/>
         <source>Cosecant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="667"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="662"/>
         <source>Cotangent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="833"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="828"/>
         <source>Arc Secant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="813"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="808"/>
         <source>Arc Cosecant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="737"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="732"/>
         <source>Arc Cotangent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="853"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="848"/>
         <source>re</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="860"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="855"/>
         <source>im</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="867"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="862"/>
         <source>arg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="890"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="885"/>
         <source>Backspace</source>
         <translation type="unfinished">Backspace</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="951"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="946"/>
         <source>Left Shift</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="999"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="994"/>
         <source>Functions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="1054"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="1049"/>
         <source>Subtract</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="1076"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="1071"/>
         <source>Divide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="1092"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="1087"/>
         <source>Extended Palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="1112"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="1107"/>
         <source>Evaluate</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1149,87 +1149,87 @@
         <translation>theCalculator</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="131"/>
+        <location filename="../mainwindow.ui" line="126"/>
         <source>Custom Functions</source>
         <translation>Aangepaste Functies</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="241"/>
+        <location filename="../mainwindow.ui" line="236"/>
         <source>Add Custom Function</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="306"/>
+        <location filename="../mainwindow.ui" line="301"/>
         <source>Function Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="364"/>
+        <location filename="../mainwindow.ui" line="359"/>
         <source>Add New Overload</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="395"/>
+        <location filename="../mainwindow.ui" line="390"/>
         <source>Fi&amp;le</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="401"/>
+        <location filename="../mainwindow.ui" line="396"/>
         <source>Tri&amp;gonometry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="409"/>
+        <location filename="../mainwindow.ui" line="404"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="428"/>
+        <location filename="../mainwindow.ui" line="423"/>
         <source>&amp;Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="431"/>
+        <location filename="../mainwindow.ui" line="426"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="442"/>
+        <location filename="../mainwindow.ui" line="437"/>
         <source>&amp;Degrees</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="450"/>
+        <location filename="../mainwindow.ui" line="445"/>
         <source>&amp;Radians</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="459"/>
+        <location filename="../mainwindow.ui" line="454"/>
         <source>&amp;About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="468"/>
+        <location filename="../mainwindow.ui" line="463"/>
         <source>&amp;theCalculator Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="471"/>
+        <location filename="../mainwindow.ui" line="466"/>
         <source>F1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="480"/>
+        <location filename="../mainwindow.ui" line="475"/>
         <source>&amp;File Bug</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="489"/>
+        <location filename="../mainwindow.ui" line="484"/>
         <source>&amp;Sources</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="497"/>
+        <location filename="../mainwindow.ui" line="492"/>
         <source>&amp;Gradians</source>
         <translation type="unfinished"></translation>
     </message>
