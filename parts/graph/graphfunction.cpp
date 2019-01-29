@@ -77,10 +77,11 @@ void GraphFunction::redraw() {
     for (double nextPoint = firstPoint, xPoint = (firstPoint - d->parentView->xOffset()) * d->parentView->xScale();
          xPoint < d->parentView->width(); nextPoint += precision, xPoint += precision * d->parentView->xScale()) {
         FunctionValue v = value(idouble(nextPoint));
-        if (v.isUndefined || (v.value.imag() != 0 && v.value.real() == 0)) {
+        if (v.isUndefined || v.value.imag() != 0) {
             nextMove = true;
         } else {
             //Calculate the y pixel coordinate
+            qDebug() << d->parentView->yOffset();
             double yOffset = v.value.real() - d->parentView->yOffset(); //Cartesian coordinates from the bottom of the viewport
             int top = d->parentView->height() - yOffset * d->parentView->yScale();
             if (nextMove) {

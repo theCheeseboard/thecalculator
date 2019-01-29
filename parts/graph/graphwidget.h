@@ -39,6 +39,10 @@ class GraphWidget : public QWidget
     private slots:
         void on_addEquationButton_clicked();
 
+        void on_centerXBox_valueChanged(double arg1);
+
+        void on_centerYBox_valueChanged(double arg1);
+
     private:
         Ui::GraphWidget *ui;
 

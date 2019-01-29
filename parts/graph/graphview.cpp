@@ -45,6 +45,13 @@ GraphView::~GraphView() {
     delete d;
 }
 
+void GraphView::setCenter(QPointF center) {
+    d->center = center;
+
+    this->setBackgroundBrush(Qt::white);
+    emit canvasChanged();
+}
+
 double GraphView::xScale() {
     return 10;
 }
@@ -62,7 +69,7 @@ double GraphView::xOffset() {
 
 double GraphView::yOffset() {
     //Bottommost coordinate
-    int distance = -this->height() / 2; //Distance in pixels between center of viewport and left
+    int distance = -this->height() / 2; //Distance in pixels between center of viewport and bottom
     double distanceCo = distance / yScale(); //Change to coordinate system
     return distanceCo + d->center.y(); //Add to center coordinates
 }
@@ -91,12 +98,12 @@ void GraphView::drawBackground(QPainter *painter, const QRectF& rect) {
         painter->setPen(QColor(0, 0, 0, transparency));
         double firstLine = ceil(xOffset() / xSpacing) * xSpacing;
         for (float nextLine = (firstLine - xOffset()) * xScale(); nextLine < this->width(); nextLine += xSpacing * xScale()) {
-            if (nextLine / xScale() + xOffset() == 0) {
+            if (abs(nextLine / yScale() + xOffset()) < 0.01) {
                 painter->save();
                 painter->setPen(Qt::blue);
             }
             painter->drawLine(nextLine, 0, nextLine, this->height());
-            if (nextLine / xScale() + xOffset() == 0) {
+            if (abs(nextLine / yScale() + xOffset()) < 0.01) {
                 painter->restore();
             }
         }
@@ -108,13 +115,13 @@ void GraphView::drawBackground(QPainter *painter, const QRectF& rect) {
         double transparency = 255 / pow((abs(log(ySpacing) - log(yScale())) + 1), 2);
         painter->setPen(QColor(0, 0, 0, transparency));
         double firstLine = ceil(yOffset() / ySpacing) * ySpacing;
-        for (float nextLine = (firstLine - yOffset()) * yScale(); nextLine < this->height(); nextLine += ySpacing * yScale()) {
-            if (nextLine / yScale() + yOffset() == 0) {
+        for (float nextLine = (firstLine - yOffset()) * yScale(), yLine = firstLine; nextLine < this->height(); nextLine += ySpacing * yScale(), yLine += ySpacing) {
+            if (abs(yLine) < 0.01) {
                 painter->save();
                 painter->setPen(Qt::blue);
             }
-            painter->drawLine(0, nextLine, this->width(), nextLine);
-            if (nextLine / yScale() + yOffset() == 0) {
+            painter->drawLine(0, this->height() - nextLine, this->width(), this->height() - nextLine);
+            if (abs(yLine) < 0.01) {
                 painter->restore();
             }
         }
@@ -124,5 +131,6 @@ void GraphView::drawBackground(QPainter *painter, const QRectF& rect) {
 void GraphView::resizeEvent(QResizeEvent *event) {
     this->setSceneRect(0, 0, this->width(), this->height());
     this->scene()->setSceneRect(this->sceneRect());
+
     emit canvasChanged();
 }

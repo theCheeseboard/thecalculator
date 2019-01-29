@@ -62,3 +62,13 @@ void GraphWidget::on_addEquationButton_clicked()
     });
     p->show(this);
 }
+
+void GraphWidget::on_centerXBox_valueChanged(double arg1)
+{
+    ui->graphicsView->setCenter(QPoint(ui->centerXBox->value(), ui->centerYBox->value()));
+}
+
+void GraphWidget::on_centerYBox_valueChanged(double arg1)
+{
+    ui->graphicsView->setCenter(QPoint(ui->centerXBox->value(), ui->centerYBox->value()));
+}

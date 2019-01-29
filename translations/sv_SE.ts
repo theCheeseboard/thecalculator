@@ -1244,6 +1244,21 @@
         <source>Expressions</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../parts/graph/graphwidget.ui" line="176"/>
+        <source>Viewport</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/graphwidget.ui" line="216"/>
+        <source>Center X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/graphwidget.ui" line="223"/>
+        <source>Center Y</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
