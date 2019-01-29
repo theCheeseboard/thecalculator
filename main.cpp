@@ -70,6 +70,16 @@ QString idbToString(idouble db) {
     }
 }
 
+uint qHash(const idouble& key) {
+    QByteArray hash = QCryptographicHash::hash(idbToString(key).toUtf8(), QCryptographicHash::Md5);
+
+    uint hashValue = 0; //this can overflow, it's fine
+    for (char c : hash) {
+        hashValue += c;
+    }
+    return hashValue;
+}
+
 int main(int argc, char *argv[])
 {
     //Determine whether to start a QApplication or QCoreApplication

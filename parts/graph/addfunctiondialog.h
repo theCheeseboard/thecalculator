@@ -1,6 +1,6 @@
 /****************************************
  *
- *   theCalculator - Calculator
+ *   INSERT-PROJECT-NAME-HERE - INSERT-GENERIC-NAME-HERE
  *   Copyright (C) 2019 Victor Tran
  *
  *   This program is free software: you can redistribute it and/or modify
@@ -17,34 +17,34 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
+#ifndef ADDFUNCTIONDIALOG_H
+#define ADDFUNCTIONDIALOG_H
 
-#ifndef EVALUATIONENGINEHEADERS_H
-#define EVALUATIONENGINEHEADERS_H
+#include <QWidget>
 
-#include <QtGlobal>
-#include <complex>
-typedef std::complex<long double> idouble;
-extern uint qHash(const idouble& key);
+namespace Ui {
+    class AddFunctionDialog;
+}
 
-#include <QMap>
-#include <functional>
+class AddFunctionDialog : public QWidget
+{
+        Q_OBJECT
 
+    public:
+        explicit AddFunctionDialog(QWidget *parent = nullptr);
+        ~AddFunctionDialog();
 
-typedef void* yyscan_t;
+    signals:
+        void finished();
+        void expressionSet(QString expression, QColor col);
 
-typedef struct yyloc_t {
-    int location;
-    int length;
-} YYLTYPE;
-#define YYLTYPE yyloc_t
+    private slots:
+        void on_backButton_clicked();
 
-struct EvaluationEngineParameters {
-    yyscan_t scanner;
-    std::function<void(idouble)> resultFunction;
-    std::function <void(int, int, const char*)> errorFunction;
-    std::function<void(QString, idouble)> assignFunction;
-    std::function<void(bool)> equalityFunction;
-    QMap<QString, idouble> variables;
+        void on_doneButton_clicked();
+
+    private:
+        Ui::AddFunctionDialog *ui;
 };
 
-#endif // EVALUATIONENGINEHEADERS_H
+#endif // ADDFUNCTIONDIALOG_H

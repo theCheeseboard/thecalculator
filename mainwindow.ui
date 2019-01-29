@@ -120,6 +120,14 @@
          </item>
          <item>
           <property name="text">
+           <string>Statistical</string>
+          </property>
+          <property name="icon">
+           <iconset theme="calculator-statistic"/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
            <string>Graphing</string>
           </property>
           <property name="icon">
@@ -160,7 +168,7 @@
     <item>
      <widget class="tStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -223,6 +231,28 @@
         <property name="bottomMargin">
          <number>0</number>
         </property>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_4">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="GraphWidget" name="widget" native="true"/>
+        </item>
        </layout>
       </widget>
      </widget>
@@ -368,6 +398,12 @@
    <class>FunctionWidget</class>
    <extends>QStackedWidget</extends>
    <header>parts/functions/functionwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>GraphWidget</class>
+   <extends>QWidget</extends>
+   <header>parts/graph/graphwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -1,6 +1,6 @@
 /****************************************
  *
- *   theCalculator - Calculator
+ *   INSERT-PROJECT-NAME-HERE - INSERT-GENERIC-NAME-HERE
  *   Copyright (C) 2019 Victor Tran
  *
  *   This program is free software: you can redistribute it and/or modify
@@ -17,34 +17,36 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
+#ifndef GRAPHVIEW_H
+#define GRAPHVIEW_H
 
-#ifndef EVALUATIONENGINEHEADERS_H
-#define EVALUATIONENGINEHEADERS_H
+#include <QGraphicsView>
 
-#include <QtGlobal>
-#include <complex>
-typedef std::complex<long double> idouble;
-extern uint qHash(const idouble& key);
+struct GraphViewPrivate;
+class GraphView : public QGraphicsView
+{
+        Q_OBJECT
+    public:
+        explicit GraphView(QWidget *parent = nullptr);
+        ~GraphView();
 
-#include <QMap>
-#include <functional>
+        double xScale();
+        double yScale();
+        double xOffset();
+        double yOffset();
 
+    signals:
+        void canvasChanged();
 
-typedef void* yyscan_t;
+    public slots:
 
-typedef struct yyloc_t {
-    int location;
-    int length;
-} YYLTYPE;
-#define YYLTYPE yyloc_t
+    protected:
+        void drawBackground(QPainter* painter, const QRectF& rect);
 
-struct EvaluationEngineParameters {
-    yyscan_t scanner;
-    std::function<void(idouble)> resultFunction;
-    std::function <void(int, int, const char*)> errorFunction;
-    std::function<void(QString, idouble)> assignFunction;
-    std::function<void(bool)> equalityFunction;
-    QMap<QString, idouble> variables;
+    private:
+        GraphViewPrivate* d;
+
+        void resizeEvent(QResizeEvent* event);
 };
 
-#endif // EVALUATIONENGINEHEADERS_H
+#endif // GRAPHVIEW_H

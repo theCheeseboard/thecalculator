@@ -48,7 +48,11 @@ SOURCES += \
     expressionlineedit.cpp \
     evaluationengine.cpp \
     parts/calculator/calculatorwidget.cpp \
-    parts/functions/functionwidget.cpp
+    parts/functions/functionwidget.cpp \
+    parts/graph/graphwidget.cpp \
+    parts/graph/graphfunction.cpp \
+    parts/graph/graphview.cpp \
+    parts/graph/addfunctiondialog.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -63,7 +67,11 @@ HEADERS += \
     evaluationengine.h \
     evaluationengineheaders.h \
     parts/calculator/calculatorwidget.h \
-    parts/functions/functionwidget.h
+    parts/functions/functionwidget.h \
+    parts/graph/graphwidget.h \
+    parts/graph/graphfunction.h \
+    parts/graph/graphview.h \
+    parts/graph/addfunctiondialog.h
 
 FORMS += \
         mainwindow.ui \
@@ -72,7 +80,9 @@ FORMS += \
     customs/branchbox.ui \
     customs/conditionbox.ui \
     parts/calculator/calculatorwidget.ui \
-    parts/functions/functionwidget.ui
+    parts/functions/functionwidget.ui \
+    parts/graph/graphwidget.ui \
+    parts/graph/addfunctiondialog.ui
 
 DISTFILES += \
     parser/calc.y \

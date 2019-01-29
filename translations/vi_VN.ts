@@ -30,6 +30,24 @@
     </message>
 </context>
 <context>
+    <name>AddFunctionDialog</name>
+    <message>
+        <location filename="../parts/graph/addfunctiondialog.ui" line="73"/>
+        <source>Add Function</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/addfunctiondialog.ui" line="134"/>
+        <source>Expression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/addfunctiondialog.ui" line="147"/>
+        <source>Use x for the horizontal axis</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>BranchBox</name>
     <message>
         <location filename="../customs/branchbox.ui" line="59"/>
@@ -1211,6 +1229,19 @@
     </message>
 </context>
 <context>
+    <name>GraphWidget</name>
+    <message>
+        <location filename="../parts/graph/graphwidget.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/graphwidget.ui" line="107"/>
+        <source>Expressions</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
@@ -1225,86 +1256,91 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="123"/>
+        <source>Statistical</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="131"/>
         <source>Graphing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="147"/>
+        <location filename="../mainwindow.ui" line="155"/>
         <source>Manage Custom Functions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="243"/>
+        <location filename="../mainwindow.ui" line="273"/>
         <source>Fi&amp;le</source>
         <translation>&amp;Tệp</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="249"/>
+        <location filename="../mainwindow.ui" line="279"/>
         <source>Tri&amp;gonometry</source>
         <translation>&amp;Lượng giác</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="257"/>
+        <location filename="../mainwindow.ui" line="287"/>
         <source>Help</source>
         <translation>Trợ giúp</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="276"/>
+        <location filename="../mainwindow.ui" line="306"/>
         <source>&amp;Exit</source>
         <translation>&amp;Thoát</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="279"/>
+        <location filename="../mainwindow.ui" line="309"/>
         <source>Ctrl+Q</source>
         <translation>CTRL+Q</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="290"/>
+        <location filename="../mainwindow.ui" line="320"/>
         <source>&amp;Degrees</source>
         <translation>Đơn vị &amp;độ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="298"/>
+        <location filename="../mainwindow.ui" line="328"/>
         <source>&amp;Radians</source>
         <translation>Đơn vị &amp;rađian</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="307"/>
+        <location filename="../mainwindow.ui" line="337"/>
         <source>&amp;About</source>
         <translation>&amp;Giới thiệu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="316"/>
+        <location filename="../mainwindow.ui" line="346"/>
         <source>&amp;theCalculator Help</source>
         <translation>T&amp;rợ giúp với theCalculator</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="319"/>
+        <location filename="../mainwindow.ui" line="349"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="328"/>
+        <location filename="../mainwindow.ui" line="358"/>
         <source>&amp;File Bug</source>
         <translation>&amp;Báo cáo lỗi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="337"/>
+        <location filename="../mainwindow.ui" line="367"/>
         <source>&amp;Sources</source>
         <translation>&amp;Mã nguồn</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="345"/>
+        <location filename="../mainwindow.ui" line="375"/>
         <source>&amp;Gradians</source>
         <translation>Đơn vị &amp;građian</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="150"/>
+        <location filename="../main.cpp" line="160"/>
         <source>TRUE</source>
         <translation>THẬT</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="150"/>
+        <location filename="../main.cpp" line="160"/>
         <source>FALSE</source>
         <translation>SAI</translation>
     </message>
@@ -1368,17 +1404,17 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="117"/>
+        <location filename="../main.cpp" line="127"/>
         <source>Evaluate &lt;expression&gt;, print the result to standard output, then exit</source>
         <translation>Tính &lt;biểu thức&gt;, viết ra, rồi thoát</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="118"/>
+        <location filename="../main.cpp" line="128"/>
         <source>expression</source>
         <translation>biểu thức</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="168"/>
+        <location filename="../main.cpp" line="178"/>
         <source>Nothing to evaluate</source>
         <translation>Không có gì để tính</translation>
     </message>
