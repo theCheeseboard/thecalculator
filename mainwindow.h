@@ -75,16 +75,6 @@ class MainWindow : public QMainWindow
 
         void on_actionSources_triggered();
 
-        void on_addCustomFunction_clicked();
-
-        void on_backButton_2_clicked();
-
-        void on_newOverloadButton_clicked();
-
-        void on_saveCustomFunctionButton_clicked();
-
-        void on_customFunctionsList_itemActivated(QListWidgetItem *item);
-
         void on_calcWidget_manageFunctions();
 
         void on_calcWidget_sizeHintChanged();
@@ -93,7 +83,9 @@ class MainWindow : public QMainWindow
 
         void on_actionGradians_triggered(bool checked);
 
-        void on_customFunctionsList_customContextMenuRequested(const QPoint &pos);
+        void on_leftMenu_currentRowChanged(int currentRow);
+
+        void on_manageCustomFunctionsbutton_clicked();
 
     private:
         Ui::MainWindow *ui;
@@ -104,7 +96,17 @@ class MainWindow : public QMainWindow
 
         idouble currentAnswer;
         QSettings settings;
-        QString editingFunction = "";
+};
+
+class CornerButton : public QPushButton {
+    Q_OBJECT
+    public:
+        CornerButton(QWidget* parent = nullptr) : QPushButton(parent) {}
+
+    private:
+        QSize sizeHint() const {
+            return QSize(this->height(), this->height());
+        }
 };
 
 #endif // MAINWINDOW_H

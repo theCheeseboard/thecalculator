@@ -47,7 +47,8 @@ SOURCES += \
     customs/conditionbox.cpp \
     expressionlineedit.cpp \
     evaluationengine.cpp \
-    parts/calculator/calculatorwidget.cpp
+    parts/calculator/calculatorwidget.cpp \
+    parts/functions/functionwidget.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -61,7 +62,8 @@ HEADERS += \
     expressionlineedit.h \
     evaluationengine.h \
     evaluationengineheaders.h \
-    parts/calculator/calculatorwidget.h
+    parts/calculator/calculatorwidget.h \
+    parts/functions/functionwidget.h
 
 FORMS += \
         mainwindow.ui \
@@ -69,7 +71,8 @@ FORMS += \
     customs/overloadbox.ui \
     customs/branchbox.ui \
     customs/conditionbox.ui \
-    parts/calculator/calculatorwidget.ui
+    parts/calculator/calculatorwidget.ui \
+    parts/functions/functionwidget.ui
 
 DISTFILES += \
     parser/calc.y \

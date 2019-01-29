@@ -30,12 +30,13 @@
 #include <QProcess>
 #include "historydelegate.h"
 #include <QDesktopServices>
-#include <QJsonArray>
-#include <QJsonDocument>
 #include <QMessageBox>
 #include <QTimer>
 #include <QScrollBar>
 #include <ttoast.h>
+#include <QToolButton>
+#include <tpopover.h>
+#include <QShortcut>
 #include "evaluationengine.h"
 
 #include "customs/overloadbox.h"
@@ -54,12 +55,32 @@ MainWindow::MainWindow(QWidget *parent) :
     MainWin = this;
     ui->setupUi(this);
 
-    ui->stackedWidget->setCurrentAnimation(tStackedWidget::SlideHorizontal);
+    ui->stackedWidget->setCurrentAnimation(tStackedWidget::Lift);
 
     QActionGroup* group = new QActionGroup(this);
     group->addAction(ui->actionDegrees);
     group->addAction(ui->actionRadians);
     group->addAction(ui->actionGradians);
+
+    CornerButton* menuButton = new CornerButton();
+    menuButton->setIcon(QIcon::fromTheme("application-menu"));
+    menuButton->setFixedHeight(ui->menuBar->sizeHint().height());
+    menuButton->setFlat(true);
+    connect(menuButton, &QPushButton::clicked, [=] {
+        tPopover* p = new tPopover(ui->leftPane);
+        p->setPopoverSide(tPopover::Leading);
+        p->setPopoverWidth(300 * theLibsGlobal::getDPIScaling());
+        p->show(this);
+    });
+    ui->menuBar->setCornerWidget(menuButton, Qt::TopLeftCorner);
+
+    QShortcut* menuShortcut = new QShortcut(this);
+    menuShortcut->setKey(Qt::SHIFT | Qt::Key_Tab);
+    connect(menuShortcut, &QShortcut::activated, [=] {
+        menuButton->click();
+    });
+
+    ui->centralWidget->layout()->removeWidget(ui->leftPane);
 
     QTimer::singleShot(0, [=] {
         this->setFixedWidth(ui->calcWidget->sizeHint().width());
@@ -88,16 +109,6 @@ void MainWindow::on_backButton_clicked()
 
 void MainWindow::on_FunctionsButton_clicked()
 {
-    QSettings settings;
-    settings.beginGroup("customFunctions");
-
-    //Load up all the custom functions
-    ui->customFunctionsList->clear();
-    for (QString key : settings.allKeys()) {
-        ui->customFunctionsList->addItem(key);
-    }
-    settings.endGroup();
-
     ui->calcWidget->grabExpKeyboard(false);
     ui->stackedWidget->setCurrentIndex(1);
 }
@@ -150,137 +161,6 @@ void MainWindow::on_actionSources_triggered()
     QDesktopServices::openUrl(QUrl("https://github.com/vicr123/thecalculator"));
 }
 
-void MainWindow::on_addCustomFunction_clicked()
-{
-    editingFunction = "";
-    ui->functionName->setText("");
-    QLayoutItem* i = ui->customFunctionDefinitionWidget->layout()->takeAt(0);
-    while (i != nullptr) {
-        i->widget()->deleteLater();
-        i = ui->customFunctionDefinitionWidget->layout()->takeAt(0);
-    }
-
-    ui->stackedWidget->setCurrentIndex(2);
-}
-
-void MainWindow::on_backButton_2_clicked()
-{
-    QMessageBox::StandardButton b = QMessageBox::warning(this, tr("Save this function?"), tr("Do you want to save this function?"), QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel, QMessageBox::Save);
-    if (b == QMessageBox::Save) {
-        //Save the function
-        ui->saveCustomFunctionButton->click();
-    } else if (b == QMessageBox::Discard) {
-        //Don't save the function
-        ui->stackedWidget->setCurrentIndex(1);
-    }
-}
-
-void MainWindow::on_newOverloadButton_clicked()
-{
-    OverloadBox* overload = new OverloadBox();
-    connect(overload, &OverloadBox::remove, [=] {
-        ui->customFunctionDefinitionWidget->layout()->removeWidget(overload);
-        overload->deleteLater();
-    });
-    ui->customFunctionDefinitionWidget->layout()->addWidget(overload);
-}
-
-void MainWindow::on_saveCustomFunctionButton_clicked()
-{
-    QJsonObject obj;
-
-    if (ui->functionName->text() == "") {
-        //Name is required
-        tToast* toast = new tToast();
-        toast->setTitle(tr("Function Name Required"));
-        toast->setText(tr("A function name needs to be set"));
-        toast->show(this);
-        connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
-        return;
-    }
-    obj.insert("name", ui->functionName->text());
-
-    QJsonArray overloads;
-    QList<int> argNumbers;
-    for (int i = 0; i < ui->customFunctionDefinitionWidget->layout()->count(); i++) {
-        QObject* o = ui->customFunctionDefinitionWidget->layout()->itemAt(i)->widget();
-        OverloadBox* box = (OverloadBox*) o;
-
-        if (!box->check()) return; //Error occurred during check, don't save
-
-        QJsonObject save = box->save();
-        int argCount = save.value("args").toArray().count();
-        if (argNumbers.contains(argCount)) {
-            //More than one overload with same number of arguments
-            tToast* toast = new tToast();
-            toast->setTitle(tr("Overload Arguments"));
-            toast->setText(tr("Only one overload can have %n arguments", nullptr, argCount));
-            toast->show(this);
-            connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
-            return;
-        }
-        argNumbers.append(argCount);
-        overloads.append(save);
-    }
-    obj.insert("overloads", overloads);
-
-    QJsonDocument doc(obj);
-    QSettings settings;
-    settings.beginGroup("customFunctions");
-
-    //Save the function
-    if (editingFunction != "" && settings.contains(ui->functionName->text())) {
-        settings.remove(ui->functionName->text());
-    }
-    settings.setValue(ui->functionName->text(), doc.toBinaryData());
-
-    //Load up all the custom functions
-    ui->customFunctionsList->clear();
-    for (QString key : settings.allKeys()) {
-        ui->customFunctionsList->addItem(key);
-    }
-
-    settings.endGroup();
-    settings.sync();
-
-    EvaluationEngine::setupFunctions();
-
-    ui->stackedWidget->setCurrentIndex(1);
-}
-
-void MainWindow::on_customFunctionsList_itemActivated(QListWidgetItem *item)
-{
-    editingFunction = item->text();
-
-    QSettings settings;
-    settings.beginGroup("customFunctions");
-    QJsonDocument doc = QJsonDocument::fromBinaryData(settings.value(item->text()).toByteArray());
-    settings.endGroup();
-
-    QJsonObject obj = doc.object();
-    ui->functionName->setText(obj.value("name").toString());
-
-    //Clear overloads
-    QLayoutItem* i = ui->customFunctionDefinitionWidget->layout()->takeAt(0);
-    while (i != nullptr) {
-        i->widget()->deleteLater();
-        i = ui->customFunctionDefinitionWidget->layout()->takeAt(0);
-    }
-
-    QJsonArray overloads = obj.value("overloads").toArray();
-    for (QJsonValue v : overloads) {
-        OverloadBox* overload = new OverloadBox();
-        overload->load(v.toObject());
-        connect(overload, &OverloadBox::remove, [=] {
-            ui->customFunctionDefinitionWidget->layout()->removeWidget(overload);
-            overload->deleteLater();
-        });
-        ui->customFunctionDefinitionWidget->layout()->addWidget(overload);
-    }
-
-    ui->stackedWidget->setCurrentIndex(2);
-}
-
 void MainWindow::on_calcWidget_manageFunctions()
 {
     ui->stackedWidget->setCurrentIndex(1);
@@ -288,7 +168,7 @@ void MainWindow::on_calcWidget_manageFunctions()
 
 void MainWindow::on_calcWidget_sizeHintChanged()
 {
-    if (ui->stackedWidget->currentIndex() == 0) {
+    if (ui->stackedWidget->currentIndex() == 1) {
         this->setFixedWidth(ui->calcWidget->sizeHint().width());
     }
 }
@@ -297,7 +177,7 @@ void MainWindow::on_stackedWidget_currentChanged(int arg1)
 {
     int newWidth = -1;
     switch (arg1) {
-        case 0:
+        case 1:
             newWidth = ui->calcWidget->sizeHint().width();
             break;
     }
@@ -319,6 +199,19 @@ void MainWindow::on_stackedWidget_currentChanged(int arg1)
             anim->deleteLater();
         });
     }
+
+    if (arg1 == 1) {
+        ui->calcWidget->grabExpKeyboard(true);
+    } else {
+        ui->calcWidget->grabExpKeyboard(false);
+    }
+
+    if (arg1 != 0) {
+        ui->leftMenu->setCurrentRow(arg1 - 1);
+    } else {
+        ui->leftMenu->setCurrentRow(-1);
+        ui->leftMenu->clearSelection();
+    }
 }
 
 void MainWindow::on_actionGradians_triggered(bool checked)
@@ -328,24 +221,22 @@ void MainWindow::on_actionGradians_triggered(bool checked)
     }
 }
 
-void MainWindow::on_customFunctionsList_customContextMenuRequested(const QPoint &pos)
+void MainWindow::on_leftMenu_currentRowChanged(int currentRow)
 {
-    QListWidgetItem* item = ui->customFunctionsList->itemAt(pos);
-    if (item != nullptr) {
-        QMenu* menu = new QMenu();
-        menu->addSection(tr("For %1").arg(item->text()));
-        menu->addAction(QIcon::fromTheme("edit-delete"), tr("Delete"), [=] {
-            QSettings settings;
-            settings.beginGroup("customFunctions");
-            settings.remove(item->text());
-            settings.endGroup();
-            settings.sync();
+    if (currentRow != -1) {
+        ui->stackedWidget->setCurrentIndex(currentRow + 1);
+        tPopover* p = tPopover::popoverForWidget(ui->leftPane);
+        if (p != nullptr) {
+            p->dismiss();
+        }
+    }
+}
 
-            EvaluationEngine::setupFunctions();
-
-            ui->customFunctionsList->removeItemWidget(item);
-        });
-        menu->exec(ui->customFunctionsList->mapToGlobal(pos));
-        menu->deleteLater();
+void MainWindow::on_manageCustomFunctionsbutton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+    tPopover* p = tPopover::popoverForWidget(ui->leftPane);
+    if (p != nullptr) {
+        p->dismiss();
     }
 }

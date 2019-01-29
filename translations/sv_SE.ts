@@ -1143,94 +1143,162 @@
     </message>
 </context>
 <context>
-    <name>MainWindow</name>
+    <name>FunctionWidget</name>
     <message>
-        <location filename="../mainwindow.ui" line="14"/>
-        <source>theCalculator</source>
-        <translation>Kalkylator</translation>
+        <location filename="../parts/functions/functionwidget.ui" line="14"/>
+        <source>StackedWidget</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="126"/>
+        <location filename="../parts/functions/functionwidget.ui" line="55"/>
         <source>Custom Functions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="236"/>
+        <location filename="../parts/functions/functionwidget.ui" line="168"/>
         <source>Add Custom Function</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="301"/>
+        <location filename="../parts/functions/functionwidget.ui" line="233"/>
         <source>Function Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="359"/>
+        <location filename="../parts/functions/functionwidget.ui" line="291"/>
         <source>Add New Overload</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="390"/>
+        <location filename="../parts/functions/functionwidget.cpp" line="71"/>
+        <source>Save this function?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/functions/functionwidget.cpp" line="71"/>
+        <source>Do you want to save this function?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/functions/functionwidget.cpp" line="98"/>
+        <source>Function Name Required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/functions/functionwidget.cpp" line="99"/>
+        <source>A function name needs to be set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/functions/functionwidget.cpp" line="119"/>
+        <source>Overload Arguments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../parts/functions/functionwidget.cpp" line="120"/>
+        <source>Only one overload can have %n arguments</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../parts/functions/functionwidget.cpp" line="192"/>
+        <source>For %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/functions/functionwidget.cpp" line="193"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MainWindow</name>
+    <message>
+        <location filename="../mainwindow.ui" line="14"/>
+        <location filename="../mainwindow.ui" line="80"/>
+        <source>theCalculator</source>
+        <translation>Kalkylator</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="115"/>
+        <source>Scientific</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="123"/>
+        <source>Graphing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="147"/>
+        <source>Manage Custom Functions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="243"/>
         <source>Fi&amp;le</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="396"/>
+        <location filename="../mainwindow.ui" line="249"/>
         <source>Tri&amp;gonometry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="404"/>
+        <location filename="../mainwindow.ui" line="257"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="423"/>
+        <location filename="../mainwindow.ui" line="276"/>
         <source>&amp;Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="426"/>
+        <location filename="../mainwindow.ui" line="279"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="437"/>
+        <location filename="../mainwindow.ui" line="290"/>
         <source>&amp;Degrees</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="445"/>
+        <location filename="../mainwindow.ui" line="298"/>
         <source>&amp;Radians</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="454"/>
+        <location filename="../mainwindow.ui" line="307"/>
         <source>&amp;About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="463"/>
+        <location filename="../mainwindow.ui" line="316"/>
         <source>&amp;theCalculator Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="466"/>
+        <location filename="../mainwindow.ui" line="319"/>
         <source>F1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="475"/>
+        <location filename="../mainwindow.ui" line="328"/>
         <source>&amp;File Bug</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="484"/>
+        <location filename="../mainwindow.ui" line="337"/>
         <source>&amp;Sources</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="492"/>
+        <location filename="../mainwindow.ui" line="345"/>
         <source>&amp;Gradians</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1242,50 +1310,6 @@
     <message>
         <location filename="../main.cpp" line="150"/>
         <source>FALSE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="168"/>
-        <source>Save this function?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="168"/>
-        <source>Do you want to save this function?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="195"/>
-        <source>Function Name Required</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="196"/>
-        <source>A function name needs to be set</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="216"/>
-        <source>Overload Arguments</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../mainwindow.cpp" line="217"/>
-        <source>Only one overload can have %n arguments</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="336"/>
-        <source>For %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="337"/>
-        <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
