@@ -238,9 +238,6 @@
           <property name="maximum">
            <double>999999999.000000000000000</double>
           </property>
-          <property name="stepType">
-           <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
-          </property>
           <property name="value">
            <double>10.000000000000000</double>
           </property>
@@ -256,9 +253,6 @@
           </property>
           <property name="maximum">
            <double>999999999.000000000000000</double>
-          </property>
-          <property name="stepType">
-           <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
           </property>
           <property name="value">
            <double>10.000000000000000</double>

@@ -1284,22 +1284,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.ui" line="310"/>
+        <location filename="../parts/graph/graphwidget.ui" line="304"/>
         <source>y = </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.ui" line="326"/>
+        <location filename="../parts/graph/graphwidget.ui" line="320"/>
         <source>x = </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.ui" line="271"/>
+        <location filename="../parts/graph/graphwidget.ui" line="265"/>
         <source>Center Y</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.ui" line="278"/>
+        <location filename="../parts/graph/graphwidget.ui" line="272"/>
         <source>Scale X</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1309,12 +1309,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.cpp" line="99"/>
+        <location filename="../parts/graph/graphwidget.cpp" line="104"/>
         <source>For %1</source>
         <translation type="unfinished">Cho %1</translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.cpp" line="100"/>
+        <location filename="../parts/graph/graphwidget.cpp" line="105"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
