@@ -23,12 +23,15 @@
 #include "evaluationengineheaders.h"
 #include <QObject>
 #include <QGraphicsItem>
+#include <QApplication>
 
 class GraphView;
 struct GraphFunctionPrivate;
 
 class GraphFunction : public QGraphicsItem
 {
+    Q_DECLARE_TR_FUNCTIONS(GraphFunction)
+
     public:
         explicit GraphFunction(GraphView* view, QString expression = "", QGraphicsItem *parent = nullptr);
         ~GraphFunction();
@@ -46,9 +49,14 @@ class GraphFunction : public QGraphicsItem
 
         QRectF boundingRect() const;
         void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr);
+        QPainterPath shape() const;
 
     private:
         GraphFunctionPrivate* d;
+
+        void hoverEnterEvent(QGraphicsSceneHoverEvent* event);
+        void hoverMoveEvent(QGraphicsSceneHoverEvent* event);
+        void hoverLeaveEvent(QGraphicsSceneHoverEvent* event);
 };
 
 #endif // GRAPHFUNCTION_H

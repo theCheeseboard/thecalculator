@@ -22,7 +22,11 @@
 #include "graphview.h"
 #include "evaluationengine.h"
 #include <math.h>
+#include <QGraphicsSceneHoverEvent>
 #include <QGraphicsPathItem>
+#include <QGraphicsSimpleTextItem>
+
+extern QString idbToString(idouble db);
 
 struct GraphFunctionPrivate {
     QHash<idouble, GraphFunction::FunctionValue> yvalues;
@@ -31,6 +35,9 @@ struct GraphFunctionPrivate {
     GraphView* parentView;
     QColor color = QColor(0, 200, 0);
     QMetaObject::Connection canvasChangedConnection;
+
+    QGraphicsSimpleTextItem* textItem;
+    QGraphicsItemGroup* graphGroup;
 };
 
 GraphFunction::GraphFunction(GraphView* view, QString expression, QGraphicsItem *parent) : QGraphicsItem(parent)
@@ -42,6 +49,14 @@ GraphFunction::GraphFunction(GraphView* view, QString expression, QGraphicsItem 
     d->canvasChangedConnection = QObject::connect(view, &GraphView::canvasChanged, [=] {
         this->redraw();
     });
+
+    this->setAcceptHoverEvents(true);
+
+    d->graphGroup = new QGraphicsItemGroup(this);
+
+    d->textItem = new QGraphicsSimpleTextItem();
+    d->textItem->setVisible(false);
+    d->textItem->setParentItem(this);
 
     if (expression != "") {
         redraw();
@@ -65,8 +80,8 @@ void GraphFunction::setColor(QColor color) {
 }
 
 void GraphFunction::redraw() {
-    while (this->childItems().count() > 0) {
-        delete this->childItems().takeFirst();
+    while (d->graphGroup->childItems().count() > 0) {
+        delete d->graphGroup->childItems().takeFirst();
     }
 
     QPainterPath path;
@@ -101,7 +116,7 @@ void GraphFunction::redraw() {
 
     QGraphicsPathItem* item = new QGraphicsPathItem(path);
     item->setPen(QPen(d->color, 3));
-    item->setParentItem(this);
+    d->graphGroup->addToGroup(item);
 }
 
 GraphFunction::FunctionValue GraphFunction::value(idouble x) {
@@ -146,4 +161,43 @@ void GraphFunction::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
     for (QGraphicsItem* child : this->childItems()) {
         child->paint(painter, option, widget);
     }
+}
+
+void GraphFunction::hoverEnterEvent(QGraphicsSceneHoverEvent *event) {
+    d->textItem->setVisible(true);
+    this->hoverMoveEvent(event);
+}
+
+void GraphFunction::hoverMoveEvent(QGraphicsSceneHoverEvent *event) {
+    QStringList textParts;
+    textParts.append("f(x) = " + d->expression);
+
+    double xValue = d->parentView->xOffset() + event->pos().x() / d->parentView->xScale();
+    textParts.append(QString("x: ").append(QString::number(xValue)));
+
+    FunctionValue v = value(idouble(xValue));
+    if (v.isUndefined) {
+        textParts.append(QString("y: ").append(tr("undefined")));
+    } else {
+        textParts.append(QString("y: ").append(idbToString(v.value)));
+    }
+
+    d->textItem->setText(textParts.join("\n"));
+    d->textItem->setPos(event->pos() + QPoint(10, 10));
+}
+
+void GraphFunction::hoverLeaveEvent(QGraphicsSceneHoverEvent *event) {
+    d->textItem->setVisible(false);
+}
+
+QPainterPath GraphFunction::shape() const {
+    QPainterPath path;
+    for (QGraphicsItem* item : d->graphGroup->childItems()) {
+        QGraphicsPathItem* pathItem = (QGraphicsPathItem*) item;
+        path = path.united(pathItem->path());
+    }
+
+    QPainterPathStroker stroker;
+    stroker.setWidth(5);
+    return stroker.createStroke(path);
 }

@@ -1231,6 +1231,14 @@
     </message>
 </context>
 <context>
+    <name>GraphFunction</name>
+    <message>
+        <location filename="../parts/graph/graphfunction.cpp" line="180"/>
+        <source>undefined</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GraphWidget</name>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="14"/>
