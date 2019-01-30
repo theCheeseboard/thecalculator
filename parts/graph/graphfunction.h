@@ -41,7 +41,7 @@ class GraphFunction : public QGraphicsItem
             bool isUndefined = false;
         };
 
-        FunctionValue value(idouble x);
+        FunctionValue value(idouble x, QHash<idouble, GraphFunction::FunctionValue>& addHash);
         void setExpression(QString expression);
         void setColor(QColor color);
 
@@ -57,6 +57,8 @@ class GraphFunction : public QGraphicsItem
         void hoverEnterEvent(QGraphicsSceneHoverEvent* event);
         void hoverMoveEvent(QGraphicsSceneHoverEvent* event);
         void hoverLeaveEvent(QGraphicsSceneHoverEvent* event);
+
+        void doRedraw();
 };
 
 #endif // GRAPHFUNCTION_H
