@@ -68,12 +68,17 @@ void GraphFunction::redraw() {
     }
 
     QPainterPath path;
-    double precision = 0.01;
+
+    int numPoints = d->parentView->width() * 10;
+    double coordinatesInWidth = d->parentView->width() / d->parentView->xScale();
+    double unroundedPrecision = coordinatesInWidth / numPoints;
+
+    double floorPrecision = ceil(log10(unroundedPrecision));
+    const double precision = pow(10, floorPrecision);
 
     //Start at xOffset
     bool nextMove = true;
-    double precFactor = pow(10, abs(log(precision)));
-    double firstPoint = floor(d->parentView->xOffset() * precFactor) / precFactor; //First point in cartesian coordinates
+    double firstPoint = floor(d->parentView->xOffset() * precision) / precision; //First point in cartesian coordinates
     for (double nextPoint = firstPoint, xPoint = (firstPoint - d->parentView->xOffset()) * d->parentView->xScale();
          xPoint < d->parentView->width(); nextPoint += precision, xPoint += precision * d->parentView->xScale()) {
         FunctionValue v = value(idouble(nextPoint));
@@ -81,7 +86,6 @@ void GraphFunction::redraw() {
             nextMove = true;
         } else {
             //Calculate the y pixel coordinate
-            qDebug() << d->parentView->yOffset();
             double yOffset = v.value.real() - d->parentView->yOffset(); //Cartesian coordinates from the bottom of the viewport
             int top = d->parentView->height() - yOffset * d->parentView->yScale();
             if (nextMove) {

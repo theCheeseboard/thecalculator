@@ -71,13 +71,18 @@ QString idbToString(idouble db) {
 }
 
 uint qHash(const idouble& key) {
-    QByteArray hash = QCryptographicHash::hash(idbToString(key).toUtf8(), QCryptographicHash::Md5);
+    /*QByteArray hash = QCryptographicHash::hash(idbToString(key).toUtf8(), QCryptographicHash::Md5);
 
     uint hashValue = 0; //this can overflow, it's fine
     for (char c : hash) {
         hashValue += c;
     }
-    return hashValue;
+    return hashValue;*/
+
+    int n1 = 99999997;
+    int realHash = fmod(qHash(key.real()), n1);
+    int imHash = qHash(key.imag());
+    return realHash ^ imHash;
 }
 
 int main(int argc, char *argv[])

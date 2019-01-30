@@ -1251,27 +1251,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.ui" line="226"/>
+        <location filename="../parts/graph/graphwidget.ui" line="307"/>
         <source>y = </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.ui" line="242"/>
+        <location filename="../parts/graph/graphwidget.ui" line="323"/>
         <source>x = </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.ui" line="255"/>
+        <location filename="../parts/graph/graphwidget.ui" line="268"/>
         <source>Center Y</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.ui" line="262"/>
+        <location filename="../parts/graph/graphwidget.ui" line="275"/>
         <source>Scale X</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.ui" line="269"/>
+        <location filename="../parts/graph/graphwidget.ui" line="223"/>
         <source>Scale Y</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1370,12 +1370,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="160"/>
+        <location filename="../main.cpp" line="165"/>
         <source>TRUE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="160"/>
+        <location filename="../main.cpp" line="165"/>
         <source>FALSE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1439,17 +1439,17 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="127"/>
+        <location filename="../main.cpp" line="132"/>
         <source>Evaluate &lt;expression&gt;, print the result to standard output, then exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="128"/>
+        <location filename="../main.cpp" line="133"/>
         <source>expression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="178"/>
+        <location filename="../main.cpp" line="183"/>
         <source>Nothing to evaluate</source>
         <translation type="unfinished"></translation>
     </message>

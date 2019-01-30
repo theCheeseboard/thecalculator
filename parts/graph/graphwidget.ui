@@ -217,35 +217,48 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
-         <widget class="QDoubleSpinBox" name="centerYBox">
-          <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
-          </property>
-          <property name="prefix">
-           <string>y = </string>
-          </property>
-          <property name="minimum">
-           <double>-999999999999.000000000000000</double>
-          </property>
-          <property name="maximum">
-           <double>999999999999.000000000000000</double>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Scale Y</string>
           </property>
          </widget>
         </item>
-        <item row="0" column="1">
-         <widget class="QDoubleSpinBox" name="centerXBox">
-          <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
-          </property>
-          <property name="prefix">
-           <string>x = </string>
+        <item row="2" column="1">
+         <widget class="QDoubleSpinBox" name="scaleXBox">
+          <property name="decimals">
+           <number>5</number>
           </property>
           <property name="minimum">
-           <double>-999999999999.000000000000000</double>
+           <double>0.010000000000000</double>
           </property>
           <property name="maximum">
-           <double>999999999999.000000000000000</double>
+           <double>999999999.000000000000000</double>
+          </property>
+          <property name="stepType">
+           <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+          </property>
+          <property name="value">
+           <double>10.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QDoubleSpinBox" name="scaleYBox">
+          <property name="decimals">
+           <number>5</number>
+          </property>
+          <property name="minimum">
+           <double>0.010000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>999999999.000000000000000</double>
+          </property>
+          <property name="stepType">
+           <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+          </property>
+          <property name="value">
+           <double>10.000000000000000</double>
           </property>
          </widget>
         </item>
@@ -263,36 +276,57 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="label_6">
+        <item row="2" column="2" rowspan="2">
+         <widget class="QToolButton" name="linkCheck">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="text">
-           <string>Scale Y</string>
+           <string notr="true"/>
+          </property>
+          <property name="icon">
+           <iconset theme="insert-link"/>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
-        <item row="2" column="1">
-         <widget class="QDoubleSpinBox" name="scaleXBox">
+        <item row="1" column="1" colspan="2">
+         <widget class="QDoubleSpinBox" name="centerYBox">
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::PlusMinus</enum>
+          </property>
+          <property name="prefix">
+           <string>y = </string>
+          </property>
           <property name="minimum">
-           <double>0.010000000000000</double>
+           <double>-999999999999.000000000000000</double>
           </property>
           <property name="maximum">
-           <double>999999999.000000000000000</double>
-          </property>
-          <property name="value">
-           <double>10.000000000000000</double>
+           <double>999999999999.000000000000000</double>
           </property>
          </widget>
         </item>
-        <item row="3" column="1">
-         <widget class="QDoubleSpinBox" name="scaleYBox">
+        <item row="0" column="1" colspan="2">
+         <widget class="QDoubleSpinBox" name="centerXBox">
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::PlusMinus</enum>
+          </property>
+          <property name="prefix">
+           <string>x = </string>
+          </property>
           <property name="minimum">
-           <double>0.010000000000000</double>
+           <double>-999999999999.000000000000000</double>
           </property>
           <property name="maximum">
-           <double>999999999.000000000000000</double>
-          </property>
-          <property name="value">
-           <double>10.000000000000000</double>
+           <double>999999999999.000000000000000</double>
           </property>
          </widget>
         </item>

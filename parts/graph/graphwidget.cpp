@@ -76,10 +76,16 @@ void GraphWidget::on_centerYBox_valueChanged(double arg1)
 void GraphWidget::on_scaleXBox_valueChanged(double arg1)
 {
     ui->graphicsView->setXScale(arg1);
+    if (ui->linkCheck->isChecked()) {
+        ui->scaleYBox->setValue(arg1);
+    }
 }
 
 
 void GraphWidget::on_scaleYBox_valueChanged(double arg1)
 {
     ui->graphicsView->setYScale(arg1);
+    if (ui->linkCheck->isChecked()) {
+        ui->scaleXBox->setValue(arg1);
+    }
 }
