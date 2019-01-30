@@ -148,6 +148,7 @@ void GraphFunction::doRedraw() {
     d->oldStillWorking = stillWorking;
     d->oldStillWorkingMutex = stillWorkingMutex;
     for (double nextFirstPoint = firstPoint; nextFirstPoint < lastPoint; nextFirstPoint += precision * 1000) {
+        QHash<idouble, GraphFunction::FunctionValue> localCache = d->yvalues;
         (new tPromise<PromiseReturn>([=](QString& error) -> PromiseReturn {
             PromiseReturn retval;
             bool nextMove = true;
@@ -155,7 +156,7 @@ void GraphFunction::doRedraw() {
                  i < 1000; nextPoint += precision, xPoint += precision * d->parentView->xScale(), i++) {
                 if (!stillWorking.data()) return PromiseReturn(); //Bail out
 
-                FunctionValue v = value(idouble(nextPoint), retval.values);
+                FunctionValue v = value(idouble(nextPoint), retval.values, localCache);
                 if (v.isUndefined || abs(v.value.imag()) > 0.000001) {
                     nextMove = true;
                 } else {
@@ -183,6 +184,10 @@ void GraphFunction::doRedraw() {
                 item->setPen(QPen(d->color, 3));
                 d->graphGroup->addToGroup(item);
                 d->boundingRect = d->boundingRect.united(retval.path);
+
+                for (idouble key : retval.values.keys()) {
+                    d->yvalues.insert(key, retval.values.value(key));
+                }
             }
         });
     }
@@ -216,15 +221,15 @@ void GraphFunction::doRedraw() {
     d->graphGroup->addToGroup(item);*/
 }
 
-GraphFunction::FunctionValue GraphFunction::value(idouble x, QHash<idouble, GraphFunction::FunctionValue>& addHash) {
+GraphFunction::FunctionValue GraphFunction::value(idouble x, QHash<idouble, GraphFunction::FunctionValue>& addHash, QHash<idouble, GraphFunction::FunctionValue> readHash) {
     if (d->expression == "") {
         FunctionValue v;
         v.isUndefined = true;
         return v;
     }
 
-    if (d->yvalues.contains(x)) {
-        return d->yvalues.value(x);
+    if (readHash.contains(x)) {
+        return readHash.value(x);
     } else {
         QMap<QString, idouble> vars;
         vars.insert("x", x);
@@ -278,7 +283,7 @@ void GraphFunction::hoverMoveEvent(QGraphicsSceneHoverEvent *event) {
     double xValue = d->parentView->xOffset() + event->pos().x() / d->parentView->xScale();
     textParts.append(QString("x: ").append(QString::number(xValue)));
 
-    FunctionValue v = value(idouble(xValue), d->yvalues);
+    FunctionValue v = value(idouble(xValue), d->yvalues, d->yvalues);
     if (v.isUndefined) {
         textParts.append(QString("y: ").append(tr("undefined")));
     } else {

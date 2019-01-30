@@ -41,7 +41,7 @@ class GraphFunction : public QGraphicsItem
             bool isUndefined = false;
         };
 
-        FunctionValue value(idouble x, QHash<idouble, GraphFunction::FunctionValue>& addHash);
+        FunctionValue value(idouble x, QHash<idouble, GraphFunction::FunctionValue>& addHash, QHash<idouble, GraphFunction::FunctionValue> readHash);
         void setExpression(QString expression);
         void setColor(QColor color);
 

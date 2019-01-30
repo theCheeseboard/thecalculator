@@ -1266,7 +1266,7 @@
 <context>
     <name>GraphFunction</name>
     <message>
-        <location filename="../parts/graph/graphfunction.cpp" line="283"/>
+        <location filename="../parts/graph/graphfunction.cpp" line="288"/>
         <source>undefined</source>
         <translation type="unfinished"></translation>
     </message>
