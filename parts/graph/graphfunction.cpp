@@ -38,6 +38,7 @@ struct GraphFunctionPrivate {
 
     QGraphicsSimpleTextItem* textItem;
     QGraphicsItemGroup* graphGroup;
+    QGraphicsPathItem* colItem;
 };
 
 GraphFunction::GraphFunction(GraphView* view, QString expression, QGraphicsItem *parent) : QGraphicsItem(parent)
@@ -54,9 +55,12 @@ GraphFunction::GraphFunction(GraphView* view, QString expression, QGraphicsItem 
 
     d->graphGroup = new QGraphicsItemGroup(this);
 
-    d->textItem = new QGraphicsSimpleTextItem();
+    d->colItem = new QGraphicsPathItem(this);
+    d->colItem->setPen(QPen(Qt::transparent));
+    d->colItem->setVisible(false);
+
+    d->textItem = new QGraphicsSimpleTextItem(this);
     d->textItem->setVisible(false);
-    d->textItem->setParentItem(this);
 
     if (expression != "") {
         redraw();
@@ -65,6 +69,9 @@ GraphFunction::GraphFunction(GraphView* view, QString expression, QGraphicsItem 
 
 GraphFunction::~GraphFunction() {
     QObject::disconnect(d->canvasChangedConnection);
+
+    delete d->graphGroup;
+    delete d->textItem;
     delete d;
 }
 
@@ -77,6 +84,7 @@ void GraphFunction::setExpression(QString expression) {
 
 void GraphFunction::setColor(QColor color) {
     d->color = color;
+    d->colItem->setBrush(color);
 }
 
 void GraphFunction::redraw() {
@@ -165,6 +173,12 @@ void GraphFunction::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
 
 void GraphFunction::hoverEnterEvent(QGraphicsSceneHoverEvent *event) {
     d->textItem->setVisible(true);
+    d->colItem->setVisible(true);
+
+    QPainterPath colPath;
+    colPath.addRect(0, 0, 16 * theLibsGlobal::getDPIScaling(), 16 * theLibsGlobal::getDPIScaling());
+    d->colItem->setPath(colPath);
+
     this->hoverMoveEvent(event);
 }
 
@@ -183,11 +197,16 @@ void GraphFunction::hoverMoveEvent(QGraphicsSceneHoverEvent *event) {
     }
 
     d->textItem->setText(textParts.join("\n"));
-    d->textItem->setPos(event->pos() + QPoint(10, 10));
+    d->textItem->setPos(event->pos() + QPoint(32, 10) * theLibsGlobal::getDPIScaling());
+
+    d->colItem->setPos(event->pos() + QPoint(10, 10) * theLibsGlobal::getDPIScaling());
 }
 
 void GraphFunction::hoverLeaveEvent(QGraphicsSceneHoverEvent *event) {
     d->textItem->setVisible(false);
+    d->textItem->setText("");
+    d->colItem->setVisible(false);
+    d->colItem->setPath(QPainterPath());
 }
 
 QPainterPath GraphFunction::shape() const {

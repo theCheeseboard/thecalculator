@@ -20,11 +20,19 @@
 #include "addfunctiondialog.h"
 #include "ui_addfunctiondialog.h"
 
+#include <QPainter>
+#include <QPixmap>
+
 AddFunctionDialog::AddFunctionDialog(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::AddFunctionDialog)
 {
     ui->setupUi(this);
+
+    ui->colorBox->addItem(getColIcon(QColor(0, 200, 0)), tr("Green"), QColor(0, 200, 0));
+    ui->colorBox->addItem(getColIcon(QColor(200, 0, 0)), tr("Red"), QColor(200, 0, 0));
+    ui->colorBox->addItem(getColIcon(QColor(0, 100, 255)), tr("Aqua"), QColor(0, 100, 255));
+    ui->colorBox->addItem(getColIcon(QColor(85, 0, 255)), tr("Purple"), QColor(85, 0, 255));
 }
 
 AddFunctionDialog::~AddFunctionDialog()
@@ -39,6 +47,13 @@ void AddFunctionDialog::on_backButton_clicked()
 
 void AddFunctionDialog::on_doneButton_clicked()
 {
-    emit expressionSet(ui->expressionBox->getFixedExpression(), QColor(0, 200, 0));
+    emit expressionSet(ui->expressionBox->getFixedExpression(), ui->colorBox->currentData().value<QColor>());
     emit finished();
+}
+
+QIcon AddFunctionDialog::getColIcon(QColor col) {
+    QPixmap px(16, 16);
+    QPainter painter(&px);
+    painter.fillRect(0, 0, 16, 16, col);
+    return QIcon(px);
 }

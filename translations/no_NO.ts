@@ -42,8 +42,33 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/addfunctiondialog.ui" line="147"/>
+        <location filename="../parts/graph/addfunctiondialog.ui" line="144"/>
+        <source>Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/addfunctiondialog.ui" line="154"/>
         <source>Use x for the horizontal axis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/addfunctiondialog.cpp" line="32"/>
+        <source>Green</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/addfunctiondialog.cpp" line="33"/>
+        <source>Red</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/addfunctiondialog.cpp" line="34"/>
+        <source>Aqua</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/addfunctiondialog.cpp" line="35"/>
+        <source>Purple</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1233,7 +1258,7 @@
 <context>
     <name>GraphFunction</name>
     <message>
-        <location filename="../parts/graph/graphfunction.cpp" line="180"/>
+        <location filename="../parts/graph/graphfunction.cpp" line="194"/>
         <source>undefined</source>
         <translation type="unfinished"></translation>
     </message>

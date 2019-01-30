@@ -45,6 +45,8 @@ class AddFunctionDialog : public QWidget
 
     private:
         Ui::AddFunctionDialog *ui;
+
+        QIcon getColIcon(QColor col);
 };
 
 #endif // ADDFUNCTIONDIALOG_H

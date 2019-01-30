@@ -112,6 +112,7 @@ double absArg(idouble n) {
 %token<string> IDENTIFIER
 
 %type<number> expression
+%type<number> exprid
 %type<number> function
 %type<number> power
 %type<number> line
@@ -154,6 +155,9 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
 |   expression ADD expression {$$ = new idouble(*$1 + *$3);}
 |   expression SUBTRACT expression {$$ = new idouble(*$1 - *$3);}
 |   expression MULTIPLY expression {$$ = new idouble(*$1 * *$3);}
+|   NUMBER exprid {
+        $$ = new idouble(*$1 * *$2);
+    }
 //|   NUMBER expression {$$ = new idouble(*$1 * *$2);}
 |   expression DIVIDE expression {
         if ($3->real() == 0 && $3->imag() == 0) {
@@ -168,9 +172,19 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
 |   LBRACKET expression RBRACKET {$$ = new idouble(*$2);}
 |   expression PERCENT {$$ = new idouble(*$1 / idouble(100));}
 |   expression EXPONENTIATE expression {CALL_MAINWINDOW_FUNCTION(@$, "pow", QList<idouble>() << *$1 << *$3, $$)}
-|   IDENTIFIER EXPONENTIATE expression {
+|   expression LSH expression {CALL_MAINWINDOW_FUNCTION(@$, "lsh", QList<idouble>() << *$1 << *$3, $$)}
+|   expression RSH expression {CALL_MAINWINDOW_FUNCTION(@$, "rsh", QList<idouble>() << *$1 << *$3, $$)}
+|   expression FACTORIAL {CALL_MAINWINDOW_FUNCTION(@$, "fact", QList<idouble>() << *$1, $$)}
+|   RADICAL expression {$$ = new idouble(sqrt(*$2));}
+|   power RADICAL expression {
+        CALL_MAINWINDOW_FUNCTION(@$, "root", QList<idouble>() << *$3 << *$1, $$)
+    }
+|   function
+|   exprid {$$ = new idouble(*$1);}
+
+exprid: IDENTIFIER {
         if (valueExists(*$1, p)) {
-            $$ = new idouble(pow(getValue(*$1, p), *$3));
+            $$ = new idouble(getValue(*$1, p));
         } else {
             YYE(@1, tr("%1: unknown variable").arg(*$1).toLocal8Bit().constData());
             YYABORT;
@@ -184,17 +198,9 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
             YYABORT;
         }
     }
-|   expression LSH expression {CALL_MAINWINDOW_FUNCTION(@$, "lsh", QList<idouble>() << *$1 << *$3, $$)}
-|   expression RSH expression {CALL_MAINWINDOW_FUNCTION(@$, "rsh", QList<idouble>() << *$1 << *$3, $$)}
-|   expression FACTORIAL {CALL_MAINWINDOW_FUNCTION(@$, "fact", QList<idouble>() << *$1, $$)}
-|   RADICAL expression {$$ = new idouble(sqrt(*$2));}
-|   power RADICAL expression {
-        CALL_MAINWINDOW_FUNCTION(@$, "root", QList<idouble>() << *$3 << *$1, $$)
-    }
-|   function
-|   IDENTIFIER {
+|   IDENTIFIER EXPONENTIATE expression {
         if (valueExists(*$1, p)) {
-            $$ = new idouble(getValue(*$1, p));
+            $$ = new idouble(pow(getValue(*$1, p), *$3));
         } else {
             YYE(@1, tr("%1: unknown variable").arg(*$1).toLocal8Bit().constData());
             YYABORT;
