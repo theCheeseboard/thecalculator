@@ -115,7 +115,8 @@
            <string>Scientific</string>
           </property>
           <property name="icon">
-           <iconset theme="calculator-scientific"/>
+           <iconset theme="calculator-scientific">
+            <normaloff>.</normaloff>.</iconset>
           </property>
          </item>
          <item>
@@ -123,7 +124,8 @@
            <string>Statistical</string>
           </property>
           <property name="icon">
-           <iconset theme="calculator-statistic"/>
+           <iconset theme="calculator-statistic">
+            <normaloff>.</normaloff>.</iconset>
           </property>
          </item>
          <item>
@@ -131,7 +133,8 @@
            <string>Graphing</string>
           </property>
           <property name="icon">
-           <iconset theme="calculator-graph"/>
+           <iconset theme="calculator-graph">
+            <normaloff>.</normaloff>.</iconset>
           </property>
          </item>
         </widget>
@@ -155,7 +158,8 @@
           <string>Manage Custom Functions</string>
          </property>
          <property name="icon">
-          <iconset theme="insert-math-expression"/>
+          <iconset theme="insert-math-expression">
+           <normaloff>.</normaloff>.</iconset>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -168,7 +172,7 @@
     <item>
      <widget class="tStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>3</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -231,6 +235,9 @@
         <property name="bottomMargin">
          <number>0</number>
         </property>
+        <item>
+         <widget class="StatWidget" name="widget_2" native="true"/>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="page_4">
@@ -404,6 +411,12 @@
    <class>GraphWidget</class>
    <extends>QWidget</extends>
    <header>parts/graph/graphwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>StatWidget</class>
+   <extends>QWidget</extends>
+   <header>parts/stats/statwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

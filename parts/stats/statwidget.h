@@ -17,42 +17,30 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef GRAPHWIDGET_H
-#define GRAPHWIDGET_H
+#ifndef STATWIDGET_H
+#define STATWIDGET_H
 
 #include <QWidget>
 
 namespace Ui {
-    class GraphWidget;
+    class StatWidget;
 }
 
-struct GraphWidgetPrivate;
-
-class GraphWidget : public QWidget
+class StatWidget : public QWidget
 {
         Q_OBJECT
 
     public:
-        explicit GraphWidget(QWidget *parent = nullptr);
-        ~GraphWidget();
+        explicit StatWidget(QWidget *parent = nullptr);
+        ~StatWidget();
 
     private slots:
-        void on_addEquationButton_clicked();
-
-        void on_centerXBox_valueChanged(double arg1);
-
-        void on_centerYBox_valueChanged(double arg1);
-
-        void on_scaleXBox_valueChanged(double arg1);
-
-        void on_scaleYBox_valueChanged(double arg1);
-
-        void on_equationsList_customContextMenuRequested(const QPoint &pos);
+        void on_dataTable_cellChanged(int row, int column);
 
     private:
-        Ui::GraphWidget *ui;
+        Ui::StatWidget *ui;
 
-        GraphWidgetPrivate* d;
+        void calculateData();
 };
 
-#endif // GRAPHWIDGET_H
+#endif // STATWIDGET_H

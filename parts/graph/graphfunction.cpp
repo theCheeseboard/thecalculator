@@ -30,6 +30,7 @@ struct GraphFunctionPrivate {
     QString expression;
     GraphView* parentView;
     QColor color = QColor(0, 200, 0);
+    QMetaObject::Connection canvasChangedConnection;
 };
 
 GraphFunction::GraphFunction(GraphView* view, QString expression, QGraphicsItem *parent) : QGraphicsItem(parent)
@@ -38,7 +39,7 @@ GraphFunction::GraphFunction(GraphView* view, QString expression, QGraphicsItem 
 
     d->parentView = view;
     d->expression = expression;
-    QObject::connect(view, &GraphView::canvasChanged, [=] {
+    d->canvasChangedConnection = QObject::connect(view, &GraphView::canvasChanged, [=] {
         this->redraw();
     });
 
@@ -48,6 +49,7 @@ GraphFunction::GraphFunction(GraphView* view, QString expression, QGraphicsItem 
 }
 
 GraphFunction::~GraphFunction() {
+    QObject::disconnect(d->canvasChangedConnection);
     delete d;
 }
 
@@ -78,11 +80,11 @@ void GraphFunction::redraw() {
 
     //Start at xOffset
     bool nextMove = true;
-    double firstPoint = floor(d->parentView->xOffset() * precision) / precision; //First point in cartesian coordinates
+    double firstPoint = floor(d->parentView->xOffset() / precision) * precision; //First point in cartesian coordinates
     for (double nextPoint = firstPoint, xPoint = (firstPoint - d->parentView->xOffset()) * d->parentView->xScale();
          xPoint < d->parentView->width(); nextPoint += precision, xPoint += precision * d->parentView->xScale()) {
         FunctionValue v = value(idouble(nextPoint));
-        if (v.isUndefined || v.value.imag() != 0) {
+        if (v.isUndefined || abs(v.value.imag()) > 0.000001) {
             nextMove = true;
         } else {
             //Calculate the y pixel coordinate

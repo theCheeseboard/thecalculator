@@ -22,6 +22,7 @@
 
 #include "addfunctiondialog.h"
 #include <tpopover.h>
+#include <QMenu>
 #include "graphfunction.h"
 
 struct GraphWidgetPrivate {
@@ -87,5 +88,23 @@ void GraphWidget::on_scaleYBox_valueChanged(double arg1)
     ui->graphicsView->setYScale(arg1);
     if (ui->linkCheck->isChecked()) {
         ui->scaleXBox->setValue(arg1);
+    }
+}
+
+void GraphWidget::on_equationsList_customContextMenuRequested(const QPoint &pos)
+{
+    QModelIndex i = ui->equationsList->indexAt(pos);
+    if (i.isValid()) {
+        QMenu* menu = new QMenu();
+        menu->addSection(tr("For %1").arg(i.data(Qt::DisplayRole).toString()));
+        menu->addAction(QIcon::fromTheme("edit-delete"), tr("Remove"), [=] {
+            GraphFunction* f = d->displayedFunctions.takeAt(i.row());
+            ui->graphicsView->scene()->removeItem(f);
+
+            delete ui->equationsList->takeItem(i.row());
+            delete f;
+        });
+        menu->exec(ui->equationsList->mapToGlobal(pos));
+        menu->deleteLater();
     }
 }

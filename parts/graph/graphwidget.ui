@@ -147,6 +147,9 @@
       </item>
       <item>
        <widget class="QListWidget" name="equationsList">
+        <property name="contextMenuPolicy">
+         <enum>Qt::CustomContextMenu</enum>
+        </property>
         <property name="frameShape">
          <enum>QFrame::NoFrame</enum>
         </property>

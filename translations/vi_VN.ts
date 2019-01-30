@@ -10,8 +10,8 @@
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="25"/>
-        <source>theCalculator 2.1</source>
-        <translation>theCalculator 2.1</translation>
+        <source>theCalculator 2.2</source>
+        <translation type="unfinished">theCalculator 2.2</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="32"/>
@@ -1241,38 +1241,48 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.ui" line="176"/>
+        <location filename="../parts/graph/graphwidget.ui" line="179"/>
         <source>Viewport</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.ui" line="216"/>
+        <location filename="../parts/graph/graphwidget.ui" line="219"/>
         <source>Center X</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.ui" line="307"/>
+        <location filename="../parts/graph/graphwidget.ui" line="310"/>
         <source>y = </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.ui" line="323"/>
+        <location filename="../parts/graph/graphwidget.ui" line="326"/>
         <source>x = </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.ui" line="268"/>
+        <location filename="../parts/graph/graphwidget.ui" line="271"/>
         <source>Center Y</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.ui" line="275"/>
+        <location filename="../parts/graph/graphwidget.ui" line="278"/>
         <source>Scale X</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.ui" line="223"/>
+        <location filename="../parts/graph/graphwidget.ui" line="226"/>
         <source>Scale Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/graphwidget.cpp" line="99"/>
+        <source>For %1</source>
+        <translation type="unfinished">Cho %1</translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/graphwidget.cpp" line="100"/>
+        <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1290,82 +1300,82 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="123"/>
+        <location filename="../mainwindow.ui" line="124"/>
         <source>Statistical</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="131"/>
+        <location filename="../mainwindow.ui" line="133"/>
         <source>Graphing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="155"/>
+        <location filename="../mainwindow.ui" line="158"/>
         <source>Manage Custom Functions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="273"/>
+        <location filename="../mainwindow.ui" line="280"/>
         <source>Fi&amp;le</source>
         <translation>&amp;Tệp</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="279"/>
+        <location filename="../mainwindow.ui" line="286"/>
         <source>Tri&amp;gonometry</source>
         <translation>&amp;Lượng giác</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="287"/>
+        <location filename="../mainwindow.ui" line="294"/>
         <source>Help</source>
         <translation>Trợ giúp</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="306"/>
+        <location filename="../mainwindow.ui" line="313"/>
         <source>&amp;Exit</source>
         <translation>&amp;Thoát</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="309"/>
+        <location filename="../mainwindow.ui" line="316"/>
         <source>Ctrl+Q</source>
         <translation>CTRL+Q</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="320"/>
+        <location filename="../mainwindow.ui" line="327"/>
         <source>&amp;Degrees</source>
         <translation>Đơn vị &amp;độ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="328"/>
+        <location filename="../mainwindow.ui" line="335"/>
         <source>&amp;Radians</source>
         <translation>Đơn vị &amp;rađian</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="337"/>
+        <location filename="../mainwindow.ui" line="344"/>
         <source>&amp;About</source>
         <translation>&amp;Giới thiệu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="346"/>
+        <location filename="../mainwindow.ui" line="353"/>
         <source>&amp;theCalculator Help</source>
         <translation>T&amp;rợ giúp với theCalculator</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="349"/>
+        <location filename="../mainwindow.ui" line="356"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="358"/>
+        <location filename="../mainwindow.ui" line="365"/>
         <source>&amp;File Bug</source>
         <translation>&amp;Báo cáo lỗi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="367"/>
+        <location filename="../mainwindow.ui" line="374"/>
         <source>&amp;Sources</source>
         <translation>&amp;Mã nguồn</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="375"/>
+        <location filename="../mainwindow.ui" line="382"/>
         <source>&amp;Gradians</source>
         <translation>Đơn vị &amp;građian</translation>
     </message>
@@ -1434,6 +1444,44 @@
         <location filename="../customs/overloadbox.cpp" line="106"/>
         <source>Each argument must have a name</source>
         <translation>Mỗi tham số bắt buộc cần đặt tên</translation>
+    </message>
+</context>
+<context>
+    <name>StatWidget</name>
+    <message>
+        <location filename="../parts/stats/statwidget.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/stats/statwidget.ui" line="45"/>
+        <source>Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/stats/statwidget.ui" line="125"/>
+        <source>Statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/stats/statwidget.ui" line="172"/>
+        <source>Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/stats/statwidget.ui" line="179"/>
+        <source>Mean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/stats/statwidget.cpp" line="33"/>
+        <source>Value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/stats/statwidget.cpp" line="33"/>
+        <source>Frequency</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
