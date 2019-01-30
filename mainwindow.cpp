@@ -122,7 +122,7 @@ void MainWindow::on_actionAbout_triggered()
 void MainWindow::changeEvent(QEvent *event) {
     QMainWindow::changeEvent(event);
     if (event->type() == QEvent::ActivationChange) {
-        if (this->isActiveWindow() && ui->stackedWidget->currentIndex() == 0) {
+        if (this->isActiveWindow() && ui->stackedWidget->currentIndex() == 1) {
             ui->calcWidget->grabExpKeyboard(true);
         } else {
             ui->calcWidget->grabExpKeyboard(false);

@@ -113,12 +113,16 @@ void GraphFunction::redraw() {
             //Calculate the y pixel coordinate
             double yOffset = v.value.real() - d->parentView->yOffset(); //Cartesian coordinates from the bottom of the viewport
             int top = d->parentView->height() - yOffset * d->parentView->yScale();
-            if (nextMove) {
-                path.moveTo(xPoint, top);
+            if (d->parentView->height() < top) {
+                nextMove = true;
             } else {
-                path.lineTo(xPoint, top);
+                if (nextMove) {
+                    path.moveTo(xPoint, top);
+                } else {
+                    path.lineTo(xPoint, top);
+                }
+                nextMove = false;
             }
-            nextMove = false;
         }
     }
 
@@ -200,6 +204,12 @@ void GraphFunction::hoverMoveEvent(QGraphicsSceneHoverEvent *event) {
     d->textItem->setPos(event->pos() + QPoint(32, 10) * theLibsGlobal::getDPIScaling());
 
     d->colItem->setPos(event->pos() + QPoint(10, 10) * theLibsGlobal::getDPIScaling());
+
+    if (d->textItem->boundingRect().right() > d->parentView->width()) {
+        //Move the hover to the other side
+        d->textItem->moveBy(-(d->textItem->boundingRect().width() + 42 * theLibsGlobal::getDPIScaling()), 0);
+        d->colItem->moveBy(-(d->textItem->boundingRect().width() + 42 * theLibsGlobal::getDPIScaling()), 0);
+    }
 }
 
 void GraphFunction::hoverLeaveEvent(QGraphicsSceneHoverEvent *event) {

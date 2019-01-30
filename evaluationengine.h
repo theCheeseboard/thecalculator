@@ -88,7 +88,7 @@ class EvaluationEngine : public QObject
             ResultType type;
         };
 
-        static tPromise<Result>* evaluate(QString expression, QMap<QString, idouble> variables);
+        static tPromise<Result>* evaluate(QString expression, QMap<QString, idouble> variables = QMap<QString, idouble>());
         Result evaluate();
         void setExpression(QString expression);
         void setVariables(QMap<QString, idouble> vars);

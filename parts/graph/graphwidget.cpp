@@ -38,7 +38,7 @@ GraphWidget::GraphWidget(QWidget *parent) :
     d = new GraphWidgetPrivate();
     ui->rightPane->setFixedWidth(300 * theLibsGlobal::getDPIScaling());
 
-    #if QT_VERSION > QT_VERSION_CHECK(5, 12, 0)
+    #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         ui->scaleXBox->setStepType(QDoubleSpinBox::AdaptiveDecimalStepType);
         ui->scaleYBox->setStepType(QDoubleSpinBox::AdaptiveDecimalStepType);
     #endif

@@ -155,9 +155,8 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
 |   expression ADD expression {$$ = new idouble(*$1 + *$3);}
 |   expression SUBTRACT expression {$$ = new idouble(*$1 - *$3);}
 |   expression MULTIPLY expression {$$ = new idouble(*$1 * *$3);}
-|   NUMBER exprid {
-        $$ = new idouble(*$1 * *$2);
-    }
+|   NUMBER exprid {$$ = new idouble(*$1 * *$2);}
+|   NUMBER LBRACKET expression RBRACKET {$$ = new idouble(*$1 * *$2);}
 //|   NUMBER expression {$$ = new idouble(*$1 * *$2);}
 |   expression DIVIDE expression {
         if ($3->real() == 0 && $3->imag() == 0) {

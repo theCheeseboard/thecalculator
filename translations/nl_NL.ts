@@ -1258,7 +1258,7 @@
 <context>
     <name>GraphFunction</name>
     <message>
-        <location filename="../parts/graph/graphfunction.cpp" line="194"/>
+        <location filename="../parts/graph/graphfunction.cpp" line="198"/>
         <source>undefined</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1500,8 +1500,33 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/stats/statwidget.ui" line="172"/>
+        <location filename="../parts/stats/statwidget.ui" line="186"/>
         <source>Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/stats/statwidget.ui" line="225"/>
+        <source>Median</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/stats/statwidget.ui" line="232"/>
+        <source>Minimum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/stats/statwidget.ui" line="239"/>
+        <source>Q3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/stats/statwidget.ui" line="246"/>
+        <source>Maximum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/stats/statwidget.ui" line="253"/>
+        <source>Q1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1510,13 +1535,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/stats/statwidget.cpp" line="33"/>
+        <location filename="../parts/stats/statwidget.cpp" line="35"/>
         <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/stats/statwidget.cpp" line="33"/>
+        <location filename="../parts/stats/statwidget.cpp" line="35"/>
         <source>Frequency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/stats/statwidget.cpp" line="132"/>
+        <location filename="../parts/stats/statwidget.cpp" line="141"/>
+        <location filename="../parts/stats/statwidget.cpp" line="150"/>
+        <source>undefined</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
