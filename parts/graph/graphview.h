@@ -36,6 +36,8 @@ class GraphView : public QGraphicsView
         double yOffset();
 
         void setCenter(QPointF center);
+        void setXScale(double xScale);
+        void setYScale(double yScale);
 
     signals:
         void canvasChanged();

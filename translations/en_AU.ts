@@ -1251,8 +1251,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.ui" line="223"/>
+        <location filename="../parts/graph/graphwidget.ui" line="226"/>
+        <source>y = </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/graphwidget.ui" line="242"/>
+        <source>x = </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/graphwidget.ui" line="255"/>
         <source>Center Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/graphwidget.ui" line="262"/>
+        <source>Scale X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/graphwidget.ui" line="269"/>
+        <source>Scale Y</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

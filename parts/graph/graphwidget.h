@@ -43,6 +43,10 @@ class GraphWidget : public QWidget
 
         void on_centerYBox_valueChanged(double arg1);
 
+        void on_scaleXBox_valueChanged(double arg1);
+
+        void on_scaleYBox_valueChanged(double arg1);
+
     private:
         Ui::GraphWidget *ui;
 

@@ -217,6 +217,38 @@
           </property>
          </widget>
         </item>
+        <item row="1" column="1">
+         <widget class="QDoubleSpinBox" name="centerYBox">
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::PlusMinus</enum>
+          </property>
+          <property name="prefix">
+           <string>y = </string>
+          </property>
+          <property name="minimum">
+           <double>-999999999999.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>999999999999.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QDoubleSpinBox" name="centerXBox">
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::PlusMinus</enum>
+          </property>
+          <property name="prefix">
+           <string>x = </string>
+          </property>
+          <property name="minimum">
+           <double>-999999999999.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>999999999999.000000000000000</double>
+          </property>
+         </widget>
+        </item>
         <item row="1" column="0">
          <widget class="QLabel" name="label_4">
           <property name="text">
@@ -224,23 +256,43 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="1">
-         <widget class="QDoubleSpinBox" name="centerXBox">
-          <property name="minimum">
-           <double>-999999999999.000000000000000</double>
-          </property>
-          <property name="maximum">
-           <double>999999999999.000000000000000</double>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Scale X</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
-         <widget class="QDoubleSpinBox" name="centerYBox">
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Scale Y</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QDoubleSpinBox" name="scaleXBox">
           <property name="minimum">
-           <double>-999999999999.000000000000000</double>
+           <double>0.010000000000000</double>
           </property>
           <property name="maximum">
-           <double>999999999999.000000000000000</double>
+           <double>999999999.000000000000000</double>
+          </property>
+          <property name="value">
+           <double>10.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QDoubleSpinBox" name="scaleYBox">
+          <property name="minimum">
+           <double>0.010000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>999999999.000000000000000</double>
+          </property>
+          <property name="value">
+           <double>10.000000000000000</double>
           </property>
          </widget>
         </item>

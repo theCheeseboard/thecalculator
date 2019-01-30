@@ -27,6 +27,8 @@
 struct GraphViewPrivate {
     double xOffset;
     double yOffset;
+    double xScale = 10;
+    double yScale = 10;
     QPointF center;
 };
 
@@ -52,12 +54,26 @@ void GraphView::setCenter(QPointF center) {
     emit canvasChanged();
 }
 
+void GraphView::setXScale(double xScale) {
+    d->xScale = xScale;
+
+    this->setBackgroundBrush(Qt::white);
+    emit canvasChanged();
+}
+
+void GraphView::setYScale(double yScale) {
+    d->yScale = yScale;
+
+    this->setBackgroundBrush(Qt::white);
+    emit canvasChanged();
+}
+
 double GraphView::xScale() {
-    return 10;
+    return d->xScale;
 }
 
 double GraphView::yScale() {
-    return 10;
+    return d->yScale;
 }
 
 double GraphView::xOffset() {
@@ -91,19 +107,24 @@ void GraphView::drawBackground(QPainter *painter, const QRectF& rect) {
         10000.00000
     };
 
-    //Draw the x grid
     for (double xSpacing : spacings) {
-        if (abs(log(xSpacing) - log(xScale())) > 3) continue; //Don't bother with tiny/huge spacings
-        double transparency = 255 / pow((abs(log(xSpacing) - log(xScale())) + 1), 2);
+        int transparency;
+        if (xSpacing * xScale() > 100) {
+            transparency = 255 * 100 / xSpacing * xScale();
+        } else {
+            transparency = 255 * xSpacing * xScale() / 100;
+        }
+        if (transparency < 10) continue; //Don't bother with insignificant lines
+
         painter->setPen(QColor(0, 0, 0, transparency));
         double firstLine = ceil(xOffset() / xSpacing) * xSpacing;
-        for (float nextLine = (firstLine - xOffset()) * xScale(); nextLine < this->width(); nextLine += xSpacing * xScale()) {
-            if (abs(nextLine / yScale() + xOffset()) < 0.01) {
+        for (float nextLine = (firstLine - xOffset()) * xScale(), xLine = firstLine; nextLine < this->width(); nextLine += xSpacing * xScale(), xLine += xSpacing) {
+            if (abs(xLine) < 0.0001) {
                 painter->save();
                 painter->setPen(Qt::blue);
             }
             painter->drawLine(nextLine, 0, nextLine, this->height());
-            if (abs(nextLine / yScale() + xOffset()) < 0.01) {
+            if (abs(xLine) < 0.0001) {
                 painter->restore();
             }
         }
@@ -111,17 +132,23 @@ void GraphView::drawBackground(QPainter *painter, const QRectF& rect) {
 
     //Draw the y grid
     for (double ySpacing : spacings) {
-        if (abs(log(ySpacing) - log(yScale())) > 3) continue; //Don't bother with tiny/huge spacings
-        double transparency = 255 / pow((abs(log(ySpacing) - log(yScale())) + 1), 2);
+        int transparency;
+        if (ySpacing * yScale() > 100) {
+            transparency = 255 * 100 / ySpacing * yScale();
+        } else {
+            transparency = 255 * ySpacing * yScale() / 100;
+        }
+        if (transparency < 10) continue; //Don't bother with insignificant lines
+
         painter->setPen(QColor(0, 0, 0, transparency));
         double firstLine = ceil(yOffset() / ySpacing) * ySpacing;
         for (float nextLine = (firstLine - yOffset()) * yScale(), yLine = firstLine; nextLine < this->height(); nextLine += ySpacing * yScale(), yLine += ySpacing) {
-            if (abs(yLine) < 0.01) {
+            if (abs(yLine) < 0.0001) {
                 painter->save();
                 painter->setPen(Qt::blue);
             }
             painter->drawLine(0, this->height() - nextLine, this->width(), this->height() - nextLine);
-            if (abs(yLine) < 0.01) {
+            if (abs(yLine) < 0.0001) {
                 painter->restore();
             }
         }
