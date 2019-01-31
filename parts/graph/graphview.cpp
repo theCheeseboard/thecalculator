@@ -114,6 +114,31 @@ void GraphView::drawBackground(QPainter *painter, const QRectF& rect) {
         10000.00000
     };
 
+    int xNumLocation;
+    if (yOffset() > 0) {
+        xNumLocation = canvasSize().height();
+    } else if (yOffset() + canvasSize().height() / yScale() < 0) {
+        xNumLocation = 0;
+    } else {
+        xNumLocation = canvasSize().height() + yOffset() * yScale();
+    }
+
+    if (xNumLocation + this->fontMetrics().height() > canvasSize().height()) {
+        xNumLocation -= (this->fontMetrics().height() + 3);
+    } else {
+        xNumLocation += 3;
+    }
+
+    int yNumLocation;
+    if (xOffset() > 0) {
+        yNumLocation = 0;
+    } else if (xOffset() + canvasSize().width() / xScale() < 0) {
+        yNumLocation = canvasSize().width();
+    } else {
+        yNumLocation = -xOffset() * xScale();
+    }
+    yNumLocation += 3;
+
     for (double xSpacing : spacings) {
         int transparency;
         if (xSpacing * xScale() > 100) {
@@ -130,9 +155,20 @@ void GraphView::drawBackground(QPainter *painter, const QRectF& rect) {
                 painter->save();
                 painter->setPen(Qt::blue);
             }
+
             painter->drawLine(nextLine, 0, nextLine, canvasSize().height());
             if (abs(xLine) < 0.0000001) {
                 painter->restore();
+            } else {
+                if (transparency > 50) {
+                    QString text = QString::number(xLine);
+                    QRect textRect;
+                    textRect.setWidth(fontMetrics().width(text) + 1);
+                    textRect.setHeight(fontMetrics().height());
+                    textRect.moveCenter(QPoint(nextLine, xNumLocation + fontMetrics().height() / 2));
+                    painter->fillRect(textRect, Qt::white);
+                    painter->drawText(textRect, text);
+                }
             }
         }
     }
@@ -154,9 +190,25 @@ void GraphView::drawBackground(QPainter *painter, const QRectF& rect) {
                 painter->save();
                 painter->setPen(Qt::blue);
             }
+
             painter->drawLine(0, canvasSize().height() - nextLine, canvasSize().width(), canvasSize().height() - nextLine);
             if (abs(yLine) < 0.0000001) {
                 painter->restore();
+            } else {
+                if (transparency > 50) {
+                    QString text = QString::number(yLine);
+                    QRect textRect;
+                    textRect.setWidth(fontMetrics().width(text) + 1);
+                    textRect.setHeight(fontMetrics().height());
+                    textRect.moveCenter(QPoint(yNumLocation + fontMetrics().width(text) / 2, canvasSize().height() - nextLine));
+
+                    if (textRect.right() > canvasSize().width()) {
+                        textRect.translate(-textRect.width() - 6, 0);
+                    }
+
+                    painter->fillRect(textRect, Qt::white);
+                    painter->drawText(textRect, text);
+                }
             }
         }
     }
