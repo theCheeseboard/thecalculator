@@ -42,21 +42,20 @@ struct GraphFunctionPrivate {
 
     QSharedPointer<bool> oldStillWorking;
     QSharedPointer<QMutex> oldStillWorkingMutex;
+    int numComplete, numTotal;
+    bool ready = false;
     QPainterPath boundingRect;
 
     QTimer* redrawTimer;
-
-    QMetaObject::Connection canvasChangedConnection;
-    QMetaObject::Connection timerTimeoutConnection;
 };
 
-GraphFunction::GraphFunction(GraphView* view, QString expression, QGraphicsItem *parent) : QGraphicsItem(parent)
+GraphFunction::GraphFunction(GraphView* view, QString expression, QGraphicsItem *parent) : QGraphicsObject(parent)
 {
     d = new GraphFunctionPrivate();
 
     d->parentView = view;
     d->expression = expression;
-    d->canvasChangedConnection = QObject::connect(view, &GraphView::canvasChanged, [=] {
+    connect(view, &GraphView::canvasChanged, this, [=] {
         this->redraw();
     });
 
@@ -74,7 +73,7 @@ GraphFunction::GraphFunction(GraphView* view, QString expression, QGraphicsItem 
     d->redrawTimer = new QTimer();
     d->redrawTimer->setInterval(500);
     d->redrawTimer->setSingleShot(true);
-    d->timerTimeoutConnection = QObject::connect(d->redrawTimer, &QTimer::timeout, [=] {
+    connect(d->redrawTimer, &QTimer::timeout, this, [=] {
         this->doRedraw();
     });
 
@@ -84,9 +83,6 @@ GraphFunction::GraphFunction(GraphView* view, QString expression, QGraphicsItem 
 }
 
 GraphFunction::~GraphFunction() {
-    QObject::disconnect(d->canvasChangedConnection);
-    QObject::disconnect(d->timerTimeoutConnection);
-
     delete d->graphGroup;
     delete d->textItem;
     delete d;
@@ -104,30 +100,39 @@ void GraphFunction::setColor(QColor color) {
     d->colItem->setBrush(color);
 }
 
-void GraphFunction::redraw() {
-    //Start the timer so we space out the redraw events
-    if (d->redrawTimer->isActive()) {
-        d->redrawTimer->stop();
-    } else {
-        //Clear everything
-        if (!d->oldStillWorking.isNull()) {
-            QMutexLocker locker(d->oldStillWorkingMutex.data());
-            *d->oldStillWorking = false;
-        }
-        while (d->graphGroup->childItems().count() > 0) {
-            delete d->graphGroup->childItems().takeFirst();
-        }
-        d->boundingRect = QPainterPath();
+void GraphFunction::redraw(bool immediate) {
+    //Clear everything
+    if (!d->oldStillWorking.isNull()) {
+        QMutexLocker locker(d->oldStillWorkingMutex.data());
+        *d->oldStillWorking = false;
+    }
+    while (d->graphGroup->childItems().count() > 0) {
+        delete d->graphGroup->childItems().takeFirst();
+    }
+    d->boundingRect = QPainterPath();
+
+    if (d->ready) {
+        d->ready = false;
+        emit readyChanged(false);
     }
 
-    d->redrawTimer->start();
+    if (immediate) {
+        this->doRedraw();
+    } else {
+        //Start the timer so we space out the redraw events
+        if (d->redrawTimer->isActive()) {
+            d->redrawTimer->stop();
+        }
+
+        d->redrawTimer->start();
+    }
 }
 
 void GraphFunction::doRedraw() {
     QPainterPath path;
 
-    int numPoints = d->parentView->width() * 10;
-    double coordinatesInWidth = d->parentView->width() / d->parentView->xScale();
+    int numPoints = d->parentView->canvasSize().width() * 10;
+    double coordinatesInWidth = d->parentView->canvasSize().width() / d->parentView->xScale();
     double unroundedPrecision = coordinatesInWidth / numPoints;
 
     double floorPrecision = ceil(log10(unroundedPrecision));
@@ -135,7 +140,7 @@ void GraphFunction::doRedraw() {
 
     //Start at xOffset
     double firstPoint = floor(d->parentView->xOffset() / precision) * precision; //First point in cartesian coordinates
-    double lastPoint = firstPoint + d->parentView->width() / d->parentView->xScale();
+    double lastPoint = firstPoint + d->parentView->canvasSize().width() / d->parentView->xScale();
 
     //Draw chunks of 100 points
     struct PromiseReturn {
@@ -147,6 +152,9 @@ void GraphFunction::doRedraw() {
     QSharedPointer<QMutex> stillWorkingMutex(new QMutex);
     d->oldStillWorking = stillWorking;
     d->oldStillWorkingMutex = stillWorkingMutex;
+    d->numComplete = 0;
+    d->numTotal = 0;
+
     for (double nextFirstPoint = firstPoint; nextFirstPoint < lastPoint; nextFirstPoint += precision * 1000) {
         QHash<idouble, GraphFunction::FunctionValue> localCache = d->yvalues;
         (new tPromise<PromiseReturn>([=](QString& error) -> PromiseReturn {
@@ -162,8 +170,8 @@ void GraphFunction::doRedraw() {
                 } else {
                     //Calculate the y pixel coordinate
                     double yOffset = v.value.real() - d->parentView->yOffset(); //Cartesian coordinates from the bottom of the viewport
-                    int top = d->parentView->height() - yOffset * d->parentView->yScale();
-                    if (d->parentView->height() < top) {
+                    int top = d->parentView->canvasSize().height() - yOffset * d->parentView->yScale();
+                    if (d->parentView->canvasSize().height() < top) {
                         nextMove = true;
                     } else {
                         if (nextMove) {
@@ -180,6 +188,8 @@ void GraphFunction::doRedraw() {
         }))->then([=](PromiseReturn retval) {
             QMutexLocker locker(stillWorkingMutex.data());
             if (stillWorking.data()) {
+                locker.unlock();
+
                 QGraphicsPathItem* item = new QGraphicsPathItem(retval.path);
                 item->setPen(QPen(d->color, 3));
                 d->graphGroup->addToGroup(item);
@@ -188,22 +198,29 @@ void GraphFunction::doRedraw() {
                 for (idouble key : retval.values.keys()) {
                     d->yvalues.insert(key, retval.values.value(key));
                 }
+
+                d->numComplete++;
+                if (d->numComplete == d->numTotal && !d->ready) {
+                    d->ready = true;
+                    emit readyChanged(true);
+                }
             }
         });
+        d->numTotal++;
     }
 
     this->update();
     /*
     for (double nextPoint = firstPoint, xPoint = (firstPoint - d->parentView->xOffset()) * d->parentView->xScale();
-         xPoint < d->parentView->width(); nextPoint += precision, xPoint += precision * d->parentView->xScale()) {
+         xPoint < d->parentView->canvasSize().width(); nextPoint += precision, xPoint += precision * d->parentView->xScale()) {
         FunctionValue v = value(idouble(nextPoint));
         if (v.isUndefined || abs(v.value.imag()) > 0.000001) {
             nextMove = true;
         } else {
             //Calculate the y pixel coordinate
             double yOffset = v.value.real() - d->parentView->yOffset(); //Cartesian coordinates from the bottom of the viewport
-            int top = d->parentView->height() - yOffset * d->parentView->yScale();
-            if (d->parentView->height() < top) {
+            int top = d->parentView->canvasSize().height() - yOffset * d->parentView->yScale();
+            if (d->parentView->canvasSize().height() < top) {
                 nextMove = true;
             } else {
                 if (nextMove) {
@@ -255,7 +272,7 @@ GraphFunction::FunctionValue GraphFunction::value(idouble x, QHash<idouble, Grap
 }
 
 QRectF GraphFunction::boundingRect() const {
-    return QRectF(0, 0, d->parentView->width(), d->parentView->height());
+    return QRectF(0, 0, d->parentView->canvasSize().width(), d->parentView->canvasSize().height());
 }
 
 void GraphFunction::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
@@ -295,7 +312,7 @@ void GraphFunction::hoverMoveEvent(QGraphicsSceneHoverEvent *event) {
 
     d->colItem->setPos(event->pos() + QPoint(10, 10) * theLibsGlobal::getDPIScaling());
 
-    if (d->textItem->boundingRect().right() > d->parentView->width()) {
+    if (d->textItem->boundingRect().right() > d->parentView->canvasSize().width()) {
         //Move the hover to the other side
         d->textItem->moveBy(-(d->textItem->boundingRect().width() + 42 * theLibsGlobal::getDPIScaling()), 0);
         d->colItem->moveBy(-(d->textItem->boundingRect().width() + 42 * theLibsGlobal::getDPIScaling()), 0);
@@ -313,4 +330,8 @@ QPainterPath GraphFunction::shape() const {
     QPainterPathStroker stroker;
     stroker.setWidth(5);
     return stroker.createStroke(d->boundingRect);
+}
+
+bool GraphFunction::isReady() {
+    return d->ready;
 }

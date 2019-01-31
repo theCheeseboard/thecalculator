@@ -96,6 +96,8 @@ class MainWindow : public QMainWindow
 
         idouble currentAnswer;
         QSettings settings;
+
+        QMenu* specificMenu = nullptr;
 };
 
 class CornerButton : public QPushButton {

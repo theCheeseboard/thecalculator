@@ -21,16 +21,15 @@
 #define GRAPHFUNCTION_H
 
 #include "evaluationengineheaders.h"
-#include <QObject>
-#include <QGraphicsItem>
+#include <QGraphicsObject>
 #include <QApplication>
 
 class GraphView;
 struct GraphFunctionPrivate;
 
-class GraphFunction : public QGraphicsItem
+class GraphFunction : public QGraphicsObject
 {
-    Q_DECLARE_TR_FUNCTIONS(GraphFunction)
+    Q_OBJECT
 
     public:
         explicit GraphFunction(GraphView* view, QString expression = "", QGraphicsItem *parent = nullptr);
@@ -45,11 +44,15 @@ class GraphFunction : public QGraphicsItem
         void setExpression(QString expression);
         void setColor(QColor color);
 
-        void redraw();
+        void redraw(bool immediate = false);
+        bool isReady();
 
         QRectF boundingRect() const;
         void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr);
         QPainterPath shape() const;
+
+    signals:
+        void readyChanged(bool ready);
 
     private:
         GraphFunctionPrivate* d;

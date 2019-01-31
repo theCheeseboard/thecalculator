@@ -17,47 +17,38 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef GRAPHWIDGET_H
-#define GRAPHWIDGET_H
+#ifndef RENDERDIALOG_H
+#define RENDERDIALOG_H
 
 #include <QWidget>
-#include <QMenu>
 
 namespace Ui {
-    class GraphWidget;
+    class RenderDialog;
 }
 
-struct GraphWidgetPrivate;
-
-class GraphWidget : public QWidget
+class GraphView;
+class RenderDialog : public QWidget
 {
         Q_OBJECT
 
     public:
-        explicit GraphWidget(QWidget *parent = nullptr);
-        ~GraphWidget();
+        explicit RenderDialog(GraphView* view, QWidget *parent = nullptr);
+        ~RenderDialog();
 
-        QMenu* getMenu();
+    signals:
+        void dismiss();
 
     private slots:
-        void on_addEquationButton_clicked();
+        void on_browseForFileButton_clicked();
 
-        void on_centerXBox_valueChanged(double arg1);
+        void on_backButton_clicked();
 
-        void on_centerYBox_valueChanged(double arg1);
-
-        void on_scaleXBox_valueChanged(double arg1);
-
-        void on_scaleYBox_valueChanged(double arg1);
-
-        void on_equationsList_customContextMenuRequested(const QPoint &pos);
-
-        void on_graphicsView_readyChanged(bool );
+        void on_doneButton_clicked();
 
     private:
-        Ui::GraphWidget *ui;
+        Ui::RenderDialog *ui;
 
-        GraphWidgetPrivate* d;
+        GraphView* v;
 };
 
-#endif // GRAPHWIDGET_H
+#endif // RENDERDIALOG_H

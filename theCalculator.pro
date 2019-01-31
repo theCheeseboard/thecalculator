@@ -53,7 +53,8 @@ SOURCES += \
     parts/graph/graphfunction.cpp \
     parts/graph/graphview.cpp \
     parts/graph/addfunctiondialog.cpp \
-    parts/stats/statwidget.cpp
+    parts/stats/statwidget.cpp \
+    parts/graph/renderdialog.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -73,7 +74,8 @@ HEADERS += \
     parts/graph/graphfunction.h \
     parts/graph/graphview.h \
     parts/graph/addfunctiondialog.h \
-    parts/stats/statwidget.h
+    parts/stats/statwidget.h \
+    parts/graph/renderdialog.h
 
 FORMS += \
         mainwindow.ui \
@@ -85,7 +87,8 @@ FORMS += \
     parts/functions/functionwidget.ui \
     parts/graph/graphwidget.ui \
     parts/graph/addfunctiondialog.ui \
-    parts/stats/statwidget.ui
+    parts/stats/statwidget.ui \
+    parts/graph/renderdialog.ui
 
 DISTFILES += \
     parser/calc.y \

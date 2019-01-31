@@ -24,9 +24,12 @@
 #include <tpopover.h>
 #include <QMenu>
 #include "graphfunction.h"
+#include "renderdialog.h"
 
 struct GraphWidgetPrivate {
     QVector<GraphFunction*> displayedFunctions;
+
+    QMenu* menu;
 };
 
 GraphWidget::GraphWidget(QWidget *parent) :
@@ -42,11 +45,25 @@ GraphWidget::GraphWidget(QWidget *parent) :
         ui->scaleXBox->setStepType(QDoubleSpinBox::AdaptiveDecimalStepType);
         ui->scaleYBox->setStepType(QDoubleSpinBox::AdaptiveDecimalStepType);
     #endif
+
+    d->menu = new QMenu(tr("Graphing"));
+    d->menu->addAction(tr("Render Image"), [=] {
+        RenderDialog* d = new RenderDialog(ui->graphicsView);
+        tPopover* p = new tPopover(d);
+        p->setPopoverWidth(400 * theLibsGlobal::getDPIScaling());
+        connect(d, &RenderDialog::dismiss, p, &tPopover::dismiss);
+        p->show(this->window());
+
+    });
 }
 
 GraphWidget::~GraphWidget()
 {
     delete ui;
+}
+
+QMenu* GraphWidget::getMenu() {
+    return d->menu;
 }
 
 void GraphWidget::on_addEquationButton_clicked()
@@ -63,7 +80,7 @@ void GraphWidget::on_addEquationButton_clicked()
 
         GraphFunction* fn = new GraphFunction(ui->graphicsView, expression);
         fn->setColor(col);
-        ui->graphicsView->scene()->addItem(fn);
+        ui->graphicsView->addFunction(fn);
         this->d->displayedFunctions.append(fn);
     });
     p->show(this);
@@ -104,7 +121,7 @@ void GraphWidget::on_equationsList_customContextMenuRequested(const QPoint &pos)
         menu->addSection(tr("For %1").arg(i.data(Qt::DisplayRole).toString()));
         menu->addAction(QIcon::fromTheme("edit-delete"), tr("Remove"), [=] {
             GraphFunction* f = d->displayedFunctions.takeAt(i.row());
-            ui->graphicsView->scene()->removeItem(f);
+            ui->graphicsView->removeFunction(f);
 
             delete ui->equationsList->takeItem(i.row());
             delete f;
@@ -112,4 +129,9 @@ void GraphWidget::on_equationsList_customContextMenuRequested(const QPoint &pos)
         menu->exec(ui->equationsList->mapToGlobal(pos));
         menu->deleteLater();
     }
+}
+
+void GraphWidget::on_graphicsView_readyChanged(bool ready)
+{
+
 }

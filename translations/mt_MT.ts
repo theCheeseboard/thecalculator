@@ -1262,7 +1262,7 @@
 <context>
     <name>GraphFunction</name>
     <message>
-        <location filename="../parts/graph/graphfunction.cpp" line="288"/>
+        <location filename="../parts/graph/graphfunction.cpp" line="305"/>
         <source>undefined</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1315,12 +1315,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.cpp" line="104"/>
+        <location filename="../parts/graph/graphwidget.cpp" line="49"/>
+        <source>Graphing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/graphwidget.cpp" line="50"/>
+        <source>Render Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/graphwidget.cpp" line="121"/>
         <source>For %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/graph/graphwidget.cpp" line="105"/>
+        <location filename="../parts/graph/graphwidget.cpp" line="122"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1485,6 +1495,50 @@
     <message>
         <location filename="../customs/overloadbox.cpp" line="106"/>
         <source>Each argument must have a name</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RenderDialog</name>
+    <message>
+        <location filename="../parts/graph/renderdialog.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/renderdialog.ui" line="71"/>
+        <source>Render Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/renderdialog.ui" line="123"/>
+        <source>File Location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/renderdialog.ui" line="130"/>
+        <source>Image Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/renderdialog.ui" line="137"/>
+        <source>Image Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/renderdialog.ui" line="144"/>
+        <source>Browse...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/renderdialog.ui" line="151"/>
+        <location filename="../parts/graph/renderdialog.ui" line="167"/>
+        <source> px</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/graph/renderdialog.cpp" line="45"/>
+        <source>Portable Network Graphics (*.png)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

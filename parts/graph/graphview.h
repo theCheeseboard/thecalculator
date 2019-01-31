@@ -39,8 +39,16 @@ class GraphView : public QGraphicsView
         void setXScale(double xScale);
         void setYScale(double yScale);
 
+        void render(QPainter* painter, QSizeF size);
+
+        void addFunction(QGraphicsItem* function);
+        void removeFunction(QGraphicsItem* function);
+
+        QSize canvasSize();
+
     signals:
         void canvasChanged();
+        void readyChanged(bool ready);
 
     public slots:
 

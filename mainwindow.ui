@@ -172,7 +172,7 @@
     <item>
      <widget class="tStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -258,7 +258,7 @@
          <number>0</number>
         </property>
         <item>
-         <widget class="GraphWidget" name="widget" native="true"/>
+         <widget class="GraphWidget" name="graphWidget" native="true"/>
         </item>
        </layout>
       </widget>

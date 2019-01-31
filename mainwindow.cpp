@@ -175,11 +175,20 @@ void MainWindow::on_calcWidget_sizeHintChanged()
 
 void MainWindow::on_stackedWidget_currentChanged(int arg1)
 {
+    if (specificMenu != nullptr) {
+        ui->menuBar->removeAction(specificMenu->menuAction());
+        specificMenu = nullptr;
+    }
+
+
     int newWidth = -1;
     switch (arg1) {
-        case 1:
+        case 1: //Scientific
             newWidth = ui->calcWidget->sizeHint().width();
             break;
+        case 3: //Graphing
+            specificMenu = ui->graphWidget->getMenu();
+            ui->menuBar->insertMenu(ui->menuTrigonometry->menuAction(), specificMenu);
     }
 
     if (newWidth == -1) {
