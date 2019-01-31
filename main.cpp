@@ -26,6 +26,10 @@
 #include <QLibraryInfo>
 #include "evaluationengine.h"
 
+#include <QPainter>
+#include "parts/graph/graphview.h"
+#include "parts/graph/graphfunction.h"
+
 #include "calc.bison.hpp"
 
 #ifdef Q_OS_MAC
@@ -90,18 +94,17 @@ int main(int argc, char *argv[])
     //Determine whether to start a QApplication or QCoreApplication
     QCoreApplication* a = nullptr;
     for (int i = 1; i < argc; i++) {
-        if (qstrcmp(argv[i], "-e") == 0 || qstrcmp(argv[i], "--evaluate") == 0) {
-            a = new QCoreApplication(argc, argv);
+        if (qstrcmp(argv[i], "-e") == 0 || qstrcmp(argv[i], "--evaluate") == 0 || qstrcmp(argv[i], "-g") == 0 || qstrcmp(argv[i], "--graph") == 0) {
+            qputenv("QT_QPA_PLATFORM", "offscreen"); //Start offscreen so we don't create a connection to the X server
         }
     }
 
-    if (a == nullptr) {
-        a = new tApplication(argc, argv);
-    }
+    a = new tApplication(argc, argv);
 
     a->setOrganizationName("theSuite");
     a->setOrganizationDomain("");
     a->setApplicationName("theCalculator");
+    a->setApplicationVersion("2.2");
 
     QTranslator qtTranslator;
     qtTranslator.load("qt_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
@@ -126,73 +129,197 @@ int main(int argc, char *argv[])
 #endif
 
     a->installTranslator(&localTranslator);
-
-
-    QCommandLineOption expressionOption(QStringList() << "e" << "evaluate");
-    expressionOption.setDescription(QApplication::translate("main", "Evaluate <expression>, print the result to standard output, then exit"));
-    expressionOption.setValueName(QApplication::translate("main", "expression"));
-
-    QCommandLineParser parser;
-    parser.setApplicationDescription("Calculator");
-    parser.addHelpOption();
-    parser.addVersionOption();
-    parser.addOption(expressionOption);
-    parser.process(*a);
-
     EvaluationEngine::setupFunctions();
 
-    if (parser.value(expressionOption) == "") {
-        MainWin = new MainWindow();
-        MainWin->show();
-        return a->exec();
-    } else {
-        EvaluationEngine engine;
-        QList<QPair<QString, QString>> outputs;
-        QMap<QString, idouble> variables;
-        bool didError = false;
-        for (QString e : parser.value(expressionOption).split(":")) {
-            e = e.remove(" "); //Remove all spaces
 
-            engine.setExpression(e);
-            engine.setVariables(variables);
-            EvaluationEngine::Result res = engine.evaluate();
+    QCommandLineParser parser;
+    parser.setApplicationDescription(QApplication::translate("main", "Calculator"));
+    QCommandLineOption helpOption = parser.addHelpOption();
+    QCommandLineOption versionOption = parser.addVersionOption();
+    parser.addOptions({
+        {{"g", "graph"}, QApplication::translate("main", "Generate a graph in PNG format and write the data to stdout.")},
+        {{"e", "evaluate"}, QApplication::translate("main", "Evaluate <expression>, print the result to standard output, then exit."), QApplication::translate("main", "expression")}
+    });
+    parser.parse(a->arguments());
 
-            switch (res.type) {
-                case EvaluationEngine::Result::Scalar:
-                    outputs.append(QPair<QString, QString>(e, idbToString(res.result)));
-                    break;
-                case EvaluationEngine::Result::Equality:
-                    outputs.append(QPair<QString, QString>(e, res.isTrue ? QApplication::translate("MainWindow", "TRUE") : QApplication::translate("MainWindow", "FALSE")));
-                    break;
-                case EvaluationEngine::Result::Assign:
-                    variables.insert(res.identifier, res.value);
-                    break;
-                case EvaluationEngine::Result::Error:
-                    outputs.append(QPair<QString, QString>(e, res.error));
-                    break;
-            }
+    if (parser.isSet(versionOption)) parser.showVersion(); //Show version and kill the app here
 
-            if (res.type == EvaluationEngine::Result::Error) {
-                didError = true;
-                break; //Abort calculations here
-            }
-        }
+    if (parser.isSet("g")) {
+        QCommandLineParser parser;
+        parser.setApplicationDescription(QApplication::translate("main", "Calculator"));
+        parser.clearPositionalArguments();
+        parser.addHelpOption();
+        parser.addOptions({
+            {{"g", "graph"}, QApplication::translate("main", "Generate a graph in PNG format and write the data to stdout.")},
+            {"cx", QApplication::translate("main", "X value to center the generated graph at"), QApplication::translate("main", "x-value")},
+            {"cy", QApplication::translate("main", "Y value to center the generated graph at"), QApplication::translate("main", "y-value")},
+            {"sx", QApplication::translate("main", "Number of pixels to put between each integer in the X direction"), QApplication::translate("main", "x-scale")},
+            {"sy", QApplication::translate("main", "Number of pixels to put between each integer in the Y direction"), QApplication::translate("main", "y-scale")},
+            {{"o", "outfile"}, QApplication::translate("main", "File to output the graph to. If missing, output to stdout"), QApplication::translate("main", "path")}
+        });
+        parser.addPositionalArgument("width", QApplication::translate("main", "Width of the graph, in pixels"), "-g width");
+        parser.addPositionalArgument("height", QApplication::translate("main", "Height of the graph, in pixels"));
+        parser.addPositionalArgument("expressions", QApplication::translate("main", "Expressions to graph"),"expressions...");
+        parser.process(*a);
 
+        //Ensure all the command line options are valid
         QTextStream out(stdout);
-        if (outputs.count() == 0) {
-            out << QApplication::translate("main", "Nothing to evaluate").append("\n");
-        } else if (outputs.count() == 1) {
-            out << outputs.first().second.append("\n");
-        } else {
-            for (QPair<QString, QString> output : outputs) {
-                out << output.first.append(": ").append(output.second).append("\n");
+        QTextStream err(stderr);
+        if (parser.positionalArguments().count() < 3) {
+            err << "thecalculator: " + QApplication::translate("main", "missing operand") + "\n";
+            err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a->arguments().first()) + "\n";
+            err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a->arguments().first()) + "\n";
+            return 1;
+        }
+
+        QStringList args = parser.positionalArguments();
+        bool widthOk, heightOk;
+        int width = args.takeFirst().toInt(&widthOk);
+        int height = args.takeFirst().toInt(&heightOk);
+
+        if (!widthOk || width < 1) {
+            err << "thecalculator: " + QApplication::translate("main", "invalid output width") + "\n";
+            err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a->arguments().first()) + "\n";
+            err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a->arguments().first()) + "\n";
+            return 1;
+        }
+
+        if (!heightOk || height < 1) {
+            err << "thecalculator: " + QApplication::translate("main", "invalid output height") + "\n";
+            err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a->arguments().first()) + "\n";
+            err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a->arguments().first()) + "\n";
+            return 1;
+        }
+
+        QImage image(width, height, QImage::Format_ARGB32);
+        QPainter p(&image);
+        GraphView graph;
+
+        QPointF centerPoint(0, 0);
+        if (parser.isSet("cx")) {
+            bool cxOk;
+            centerPoint.setX(parser.value("cx").toDouble(&cxOk));
+            if (!cxOk) {
+                err << "thecalculator: " + QApplication::translate("main", "invalid center x position") + "\n";
+                err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a->arguments().first()) + "\n";
+                err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a->arguments().first()) + "\n";
+                return 1;
             }
         }
 
-        if (!didError) {
-            return 0;
+        if (parser.isSet("cy")) {
+            bool cyOk;
+            centerPoint.setY(parser.value("cy").toDouble(&cyOk));
+            if (!cyOk) {
+                err << "thecalculator: " + QApplication::translate("main", "invalid center y position") + "\n";
+                err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a->arguments().first()) + "\n";
+                err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a->arguments().first()) + "\n";
+                return 1;
+            }
+        }
+
+        graph.setCenter(centerPoint);
+
+        if (parser.isSet("sx")) {
+            bool sxOk;
+            graph.setXScale(parser.value("sx").toDouble(&sxOk));
+            if (!sxOk) {
+                err << "thecalculator: " + QApplication::translate("main", "invalid x scale value") + "\n";
+                err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a->arguments().first()) + "\n";
+                err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a->arguments().first()) + "\n";
+                return 1;
+            }
+        }
+
+        if (parser.isSet("sy")) {
+            bool syOk;
+            graph.setYScale(parser.value("sy").toDouble(&syOk));
+            if (!syOk) {
+                err << "thecalculator: " + QApplication::translate("main", "invalid y scale value") + "\n";
+                err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a->arguments().first()) + "\n";
+                err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a->arguments().first()) + "\n";
+                return 1;
+            }
+        }
+
+        for (QString expr : args) {
+            GraphFunction* f = new GraphFunction(&graph, expr);
+            graph.addFunction(f);
+        }
+        graph.render(&p, image.size());
+
+        QFile outputFile;
+        if (parser.isSet("o")) {
+            outputFile.setFileName(parser.value("o"));
+            outputFile.open(QFile::WriteOnly);
         } else {
+            outputFile.open(stdout, QFile::WriteOnly);
+        }
+
+        if (!outputFile.isOpen()) {
+            err << "thecalculator: " + QApplication::translate("main", "unable to open output file for writing") + "\n";
             return 1;
+        }
+
+        image.save(&outputFile, "PNG");
+
+        return 0;
+    } else {
+        if (parser.isSet(helpOption)) parser.showHelp(); //Show help and kill the app here
+
+        if (parser.value("e") == "") {
+            MainWin = new MainWindow();
+            MainWin->show();
+            return a->exec();
+        } else {
+            EvaluationEngine engine;
+            QList<QPair<QString, QString>> outputs;
+            QMap<QString, idouble> variables;
+            bool didError = false;
+            for (QString e : parser.value("e").split(":")) {
+                e = e.remove(" "); //Remove all spaces
+
+                engine.setExpression(e);
+                engine.setVariables(variables);
+                EvaluationEngine::Result res = engine.evaluate();
+
+                switch (res.type) {
+                    case EvaluationEngine::Result::Scalar:
+                        outputs.append(QPair<QString, QString>(e, idbToString(res.result)));
+                        break;
+                    case EvaluationEngine::Result::Equality:
+                        outputs.append(QPair<QString, QString>(e, res.isTrue ? QApplication::translate("MainWindow", "TRUE") : QApplication::translate("MainWindow", "FALSE")));
+                        break;
+                    case EvaluationEngine::Result::Assign:
+                        variables.insert(res.identifier, res.value);
+                        break;
+                    case EvaluationEngine::Result::Error:
+                        outputs.append(QPair<QString, QString>(e, res.error));
+                        break;
+                }
+
+                if (res.type == EvaluationEngine::Result::Error) {
+                    didError = true;
+                    break; //Abort calculations here
+                }
+            }
+
+            QTextStream out(stdout);
+            if (outputs.count() == 0) {
+                out << QApplication::translate("main", "Nothing to evaluate").append("\n");
+            } else if (outputs.count() == 1) {
+                out << outputs.first().second.append("\n");
+            } else {
+                for (QPair<QString, QString> output : outputs) {
+                    out << output.first.append(": ").append(output.second).append("\n");
+                }
+            }
+
+            if (!didError) {
+                return 0;
+            } else {
+                return 1;
+            }
         }
     }
 }
