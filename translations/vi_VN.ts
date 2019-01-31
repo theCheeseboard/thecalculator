@@ -11,7 +11,7 @@
     <message>
         <location filename="../aboutwindow.ui" line="25"/>
         <source>theCalculator 2.2</source>
-        <translation type="unfinished">theCalculator 2.2</translation>
+        <translation>theCalculator 2.2</translation>
     </message>
     <message>
         <location filename="../aboutwindow.ui" line="32"/>
@@ -34,42 +34,42 @@
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="73"/>
         <source>Add Function</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm Hàm Số</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="134"/>
         <source>Expression</source>
-        <translation type="unfinished"></translation>
+        <translation>Biểu Thức</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="144"/>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Màu</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="154"/>
         <source>Use x for the horizontal axis</source>
-        <translation type="unfinished"></translation>
+        <translation>Dùng x cho trục hoành</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="32"/>
         <source>Green</source>
-        <translation type="unfinished"></translation>
+        <translation>Xanh lá</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="33"/>
         <source>Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Đỏ</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="34"/>
         <source>Aqua</source>
-        <translation type="unfinished"></translation>
+        <translation>Xanh nước</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="35"/>
         <source>Purple</source>
-        <translation type="unfinished"></translation>
+        <translation>Tím</translation>
     </message>
 </context>
 <context>
@@ -1193,64 +1193,64 @@
     <message>
         <location filename="../parts/functions/functionwidget.ui" line="55"/>
         <source>Custom Functions</source>
-        <translation type="unfinished">Hàm số tùy chỉnh</translation>
+        <translation>Hàm số tùy chỉnh</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.ui" line="168"/>
         <source>Add Custom Function</source>
-        <translation type="unfinished">Thêm hàm số tùy chỉnh</translation>
+        <translation>Thêm hàm số tùy chỉnh</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.ui" line="233"/>
         <source>Function Name</source>
-        <translation type="unfinished">Tên hàm số</translation>
+        <translation>Tên hàm số</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.ui" line="291"/>
         <source>Add New Overload</source>
-        <translation type="unfinished">Thêm quá tải</translation>
+        <translation>Thêm quá tải</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="71"/>
         <source>Save this function?</source>
-        <translation type="unfinished">Lưu hàm số này?</translation>
+        <translation>Lưu hàm số này?</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="71"/>
         <source>Do you want to save this function?</source>
-        <translation type="unfinished">Bạn có muốn lưu hàm số này không?</translation>
+        <translation>Bạn có muốn lưu hàm số này không?</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="98"/>
         <source>Function Name Required</source>
-        <translation type="unfinished">Bắt buộc tên hàm số</translation>
+        <translation>Bắt buộc tên hàm số</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="99"/>
         <source>A function name needs to be set</source>
-        <translation type="unfinished">Bạn cần đặt tên hàm số</translation>
+        <translation>Bạn cần đặt tên hàm số</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="119"/>
         <source>Overload Arguments</source>
-        <translation type="unfinished">Tham số quá tải</translation>
+        <translation>Tham số quá tải</translation>
     </message>
     <message numerus="yes">
         <location filename="../parts/functions/functionwidget.cpp" line="120"/>
         <source>Only one overload can have %n arguments</source>
-        <translation type="unfinished">
+        <translation>
             <numerusform>Chỉ một quá tải được có %n hàm số</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="192"/>
         <source>For %1</source>
-        <translation type="unfinished">Cho %1</translation>
+        <translation>Cho %1</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="193"/>
         <source>Delete</source>
-        <translation type="unfinished">Xóa</translation>
+        <translation>Xóa</translation>
     </message>
 </context>
 <context>
@@ -1258,7 +1258,7 @@
     <message>
         <location filename="../parts/graph/graphfunction.cpp" line="305"/>
         <source>undefined</source>
-        <translation type="unfinished"></translation>
+        <translation>không xác định</translation>
     </message>
 </context>
 <context>
@@ -1271,62 +1271,62 @@
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="107"/>
         <source>Expressions</source>
-        <translation type="unfinished"></translation>
+        <translation>Biểu thức</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="179"/>
         <source>Viewport</source>
-        <translation type="unfinished"></translation>
+        <translation>Khung nhìn</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="219"/>
         <source>Center X</source>
-        <translation type="unfinished"></translation>
+        <translation>Giữa X</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="304"/>
         <source>y = </source>
-        <translation type="unfinished"></translation>
+        <translation>y = </translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="320"/>
         <source>x = </source>
-        <translation type="unfinished"></translation>
+        <translation>x = </translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="265"/>
         <source>Center Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Giữa Y</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="272"/>
         <source>Scale X</source>
-        <translation type="unfinished"></translation>
+        <translation>Tỷ lệ X</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="226"/>
         <source>Scale Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Tỷ lệ Y</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.cpp" line="49"/>
         <source>Graphing</source>
-        <translation type="unfinished"></translation>
+        <translation>Đồ thị</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.cpp" line="50"/>
         <source>Render Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Xuất ảnh</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.cpp" line="121"/>
         <source>For %1</source>
-        <translation type="unfinished">Cho %1</translation>
+        <translation>Cho %1</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.cpp" line="122"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa</translation>
     </message>
 </context>
 <context>
@@ -1340,22 +1340,22 @@
     <message>
         <location filename="../mainwindow.ui" line="115"/>
         <source>Scientific</source>
-        <translation type="unfinished"></translation>
+        <translation>Khoa học</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="124"/>
         <source>Statistical</source>
-        <translation type="unfinished"></translation>
+        <translation>Thống kê</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="133"/>
         <source>Graphing</source>
-        <translation type="unfinished"></translation>
+        <translation>Đồ thị</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="158"/>
         <source>Manage Custom Functions</source>
-        <translation type="unfinished"></translation>
+        <translation>Quản lý hàm số tùy chỉnh</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="280"/>
@@ -1499,38 +1499,38 @@
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="71"/>
         <source>Render Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Xuất ảnh</translation>
     </message>
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="123"/>
         <source>File Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Địa chỉ tệp</translation>
     </message>
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="130"/>
         <source>Image Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiều cao ảnh</translation>
     </message>
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="137"/>
         <source>Image Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiều rộng ảnh</translation>
     </message>
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="144"/>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Chọn...</translation>
     </message>
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="151"/>
         <location filename="../parts/graph/renderdialog.ui" line="167"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../parts/graph/renderdialog.cpp" line="45"/>
         <source>Portable Network Graphics (*.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>Portable Network Graphics (*.png)</translation>
     </message>
 </context>
 <context>
@@ -1543,64 +1543,64 @@
     <message>
         <location filename="../parts/stats/statwidget.ui" line="45"/>
         <source>Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Dữ liệu</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="125"/>
         <source>Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Thống kê</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="186"/>
         <source>Count</source>
-        <translation type="unfinished"></translation>
+        <translation>Đếm</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="225"/>
         <source>Median</source>
-        <translation type="unfinished"></translation>
+        <translation>Trung vị</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="232"/>
         <source>Minimum</source>
-        <translation type="unfinished"></translation>
+        <translation>Tối thiểu</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="239"/>
         <source>Q3</source>
-        <translation type="unfinished"></translation>
+        <translation>Q3</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="246"/>
         <source>Maximum</source>
-        <translation type="unfinished"></translation>
+        <translation>Tối đa</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="253"/>
         <source>Q1</source>
-        <translation type="unfinished"></translation>
+        <translation>Q1</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="179"/>
         <source>Mean</source>
-        <translation type="unfinished"></translation>
+        <translation>Bình quân</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.cpp" line="35"/>
         <source>Value</source>
-        <translation type="unfinished"></translation>
+        <translation>Giá trị</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.cpp" line="35"/>
         <source>Frequency</source>
-        <translation type="unfinished"></translation>
+        <translation>Tần số</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.cpp" line="132"/>
         <location filename="../parts/stats/statwidget.cpp" line="141"/>
         <location filename="../parts/stats/statwidget.cpp" line="150"/>
         <source>undefined</source>
-        <translation type="unfinished"></translation>
+        <translation>không xác định</translation>
     </message>
 </context>
 <context>
