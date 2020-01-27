@@ -18,15 +18,19 @@
  *
  * *************************************/
 
+// *INDENT-OFF*
+
 %{
 //Include headers
 #include <QString>
+#include <QtGlobal>
 #include <cstdio>
 #include "mainwindow.h"
 #include "evaluationengineheaders.h"
 #include "evaluationengine.h"
 
 extern MainWindow* MainWin;
+extern QString idbToString(idouble db);
 
 idouble callFunction(QString name, QList<idouble> args, QString& error) {
     //qDebug() << "Calling function:" << name << "with arguments" << args;
@@ -68,6 +72,20 @@ double absArg(idouble n) {
         } \
     }
 #define tr(str) QApplication::translate("EvaluationEngine", str)
+#define CHECK_VALID_BITWISE(name, arg1, arg2, arg1loc, arg2loc) \
+    bool shouldCalc = false; \
+    if (!qFuzzyIsNull(static_cast<double>((arg1).imag())) || static_cast<int>((arg1).real()) != (arg1).real()) { \
+        YYE(arg1loc, tr("%1: arg1 (%2) not an integer").arg(name).arg(idbToString(arg1)).toLocal8Bit().constData()); \
+    } else if (!qFuzzyIsNull(static_cast<double>((arg2).imag())) || static_cast<int>((arg2).real()) != (arg2).real()) { \
+        YYE(arg2loc, tr("%1: arg2 (%2) not an integer").arg(name).arg(idbToString(arg2)).toLocal8Bit().constData()); \
+    } else { \
+        shouldCalc = true; \
+    } \
+    if (!shouldCalc) {YYABORT;}
+#define EXTRACT_BITWISE_ARGS(arg1, arg2) \
+    qulonglong a1, a2; \
+    a1 = static_cast<qulonglong>(arg1->real()); \
+    a2 = static_cast<qulonglong>(arg2->real());
 
 # define YYLLOC_DEFAULT(Current, Rhs, N) \
     if (N) { \
@@ -104,7 +122,9 @@ double absArg(idouble n) {
 
 %token<number> NUMBER SUPER
 %token<number> LBRACKET RBRACKET
+%token<number> NOT
 %token<number> ADD SUBTRACT MULTIPLY DIVIDE LSH RSH SUPERSUBTRACT SUPERADD
+%token<number> OR AND XOR NOR NAND XNOR
 %token<number> PERCENT ABSOLUTE ENDABSOLUTE FACTORIAL RADICAL
 %token<number> EOL TOKEN
 %token<number> ARGSEPARATOR
@@ -173,6 +193,55 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
 |   expression EXPONENTIATE expression {CALL_MAINWINDOW_FUNCTION(@$, "pow", QList<idouble>() << *$1 << *$3, $$)}
 |   expression LSH expression {CALL_MAINWINDOW_FUNCTION(@$, "lsh", QList<idouble>() << *$1 << *$3, $$)}
 |   expression RSH expression {CALL_MAINWINDOW_FUNCTION(@$, "rsh", QList<idouble>() << *$1 << *$3, $$)}
+|   expression AND expression {
+        CHECK_VALID_BITWISE("and", *$1, *$3, @1, @3)
+        if (shouldCalc) {
+            EXTRACT_BITWISE_ARGS($1, $3);
+            $$ = new idouble(a1 & a2);
+        }
+    }
+|   expression OR expression {
+        CHECK_VALID_BITWISE("or", *$1, *$3, @1, @3)
+        if (shouldCalc) {
+            EXTRACT_BITWISE_ARGS($1, $3);
+            $$ = new idouble(a1 | a2);
+        }
+    }
+|   expression XOR expression {
+        CHECK_VALID_BITWISE("xor", *$1, *$3, @1, @3)
+        if (shouldCalc) {
+            EXTRACT_BITWISE_ARGS($1, $3);
+            $$ = new idouble(~(a1 ^ a2));
+        }
+    }
+|   expression NAND expression {
+        CHECK_VALID_BITWISE("nand", *$1, *$3, @1, @3)
+        if (shouldCalc) {
+            EXTRACT_BITWISE_ARGS($1, $3);
+            $$ = new idouble(~(a1 & a2));
+        }
+    }
+|   expression OR expression {
+        CHECK_VALID_BITWISE("nor", *$1, *$3, @1, @3)
+        if (shouldCalc) {
+            EXTRACT_BITWISE_ARGS($1, $3);
+            $$ = new idouble(a1 | a2);
+        }
+    }
+|   expression XNOR expression {
+        CHECK_VALID_BITWISE("xnor", *$1, *$3, @1, @3)
+        if (shouldCalc) {
+            EXTRACT_BITWISE_ARGS($1, $3);
+            $$ = new idouble(~(a1 ^ a2));
+        }
+    }
+|   NOT expression {
+        CHECK_VALID_BITWISE("not", *$2, *$2, @2, @2)
+        if (shouldCalc) {
+            EXTRACT_BITWISE_ARGS($2, $2);
+            $$ = new idouble(~a1);
+        }
+    }
 |   expression FACTORIAL {CALL_MAINWINDOW_FUNCTION(@$, "fact", QList<idouble>() << *$1, $$)}
 |   RADICAL expression {$$ = new idouble(sqrt(*$2));}
 |   power RADICAL expression {

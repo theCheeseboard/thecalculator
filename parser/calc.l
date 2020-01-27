@@ -18,6 +18,8 @@
  *
  * *************************************/
 
+/* *INDENT-OFF* */
+
 %{
 #include <QString>
 #include <QMap>
@@ -51,8 +53,12 @@ void setLocation(yyscan_t scanner, YYLTYPE* location, int len) {
 %option reentrant bison-bridge bison-locations
 %option header-file="calc.yy.h"
 
+DIGIT [0-9]
+LETTER [a-zA-Z]
+
+
 %%
-[0-9]+(\.[0-9]+)?(e[+\-][0-9]+)? {
+{DIGIT}+(\.{DIGIT}+)?(e[+\-]{DIGIT}+)? {
     QString token = QString::fromLocal8Bit(yytext);
     yylval->number = new idouble(token.toDouble());
     return NUMBER;
@@ -119,7 +125,14 @@ void setLocation(yyscan_t scanner, YYLTYPE* location, int len) {
 "≤" {return LESSEQUAL;}
 "==" {return EQUALITY;}
 "≠" {return NOTEQUALITY;}
-[[:alpha:]_][[:alnum:]_]* {
+"NAND" {return NAND;}
+"NOR" {return NOR;}
+"XNOR" {return XNOR;}
+"AND" {return AND;}
+"OR" {return OR;}
+"XOR" {return XOR;}
+"NOT" {return NOT;}
+{LETTER}({DIGIT}*{LETTER})* {
     if (strcmp("e", yytext) == 0) {
         yylval->number = new idouble(M_E, 0);
         return NUMBER;
