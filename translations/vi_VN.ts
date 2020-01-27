@@ -369,35 +369,35 @@
         <translation>Tính</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="178"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="180"/>
         <source>%1 assigned to %2</source>
         <translation>%1 được gán cho %2</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="187"/>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="237"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="189"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="239"/>
         <source>TRUE</source>
         <translation>THẬT</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="187"/>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="237"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="189"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="239"/>
         <source>FALSE</source>
         <translation>SAI</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="234"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="236"/>
         <source>Assign %1 to %2</source>
         <translation>Gán %1 cho %2</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="330"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="332"/>
         <source>No arguments</source>
         <translation>Không có tham số</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="331"/>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="348"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="333"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="350"/>
         <source>function</source>
         <translation>hàm số</translation>
     </message>
@@ -1431,6 +1431,39 @@
         <location filename="../main.cpp" line="280"/>
         <source>FALSE</source>
         <translation>SAI</translation>
+    </message>
+</context>
+<context>
+    <name>NthRootPopover</name>
+    <message>
+        <location filename="../parts/calculator/nthrootpopover.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/calculator/nthrootpopover.ui" line="71"/>
+        <source>Nth Root</source>
+        <translation type="unfinished">Căn bậc</translation>
+    </message>
+    <message>
+        <location filename="../parts/calculator/nthrootpopover.ui" line="124"/>
+        <source>Enter the parameters for the operation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/calculator/nthrootpopover.ui" line="148"/>
+        <source>Base</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/calculator/nthrootpopover.ui" line="160"/>
+        <source>√</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/calculator/nthrootpopover.ui" line="184"/>
+        <source>Number</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

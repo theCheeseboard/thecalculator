@@ -28,6 +28,8 @@
 #include "mainwindow.h"
 #include <tvariantanimation.h>
 #include "evaluationengine.h"
+#include <tpopover.h>
+#include "nthrootpopover.h"
 
 QList<CalcButton*> CalculatorWidget::buttons = QList<CalcButton*>();
 extern QString idbToString(idouble db);
@@ -105,7 +107,7 @@ CalculatorWidget::CalculatorWidget(QWidget* parent) :
     ui->eButton->setTypedOutput("e");
     ui->PointButton->setText(QLocale().decimalPoint());
     for (CalcButton* b : buttons) {
-        connect(b, SIGNAL(output(QString)), this, SLOT(ButtonPressed(QString)));
+        connect(b, &CalcButton::output, this, &CalculatorWidget::ButtonPressed);
     }
 }
 
@@ -128,8 +130,8 @@ void CalculatorWidget::on_expandButton_clicked() {
     anim->setDuration(500);
     anim->setEasingCurve(QEasingCurve::OutCubic);
     connect(anim, &tVariantAnimation::valueChanged, [ = ](QVariant value) {
-        ui->scrollArea->setFixedWidth(value.toInt() * theLibsGlobal::getDPIScaling());
-        forceWidth = QWidget::sizeHint().width() * theLibsGlobal::getDPIScaling() - ui->scrollArea->width() * theLibsGlobal::getDPIScaling() + ui->scrollArea->width();
+        ui->scrollArea->setFixedWidth(SC_DPI(value.toInt()));
+        forceWidth = SC_DPI(QWidget::sizeHint().width()) - SC_DPI(ui->scrollArea->width()) + ui->scrollArea->width();
     });
     connect(anim, SIGNAL(finished()), anim, SLOT(deleteLater()));
     anim->start();
@@ -416,4 +418,23 @@ void CalculatorWidget::flashError() {
         ui->answerContainer->setPalette(pal);
     });
     a->start();
+}
+
+void CalculatorWidget::on_NthRootButton_clicked() {
+    grabExpKeyboard(false);
+
+    NthRootPopover* p = new NthRootPopover();
+    tPopover* popover = new tPopover(p);
+    popover->setPopoverWidth(SC_DPI(300));
+    connect(p, &NthRootPopover::rejected, popover, &tPopover::dismiss);
+    connect(p, &NthRootPopover::accepted, this, [ = ](QString text) {
+        this->ButtonPressed(text);
+        popover->dismiss();
+    });
+    connect(popover, &tPopover::dismissed, p, &NthRootPopover::deleteLater);
+    connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
+    connect(popover, &tPopover::dismiss, this, [ = ] {
+        grabExpKeyboard(true);
+    });
+    popover->show(this->window());
 }
