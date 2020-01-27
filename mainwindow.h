@@ -40,15 +40,14 @@ typedef std::complex<long double> idouble;
 
 class CalcButton;
 namespace Ui {
-class MainWindow;
+    class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+        Q_OBJECT
 
     public:
-        explicit MainWindow(QWidget *parent = 0);
+        explicit MainWindow(QWidget* parent = 0);
         ~MainWindow();
 
         QMap<QString, idouble> variables;
@@ -77,8 +76,6 @@ class MainWindow : public QMainWindow
 
         void on_calcWidget_manageFunctions();
 
-        void on_calcWidget_sizeHintChanged();
-
         void on_stackedWidget_currentChanged(int arg1);
 
         void on_actionGradians_triggered(bool checked);
@@ -88,7 +85,7 @@ class MainWindow : public QMainWindow
         void on_manageCustomFunctionsbutton_clicked();
 
     private:
-        Ui::MainWindow *ui;
+        Ui::MainWindow* ui;
 
         bool resultSuccess = false;
 
@@ -101,9 +98,8 @@ class MainWindow : public QMainWindow
 };
 
 class CornerButton : public QPushButton {
-    Q_OBJECT
-    public:
-        CornerButton(QWidget* parent = nullptr) : QPushButton(parent) {}
+        Q_OBJECT
+    public: CornerButton(QWidget* parent = nullptr) : QPushButton(parent) {}
 
     private:
         QSize sizeHint() const {

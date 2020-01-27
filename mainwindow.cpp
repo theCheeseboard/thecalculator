@@ -37,21 +37,21 @@
 #include <QToolButton>
 #include <tpopover.h>
 #include <QShortcut>
+#include <taboutdialog.h>
 #include "evaluationengine.h"
 
 #include "customs/overloadbox.h"
 
 extern MainWindow* MainWin;
 extern float getDPIScaling();
-extern QMap<QString, std::function<idouble(QList<idouble>,QString&)>> customFunctions;
+extern QMap<QString, std::function<idouble(QList<idouble>, QString&)>> customFunctions;
 extern QString idbToString(idouble db);
 
 #include "calc.bison.hpp"
 
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
-{
+    ui(new Ui::MainWindow) {
     MainWin = this;
     ui->setupUi(this);
 
@@ -66,60 +66,55 @@ MainWindow::MainWindow(QWidget *parent) :
     menuButton->setIcon(QIcon::fromTheme("application-menu"));
     menuButton->setFixedHeight(ui->menuBar->sizeHint().height());
     menuButton->setFlat(true);
-    connect(menuButton, &QPushButton::clicked, [=] {
+    connect(menuButton, &QPushButton::clicked, [ = ] {
         tPopover* p = new tPopover(ui->leftPane);
         p->setPopoverSide(tPopover::Leading);
-        p->setPopoverWidth(300 * theLibsGlobal::getDPIScaling());
+        p->setPopoverWidth(SC_DPI(300));
         p->show(this);
     });
     ui->menuBar->setCornerWidget(menuButton, Qt::TopLeftCorner);
 
     QShortcut* menuShortcut = new QShortcut(this);
     menuShortcut->setKey(Qt::SHIFT | Qt::Key_Tab);
-    connect(menuShortcut, &QShortcut::activated, [=] {
+    connect(menuShortcut, &QShortcut::activated, [ = ] {
         menuButton->click();
     });
 
     ui->centralWidget->layout()->removeWidget(ui->leftPane);
 
-    QTimer::singleShot(0, [=] {
-        this->setFixedWidth(ui->calcWidget->sizeHint().width());
-    });
+//    QTimer::singleShot(0, [ = ] {
+//        this->setFixedWidth(ui->calcWidget->sizeHint().width());
+//    });
 }
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow() {
     delete ui;
 }
 
-void MainWindow::parserError(const char *error) {
+void MainWindow::parserError(const char* error) {
     resultSuccess = false;
 }
 
-void MainWindow::on_actionExit_triggered()
-{
+void MainWindow::on_actionExit_triggered() {
     QApplication::exit();
 }
 
-void MainWindow::on_backButton_clicked()
-{
+void MainWindow::on_backButton_clicked() {
     ui->stackedWidget->setCurrentIndex(0);
     ui->calcWidget->grabExpKeyboard(true);
 }
 
-void MainWindow::on_FunctionsButton_clicked()
-{
+void MainWindow::on_FunctionsButton_clicked() {
     ui->calcWidget->grabExpKeyboard(false);
     ui->stackedWidget->setCurrentIndex(1);
 }
 
-void MainWindow::on_actionAbout_triggered()
-{
-    AboutWindow a;
+void MainWindow::on_actionAbout_triggered() {
+    tAboutDialog a;
     a.exec();
 }
 
-void MainWindow::changeEvent(QEvent *event) {
+void MainWindow::changeEvent(QEvent* event) {
     QMainWindow::changeEvent(event);
     if (event->type() == QEvent::ActivationChange) {
         if (this->isActiveWindow() && ui->stackedWidget->currentIndex() == 1) {
@@ -132,81 +127,38 @@ void MainWindow::changeEvent(QEvent *event) {
     }
 }
 
-void MainWindow::on_actionDegrees_triggered(bool checked)
-{
+void MainWindow::on_actionDegrees_triggered(bool checked) {
     if (checked) {
         EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Degrees);
     }
 }
 
-void MainWindow::on_actionRadians_triggered(bool checked)
-{
+void MainWindow::on_actionRadians_triggered(bool checked) {
     if (checked) {
         EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Radians);
     }
 }
 
-void MainWindow::on_actionTheCalculatorHelp_triggered()
-{
+void MainWindow::on_actionTheCalculatorHelp_triggered() {
     QDesktopServices::openUrl(QUrl("https://vicr123.com/thecalculator/help"));
 }
 
-void MainWindow::on_actionFileBug_triggered()
-{
+void MainWindow::on_actionFileBug_triggered() {
     QDesktopServices::openUrl(QUrl("https://github.com/vicr123/thecalculator/issues"));
 }
 
-void MainWindow::on_actionSources_triggered()
-{
+void MainWindow::on_actionSources_triggered() {
     QDesktopServices::openUrl(QUrl("https://github.com/vicr123/thecalculator"));
 }
 
-void MainWindow::on_calcWidget_manageFunctions()
-{
+void MainWindow::on_calcWidget_manageFunctions() {
     ui->stackedWidget->setCurrentIndex(1);
 }
 
-void MainWindow::on_calcWidget_sizeHintChanged()
-{
-    if (ui->stackedWidget->currentIndex() == 1) {
-        this->setFixedWidth(ui->calcWidget->sizeHint().width());
-    }
-}
-
-void MainWindow::on_stackedWidget_currentChanged(int arg1)
-{
+void MainWindow::on_stackedWidget_currentChanged(int arg1) {
     if (specificMenu != nullptr) {
         ui->menuBar->removeAction(specificMenu->menuAction());
         specificMenu = nullptr;
-    }
-
-
-    int newWidth = -1;
-    switch (arg1) {
-        case 1: //Scientific
-            newWidth = ui->calcWidget->sizeHint().width();
-            break;
-        case 3: //Graphing
-            specificMenu = ui->graphWidget->getMenu();
-            ui->menuBar->insertMenu(ui->menuTrigonometry->menuAction(), specificMenu);
-    }
-
-    if (newWidth == -1) {
-        this->setFixedWidth(QWIDGETSIZE_MAX);
-    } else {
-        tVariantAnimation* anim = new tVariantAnimation();
-        anim->setStartValue(this->width());
-        anim->setEndValue(newWidth);
-        anim->setDuration(500);
-        anim->setEasingCurve(QEasingCurve::OutCubic);
-        anim->start();
-        connect(anim, &tVariantAnimation::valueChanged, [=](QVariant value) {
-            this->setFixedWidth(value.toInt());
-        });
-        connect(anim, &tVariantAnimation::finished, [=] {
-            this->setFixedWidth(anim->currentValue().toInt());
-            anim->deleteLater();
-        });
     }
 
     if (arg1 == 1) {
@@ -223,15 +175,13 @@ void MainWindow::on_stackedWidget_currentChanged(int arg1)
     }
 }
 
-void MainWindow::on_actionGradians_triggered(bool checked)
-{
+void MainWindow::on_actionGradians_triggered(bool checked) {
     if (checked) {
         EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Gradians);
     }
 }
 
-void MainWindow::on_leftMenu_currentRowChanged(int currentRow)
-{
+void MainWindow::on_leftMenu_currentRowChanged(int currentRow) {
     if (currentRow != -1) {
         ui->stackedWidget->setCurrentIndex(currentRow + 1);
         tPopover* p = tPopover::popoverForWidget(ui->leftPane);
@@ -241,8 +191,7 @@ void MainWindow::on_leftMenu_currentRowChanged(int currentRow)
     }
 }
 
-void MainWindow::on_manageCustomFunctionsbutton_clicked()
-{
+void MainWindow::on_manageCustomFunctionsbutton_clicked() {
     ui->stackedWidget->setCurrentIndex(0);
     tPopover* p = tPopover::popoverForWidget(ui->leftPane);
     if (p != nullptr) {

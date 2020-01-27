@@ -34,10 +34,9 @@ extern QString idbToString(idouble db);
 
 extern MainWindow* MainWin;
 
-CalculatorWidget::CalculatorWidget(QWidget *parent) :
+CalculatorWidget::CalculatorWidget(QWidget* parent) :
     QWidget(parent),
-    ui(new Ui::CalculatorWidget)
-{
+    ui(new Ui::CalculatorWidget) {
     ui->setupUi(this);
 
     ui->expressionBox->grabKeyboard();
@@ -84,10 +83,10 @@ CalculatorWidget::CalculatorWidget(QWidget *parent) :
 
     historyDelegate = new HistoryDelegate();
     ui->historyWidget->setItemDelegate(historyDelegate);
-    connect(ui->historyWidget->verticalScrollBar(), &QScrollBar::rangeChanged, [=](int min, int max) {
+    connect(ui->historyWidget->verticalScrollBar(), &QScrollBar::rangeChanged, [ = ](int min, int max) {
         if (historyAtBottom) ui->historyWidget->verticalScrollBar()->setValue(max);
     });
-    connect(ui->historyWidget->verticalScrollBar(), &QScrollBar::valueChanged, [=](int value) {
+    connect(ui->historyWidget->verticalScrollBar(), &QScrollBar::valueChanged, [ = ](int value) {
         if (value == ui->historyWidget->verticalScrollBar()->maximum()) {
             historyAtBottom = true;
         } else {
@@ -110,13 +109,11 @@ CalculatorWidget::CalculatorWidget(QWidget *parent) :
     }
 }
 
-CalculatorWidget::~CalculatorWidget()
-{
+CalculatorWidget::~CalculatorWidget() {
     delete ui;
 }
 
-void CalculatorWidget::on_expandButton_clicked()
-{
+void CalculatorWidget::on_expandButton_clicked() {
     tVariantAnimation* anim = new tVariantAnimation();
     anim->setStartValue(ui->scrollArea->width());
     if (extended) {
@@ -130,10 +127,9 @@ void CalculatorWidget::on_expandButton_clicked()
     }
     anim->setDuration(500);
     anim->setEasingCurve(QEasingCurve::OutCubic);
-    connect(anim, &tVariantAnimation::valueChanged, [=](QVariant value) {
+    connect(anim, &tVariantAnimation::valueChanged, [ = ](QVariant value) {
         ui->scrollArea->setFixedWidth(value.toInt() * theLibsGlobal::getDPIScaling());
         forceWidth = QWidget::sizeHint().width() * theLibsGlobal::getDPIScaling() - ui->scrollArea->width() * theLibsGlobal::getDPIScaling() + ui->scrollArea->width();
-        emit sizeHintChanged();
     });
     connect(anim, SIGNAL(finished()), anim, SLOT(deleteLater()));
     anim->start();
@@ -144,21 +140,18 @@ void CalculatorWidget::ButtonPressed(QString text) {
     ui->expressionBox->insert(text);
 }
 
-void CalculatorWidget::on_ClearButton_clicked()
-{
+void CalculatorWidget::on_ClearButton_clicked() {
     ui->expressionBox->clear();
 }
 
-void CalculatorWidget::on_BackspaceButton_clicked()
-{
+void CalculatorWidget::on_BackspaceButton_clicked() {
     ui->expressionBox->backspace();
 }
 
-void CalculatorWidget::on_EqualButton_clicked()
-{
+void CalculatorWidget::on_EqualButton_clicked() {
     QString expression = ui->expressionBox->getFixedExpression();
 
-    EvaluationEngine::evaluate(expression, MainWin->variables)->then([=](EvaluationEngine::Result r) {
+    EvaluationEngine::evaluate(expression, MainWin->variables)->then([ = ](EvaluationEngine::Result r) {
         switch (r.type) {
             case EvaluationEngine::Result::Scalar: {
                 ui->expressionBox->setExpression(idbToString(r.result));
@@ -220,9 +213,8 @@ void CalculatorWidget::resizeEvent(QResizeEvent* event) {
 }
 
 
-void CalculatorWidget::on_expressionBox_expressionUpdated(const QString &newString)
-{
-    EvaluationEngine::evaluate(newString, MainWin->variables)->then([=](EvaluationEngine::Result r) {
+void CalculatorWidget::on_expressionBox_expressionUpdated(const QString& newString) {
+    EvaluationEngine::evaluate(newString, MainWin->variables)->then([ = ](EvaluationEngine::Result r) {
         switch (r.type) {
             case EvaluationEngine::Result::Scalar:
                 ui->answerLabel->setText(idbToString(r.result));
@@ -248,8 +240,7 @@ void CalculatorWidget::on_expressionBox_expressionUpdated(const QString &newStri
 }
 
 
-void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2)
-{
+void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2) {
     QString relevantText = ui->expressionBox->getFixedExpression().left(arg2);
     //Find the previous function
     QRegularExpression regex("\\w+?(?=[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁱ]*\\()");
@@ -366,8 +357,8 @@ void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2
     }
     anim->setDuration(250);
     anim->setEasingCurve(QEasingCurve::OutCubic);
-    connect(anim, &tVariantAnimation::valueChanged, [=](QVariant value) {
-       ui->helpWidget->setFixedHeight(value.toInt());
+    connect(anim, &tVariantAnimation::valueChanged, [ = ](QVariant value) {
+        ui->helpWidget->setFixedHeight(value.toInt());
     });
     connect(anim, &tVariantAnimation::finished, anim, &tVariantAnimation::deleteLater);
     anim->start();
@@ -377,24 +368,21 @@ void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2
     }
 }
 
-void CalculatorWidget::on_nextOverload_clicked()
-{
+void CalculatorWidget::on_nextOverload_clicked() {
     if (currentOverload + 1 != numOverloads) {
         currentOverload++;
         on_expressionBox_cursorPositionChanged(ui->expressionBox->cursorPosition(), ui->expressionBox->cursorPosition());
     }
 }
 
-void CalculatorWidget::on_previousOverload_clicked()
-{
+void CalculatorWidget::on_previousOverload_clicked() {
     if (currentOverload != 0) {
         currentOverload--;
         on_expressionBox_cursorPositionChanged(ui->expressionBox->cursorPosition(), ui->expressionBox->cursorPosition());
     }
 }
 
-void CalculatorWidget::on_expressionBox_returnPressed()
-{
+void CalculatorWidget::on_expressionBox_returnPressed() {
     ui->EqualButton->click();
 }
 
@@ -421,7 +409,7 @@ void CalculatorWidget::flashError() {
     a->setDuration(1000);
     a->setEasingCurve(QEasingCurve::Linear);
     connect(a, &tVariantAnimation::finished, a, &tVariantAnimation::deleteLater);
-    connect(a, &tVariantAnimation::valueChanged, [=](QVariant value) {
+    connect(a, &tVariantAnimation::valueChanged, [ = ](QVariant value) {
         QPalette pal = this->palette();
         pal.setColor(QPalette::Window, value.value<QColor>());
         ui->expressionBox->setPalette(pal);

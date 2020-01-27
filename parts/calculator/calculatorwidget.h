@@ -30,12 +30,11 @@ namespace Ui {
     class CalculatorWidget;
 }
 
-class CalculatorWidget : public QWidget
-{
+class CalculatorWidget : public QWidget {
         Q_OBJECT
 
     public:
-        explicit CalculatorWidget(QWidget *parent = nullptr);
+        explicit CalculatorWidget(QWidget* parent = nullptr);
         ~CalculatorWidget();
 
         static QList<CalcButton*> buttons;
@@ -46,7 +45,6 @@ class CalculatorWidget : public QWidget
 
     signals:
         void manageFunctions();
-        void sizeHintChanged();
 
     private slots:
         void on_expandButton_clicked();
@@ -59,7 +57,7 @@ class CalculatorWidget : public QWidget
 
         void on_EqualButton_clicked();
 
-        void on_expressionBox_expressionUpdated(const QString &);
+        void on_expressionBox_expressionUpdated(const QString&);
 
         void on_expressionBox_cursorPositionChanged(int arg1, int arg2);
 
@@ -70,7 +68,7 @@ class CalculatorWidget : public QWidget
         void on_expressionBox_returnPressed();
 
     private:
-        Ui::CalculatorWidget *ui;
+        Ui::CalculatorWidget* ui;
 
         void resizeAnswerLabel();
         void flashError();

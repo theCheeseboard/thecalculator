@@ -89,48 +89,37 @@ uint qHash(const idouble& key) {
     return realHash ^ imHash;
 }
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     //Determine whether to start a QApplication or QCoreApplication
-    QCoreApplication* a = nullptr;
     for (int i = 1; i < argc; i++) {
         if (qstrcmp(argv[i], "-e") == 0 || qstrcmp(argv[i], "--evaluate") == 0 || qstrcmp(argv[i], "-g") == 0 || qstrcmp(argv[i], "--graph") == 0) {
             qputenv("QT_QPA_PLATFORM", "offscreen"); //Start offscreen so we don't create a connection to the X server
         }
     }
 
-    a = new tApplication(argc, argv);
+    tApplication a(argc, argv);
 
-    a->setOrganizationName("theSuite");
-    a->setOrganizationDomain("");
-    a->setApplicationName("theCalculator");
-    a->setApplicationVersion("2.2");
-
-    QTranslator qtTranslator;
-    qtTranslator.load("qt_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-    a->installTranslator(&qtTranslator);
-
-    QTranslator localTranslator;
-#ifdef Q_OS_MAC
-    a->setAttribute(Qt::AA_DontShowIconsInMenus, true);
-
-    CFURLRef appUrlRef = CFBundleCopyBundleURL(CFBundleGetMainBundle());
-    CFStringRef macPath = CFURLCopyFileSystemPath(appUrlRef, kCFURLPOSIXPathStyle);
-    const char *pathPtr = CFStringGetCStringPtr(macPath, CFStringGetSystemEncoding());
-
-    localTranslator.load(QLocale::system().name(), QString::fromLocal8Bit(pathPtr) + "/Contents/translations/");
-
-    CFRelease(appUrlRef);
-    CFRelease(macPath);
-#endif
-
-#ifdef Q_OS_LINUX
-    localTranslator.load(QLocale::system().name(), "/usr/share/thecalculator/translations");
-#endif
-
-    a->installTranslator(&localTranslator);
     EvaluationEngine::setupFunctions();
 
+#ifdef Q_OS_LINUX
+    if (QDir("/usr/share/thecalculator").exists()) {
+        a.setShareDir("/usr/share/thecalculator");
+    } else if (QDir(QDir::cleanPath(QApplication::applicationDirPath() + "/../share/thecalculator/")).exists()) {
+        a.setShareDir(QDir::cleanPath(QApplication::applicationDirPath() + "/../share/thecalculator/"));
+    }
+#endif
+    a.installTranslators();
+
+    a.setOrganizationName("theSuite");
+    a.setOrganizationDomain("");
+    a.setApplicationName("theCalculator");
+    a.setApplicationVersion("2.2");
+    a.setApplicationIcon(QIcon::fromTheme("thecalculator", QIcon(":/icons/icon.svg")));
+    a.setGenericName(QApplication::translate("main", "Calculator"));
+    a.setAboutDialogSplashGraphic(a.aboutDialogSplashGraphicFromSvg(":/aboutsplash.svg"));
+    a.setApplicationLicense(tApplication::Gpl3OrLater);
+    a.setCopyrightHolder("Victor Tran");
+    a.setCopyrightYear("2020");
 
     QCommandLineParser parser;
     parser.setApplicationDescription(QApplication::translate("main", "Calculator"));
@@ -140,7 +129,7 @@ int main(int argc, char *argv[])
         {{"g", "graph"}, QApplication::translate("main", "Generate a graph in PNG format and write the data to stdout.")},
         {{"e", "evaluate"}, QApplication::translate("main", "Evaluate <expression>, print the result to standard output, then exit."), QApplication::translate("main", "expression")}
     });
-    parser.parse(a->arguments());
+    parser.parse(a.arguments());
 
     if (parser.isSet(versionOption)) parser.showVersion(); //Show version and kill the app here
 
@@ -159,16 +148,16 @@ int main(int argc, char *argv[])
         });
         parser.addPositionalArgument("width", QApplication::translate("main", "Width of the graph, in pixels"), "-g width");
         parser.addPositionalArgument("height", QApplication::translate("main", "Height of the graph, in pixels"));
-        parser.addPositionalArgument("expressions", QApplication::translate("main", "Expressions to graph"),"expressions...");
-        parser.process(*a);
+        parser.addPositionalArgument("expressions", QApplication::translate("main", "Expressions to graph"), "expressions...");
+        parser.process(a);
 
         //Ensure all the command line options are valid
         QTextStream out(stdout);
         QTextStream err(stderr);
         if (parser.positionalArguments().count() < 3) {
             err << "thecalculator: " + QApplication::translate("main", "missing operand") + "\n";
-            err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a->arguments().first()) + "\n";
-            err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a->arguments().first()) + "\n";
+            err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a.arguments().first()) + "\n";
+            err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a.arguments().first()) + "\n";
             return 1;
         }
 
@@ -179,15 +168,15 @@ int main(int argc, char *argv[])
 
         if (!widthOk || width < 1) {
             err << "thecalculator: " + QApplication::translate("main", "invalid output width") + "\n";
-            err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a->arguments().first()) + "\n";
-            err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a->arguments().first()) + "\n";
+            err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a.arguments().first()) + "\n";
+            err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a.arguments().first()) + "\n";
             return 1;
         }
 
         if (!heightOk || height < 1) {
             err << "thecalculator: " + QApplication::translate("main", "invalid output height") + "\n";
-            err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a->arguments().first()) + "\n";
-            err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a->arguments().first()) + "\n";
+            err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a.arguments().first()) + "\n";
+            err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a.arguments().first()) + "\n";
             return 1;
         }
 
@@ -201,8 +190,8 @@ int main(int argc, char *argv[])
             centerPoint.setX(parser.value("cx").toDouble(&cxOk));
             if (!cxOk) {
                 err << "thecalculator: " + QApplication::translate("main", "invalid center x position") + "\n";
-                err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a->arguments().first()) + "\n";
-                err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a->arguments().first()) + "\n";
+                err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a.arguments().first()) + "\n";
+                err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a.arguments().first()) + "\n";
                 return 1;
             }
         }
@@ -212,8 +201,8 @@ int main(int argc, char *argv[])
             centerPoint.setY(parser.value("cy").toDouble(&cyOk));
             if (!cyOk) {
                 err << "thecalculator: " + QApplication::translate("main", "invalid center y position") + "\n";
-                err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a->arguments().first()) + "\n";
-                err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a->arguments().first()) + "\n";
+                err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a.arguments().first()) + "\n";
+                err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a.arguments().first()) + "\n";
                 return 1;
             }
         }
@@ -225,8 +214,8 @@ int main(int argc, char *argv[])
             graph.setXScale(parser.value("sx").toDouble(&sxOk));
             if (!sxOk) {
                 err << "thecalculator: " + QApplication::translate("main", "invalid x scale value") + "\n";
-                err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a->arguments().first()) + "\n";
-                err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a->arguments().first()) + "\n";
+                err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a.arguments().first()) + "\n";
+                err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a.arguments().first()) + "\n";
                 return 1;
             }
         }
@@ -236,8 +225,8 @@ int main(int argc, char *argv[])
             graph.setYScale(parser.value("sy").toDouble(&syOk));
             if (!syOk) {
                 err << "thecalculator: " + QApplication::translate("main", "invalid y scale value") + "\n";
-                err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a->arguments().first()) + "\n";
-                err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a->arguments().first()) + "\n";
+                err << QApplication::translate("main", "Usage: %1 [options] -g width height expressions...").arg(a.arguments().first()) + "\n";
+                err << "       " + QApplication::translate("main", "%1 -gh for more information.").arg(a.arguments().first()) + "\n";
                 return 1;
             }
         }
@@ -270,7 +259,7 @@ int main(int argc, char *argv[])
         if (parser.value("e") == "") {
             MainWin = new MainWindow();
             MainWin->show();
-            return a->exec();
+            return a.exec();
         } else {
             EvaluationEngine engine;
             QList<QPair<QString, QString>> outputs;
