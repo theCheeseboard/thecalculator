@@ -127,11 +127,22 @@ int main(int argc, char* argv[]) {
     QCommandLineOption versionOption = parser.addVersionOption();
     parser.addOptions({
         {{"g", "graph"}, QApplication::translate("main", "Generate a graph in PNG format and write the data to stdout.")},
-        {{"e", "evaluate"}, QApplication::translate("main", "Evaluate <expression>, print the result to standard output, then exit."), QApplication::translate("main", "expression")}
+        {{"e", "evaluate"}, QApplication::translate("main", "Evaluate <expression>, print the result to standard output, then exit."), QApplication::translate("main", "expression")},
+        {{"c", "nocolor"}, QApplication::translate("main", "Do not output colour."), QApplication::translate("main", "expression")}
     });
     parser.parse(a.arguments());
 
     if (parser.isSet(versionOption)) parser.showVersion(); //Show version and kill the app here
+
+    QMap<QString, QString> termCol;
+    if (!parser.isSet("c")) {
+        termCol = {
+            {"reset",   "\033[0m"},
+            {"bold",    "\033[1m"},
+            {"red",     "\033[31m"},
+            {"yellow",  "\033[33m"}
+        };
+    }
 
     if (parser.isSet("g")) {
         QCommandLineParser parser;
@@ -282,9 +293,45 @@ int main(int argc, char* argv[]) {
                     case EvaluationEngine::Result::Assign:
                         variables.insert(res.identifier, res.value);
                         break;
-                    case EvaluationEngine::Result::Error:
-                        outputs.append(QPair<QString, QString>(e, res.error));
+                    case EvaluationEngine::Result::Error: {
+                        QStringList errorText;
+                        errorText.append(termCol.value("yellow") + res.error + termCol.value("reset"));
+
+                        QString locationText = QApplication::translate("MainWindow", "Location") + ": ";
+
+                        QString errorExpression;
+                        errorExpression = locationText;
+                        errorExpression.append(e.left(res.location));
+                        errorExpression.append(termCol.value("red"));
+                        errorExpression.append(e.mid(res.location, res.length));
+                        errorExpression.append(termCol.value("reset"));
+                        errorExpression.append(e.mid(res.location + res.length));
+                        errorText.append(errorExpression);
+
+                        if (termCol.count() == 0 || res.length == 0) {
+                            QString location;
+                            QString here = QApplication::translate("MainWindow", "Here").toUpper();
+
+                            //Have at least one arrow
+                            if (res.length == 0) res.length = 1;
+
+                            if (res.location + locationText.length() < here.length() + 1) {
+                                location.fill(' ', res.location + location.length());
+                                location.append(QString().fill('^', res.length));
+                                location.append(" ");
+                                location.append(here);
+                            } else {
+                                location.fill(' ', locationText.length() + res.location - here.length() - 1);
+                                location.append(here);
+                                location.append(" ");
+                                location.append(QString().fill('^', res.length));
+                            }
+                            errorText.append(location);
+                        }
+
+                        outputs.append(QPair<QString, QString>(e, errorText.join("\n")));
                         break;
+                    }
                 }
 
                 if (res.type == EvaluationEngine::Result::Error) {
@@ -300,7 +347,7 @@ int main(int argc, char* argv[]) {
                 out << outputs.first().second.append("\n");
             } else {
                 for (QPair<QString, QString> output : outputs) {
-                    out << output.first.append(": ").append(output.second).append("\n");
+                    out << termCol.value("bold") << output.first << ":" << termCol.value("reset") << "\n" << output.second << "\n";
                 }
             }
 
