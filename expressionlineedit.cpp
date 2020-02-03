@@ -87,6 +87,8 @@ void ExpressionLineEdit::keyPressEvent(QKeyEvent *event) {
         this->backspace();
     } else if (event->key() == Qt::Key_Delete) {
         this->del();
+    } else if (event->key() == Qt::Key_Escape) {
+        this->clear();
     } else if (event->text() == "") {
         QLineEdit::keyPressEvent(event);
     } else {
