@@ -184,6 +184,11 @@
         <translation type="unfinished">Radice N-esima</translation>
     </message>
     <message>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="675"/>
+        <source>Logarithm with base</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="685"/>
         <source>Hyperbolic Arc Sine</source>
         <translation type="unfinished">Arcoseno Iperbolico</translation>
@@ -369,35 +374,35 @@
         <translation type="unfinished">Valutare</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="180"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="181"/>
         <source>%1 assigned to %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="189"/>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="239"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="190"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="240"/>
         <source>TRUE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="189"/>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="239"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="190"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="240"/>
         <source>FALSE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="236"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="237"/>
         <source>Assign %1 to %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="332"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="333"/>
         <source>No arguments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="333"/>
-        <location filename="../parts/calculator/calculatorwidget.cpp" line="350"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="334"/>
+        <location filename="../parts/calculator/calculatorwidget.cpp" line="351"/>
         <source>function</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1332,6 +1337,49 @@
     </message>
 </context>
 <context>
+    <name>LogBasePopover</name>
+    <message>
+        <location filename="../parts/calculator/logbasepopover.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/calculator/logbasepopover.ui" line="71"/>
+        <source>Logarithm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/calculator/logbasepopover.ui" line="125"/>
+        <source>Enter the parameters for the operation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/calculator/logbasepopover.ui" line="139"/>
+        <source>log</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/calculator/logbasepopover.ui" line="161"/>
+        <source>Base</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/calculator/logbasepopover.ui" line="173"/>
+        <source>(</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/calculator/logbasepopover.ui" line="197"/>
+        <source>Number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/calculator/logbasepopover.ui" line="209"/>
+        <source>)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
@@ -1458,23 +1506,23 @@
         <translation type="unfinished">Radice N-esima</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/nthrootpopover.ui" line="124"/>
+        <location filename="../parts/calculator/nthrootpopover.ui" line="125"/>
         <source>Enter the parameters for the operation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/nthrootpopover.ui" line="148"/>
+        <location filename="../parts/calculator/nthrootpopover.ui" line="149"/>
         <source>Base</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/nthrootpopover.ui" line="160"/>
+        <location filename="../parts/calculator/nthrootpopover.ui" line="161"/>
         <source>√</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/nthrootpopover.ui" line="184"/>
-        <source>Number</source>
+        <location filename="../parts/calculator/nthrootpopover.ui" line="185"/>
+        <source>Radicand</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -69,6 +69,8 @@ class CalculatorWidget : public QWidget {
 
         void on_NthRootButton_clicked();
 
+        void on_LogBaseButton_clicked();
+
     private:
         Ui::CalculatorWidget* ui;
 

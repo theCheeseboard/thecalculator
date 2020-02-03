@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>NthRootPopover</class>
- <widget class="QWidget" name="NthRootPopover">
+ <class>LogBasePopover</class>
+ <widget class="QWidget" name="LogBasePopover">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -68,7 +68,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Nth Root</string>
+        <string>Logarithm</string>
        </property>
        <property name="margin">
         <number>9</number>
@@ -129,9 +129,21 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
+         <widget class="QLabel" name="label_2">
+          <property name="font">
+           <font>
+            <pointsize>30</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>log</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="ExpressionLineEdit" name="baseEdit">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
             <horstretch>1</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -143,7 +155,7 @@
            <bool>false</bool>
           </property>
           <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
           </property>
           <property name="placeholderText">
            <string>Base</string>
@@ -151,14 +163,14 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_2">
+         <widget class="QLabel" name="label_4">
           <property name="font">
            <font>
             <pointsize>30</pointsize>
            </font>
           </property>
           <property name="text">
-           <string>√</string>
+           <string>(</string>
           </property>
          </widget>
         </item>
@@ -182,7 +194,19 @@
            <bool>false</bool>
           </property>
           <property name="placeholderText">
-           <string>Radicand</string>
+           <string>Number</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="font">
+           <font>
+            <pointsize>30</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>)</string>
           </property>
          </widget>
         </item>
@@ -219,34 +243,34 @@
  <resources/>
  <connections>
   <connection>
-   <sender>baseEdit</sender>
-   <signal>returnPressed()</signal>
-   <receiver>okButton</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>68</x>
-     <y>97</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>377</x>
-     <y>19</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>numberEdit</sender>
    <signal>returnPressed()</signal>
    <receiver>okButton</receiver>
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>112</y>
+     <x>306</x>
+     <y>103</y>
     </hint>
     <hint type="destinationlabel">
-     <x>382</x>
-     <y>27</y>
+     <x>385</x>
+     <y>26</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>baseEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>okButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>112</x>
+     <y>82</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>388</x>
+     <y>29</y>
     </hint>
    </hints>
   </connection>

@@ -30,6 +30,7 @@
 #include "evaluationengine.h"
 #include <tpopover.h>
 #include "nthrootpopover.h"
+#include "logbasepopover.h"
 
 QList<CalcButton*> CalculatorWidget::buttons = QList<CalcButton*>();
 extern QString idbToString(idouble db);
@@ -425,13 +426,33 @@ void CalculatorWidget::on_NthRootButton_clicked() {
 
     NthRootPopover* p = new NthRootPopover();
     tPopover* popover = new tPopover(p);
-    popover->setPopoverWidth(SC_DPI(300));
+    popover->setPopoverWidth(SC_DPI(400));
     connect(p, &NthRootPopover::rejected, popover, &tPopover::dismiss);
     connect(p, &NthRootPopover::accepted, this, [ = ](QString text) {
         this->ButtonPressed(text);
         popover->dismiss();
     });
     connect(popover, &tPopover::dismissed, p, &NthRootPopover::deleteLater);
+    connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
+    connect(popover, &tPopover::dismiss, this, [ = ] {
+        grabExpKeyboard(true);
+    });
+    popover->show(this->window());
+}
+
+void CalculatorWidget::on_LogBaseButton_clicked()
+{
+    grabExpKeyboard(false);
+
+    LogBasePopover* p = new LogBasePopover();
+    tPopover* popover = new tPopover(p);
+    popover->setPopoverWidth(SC_DPI(400));
+    connect(p, &LogBasePopover::rejected, popover, &tPopover::dismiss);
+    connect(p, &LogBasePopover::accepted, this, [ = ](QString text) {
+        this->ButtonPressed(text);
+        popover->dismiss();
+    });
+    connect(popover, &tPopover::dismissed, p, &LogBasePopover::deleteLater);
     connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
     connect(popover, &tPopover::dismiss, this, [ = ] {
         grabExpKeyboard(true);

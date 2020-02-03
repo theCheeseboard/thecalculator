@@ -61,6 +61,7 @@ SOURCES += \
     expressionlineedit.cpp \
     evaluationengine.cpp \
     parts/calculator/calculatorwidget.cpp \
+    parts/calculator/logbasepopover.cpp \
     parts/calculator/nthrootpopover.cpp \
     parts/functions/functionwidget.cpp \
     parts/graph/graphwidget.cpp \
@@ -83,6 +84,7 @@ HEADERS += \
     evaluationengine.h \
     evaluationengineheaders.h \
     parts/calculator/calculatorwidget.h \
+    parts/calculator/logbasepopover.h \
     parts/calculator/nthrootpopover.h \
     parts/functions/functionwidget.h \
     parts/graph/graphwidget.h \
@@ -99,6 +101,7 @@ FORMS += \
     customs/branchbox.ui \
     customs/conditionbox.ui \
     parts/calculator/calculatorwidget.ui \
+    parts/calculator/logbasepopover.ui \
     parts/calculator/nthrootpopover.ui \
     parts/functions/functionwidget.ui \
     parts/graph/graphwidget.ui \
