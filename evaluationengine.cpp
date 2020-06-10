@@ -86,8 +86,7 @@ int CustomFunction::overloads() {
     return d->args.count();
 }
 
-EvaluationEngine::EvaluationEngine(QObject *parent) : QObject(parent)
-{
+EvaluationEngine::EvaluationEngine(QObject* parent) : QObject(parent) {
     QT_TR_NOOP("%1: unknown variable");
     QT_TR_NOOP("div: division by 0 undefined");
     QT_TR_NOOP("%1: undefined function");
@@ -98,7 +97,7 @@ EvaluationEngine::~EvaluationEngine() {
 }
 
 tPromise<EvaluationEngine::Result>* EvaluationEngine::evaluate(QString expression, QMap<QString, idouble> variables) {
-    return new tPromise<Result>([=](QString& error) -> Result {
+    return new tPromise<Result>([ = ](QString & error) -> Result {
         EvaluationEngine engine;
         engine.setExpression(expression);
         engine.setVariables(variables);
@@ -133,23 +132,23 @@ EvaluationEngine::Result EvaluationEngine::evaluate() {
         }
     }
     EvaluationEngineParameters p;
-    p.resultFunction = [=](idouble r) { //Success
+    p.resultFunction = [ = ](idouble r) { //Success
         result->result = r;
         result->type = Result::Scalar;
     };
-    p.errorFunction = [=](int location, int length, const char* s) { //Error
+    p.errorFunction = [ = ](int location, int length, const char* s) { //Error
         result->error = QString::fromLocal8Bit(s);
         result->location = location;
         result->length = length;
         result->type = Result::Error;
     };
-    p.assignFunction = [=](QString identifier, idouble value) { //Assignment
+    p.assignFunction = [ = ](QString identifier, idouble value) { //Assignment
         result->assigned = true;
         result->identifier = identifier;
         result->value = value;
         result->type = Result::Assign;
     };
-    p.equalityFunction = [=](bool isTrue) { //Equality
+    p.equalityFunction = [ = ](bool isTrue) { //Equality
         result->isTrue = isTrue;
         result->type = Result::Equality;
     };
@@ -184,16 +183,16 @@ void EvaluationEngine::setupFunctions() {
     customFunctions.clear();
 
     //Insert all the builtin functions
-    customFunctions.insert("abs", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("abs", createSingleArgFunction([ = ](idouble arg, QString & error) {
         return abs(arg);
     }, "abs", tr("Calculates the %1 of a %2").arg(tr("absolute value"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("absolute value"))));
-    customFunctions.insert("sqrt", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("sqrt", createSingleArgFunction([ = ](idouble arg, QString & error) {
         return sqrt(arg);
     }, "sqrt", tr("Calculates the %1 of a %2").arg(tr("square root"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("square root"))));
-    customFunctions.insert("cbrt", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("cbrt", createSingleArgFunction([ = ](idouble arg, QString & error) {
         return pow(arg, 1 / (float) 3);
     }, "cbrt", tr("Calculates the %1 of a %2").arg(tr("cube root"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("cube root"))));
-    customFunctions.insert("root", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
+    customFunctions.insert("root", CustomFunction([ = ](QList<idouble> args, QString & error) -> idouble {
         if (args.length() == 2) {
             idouble first = args.first();
             idouble second = args.at(1);
@@ -209,10 +208,10 @@ void EvaluationEngine::setupFunctions() {
             return 0;
         }
     }, tr("Calculates the %1 of a %2").arg(tr("root"), tr("number")),
-        QStringList() << tr("radicand") + ":" + tr("The %1 to calculate the %2 of").arg(tr("number"), tr("root"))
-                      << tr("index") + ":" + tr("The number to root by")
-    ));
-    customFunctions.insert("fact", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
+    QStringList() << tr("radicand") + ":" + tr("The %1 to calculate the %2 of").arg(tr("number"), tr("root"))
+        << tr("index") + ":" + tr("The number to root by")
+        ));
+    customFunctions.insert("fact", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
         if (arg.imag() != 0) {
             error = tr("fact: input (%1) not a real number").arg(idbToString(arg));
             return 0;
@@ -225,15 +224,15 @@ void EvaluationEngine::setupFunctions() {
             return arg.real() * tgamma(arg.real());
         }
     }, "fact", tr("Calculates the %1 of an %2").arg(tr("factorial"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("factorial"))));
-    customFunctions.insert("sin", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("sin", createSingleArgFunction([ = ](idouble arg, QString & error) {
         Q_UNUSED(error)
         return sin(toRad(arg));
     }, "sin", tr("Calculates the %1 of an %2").arg(tr("sine"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("sine"))));
-    customFunctions.insert("cos", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("cos", createSingleArgFunction([ = ](idouble arg, QString & error) {
         Q_UNUSED(error)
         return cos(toRad(arg));
     }, "cos", tr("Calculates the %1 of an %2").arg(tr("cosine"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("cosine"))));
-    customFunctions.insert("tan", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
+    customFunctions.insert("tan", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
         Q_UNUSED(error)
 
         if (arg.imag() == 0) {
@@ -258,19 +257,19 @@ void EvaluationEngine::setupFunctions() {
 
         return tan(toRad(arg));
     }, "tan", tr("Calculates the %1 of a %2").arg(tr("tangent"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("tangent"))));
-    customFunctions.insert("conj", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("conj", createSingleArgFunction([ = ](idouble arg, QString & error) {
         Q_UNUSED(error)
         return conj(arg);
     }, "conj", tr("Calculates the %1 of a %2").arg(tr("conjugate"), tr("complex number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("complex number"), tr("conjugate"))));
-    customFunctions.insert("im", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("im", createSingleArgFunction([ = ](idouble arg, QString & error) {
         Q_UNUSED(error)
         return arg.imag();
     }, "im", tr("Calculates the %1 of a %2").arg(tr("imaginary portion"), tr("complex number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("imaginary portion"))));
-    customFunctions.insert("re", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("re", createSingleArgFunction([ = ](idouble arg, QString & error) {
         Q_UNUSED(error)
         return arg.real();
     }, "re", tr("Calculates the %1 of a %2").arg(tr("real portion"), tr("complex number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("real portion"))));
-    customFunctions.insert("arg", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
+    customFunctions.insert("arg", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
         if (arg.real() == 0 && arg.imag() == 0) {
             error = tr("arg: phase angle of 0 undefined");
             return 0;
@@ -278,7 +277,7 @@ void EvaluationEngine::setupFunctions() {
         return fromRad(std::arg(arg));
     }, "arg", tr("Calculates the %1 of a %2").arg(tr("phase angle"), tr("complex number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("phase angle"))));
 
-    customFunctions.insert("asin", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
+    customFunctions.insert("asin", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
         if (abs(arg) > 1) {
             error = tr("asin: input (%1) out of bounds (between -1 and 1)").arg(idbToString(arg));
             return 0;
@@ -286,7 +285,7 @@ void EvaluationEngine::setupFunctions() {
             return fromRad(asin(arg));
         }
     }, "asin", tr("Calculates the %1 of an %2").arg(tr("arcsine (inverse sine)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arcsine"))));
-    customFunctions.insert("acos", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
+    customFunctions.insert("acos", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
         if (abs(arg) > 1) {
             error = tr("acos: input (%1) out of bounds (between -1 and 1)").arg(idbToString(arg));
             return 0;
@@ -294,13 +293,17 @@ void EvaluationEngine::setupFunctions() {
             return fromRad(acos(arg));
         }
     }, "acos", tr("Calculates the %1 of an %2").arg(tr("arccosine (inverse cosine)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arccosine"))));
-    customFunctions.insert("atan", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
-        Q_UNUSED(error)
-        return fromRad(atan(arg));
-    }, "atan", tr("Calculates the %1 of an %2").arg(tr("arctangent (inverse tangent)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arctangent"))));
-    customFunctions.insert("sec", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
+    customFunctions.insert("atan", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
         Q_UNUSED(error)
 
+        if (arg.real() == 0 && (arg.imag() == 1 || arg.imag() == -1)) {
+            error = tr("atan: input (%1) out of bounds (not i or -i)").arg(idbToString(arg));
+            return 0;
+        }
+
+        return fromRad(atan(arg));
+    }, "atan", tr("Calculates the %1 of an %2").arg(tr("arctangent (inverse tangent)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arctangent"))));
+    customFunctions.insert("sec", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
         if (arg.imag() == 0) {
             QString errStr = tr("sec: input (%1) out of bounds (not %2)");
             if (trigUnit == Degrees) {
@@ -323,7 +326,7 @@ void EvaluationEngine::setupFunctions() {
 
         return idouble(1) / cos(toRad(arg));
     }, "sec", tr("Calculates the %1 of an %2").arg(tr("secant"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("secant"))));
-    customFunctions.insert("csc", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
+    customFunctions.insert("csc", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
         Q_UNUSED(error)
 
         if (arg.imag() == 0) {
@@ -348,7 +351,7 @@ void EvaluationEngine::setupFunctions() {
 
         return idouble(1) / sin(toRad(arg));
     }, "csc", tr("Calculates the %1 of an %2").arg(tr("cosecant"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("cosecant"))));
-    customFunctions.insert("cot", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
+    customFunctions.insert("cot", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
         Q_UNUSED(error)
 
         if (arg.imag() == 0) {
@@ -373,7 +376,7 @@ void EvaluationEngine::setupFunctions() {
 
         return idouble(1) / tan(toRad(arg));
     }, "cot", tr("Calculates the %1 of an %2").arg(tr("cotangent"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("cotangent"))));
-    customFunctions.insert("asec", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
+    customFunctions.insert("asec", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
         Q_UNUSED(error)
 
         if (arg.real() == 0 && arg.imag() == 0) {
@@ -383,7 +386,7 @@ void EvaluationEngine::setupFunctions() {
 
         return fromRad(acos(idouble(1) / arg));
     }, "asec", tr("Calculates the %1 of an %2").arg(tr("arcsecant (inverse secant)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arcsecant"))));
-    customFunctions.insert("acsc", createSingleArgFunction([=](idouble arg, QString& error) -> idouble{
+    customFunctions.insert("acsc", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble{
         Q_UNUSED(error)
 
         if (arg.real() == 0 && arg.imag() == 0) {
@@ -393,7 +396,7 @@ void EvaluationEngine::setupFunctions() {
 
         return fromRad(asin(idouble(1) / arg));
     }, "acsc", tr("Calculates the %1 of an %2").arg(tr("arccosecant (inverse cosecant)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arccosecant"))));
-    customFunctions.insert("acot", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("acot", createSingleArgFunction([ = ](idouble arg, QString & error) {
         Q_UNUSED(error)
         if (arg.real() == 0 && arg.imag() == 0) {
             return fromRad(M_PI / 2);
@@ -401,32 +404,32 @@ void EvaluationEngine::setupFunctions() {
             return fromRad(atan(idouble(1) / arg));
         }
     }, "acot", tr("Calculates the %1 of an %2").arg(tr("arccotangent (inverse cotangent)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arccotangent"))));
-    customFunctions.insert("sinh", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("sinh", createSingleArgFunction([ = ](idouble arg, QString & error) {
         Q_UNUSED(error)
         return sinh(arg);
     }, "sinh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic sine"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic sine"))));
-    customFunctions.insert("cosh", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("cosh", createSingleArgFunction([ = ](idouble arg, QString & error) {
         Q_UNUSED(error)
         return cosh(arg);
     }, "cosh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic cosine"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic cosine"))));
-    customFunctions.insert("tanh", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("tanh", createSingleArgFunction([ = ](idouble arg, QString & error) {
         Q_UNUSED(error)
         return tanh(arg);
     }, "tanh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic tangent"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic tangent"))));
-    customFunctions.insert("asinh", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("asinh", createSingleArgFunction([ = ](idouble arg, QString & error) {
         Q_UNUSED(error)
         return asinh(arg);
     }, "asinh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic arcsine (inverse hyperbolic arcsine)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic arcsine"))));
-    customFunctions.insert("acosh", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("acosh", createSingleArgFunction([ = ](idouble arg, QString & error) {
         Q_UNUSED(error)
         return acosh(arg);
     }, "acosh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic arccosine (inverse hyperbolic arccosine)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic arccosine"))));
-    customFunctions.insert("atanh", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("atanh", createSingleArgFunction([ = ](idouble arg, QString & error) {
         Q_UNUSED(error)
         return atanh(arg);
     }, "atanh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic arctangent (inverse hyperbolic arctangent)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic arctangent"))));
 
-    CustomFunction logFunction([=](QList<idouble> args, QString& error) -> idouble {
+    CustomFunction logFunction([ = ](QList<idouble> args, QString & error) -> idouble {
         if (args.length() == 1) {
             //log base 10
             if (args.first().real() == 0 && args.first().imag() == 0) {
@@ -459,12 +462,12 @@ void EvaluationEngine::setupFunctions() {
         }
     }, tr("Calculates the %1 of an %2").arg(tr("base 10 logarithm"), tr("number")), QStringList() << tr("number") + ":" + tr("The %1 to calculate the %2 of").arg(tr("number"), tr("base 10 logarithm")));
     logFunction.addOverload(tr("Calculates the %1 of an %2").arg(tr("logarithm"), tr("number")), {
-                                QStringList() << tr("number") + ":" + tr("The %1 to calculate the %2 of").arg(tr("number"), tr("logarithm"))
-                                              << tr("base") + ":" + tr("The base of the logarithm")
-                            });
+        QStringList() << tr("number") + ":" + tr("The %1 to calculate the %2 of").arg(tr("number"), tr("logarithm"))
+            << tr("base") + ":" + tr("The base of the logarithm")
+    });
     customFunctions.insert("log", logFunction);
 
-    customFunctions.insert("ln", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
+    customFunctions.insert("ln", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
         if (arg.real() == 0 && arg.imag() == 0) {
             error = tr("ln: input (%1) out of bounds (not 0)").arg(idbToString(arg));
             return 0;
@@ -473,7 +476,7 @@ void EvaluationEngine::setupFunctions() {
         return log(arg);
     }, "ln", tr("Calculates the %1 of an %2").arg(tr("base e logarithm"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("base e logarithm"))));
 
-    customFunctions.insert("lsh", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
+    customFunctions.insert("lsh", CustomFunction([ = ](QList<idouble> args, QString & error) -> idouble {
         if (args.length() == 2) {
             idouble first = args.first();
             idouble second = args.at(1);
@@ -503,7 +506,7 @@ void EvaluationEngine::setupFunctions() {
             return 0;
         }
     }, tr("Shifts a number to the left by a specified number of bits"), QStringList() << tr("number") + ":" + tr("The number to shift") << tr("amount") + ":" + tr("The number of bits to shift by")));
-    customFunctions.insert("rsh", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
+    customFunctions.insert("rsh", CustomFunction([ = ](QList<idouble> args, QString & error) -> idouble {
         if (args.length() == 2) {
             idouble first = args.first();
             idouble second = args.at(1);
@@ -533,13 +536,13 @@ void EvaluationEngine::setupFunctions() {
             return 0;
         }
     }, tr("Shifts a number to the right by a specified number of bits"), QStringList() << tr("number") + ":" + tr("The number to shift") << tr("amount") + ":" + tr("The number of bits to shift by")));
-    customFunctions.insert("pow", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
+    customFunctions.insert("pow", CustomFunction([ = ](QList<idouble> args, QString & error) -> idouble {
         if (args.length() == 2) {
             idouble first = args.first();
             idouble second = args.at(1);
 
             if (first.real() == 0 && first.imag() == 0 &&
-                    second.real() <= 0 && second.imag() == 0) {
+                second.real() <= 0 && second.imag() == 0) {
                 error = tr("pow: arg2 (%1) out of bounds for arg1 (0) (should be positive)").arg(idbToString(second));
                 return 0;
             }
@@ -555,7 +558,7 @@ void EvaluationEngine::setupFunctions() {
             return 0;
         }
     }, tr("Calculates an exponent"), QStringList() << tr("base") + ":" + tr("The base of the exponent") << tr("exponent") + ":" + tr("The number to exponentiate by")));
-    customFunctions.insert("mod", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
+    customFunctions.insert("mod", CustomFunction([ = ](QList<idouble> args, QString & error) -> idouble {
         if (args.length() == 2) {
             idouble first = args.first();
             idouble second = args.at(1);
@@ -582,14 +585,14 @@ void EvaluationEngine::setupFunctions() {
         }
     }, tr("Calculates the remainder when dividing two numbers"), QStringList() << tr("divisor") + ":" + tr("The number to be divided") << tr("dividend") + ":" + tr("The number to divide by")));
 
-    customFunctions.insert("floor", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("floor", createSingleArgFunction([ = ](idouble arg, QString & error) {
         return floor(arg.real());
     }, "floor", tr("Calculates the %1 of an %2").arg(tr("floor"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("floor"))));
-    customFunctions.insert("ceil", createSingleArgFunction([=](idouble arg, QString& error) {
+    customFunctions.insert("ceil", createSingleArgFunction([ = ](idouble arg, QString & error) {
         return ceil(arg.real());
     }, "ceil", tr("Calculates the %1 of an %2").arg(tr("ceiling"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("ceiling"))));
 
-    CustomFunction randomFunction([=](QList<idouble> args, QString& error) -> idouble {
+    CustomFunction randomFunction([ = ](QList<idouble> args, QString & error) -> idouble {
         QRandomGenerator* gen = QRandomGenerator::system();
 
         if (args.length() == 0) {
@@ -631,7 +634,7 @@ void EvaluationEngine::setupFunctions() {
             QJsonObject obj = doc.object();
             QJsonArray overloads = obj.value("overloads").toArray();
 
-            CustomFunction func([=](QList<idouble> args, QString& error) -> idouble {
+            CustomFunction func([ = ](QList<idouble> args, QString & error) -> idouble {
                 QStringList argCounts;
                 EvaluationEngine engine;
                 QMap<QString, idouble> variables;
@@ -818,8 +821,8 @@ idouble EvaluationEngine::toRad(idouble deg) {
     return deg;
 }
 
-CustomFunction EvaluationEngine::createSingleArgFunction(std::function<idouble (idouble, QString &)> fn, QString fnName, QString fnDesc, QString argName, QString argDesc) {
-    return CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
+CustomFunction EvaluationEngine::createSingleArgFunction(std::function<idouble (idouble, QString&)> fn, QString fnName, QString fnDesc, QString argName, QString argDesc) {
+    return CustomFunction([ = ](QList<idouble> args, QString & error) -> idouble {
         if (args.length() != 1) {
             error = tr("%1: expected 1 argument, got %2").arg(fnName).arg(args.length());
             return 0;

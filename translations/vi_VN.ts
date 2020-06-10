@@ -435,722 +435,727 @@
 <context>
     <name>EvaluationEngine</name>
     <message>
-        <location filename="../evaluationengine.cpp" line="91"/>
+        <location filename="../evaluationengine.cpp" line="90"/>
         <source>%1: unknown variable</source>
         <translation>%1: biến không xác định</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="92"/>
+        <location filename="../evaluationengine.cpp" line="91"/>
         <source>div: division by 0 undefined</source>
         <translation>div: chia cho số 0 không xác định</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="93"/>
+        <location filename="../evaluationengine.cpp" line="92"/>
         <source>%1: undefined function</source>
         <translation>%1: hàm số không xác định</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="114"/>
+        <location filename="../evaluationengine.cpp" line="113"/>
         <source>Stack Overflow</source>
         <translation>Lỗi tràn ngăn xếp</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="189"/>
-        <location filename="../evaluationengine.cpp" line="192"/>
-        <location filename="../evaluationengine.cpp" line="195"/>
+        <location filename="../evaluationengine.cpp" line="188"/>
+        <location filename="../evaluationengine.cpp" line="191"/>
+        <location filename="../evaluationengine.cpp" line="194"/>
+        <location filename="../evaluationengine.cpp" line="210"/>
         <location filename="../evaluationengine.cpp" line="211"/>
-        <location filename="../evaluationengine.cpp" line="212"/>
-        <location filename="../evaluationengine.cpp" line="260"/>
-        <location filename="../evaluationengine.cpp" line="264"/>
-        <location filename="../evaluationengine.cpp" line="268"/>
-        <location filename="../evaluationengine.cpp" line="272"/>
-        <location filename="../evaluationengine.cpp" line="279"/>
-        <location filename="../evaluationengine.cpp" line="460"/>
-        <location filename="../evaluationengine.cpp" line="461"/>
-        <location filename="../evaluationengine.cpp" line="462"/>
-        <location filename="../evaluationengine.cpp" line="474"/>
-        <location filename="../evaluationengine.cpp" line="505"/>
-        <location filename="../evaluationengine.cpp" line="535"/>
-        <location filename="../evaluationengine.cpp" line="587"/>
+        <location filename="../evaluationengine.cpp" line="259"/>
+        <location filename="../evaluationengine.cpp" line="263"/>
+        <location filename="../evaluationengine.cpp" line="267"/>
+        <location filename="../evaluationengine.cpp" line="271"/>
+        <location filename="../evaluationengine.cpp" line="278"/>
+        <location filename="../evaluationengine.cpp" line="463"/>
+        <location filename="../evaluationengine.cpp" line="464"/>
+        <location filename="../evaluationengine.cpp" line="465"/>
+        <location filename="../evaluationengine.cpp" line="477"/>
+        <location filename="../evaluationengine.cpp" line="508"/>
+        <location filename="../evaluationengine.cpp" line="538"/>
         <location filename="../evaluationengine.cpp" line="590"/>
+        <location filename="../evaluationengine.cpp" line="593"/>
         <source>number</source>
         <translation>số</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="189"/>
-        <location filename="../evaluationengine.cpp" line="192"/>
-        <location filename="../evaluationengine.cpp" line="195"/>
-        <location filename="../evaluationengine.cpp" line="211"/>
-        <location filename="../evaluationengine.cpp" line="260"/>
-        <location filename="../evaluationengine.cpp" line="264"/>
-        <location filename="../evaluationengine.cpp" line="268"/>
-        <location filename="../evaluationengine.cpp" line="272"/>
-        <location filename="../evaluationengine.cpp" line="279"/>
+        <location filename="../evaluationengine.cpp" line="188"/>
+        <location filename="../evaluationengine.cpp" line="191"/>
+        <location filename="../evaluationengine.cpp" line="194"/>
+        <location filename="../evaluationengine.cpp" line="210"/>
+        <location filename="../evaluationengine.cpp" line="259"/>
+        <location filename="../evaluationengine.cpp" line="263"/>
+        <location filename="../evaluationengine.cpp" line="267"/>
+        <location filename="../evaluationengine.cpp" line="271"/>
+        <location filename="../evaluationengine.cpp" line="278"/>
         <source>Calculates the %1 of a %2</source>
         <translation>Tính %1 của %2</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="189"/>
+        <location filename="../evaluationengine.cpp" line="188"/>
         <source>absolute value</source>
         <translation>mô-đun</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="189"/>
-        <location filename="../evaluationengine.cpp" line="192"/>
-        <location filename="../evaluationengine.cpp" line="195"/>
-        <location filename="../evaluationengine.cpp" line="212"/>
-        <location filename="../evaluationengine.cpp" line="227"/>
-        <location filename="../evaluationengine.cpp" line="231"/>
-        <location filename="../evaluationengine.cpp" line="235"/>
-        <location filename="../evaluationengine.cpp" line="260"/>
-        <location filename="../evaluationengine.cpp" line="264"/>
-        <location filename="../evaluationengine.cpp" line="268"/>
-        <location filename="../evaluationengine.cpp" line="272"/>
-        <location filename="../evaluationengine.cpp" line="279"/>
-        <location filename="../evaluationengine.cpp" line="288"/>
-        <location filename="../evaluationengine.cpp" line="296"/>
-        <location filename="../evaluationengine.cpp" line="300"/>
-        <location filename="../evaluationengine.cpp" line="325"/>
-        <location filename="../evaluationengine.cpp" line="350"/>
-        <location filename="../evaluationengine.cpp" line="375"/>
-        <location filename="../evaluationengine.cpp" line="385"/>
-        <location filename="../evaluationengine.cpp" line="395"/>
-        <location filename="../evaluationengine.cpp" line="403"/>
-        <location filename="../evaluationengine.cpp" line="407"/>
-        <location filename="../evaluationengine.cpp" line="411"/>
-        <location filename="../evaluationengine.cpp" line="415"/>
-        <location filename="../evaluationengine.cpp" line="419"/>
-        <location filename="../evaluationengine.cpp" line="423"/>
-        <location filename="../evaluationengine.cpp" line="427"/>
-        <location filename="../evaluationengine.cpp" line="460"/>
-        <location filename="../evaluationengine.cpp" line="462"/>
-        <location filename="../evaluationengine.cpp" line="474"/>
-        <location filename="../evaluationengine.cpp" line="587"/>
+        <location filename="../evaluationengine.cpp" line="188"/>
+        <location filename="../evaluationengine.cpp" line="191"/>
+        <location filename="../evaluationengine.cpp" line="194"/>
+        <location filename="../evaluationengine.cpp" line="211"/>
+        <location filename="../evaluationengine.cpp" line="226"/>
+        <location filename="../evaluationengine.cpp" line="230"/>
+        <location filename="../evaluationengine.cpp" line="234"/>
+        <location filename="../evaluationengine.cpp" line="259"/>
+        <location filename="../evaluationengine.cpp" line="263"/>
+        <location filename="../evaluationengine.cpp" line="267"/>
+        <location filename="../evaluationengine.cpp" line="271"/>
+        <location filename="../evaluationengine.cpp" line="278"/>
+        <location filename="../evaluationengine.cpp" line="287"/>
+        <location filename="../evaluationengine.cpp" line="295"/>
+        <location filename="../evaluationengine.cpp" line="305"/>
+        <location filename="../evaluationengine.cpp" line="328"/>
+        <location filename="../evaluationengine.cpp" line="353"/>
+        <location filename="../evaluationengine.cpp" line="378"/>
+        <location filename="../evaluationengine.cpp" line="388"/>
+        <location filename="../evaluationengine.cpp" line="398"/>
+        <location filename="../evaluationengine.cpp" line="406"/>
+        <location filename="../evaluationengine.cpp" line="410"/>
+        <location filename="../evaluationengine.cpp" line="414"/>
+        <location filename="../evaluationengine.cpp" line="418"/>
+        <location filename="../evaluationengine.cpp" line="422"/>
+        <location filename="../evaluationengine.cpp" line="426"/>
+        <location filename="../evaluationengine.cpp" line="430"/>
+        <location filename="../evaluationengine.cpp" line="463"/>
+        <location filename="../evaluationengine.cpp" line="465"/>
+        <location filename="../evaluationengine.cpp" line="477"/>
         <location filename="../evaluationengine.cpp" line="590"/>
+        <location filename="../evaluationengine.cpp" line="593"/>
         <source>The %1 to calculate the %2 of</source>
         <translation>%1 để tính %2</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="192"/>
+        <location filename="../evaluationengine.cpp" line="191"/>
         <source>square root</source>
         <translation>căn bậc hai</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="195"/>
+        <location filename="../evaluationengine.cpp" line="194"/>
         <source>cube root</source>
         <translation>căn bậc ba</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="202"/>
+        <location filename="../evaluationengine.cpp" line="201"/>
         <source>root: arg1 (%1) out of bounds (not 0)</source>
         <translation>root: số dự kiến (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="208"/>
+        <location filename="../evaluationengine.cpp" line="207"/>
         <source>root: expected 2 arguments, got %1</source>
         <translation>root: cần 2 số dự kiến, đã nhận được %1</translation>
     </message>
     <message>
+        <location filename="../evaluationengine.cpp" line="210"/>
         <location filename="../evaluationengine.cpp" line="211"/>
-        <location filename="../evaluationengine.cpp" line="212"/>
         <source>root</source>
         <translation>căn bậc</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="212"/>
+        <location filename="../evaluationengine.cpp" line="211"/>
         <source>radicand</source>
         <translation>số</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="213"/>
+        <location filename="../evaluationengine.cpp" line="212"/>
         <source>index</source>
         <translation>mũ</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="213"/>
+        <location filename="../evaluationengine.cpp" line="212"/>
         <source>The number to root by</source>
         <translation>Số để căn bậc bởi</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="217"/>
+        <location filename="../evaluationengine.cpp" line="216"/>
         <source>fact: input (%1) not a real number</source>
         <translation>fact: Số dự kiến (%1) không phải số thực</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="220"/>
+        <location filename="../evaluationengine.cpp" line="219"/>
         <source>fact: input (%1) out of bounds (0 and above)</source>
         <translation>fact: số dự kiến (%1) ở ngoài giới hạn (0 va hơn)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="227"/>
-        <location filename="../evaluationengine.cpp" line="231"/>
-        <location filename="../evaluationengine.cpp" line="235"/>
-        <location filename="../evaluationengine.cpp" line="288"/>
-        <location filename="../evaluationengine.cpp" line="296"/>
-        <location filename="../evaluationengine.cpp" line="300"/>
-        <location filename="../evaluationengine.cpp" line="325"/>
-        <location filename="../evaluationengine.cpp" line="350"/>
-        <location filename="../evaluationengine.cpp" line="375"/>
-        <location filename="../evaluationengine.cpp" line="385"/>
-        <location filename="../evaluationengine.cpp" line="395"/>
-        <location filename="../evaluationengine.cpp" line="403"/>
-        <location filename="../evaluationengine.cpp" line="407"/>
-        <location filename="../evaluationengine.cpp" line="411"/>
-        <location filename="../evaluationengine.cpp" line="415"/>
-        <location filename="../evaluationengine.cpp" line="419"/>
-        <location filename="../evaluationengine.cpp" line="423"/>
-        <location filename="../evaluationengine.cpp" line="427"/>
-        <location filename="../evaluationengine.cpp" line="460"/>
-        <location filename="../evaluationengine.cpp" line="461"/>
-        <location filename="../evaluationengine.cpp" line="474"/>
-        <location filename="../evaluationengine.cpp" line="587"/>
+        <location filename="../evaluationengine.cpp" line="226"/>
+        <location filename="../evaluationengine.cpp" line="230"/>
+        <location filename="../evaluationengine.cpp" line="234"/>
+        <location filename="../evaluationengine.cpp" line="287"/>
+        <location filename="../evaluationengine.cpp" line="295"/>
+        <location filename="../evaluationengine.cpp" line="305"/>
+        <location filename="../evaluationengine.cpp" line="328"/>
+        <location filename="../evaluationengine.cpp" line="353"/>
+        <location filename="../evaluationengine.cpp" line="378"/>
+        <location filename="../evaluationengine.cpp" line="388"/>
+        <location filename="../evaluationengine.cpp" line="398"/>
+        <location filename="../evaluationengine.cpp" line="406"/>
+        <location filename="../evaluationengine.cpp" line="410"/>
+        <location filename="../evaluationengine.cpp" line="414"/>
+        <location filename="../evaluationengine.cpp" line="418"/>
+        <location filename="../evaluationengine.cpp" line="422"/>
+        <location filename="../evaluationengine.cpp" line="426"/>
+        <location filename="../evaluationengine.cpp" line="430"/>
+        <location filename="../evaluationengine.cpp" line="463"/>
+        <location filename="../evaluationengine.cpp" line="464"/>
+        <location filename="../evaluationengine.cpp" line="477"/>
         <location filename="../evaluationengine.cpp" line="590"/>
+        <location filename="../evaluationengine.cpp" line="593"/>
         <source>Calculates the %1 of an %2</source>
         <translation>Tính %1 của %2</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="227"/>
+        <location filename="../evaluationengine.cpp" line="226"/>
         <source>factorial</source>
         <translation>giai thừa</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="227"/>
-        <location filename="../evaluationengine.cpp" line="231"/>
-        <location filename="../evaluationengine.cpp" line="235"/>
-        <location filename="../evaluationengine.cpp" line="288"/>
-        <location filename="../evaluationengine.cpp" line="296"/>
-        <location filename="../evaluationengine.cpp" line="300"/>
-        <location filename="../evaluationengine.cpp" line="325"/>
-        <location filename="../evaluationengine.cpp" line="350"/>
-        <location filename="../evaluationengine.cpp" line="375"/>
-        <location filename="../evaluationengine.cpp" line="385"/>
-        <location filename="../evaluationengine.cpp" line="395"/>
-        <location filename="../evaluationengine.cpp" line="403"/>
-        <location filename="../evaluationengine.cpp" line="407"/>
-        <location filename="../evaluationengine.cpp" line="411"/>
-        <location filename="../evaluationengine.cpp" line="415"/>
-        <location filename="../evaluationengine.cpp" line="419"/>
-        <location filename="../evaluationengine.cpp" line="423"/>
-        <location filename="../evaluationengine.cpp" line="427"/>
+        <location filename="../evaluationengine.cpp" line="226"/>
+        <location filename="../evaluationengine.cpp" line="230"/>
+        <location filename="../evaluationengine.cpp" line="234"/>
+        <location filename="../evaluationengine.cpp" line="287"/>
+        <location filename="../evaluationengine.cpp" line="295"/>
+        <location filename="../evaluationengine.cpp" line="305"/>
+        <location filename="../evaluationengine.cpp" line="328"/>
+        <location filename="../evaluationengine.cpp" line="353"/>
+        <location filename="../evaluationengine.cpp" line="378"/>
+        <location filename="../evaluationengine.cpp" line="388"/>
+        <location filename="../evaluationengine.cpp" line="398"/>
+        <location filename="../evaluationengine.cpp" line="406"/>
+        <location filename="../evaluationengine.cpp" line="410"/>
+        <location filename="../evaluationengine.cpp" line="414"/>
+        <location filename="../evaluationengine.cpp" line="418"/>
+        <location filename="../evaluationengine.cpp" line="422"/>
+        <location filename="../evaluationengine.cpp" line="426"/>
+        <location filename="../evaluationengine.cpp" line="430"/>
         <source>angle</source>
         <translation>góc</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="231"/>
+        <location filename="../evaluationengine.cpp" line="230"/>
         <source>sine</source>
         <translation>sin</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="235"/>
+        <location filename="../evaluationengine.cpp" line="234"/>
         <source>cosine</source>
         <translation>côsin</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="240"/>
+        <location filename="../evaluationengine.cpp" line="239"/>
         <source>tan: input (%1) out of bounds (not %2)</source>
         <translation>tan: số dự kiến (%1) ở ngoài giới hạn (không phải %2)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="260"/>
+        <location filename="../evaluationengine.cpp" line="259"/>
         <source>tangent</source>
         <translation>tang</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="264"/>
+        <location filename="../evaluationengine.cpp" line="263"/>
         <source>conjugate</source>
         <translation>liên hợp</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="264"/>
-        <location filename="../evaluationengine.cpp" line="268"/>
-        <location filename="../evaluationengine.cpp" line="272"/>
-        <location filename="../evaluationengine.cpp" line="279"/>
+        <location filename="../evaluationengine.cpp" line="263"/>
+        <location filename="../evaluationengine.cpp" line="267"/>
+        <location filename="../evaluationengine.cpp" line="271"/>
+        <location filename="../evaluationengine.cpp" line="278"/>
         <source>complex number</source>
         <translation>số phức</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="268"/>
+        <location filename="../evaluationengine.cpp" line="267"/>
         <source>imaginary portion</source>
         <translation>phần ảo</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="272"/>
+        <location filename="../evaluationengine.cpp" line="271"/>
         <source>real portion</source>
         <translation>phần thực</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="275"/>
+        <location filename="../evaluationengine.cpp" line="274"/>
         <source>arg: phase angle of 0 undefined</source>
         <translation>arg: góc pha của 0 không xác định</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="279"/>
+        <location filename="../evaluationengine.cpp" line="278"/>
         <source>phase angle</source>
         <translation>góc pha</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="283"/>
+        <location filename="../evaluationengine.cpp" line="282"/>
         <source>asin: input (%1) out of bounds (between -1 and 1)</source>
         <translation>asin: số dự kiến (%1) ở ngoài giới hạn (từ -1 đến 1)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="288"/>
+        <location filename="../evaluationengine.cpp" line="287"/>
         <source>arcsine (inverse sine)</source>
         <translation>nghịch đảo sin</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="288"/>
+        <location filename="../evaluationengine.cpp" line="287"/>
         <source>arcsine</source>
         <translation>nghịch đảo</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="291"/>
+        <location filename="../evaluationengine.cpp" line="290"/>
         <source>acos: input (%1) out of bounds (between -1 and 1)</source>
         <translation>acos: số dự kiến (%1) ở ngoài giới hạn (từ -1 đến 1)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="296"/>
+        <location filename="../evaluationengine.cpp" line="295"/>
         <source>arccosine (inverse cosine)</source>
         <translation>nghịch đảo côsin</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="296"/>
+        <location filename="../evaluationengine.cpp" line="295"/>
         <source>arccosine</source>
         <translation>nghịch đảo côsin</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="300"/>
+        <source>atan: input (%1) out of bounds (not i or -i)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="305"/>
         <source>arctangent (inverse tangent)</source>
         <translation>nghịch đảo tang</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="300"/>
+        <location filename="../evaluationengine.cpp" line="305"/>
         <source>arctangent</source>
         <translation>nghịch đảo tang</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="305"/>
+        <location filename="../evaluationengine.cpp" line="308"/>
         <source>sec: input (%1) out of bounds (not %2)</source>
         <translation>sec: số dự kiến (%1) ở ngoài giới hạn (không phải %2)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="325"/>
+        <location filename="../evaluationengine.cpp" line="328"/>
         <source>secant</source>
         <translation>sec</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="330"/>
+        <location filename="../evaluationengine.cpp" line="333"/>
         <source>csc: input (%1) out of bounds (not %2)</source>
         <translation>csc: số dự kiến (%1) ở ngoài giới hạn (không phải %2)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="350"/>
+        <location filename="../evaluationengine.cpp" line="353"/>
         <source>cosecant</source>
         <translation>côsec</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="355"/>
+        <location filename="../evaluationengine.cpp" line="358"/>
         <source>cot: input (%1) out of bounds (not %2)</source>
         <translation>cot: số dự kiến (%1) ở ngoài giới hạn (không phải %2)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="375"/>
+        <location filename="../evaluationengine.cpp" line="378"/>
         <source>cotangent</source>
         <translation>côtang</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="380"/>
+        <location filename="../evaluationengine.cpp" line="383"/>
         <source>asec: input (%1) out of bounds (not 0)</source>
         <translation>asec: số dự kiến (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="385"/>
+        <location filename="../evaluationengine.cpp" line="388"/>
         <source>arcsecant (inverse secant)</source>
         <translation>nghịch đảo sec</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="385"/>
+        <location filename="../evaluationengine.cpp" line="388"/>
         <source>arcsecant</source>
         <translation>nghịch đảo sec</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="390"/>
+        <location filename="../evaluationengine.cpp" line="393"/>
         <source>acsc: input (%1) out of bounds (not 0)</source>
         <translation>acsc: số dự kiến (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="395"/>
+        <location filename="../evaluationengine.cpp" line="398"/>
         <source>arccosecant (inverse cosecant)</source>
         <translation>nghịch đảo côsec</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="395"/>
+        <location filename="../evaluationengine.cpp" line="398"/>
         <source>arccosecant</source>
         <translation>nghịch đảo côsec</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="403"/>
+        <location filename="../evaluationengine.cpp" line="406"/>
         <source>arccotangent (inverse cotangent)</source>
         <translation>nghịch đảo côtang</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="403"/>
+        <location filename="../evaluationengine.cpp" line="406"/>
         <source>arccotangent</source>
         <translation>nghịch đảo côtang</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="407"/>
+        <location filename="../evaluationengine.cpp" line="410"/>
         <source>hyperbolic sine</source>
         <translation>sin hyperbol</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="411"/>
+        <location filename="../evaluationengine.cpp" line="414"/>
         <source>hyperbolic cosine</source>
         <translation>côsin hyperbol</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="415"/>
+        <location filename="../evaluationengine.cpp" line="418"/>
         <source>hyperbolic tangent</source>
         <translation>tang hyperbol</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="419"/>
+        <location filename="../evaluationengine.cpp" line="422"/>
         <source>hyperbolic arcsine (inverse hyperbolic arcsine)</source>
         <translation>nghịch đảo sin hyperbol</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="419"/>
+        <location filename="../evaluationengine.cpp" line="422"/>
         <source>hyperbolic arcsine</source>
         <translation>nghịch đảo sin hyperbol</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="423"/>
+        <location filename="../evaluationengine.cpp" line="426"/>
         <source>hyperbolic arccosine (inverse hyperbolic arccosine)</source>
         <translation>nghịch đảo côsin hyperbol</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="423"/>
+        <location filename="../evaluationengine.cpp" line="426"/>
         <source>hyperbolic arccosine</source>
         <translation>nghịch đảo côsin hyperbol</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="427"/>
+        <location filename="../evaluationengine.cpp" line="430"/>
         <source>hyperbolic arctangent (inverse hyperbolic arctangent)</source>
         <translation>nghịch đảo tang hyperbol</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="427"/>
+        <location filename="../evaluationengine.cpp" line="430"/>
         <source>hyperbolic arctangent</source>
         <translation>nghịch đảo tang hyperbol</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="433"/>
+        <location filename="../evaluationengine.cpp" line="436"/>
         <source>log: input (%1) out of bounds (not 0)</source>
         <translation>log: số dự kiến (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="441"/>
+        <location filename="../evaluationengine.cpp" line="444"/>
         <source>log: arg1 (%1) out of bounds (not 0)</source>
         <translation>log: số dự kiến nhất (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="446"/>
+        <location filename="../evaluationengine.cpp" line="449"/>
         <source>log: arg2 (%1) out of bounds (not 1)</source>
         <translation>log: số dự kiến thứ 2 (%1) ở ngoài giới hạn (không phải 1)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="451"/>
+        <location filename="../evaluationengine.cpp" line="454"/>
         <source>log: arg2 (%1) out of bounds (not 0)</source>
         <translation>log: số dự kiến thứ 2 (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="457"/>
+        <location filename="../evaluationengine.cpp" line="460"/>
         <source>log: expected 1 or 2 arguments, got %1</source>
         <translation>log: Cần 1 hoặc 2 số dự kiến, đá nhận đươc %1</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="460"/>
+        <location filename="../evaluationengine.cpp" line="463"/>
         <source>base 10 logarithm</source>
         <translation>logarit cơ số 10</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="461"/>
-        <location filename="../evaluationengine.cpp" line="462"/>
+        <location filename="../evaluationengine.cpp" line="464"/>
+        <location filename="../evaluationengine.cpp" line="465"/>
         <source>logarithm</source>
         <translation>logarit</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="463"/>
-        <location filename="../evaluationengine.cpp" line="557"/>
+        <location filename="../evaluationengine.cpp" line="466"/>
+        <location filename="../evaluationengine.cpp" line="560"/>
         <source>base</source>
         <translation>cơ</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="463"/>
+        <location filename="../evaluationengine.cpp" line="466"/>
         <source>The base of the logarithm</source>
         <translation>Cơ số của logarit</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="469"/>
+        <location filename="../evaluationengine.cpp" line="472"/>
         <source>ln: input (%1) out of bounds (not 0)</source>
         <translation>ln: số dự kiến (%1) ở ngoài giới hạn (không phải 0)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="474"/>
+        <location filename="../evaluationengine.cpp" line="477"/>
         <source>base e logarithm</source>
         <translation>logarit cơ số e</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="482"/>
+        <location filename="../evaluationengine.cpp" line="485"/>
         <source>lsh: arg1 (%1) not a real number</source>
         <translation>lsh: Số dự kiến nhất (%1) không phải số thực</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="486"/>
+        <location filename="../evaluationengine.cpp" line="489"/>
         <source>lsh: arg2 (%1) not a real number</source>
         <translation>lsh: Số dự kiến thứ 2 (%1) không phải số thực</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="491"/>
+        <location filename="../evaluationengine.cpp" line="494"/>
         <source>lsh: arg1 (%1) not an integer</source>
         <translation>lsh: Số dự kiến nhất (%1) không phải số nguyên</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="496"/>
+        <location filename="../evaluationengine.cpp" line="499"/>
         <source>lsh: arg2 (%1) not an integer</source>
         <translation>lsh: Số dự kiến thứ 2 (%1) không phải số nguyên</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="502"/>
+        <location filename="../evaluationengine.cpp" line="505"/>
         <source>lsh: expected 2 arguments, got %1</source>
         <translation>lsh: Cần 2 số dự kiến, đá nhận đươc %1</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="505"/>
+        <location filename="../evaluationengine.cpp" line="508"/>
         <source>Shifts a number to the left by a specified number of bits</source>
         <translation>Dịch số sang bên trái bởi số bit</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="505"/>
-        <location filename="../evaluationengine.cpp" line="535"/>
+        <location filename="../evaluationengine.cpp" line="508"/>
+        <location filename="../evaluationengine.cpp" line="538"/>
         <source>The number to shift</source>
         <translation>Số để dịch</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="505"/>
-        <location filename="../evaluationengine.cpp" line="535"/>
+        <location filename="../evaluationengine.cpp" line="508"/>
+        <location filename="../evaluationengine.cpp" line="538"/>
         <source>The number of bits to shift by</source>
         <translation>Số bit để dịch bởi</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="505"/>
-        <location filename="../evaluationengine.cpp" line="535"/>
+        <location filename="../evaluationengine.cpp" line="508"/>
+        <location filename="../evaluationengine.cpp" line="538"/>
         <source>amount</source>
         <translation>lượng</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="512"/>
+        <location filename="../evaluationengine.cpp" line="515"/>
         <source>rsh: arg1 (%1) not a real number</source>
         <translation>rsh: Số dự kiến nhất (%1) không phải số thực</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="516"/>
+        <location filename="../evaluationengine.cpp" line="519"/>
         <source>rsh: arg2 (%1) not a real number</source>
         <translation>rsh: Số dự kiến thứ 2 (%1) không phải số thực</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="521"/>
+        <location filename="../evaluationengine.cpp" line="524"/>
         <source>rsh: arg1 (%1) not an integer</source>
         <translation>rsh: Số dự kiến nhất (%1) không phải số nguyên</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="526"/>
+        <location filename="../evaluationengine.cpp" line="529"/>
         <source>rsh: arg2 (%1) not an integer</source>
         <translation>rsh: Số dự kiến thứ 2 (%1) không phải số nguyên</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="532"/>
+        <location filename="../evaluationengine.cpp" line="535"/>
         <source>rsh: expected 2 arguments, got %1</source>
         <translation>rsh: Cần 2 số dự kiến, đá nhận đươc %1</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="535"/>
+        <location filename="../evaluationengine.cpp" line="538"/>
         <source>Shifts a number to the right by a specified number of bits</source>
         <translation>Dịch số sang bên phải bởi số bit</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="543"/>
+        <location filename="../evaluationengine.cpp" line="546"/>
         <source>pow: arg2 (%1) out of bounds for arg1 (0) (should be positive)</source>
         <translation>pow: số dự kiến thứ 2 (%1) ở ngoài giới hạn cho số dữ kiện nhất(0) (cần số dương)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="548"/>
+        <location filename="../evaluationengine.cpp" line="551"/>
         <source>pow: arg2 (%1) out of bounds for arg1 (0) (should be a real number)</source>
         <translation>pow: số dự kiến thứ 2 (%1) ở ngoài giới hạn cho số dữ kiện nhất(0) (cần số thực)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="554"/>
+        <location filename="../evaluationengine.cpp" line="557"/>
         <source>pow: expected 2 arguments, got %1</source>
         <translation>pow: cần 2 số dự kiến, đá nhận đươc %1</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="557"/>
+        <location filename="../evaluationengine.cpp" line="560"/>
         <source>Calculates an exponent</source>
         <translation>Tính lũy thừa</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="557"/>
+        <location filename="../evaluationengine.cpp" line="560"/>
         <source>The base of the exponent</source>
         <translation>Cơ sở luỹ thừa</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="557"/>
+        <location filename="../evaluationengine.cpp" line="560"/>
         <source>exponent</source>
         <translation>mũ</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="557"/>
+        <location filename="../evaluationengine.cpp" line="560"/>
         <source>The number to exponentiate by</source>
         <translation>Số mũ lũy thừa</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="564"/>
+        <location filename="../evaluationengine.cpp" line="567"/>
         <source>mod: arg1 (%1) not an integer</source>
         <translation>mod: Số dự kiến nhất (%1) không phải số nguyên</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="569"/>
+        <location filename="../evaluationengine.cpp" line="572"/>
         <source>mod: arg2 (%1) not an integer</source>
         <translation>mod: Số dự kiến thứ 2 (%1) không phải số nguyên</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="574"/>
+        <location filename="../evaluationengine.cpp" line="577"/>
         <source>mod: division by 0 undefined</source>
         <translation>mod: chia cho số 0 không xác định</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="580"/>
+        <location filename="../evaluationengine.cpp" line="583"/>
         <source>mod: expected 2 arguments, got %1</source>
         <translation>mod: cần 2 số dự kiến, đá nhận đươc %1</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="583"/>
+        <location filename="../evaluationengine.cpp" line="586"/>
         <source>Calculates the remainder when dividing two numbers</source>
         <translation>Tính phần còn lại khi chia hai số</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="583"/>
+        <location filename="../evaluationengine.cpp" line="586"/>
         <source>divisor</source>
         <translation>ước số</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="583"/>
+        <location filename="../evaluationengine.cpp" line="586"/>
         <source>The number to be divided</source>
         <translation>Số để bị chia</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="583"/>
+        <location filename="../evaluationengine.cpp" line="586"/>
         <source>dividend</source>
         <translation>phần chia lời</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="583"/>
+        <location filename="../evaluationengine.cpp" line="586"/>
         <source>The number to divide by</source>
         <translation>Số để chia bởi</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="587"/>
+        <location filename="../evaluationengine.cpp" line="590"/>
         <source>floor</source>
         <translation>floor</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="590"/>
+        <location filename="../evaluationengine.cpp" line="593"/>
         <source>ceiling</source>
         <translation>ceiling</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="599"/>
-        <location filename="../evaluationengine.cpp" line="606"/>
+        <location filename="../evaluationengine.cpp" line="602"/>
+        <location filename="../evaluationengine.cpp" line="609"/>
         <source>random: arg1 (%1) not a real number</source>
         <translation>random: số dự kiến nhất (%1) không phải số thực</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="611"/>
+        <location filename="../evaluationengine.cpp" line="614"/>
         <source>random: arg2 (%1) not a real number</source>
         <translation>random: sở du nhiên thứ 2 (%1) không phải số thực</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="617"/>
+        <location filename="../evaluationengine.cpp" line="620"/>
         <source>random: expected 0, 1 or 2 arguments, got %1</source>
         <translation>random: cần 0, 1 hoặc 2 số dự kiến, đá nhận đươc %1</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="620"/>
+        <location filename="../evaluationengine.cpp" line="623"/>
         <source>Returns a random number</source>
         <translation>Trả lời với số ngẫu nhiên</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="621"/>
+        <location filename="../evaluationengine.cpp" line="624"/>
         <source>Returns a random number in the range [0-number)</source>
         <translation>Trả lời với số ngẫu nhiên nằm giữa [0-số)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="621"/>
+        <location filename="../evaluationengine.cpp" line="624"/>
         <source>bound</source>
         <translation>giới hạn</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="621"/>
-        <location filename="../evaluationengine.cpp" line="622"/>
+        <location filename="../evaluationengine.cpp" line="624"/>
+        <location filename="../evaluationengine.cpp" line="625"/>
         <source>The exclusive high bound</source>
         <translation>Giới hạn cao nhất</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="622"/>
+        <location filename="../evaluationengine.cpp" line="625"/>
         <source>Returns a random number in the range [low-high)</source>
         <translation>Trả lời với số ngẫu nhiên nằm giữa [thấp-cao)</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="622"/>
+        <location filename="../evaluationengine.cpp" line="625"/>
         <source>low</source>
         <translation>thấp</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="622"/>
+        <location filename="../evaluationengine.cpp" line="625"/>
         <source>The inclusive low bound</source>
         <translation>Giới hạn ít nhất</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="622"/>
+        <location filename="../evaluationengine.cpp" line="625"/>
         <source>high</source>
         <translation>cao</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="688"/>
-        <location filename="../evaluationengine.cpp" line="750"/>
+        <location filename="../evaluationengine.cpp" line="691"/>
+        <location filename="../evaluationengine.cpp" line="753"/>
         <source>%1: expected scalar or boolean value, got assignment</source>
         <translation>%1: cần số vô hướng hoặc giá trị boolean, đã nhận được phân công</translation>
     </message>
     <message numerus="yes">
-        <location filename="../evaluationengine.cpp" line="761"/>
+        <location filename="../evaluationengine.cpp" line="764"/>
         <source>%1: expected %n arguments, got %2</source>
         <translation>
             <numerusform>%1: Cần %n số dự kiến, đá nhận đươc %2</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="764"/>
+        <location filename="../evaluationengine.cpp" line="767"/>
         <source>or</source>
         <comment>Expected 1, 2 or 3 arguments</comment>
         <translation>hoặc</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="765"/>
+        <location filename="../evaluationengine.cpp" line="768"/>
         <source>%1: expected %2 arguments, got %3</source>
         <translation>%1: Cần %2 số dự kiến, đá nhận đươc %3</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="824"/>
+        <location filename="../evaluationengine.cpp" line="827"/>
         <source>%1: expected 1 argument, got %2</source>
         <translation>%1: Cần 1 số dự kiến, đá nhận đươc %2</translation>
     </message>
