@@ -171,7 +171,7 @@ void MainWindow::on_calcWidget_manageFunctions() {
 }
 
 void MainWindow::on_stackedWidget_currentChanged(int arg1) {
-    if (arg1 == 1) {
+    if (ui->stackedWidget->widget(arg1) == ui->calcPage) {
         ui->calcWidget->grabExpKeyboard(true);
     } else {
         ui->calcWidget->grabExpKeyboard(false);

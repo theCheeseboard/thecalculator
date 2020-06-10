@@ -50,7 +50,7 @@ StatWidget::~StatWidget() {
 
 void StatWidget::on_dataTable_cellChanged(int row, int column) {
     QTableWidgetItem* firstColData = ui->dataTable->item(row, 0);
-    if (!firstColData || firstColData->text() == "") {
+    if ((!firstColData || firstColData->text() == "") && ui->dataTable->rowCount() > 1) {
         //Remove this row; we don't need it any more
         ui->dataTable->removeRow(row);
     }
