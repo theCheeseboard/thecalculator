@@ -158,7 +158,7 @@
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="675"/>
         <source>Logarithm with base</source>
-        <translation type="unfinished"></translation>
+        <translation>Logarit cơ số</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="685"/>
@@ -721,7 +721,7 @@
     <message>
         <location filename="../evaluationengine.cpp" line="300"/>
         <source>atan: input (%1) out of bounds (not i or -i)</source>
-        <translation type="unfinished"></translation>
+        <translation>tan: số dự kiến (%1) ở ngoài giới hạn (không phải i hoặc -i)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="305"/>
@@ -1316,47 +1316,47 @@
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="35"/>
         <source>Logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>Logarit</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="89"/>
         <source>PARAMETERS</source>
-        <translation type="unfinished"></translation>
+        <translation>THAM SỐ</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="96"/>
         <source>Enter the parameters for the operation</source>
-        <translation type="unfinished"></translation>
+        <translation>Điền vào tham số cho hoạt động</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="110"/>
         <source>log</source>
-        <translation type="unfinished"></translation>
+        <translation>log</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="132"/>
         <source>Base</source>
-        <translation type="unfinished"></translation>
+        <translation>Cơ số</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="144"/>
         <source>(</source>
-        <translation type="unfinished"></translation>
+        <translation>(</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="168"/>
         <source>Number</source>
-        <translation type="unfinished"></translation>
+        <translation>Số</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="180"/>
         <source>)</source>
-        <translation type="unfinished"></translation>
+        <translation>)</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="197"/>
         <source>Add to Expression</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm vào biểu thức</translation>
     </message>
 </context>
 <context>
@@ -1384,7 +1384,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="80"/>
         <source>Trigonometry</source>
-        <translation type="unfinished"></translation>
+        <translation>Lượng giác</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="87"/>
@@ -1394,7 +1394,7 @@
     <message>
         <location filename="../mainwindow.ui" line="162"/>
         <source>Functions</source>
-        <translation type="unfinished">Hàm số</translation>
+        <translation>Hàm số</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="297"/>
@@ -1459,12 +1459,12 @@
     <message>
         <location filename="../main.cpp" line="300"/>
         <source>Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Vị trí</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="313"/>
         <source>Here</source>
-        <translation type="unfinished"></translation>
+        <translation>Đây</translation>
     </message>
 </context>
 <context>
@@ -1477,37 +1477,37 @@
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="35"/>
         <source>Nth Root</source>
-        <translation type="unfinished">Căn bậc</translation>
+        <translation>Căn bậc N</translation>
     </message>
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="89"/>
         <source>PARAMETERS</source>
-        <translation type="unfinished"></translation>
+        <translation>THAM SỐ</translation>
     </message>
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="96"/>
         <source>Enter the parameters for the operation</source>
-        <translation type="unfinished"></translation>
+        <translation>Điền vào tham số cho hoạt động</translation>
     </message>
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="120"/>
         <source>Base</source>
-        <translation type="unfinished"></translation>
+        <translation>Cơ số</translation>
     </message>
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="132"/>
         <source>√</source>
-        <translation type="unfinished"></translation>
+        <translation>√</translation>
     </message>
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="156"/>
         <source>Radicand</source>
-        <translation type="unfinished"></translation>
+        <translation>Số</translation>
     </message>
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="173"/>
         <source>Add to Expression</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm vào biểu thức</translation>
     </message>
 </context>
 <context>
@@ -1680,7 +1680,7 @@
         <location filename="../parts/stats/statwidget.cpp" line="109"/>
         <location filename="../parts/stats/statwidget.cpp" line="110"/>
         <source>no data</source>
-        <translation type="unfinished"></translation>
+        <translation>không có dữ liệu</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.cpp" line="137"/>
@@ -1697,13 +1697,13 @@
         <location filename="../main.cpp" line="125"/>
         <location filename="../main.cpp" line="149"/>
         <source>Calculator</source>
-        <translation type="unfinished">Máy tính</translation>
+        <translation>Máy tính</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="129"/>
         <location filename="../main.cpp" line="153"/>
         <source>Generate a graph in PNG format and write the data to stdout.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tạo ra đồ thị vào định dạng PNG và ghi sang stdout.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="130"/>
@@ -1714,82 +1714,82 @@
     <message>
         <location filename="../main.cpp" line="130"/>
         <source>Evaluate &lt;expression&gt;, print the result to standard output, then exit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tính &lt;expression&gt;, in kết quả sang đầu ra tiêu chuẩn, rồi thoát.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="160"/>
         <source>Width of the graph, in pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiều rộng đồ thị, trong pixel</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="161"/>
         <source>Height of the graph, in pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiều cao đồ thị, trong pixel</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="154"/>
         <source>X value to center the generated graph at</source>
-        <translation type="unfinished"></translation>
+        <translation>Giá trị X để đặt giữa đồ thị</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="131"/>
         <source>Do not output colour.</source>
-        <translation type="unfinished"></translation>
+        <translation>Đừng xuất ra màu.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="154"/>
         <source>x-value</source>
-        <translation type="unfinished"></translation>
+        <translation>x-value</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="155"/>
         <source>Y value to center the generated graph at</source>
-        <translation type="unfinished"></translation>
+        <translation>Giá trị y để đặt giữa đồ thị</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="155"/>
         <source>y-value</source>
-        <translation type="unfinished"></translation>
+        <translation>y-value</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="156"/>
         <source>Number of pixels to put between each integer in the X direction</source>
-        <translation type="unfinished"></translation>
+        <translation>Khoảng cách đặt giữa các số cho chiều X trong pixel</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="156"/>
         <source>x-scale</source>
-        <translation type="unfinished"></translation>
+        <translation>x-scale</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="157"/>
         <source>Number of pixels to put between each integer in the Y direction</source>
-        <translation type="unfinished"></translation>
+        <translation>Khoảng cách đặt giữa các số cho chiều Y trong pixel</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="157"/>
         <source>y-scale</source>
-        <translation type="unfinished"></translation>
+        <translation>y-scale</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="158"/>
         <source>File to output the graph to. If missing, output to stdout</source>
-        <translation type="unfinished"></translation>
+        <translation>Tệp để ghi đồ thị vào. Nếu mất, ghi sang stdout</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="158"/>
         <source>path</source>
-        <translation type="unfinished"></translation>
+        <translation>path</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="162"/>
         <source>Expressions to graph</source>
-        <translation type="unfinished"></translation>
+        <translation>Biểu thức để vẽ trên đồ thị</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="169"/>
         <source>missing operand</source>
-        <translation type="unfinished"></translation>
+        <translation>thiếu toán hạng</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="170"/>
@@ -1800,7 +1800,7 @@
         <location filename="../main.cpp" line="228"/>
         <location filename="../main.cpp" line="239"/>
         <source>Usage: %1 [options] -g width height expressions...</source>
-        <translation type="unfinished"></translation>
+        <translation>Cách dùng: %1 [tùy chọn] -g chiều-rộng chiều-cao biểu-thức...</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="171"/>
@@ -1811,42 +1811,42 @@
         <location filename="../main.cpp" line="229"/>
         <location filename="../main.cpp" line="240"/>
         <source>%1 -gh for more information.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 -gh để biết thêm thông tin.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="181"/>
         <source>invalid output width</source>
-        <translation type="unfinished"></translation>
+        <translation>chiều rộng không hợp lệ</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="188"/>
         <source>invalid output height</source>
-        <translation type="unfinished"></translation>
+        <translation>chiều cao không hợp lệ</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="203"/>
         <source>invalid center x position</source>
-        <translation type="unfinished"></translation>
+        <translation>điểm x đặt giữa không hợp lệ</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="214"/>
         <source>invalid center y position</source>
-        <translation type="unfinished"></translation>
+        <translation>điểm y đặt giữa không hợp lệ</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="227"/>
         <source>invalid x scale value</source>
-        <translation type="unfinished"></translation>
+        <translation>quy mô x không hợp lệ</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="238"/>
         <source>invalid y scale value</source>
-        <translation type="unfinished"></translation>
+        <translation>quy mô y không hợp lệ</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="260"/>
         <source>unable to open output file for writing</source>
-        <translation type="unfinished"></translation>
+        <translation>không thể mở tệp ra để ghi</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="345"/>
