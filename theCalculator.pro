@@ -53,7 +53,6 @@ SOURCES += \
         mainwindow.cpp \
     calcbutton.cpp \
     expression.cpp \
-    aboutwindow.cpp \
     historydelegate.cpp \
     customs/overloadbox.cpp \
     customs/branchbox.cpp \
@@ -75,7 +74,6 @@ HEADERS += \
         mainwindow.h \
     calcbutton.h \
     expression.h \
-    aboutwindow.h \
     historydelegate.h \
     customs/overloadbox.h \
     customs/branchbox.h \
@@ -96,7 +94,6 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui \
-    aboutwindow.ui \
     customs/overloadbox.ui \
     customs/branchbox.ui \
     customs/conditionbox.ui \

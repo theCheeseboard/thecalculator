@@ -43,6 +43,7 @@ namespace Ui {
     class MainWindow;
 }
 
+struct MainWindowPrivate;
 class MainWindow : public QMainWindow {
         Q_OBJECT
 
@@ -80,12 +81,17 @@ class MainWindow : public QMainWindow {
 
         void on_actionGradians_triggered(bool checked);
 
-        void on_leftMenu_currentRowChanged(int currentRow);
+        void on_scientificButton_toggled(bool checked);
 
-        void on_manageCustomFunctionsbutton_clicked();
+        void on_statsButton_toggled(bool checked);
+
+        void on_graphButton_toggled(bool checked);
+
+        void on_functionsButton_toggled(bool checked);
 
     private:
         Ui::MainWindow* ui;
+        MainWindowPrivate* d;
 
         bool resultSuccess = false;
 
@@ -93,13 +99,12 @@ class MainWindow : public QMainWindow {
 
         idouble currentAnswer;
         QSettings settings;
-
-        QMenu* specificMenu = nullptr;
 };
 
 class CornerButton : public QPushButton {
         Q_OBJECT
-    public: CornerButton(QWidget* parent = nullptr) : QPushButton(parent) {}
+    public:
+        CornerButton(QWidget* parent = nullptr) : QPushButton(parent) {}
 
     private:
         QSize sizeHint() const {

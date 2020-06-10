@@ -870,28 +870,6 @@
         </widget>
        </widget>
       </item>
-      <item row="0" column="1">
-       <widget class="QPushButton" name="BackspaceButton">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>1</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>80</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="toolTip">
-         <string>Backspace</string>
-        </property>
-        <property name="text">
-         <string notr="true">&lt;</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="3">
        <widget class="CalcButton" name="LeftBracketButton">
         <property name="sizePolicy">
@@ -976,28 +954,6 @@
         </property>
         <property name="text">
          <string notr="true">2</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QPushButton" name="FunctionsButton">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>1</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>80</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="toolTip">
-         <string>Functions</string>
-        </property>
-        <property name="text">
-         <string notr="true">f(x)</string>
         </property>
        </widget>
       </item>
@@ -1137,6 +1093,28 @@
         </property>
         <property name="text">
          <string notr="true">1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1" colspan="2">
+       <widget class="QPushButton" name="BackspaceButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>1</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Backspace</string>
+        </property>
+        <property name="text">
+         <string notr="true">&lt;</string>
         </property>
        </widget>
       </item>

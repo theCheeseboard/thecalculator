@@ -2,34 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="mr_IN" sourcelanguage="en_US">
 <context>
-    <name>AboutWindow</name>
-    <message>
-        <location filename="../aboutwindow.ui" line="14"/>
-        <source>About theCalculator</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../aboutwindow.ui" line="25"/>
-        <source>theCalculator 2.2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../aboutwindow.ui" line="32"/>
-        <source>Calculator</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../aboutwindow.ui" line="52"/>
-        <source>Copyright (c) Victor Tran 2019. Licensed under the terms of the GNU General Public License, version 3 or later.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../aboutwindow.ui" line="77"/>
-        <source>OK</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>AddFunctionDialog</name>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="73"/>
@@ -339,37 +311,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="888"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="1114"/>
         <source>Backspace</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="949"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="927"/>
         <source>Left Shift</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="997"/>
-        <source>Functions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="1052"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="1008"/>
         <source>Subtract</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="1074"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="1030"/>
         <source>Divide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="1090"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="1046"/>
         <source>Extended Palette</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/calculatorwidget.ui" line="1110"/>
+        <location filename="../parts/calculator/calculatorwidget.ui" line="1066"/>
         <source>Evaluate</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1383,92 +1350,86 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../mainwindow.ui" line="80"/>
         <source>theCalculator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="115"/>
+        <location filename="../mainwindow.ui" line="93"/>
         <source>Scientific</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="124"/>
+        <location filename="../mainwindow.ui" line="118"/>
         <source>Statistical</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="133"/>
+        <location filename="../mainwindow.ui" line="140"/>
         <source>Graphing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="158"/>
-        <source>Manage Custom Functions</source>
+        <location filename="../mainwindow.cpp" line="80"/>
+        <source>Trigonometry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="280"/>
-        <source>Fi&amp;le</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="286"/>
-        <source>Tri&amp;gonometry</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="294"/>
+        <location filename="../mainwindow.cpp" line="87"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="313"/>
+        <location filename="../mainwindow.ui" line="162"/>
+        <source>Functions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="297"/>
         <source>&amp;Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="316"/>
+        <location filename="../mainwindow.ui" line="300"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="327"/>
+        <location filename="../mainwindow.ui" line="311"/>
         <source>&amp;Degrees</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="335"/>
+        <location filename="../mainwindow.ui" line="319"/>
         <source>&amp;Radians</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="344"/>
+        <location filename="../mainwindow.ui" line="328"/>
         <source>&amp;About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="353"/>
+        <location filename="../mainwindow.ui" line="337"/>
         <source>&amp;theCalculator Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="356"/>
+        <location filename="../mainwindow.ui" line="340"/>
         <source>F1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="365"/>
+        <location filename="../mainwindow.ui" line="349"/>
         <source>&amp;File Bug</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="374"/>
+        <location filename="../mainwindow.ui" line="358"/>
         <source>&amp;Sources</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="382"/>
+        <location filename="../mainwindow.ui" line="366"/>
         <source>&amp;Gradians</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1680,19 +1641,29 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/stats/statwidget.cpp" line="35"/>
+        <location filename="../parts/stats/statwidget.cpp" line="34"/>
         <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/stats/statwidget.cpp" line="35"/>
+        <location filename="../parts/stats/statwidget.cpp" line="34"/>
         <source>Frequency</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/stats/statwidget.cpp" line="132"/>
-        <location filename="../parts/stats/statwidget.cpp" line="141"/>
-        <location filename="../parts/stats/statwidget.cpp" line="150"/>
+        <location filename="../parts/stats/statwidget.cpp" line="105"/>
+        <location filename="../parts/stats/statwidget.cpp" line="106"/>
+        <location filename="../parts/stats/statwidget.cpp" line="107"/>
+        <location filename="../parts/stats/statwidget.cpp" line="108"/>
+        <location filename="../parts/stats/statwidget.cpp" line="109"/>
+        <location filename="../parts/stats/statwidget.cpp" line="110"/>
+        <source>no data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/stats/statwidget.cpp" line="137"/>
+        <location filename="../parts/stats/statwidget.cpp" line="146"/>
+        <location filename="../parts/stats/statwidget.cpp" line="155"/>
         <source>undefined</source>
         <translation type="unfinished"></translation>
     </message>

@@ -25,10 +25,9 @@
 
 extern QString idbToString(idouble db);
 
-StatWidget::StatWidget(QWidget *parent) :
+StatWidget::StatWidget(QWidget* parent) :
     QWidget(parent),
-    ui(new Ui::StatWidget)
-{
+    ui(new Ui::StatWidget) {
     ui->setupUi(this);
 
     ui->dataTable->setColumnCount(2);
@@ -39,19 +38,17 @@ StatWidget::StatWidget(QWidget *parent) :
     freqBox->setMinimum(1);
     freqBox->setMaximum(9999999);
     freqBox->setFrame(false);
-    connect(freqBox, QOverload<int>::of(&QSpinBox::valueChanged), [=] {
+    connect(freqBox, QOverload<int>::of(&QSpinBox::valueChanged), [ = ] {
         on_dataTable_cellChanged(0, 1);
     });
     ui->dataTable->setCellWidget(0, 1, freqBox);
 }
 
-StatWidget::~StatWidget()
-{
+StatWidget::~StatWidget() {
     delete ui;
 }
 
-void StatWidget::on_dataTable_cellChanged(int row, int column)
-{
+void StatWidget::on_dataTable_cellChanged(int row, int column) {
     QTableWidgetItem* firstColData = ui->dataTable->item(row, 0);
     if (!firstColData || firstColData->text() == "") {
         //Remove this row; we don't need it any more
@@ -70,7 +67,7 @@ void StatWidget::on_dataTable_cellChanged(int row, int column)
         freqBox->setMinimum(1);
         freqBox->setMaximum(9999999);
         freqBox->setFrame(false);
-        connect(freqBox, QOverload<int>::of(&QSpinBox::valueChanged), [=] {
+        connect(freqBox, QOverload<int>::of(&QSpinBox::valueChanged), [ = ] {
             on_dataTable_cellChanged(newRow, 1);
         });
         ui->dataTable->setCellWidget(newRow, 1, freqBox);
@@ -104,50 +101,59 @@ void StatWidget::calculateData() {
     QLocale locale;
     ui->countLabel->setText(locale.toString(data.count()));
 
-    //Sort the data
-    //Needed to find median, min, etc.
-    std::sort(data.begin(), data.end());
-
-    ui->minLabel->setText(QString::number(data.first()));
-    ui->maxLabel->setText(QString::number(data.last()));
-    if (data.count() % 2 == 1) {
-        //We have one single number for the median
-        ui->medLabel->setText(QString::number(data.at(data.count() / 2)));
+    if (data.isEmpty()) {
+        ui->minLabel->setText(tr("no data"));
+        ui->maxLabel->setText(tr("no data"));
+        ui->medLabel->setText(tr("no data"));
+        ui->meanLabel->setText(tr("no data"));
+        ui->sumLabel->setText(tr("no data"));
+        ui->sumSquaredLabel->setText(tr("no data"));
     } else {
-        //We've got two numbers that we need to average
-        ui->medLabel->setText(QString::number((data.at(data.count() / 2 - 1) + data.at(data.count() / 2)) / 2));
+        //Sort the data
+        //Needed to find median, min, etc.
+        std::sort(data.begin(), data.end());
+
+        ui->minLabel->setText(QString::number(data.first()));
+        ui->maxLabel->setText(QString::number(data.last()));
+        if (data.count() % 2 == 1) {
+            //We have one single number for the median
+            ui->medLabel->setText(QString::number(data.at(data.count() / 2)));
+        } else {
+            //We've got two numbers that we need to average
+            ui->medLabel->setText(QString::number((data.at(data.count() / 2 - 1) + data.at(data.count() / 2)) / 2));
+        }
+
+        //Populate a string list
+        QStringList addends;
+        for (double val : data) {
+            addends.append(QString::number(val));
+        }
+
+        //Calculate the mean
+        EvaluationEngine::evaluate("(" + addends.join("+") + ")/" + QString::number(data.count()))->then([ = ](EvaluationEngine::Result result) {
+            if (result.type == EvaluationEngine::Result::Scalar) {
+                ui->meanLabel->setText(idbToString(result.result));
+            } else {
+                ui->meanLabel->setText(tr("undefined"));
+            }
+        });
+
+        //Calculate the sum
+        EvaluationEngine::evaluate(addends.join("+"))->then([ = ](EvaluationEngine::Result result) {
+            if (result.type == EvaluationEngine::Result::Scalar) {
+                ui->sumLabel->setText(idbToString(result.result));
+            } else {
+                ui->sumLabel->setText(tr("undefined"));
+            }
+        });
+
+        //Calculate the sum squared
+        EvaluationEngine::evaluate(addends.join("^2+") + "^2")->then([ = ](EvaluationEngine::Result result) {
+            if (result.type == EvaluationEngine::Result::Scalar) {
+                ui->sumSquaredLabel->setText(idbToString(result.result));
+            } else {
+                ui->sumSquaredLabel->setText(tr("undefined"));
+            }
+        });
     }
-
-    //Populate a string list
-    QStringList addends;
-    for (double val : data) {
-        addends.append(QString::number(val));
-    }
-
-    //Calculate the mean
-    EvaluationEngine::evaluate("(" + addends.join("+") + ")/" + QString::number(data.count()))->then([=](EvaluationEngine::Result result) {
-        if (result.type == EvaluationEngine::Result::Scalar) {
-            ui->meanLabel->setText(idbToString(result.result));
-        } else {
-            ui->meanLabel->setText(tr("undefined"));
-        }
-    });
-
-    //Calculate the sum
-    EvaluationEngine::evaluate(addends.join("+"))->then([=](EvaluationEngine::Result result) {
-        if (result.type == EvaluationEngine::Result::Scalar) {
-            ui->sumLabel->setText(idbToString(result.result));
-        } else {
-            ui->sumLabel->setText(tr("undefined"));
-        }
-    });
-
-    //Calculate the sum squared
-    EvaluationEngine::evaluate(addends.join("^2+") + "^2")->then([=](EvaluationEngine::Result result) {
-        if (result.type == EvaluationEngine::Result::Scalar) {
-            ui->sumSquaredLabel->setText(idbToString(result.result));
-        } else {
-            ui->sumSquaredLabel->setText(tr("undefined"));
-        }
-    });
 }

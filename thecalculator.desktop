@@ -10,5 +10,5 @@ GenericName[pt]=Calculadora
 GenericName[pl]=Kalkulator
 GenericName[vi]=Máy tính
 Exec=/usr/bin/thecalculator
-Icon=accessories-calculator
+Icon=thecalculator
 Categories=Utility;

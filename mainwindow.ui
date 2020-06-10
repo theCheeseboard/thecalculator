@@ -14,7 +14,7 @@
    <string>theCalculator</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="accessories-calculator" resource="icons.qrc">
+   <iconset theme="thecalculator" resource="icons.qrc">
     <normaloff>:/icon.svg</normaloff>:/icon.svg</iconset>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
@@ -27,7 +27,7 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
+   <layout class="QVBoxLayout" name="verticalLayout_4">
     <property name="spacing">
      <number>0</number>
     </property>
@@ -44,14 +44,11 @@
      <number>0</number>
     </property>
     <item>
-     <widget class="QWidget" name="leftPane" native="true">
-      <property name="maximumSize">
-       <size>
-        <width>300</width>
-        <height>16777215</height>
-       </size>
+     <widget class="QWidget" name="topWidget" native="true">
+      <property name="autoFillBackground">
+       <bool>true</bool>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_6">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
        <property name="spacing">
         <number>0</number>
        </property>
@@ -68,103 +65,128 @@
         <number>0</number>
        </property>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QLabel" name="label_4">
-           <property name="font">
-            <font>
-             <pointsize>15</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>theCalculator</string>
-           </property>
-           <property name="margin">
-            <number>9</number>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <layout class="QHBoxLayout" name="leftCsdLayout"/>
        </item>
        <item>
-        <widget class="Line" name="line_4">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>1</height>
-          </size>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QListWidget" name="leftMenu">
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-         <item>
-          <property name="text">
-           <string>Scientific</string>
-          </property>
-          <property name="icon">
-           <iconset theme="calculator-scientific">
-            <normaloff>.</normaloff>.</iconset>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Statistical</string>
-          </property>
-          <property name="icon">
-           <iconset theme="calculator-statistic">
-            <normaloff>.</normaloff>.</iconset>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Graphing</string>
-          </property>
-          <property name="icon">
-           <iconset theme="calculator-graph">
-            <normaloff>.</normaloff>.</iconset>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item>
-        <widget class="Line" name="line">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>1</height>
-          </size>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="manageCustomFunctionsbutton">
+        <widget class="QToolButton" name="menuButton">
          <property name="text">
-          <string>Manage Custom Functions</string>
+          <string notr="true"/>
          </property>
          <property name="icon">
-          <iconset theme="insert-math-expression">
-           <normaloff>.</normaloff>.</iconset>
+          <iconset theme="thecalculator" resource="icons.qrc">
+           <normaloff>:/icon.svg</normaloff>:/icon.svg</iconset>
          </property>
-         <property name="flat">
+         <property name="popupMode">
+          <enum>QToolButton::InstantPopup</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="scientificButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Scientific</string>
+         </property>
+         <property name="icon">
+          <iconset theme="calculator-scientific"/>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
           <bool>true</bool>
          </property>
         </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="statsButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Statistical</string>
+         </property>
+         <property name="icon">
+          <iconset theme="calculator-statistic"/>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="graphButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Graphing</string>
+         </property>
+         <property name="icon">
+          <iconset theme="calculator-graph"/>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="functionsButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Functions</string>
+         </property>
+         <property name="icon">
+          <iconset theme="insert-math-expression"/>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="rightCsdLayout"/>
        </item>
       </layout>
      </widget>
@@ -172,31 +194,9 @@
     <item>
      <widget class="tStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
-      <widget class="QWidget" name="page">
-       <layout class="QVBoxLayout" name="verticalLayout_5">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="FunctionWidget" name="funcWidget"/>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="page_2">
+      <widget class="QWidget" name="calcPage">
        <layout class="QVBoxLayout" name="verticalLayout">
         <property name="spacing">
          <number>0</number>
@@ -218,7 +218,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_3">
+      <widget class="QWidget" name="statsPage">
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <property name="spacing">
          <number>0</number>
@@ -240,7 +240,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_4">
+      <widget class="QWidget" name="graphPage">
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <property name="spacing">
          <number>0</number>
@@ -262,47 +262,31 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="funcPage">
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="FunctionWidget" name="funcWidget"/>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>779</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>Fi&amp;le</string>
-    </property>
-    <addaction name="actionExit"/>
-   </widget>
-   <widget class="QMenu" name="menuTrigonometry">
-    <property name="title">
-     <string>Tri&amp;gonometry</string>
-    </property>
-    <addaction name="actionDegrees"/>
-    <addaction name="actionRadians"/>
-    <addaction name="actionGradians"/>
-   </widget>
-   <widget class="QMenu" name="menuHelp">
-    <property name="title">
-     <string>Help</string>
-    </property>
-    <addaction name="actionTheCalculatorHelp"/>
-    <addaction name="separator"/>
-    <addaction name="actionFileBug"/>
-    <addaction name="actionSources"/>
-    <addaction name="separator"/>
-    <addaction name="actionAbout"/>
-   </widget>
-   <addaction name="menuFile"/>
-   <addaction name="menuTrigonometry"/>
-   <addaction name="menuHelp"/>
   </widget>
   <action name="actionExit">
    <property name="icon">
@@ -390,6 +374,9 @@
    <extends>QStackedWidget</extends>
    <header location="global">tstackedwidget.h</header>
    <container>1</container>
+   <slots>
+    <signal>switchingFrame(int)</signal>
+   </slots>
   </customwidget>
   <customwidget>
    <class>CalculatorWidget</class>

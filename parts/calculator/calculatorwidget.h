@@ -43,9 +43,6 @@ class CalculatorWidget : public QWidget {
     public slots:
         void grabExpKeyboard(bool grab);
 
-    signals:
-        void manageFunctions();
-
     private slots:
         void on_expandButton_clicked();
 

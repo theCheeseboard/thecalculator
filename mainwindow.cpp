@@ -25,7 +25,6 @@
 #include <QActionGroup>
 #include <QMenu>
 #include <QStackedWidget>
-#include "aboutwindow.h"
 #include <QRandomGenerator>
 #include <QProcess>
 #include "historydelegate.h"
@@ -38,6 +37,7 @@
 #include <tpopover.h>
 #include <QShortcut>
 #include <taboutdialog.h>
+#include <tcsdtools.h>
 #include "evaluationengine.h"
 
 #include "customs/overloadbox.h"
@@ -49,45 +49,60 @@ extern QString idbToString(idouble db);
 
 #include "calc.bison.hpp"
 
+struct MainWindowPrivate {
+    tCsdTools csd;
+};
+
 MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow) {
     MainWin = this;
     ui->setupUi(this);
+    d = new MainWindowPrivate();
 
-    ui->stackedWidget->setCurrentAnimation(tStackedWidget::Lift);
+    d->csd.installMoveAction(ui->topWidget);
+    d->csd.installResizeAction(this);
+
+    if (tCsdGlobal::windowControlsEdge() == tCsdGlobal::Left) {
+        ui->leftCsdLayout->addWidget(d->csd.csdBoxForWidget(this));
+    } else {
+        ui->rightCsdLayout->addWidget(d->csd.csdBoxForWidget(this));
+    }
 
     QActionGroup* group = new QActionGroup(this);
     group->addAction(ui->actionDegrees);
     group->addAction(ui->actionRadians);
     group->addAction(ui->actionGradians);
 
-    CornerButton* menuButton = new CornerButton();
-    menuButton->setIcon(QIcon::fromTheme("application-menu"));
-    menuButton->setFixedHeight(ui->menuBar->sizeHint().height());
-    menuButton->setFlat(true);
-    connect(menuButton, &QPushButton::clicked, [ = ] {
-        tPopover* p = new tPopover(ui->leftPane);
-        p->setPopoverSide(tPopover::Leading);
-        p->setPopoverWidth(SC_DPI(300));
-        p->show(this);
-    });
-    ui->menuBar->setCornerWidget(menuButton, Qt::TopLeftCorner);
+    QMenu* menu = new QMenu();
 
-    QShortcut* menuShortcut = new QShortcut(this);
-    menuShortcut->setKey(Qt::SHIFT | Qt::Key_Tab);
-    connect(menuShortcut, &QShortcut::activated, [ = ] {
-        menuButton->click();
-    });
+    QMenu* trigMenu = new QMenu();
+    trigMenu->setTitle(tr("Trigonometry"));
+    trigMenu->addAction(ui->actionDegrees);
+    trigMenu->addAction(ui->actionRadians);
+    trigMenu->addAction(ui->actionGradians);
+    menu->addMenu(trigMenu);
 
-    ui->centralWidget->layout()->removeWidget(ui->leftPane);
+    QMenu* helpMenu = new QMenu();
+    helpMenu->setTitle(tr("Help"));
+    helpMenu->addAction(ui->actionTheCalculatorHelp);
+    helpMenu->addSeparator();
+    helpMenu->addAction(ui->actionFileBug);
+    helpMenu->addAction(ui->actionSources);
+    helpMenu->addSeparator();
+    helpMenu->addAction(ui->actionAbout);
+    menu->addMenu(helpMenu);
 
-//    QTimer::singleShot(0, [ = ] {
-//        this->setFixedWidth(ui->calcWidget->sizeHint().width());
-//    });
+    menu->addSeparator();
+    menu->addAction(ui->actionExit);
+
+    ui->menuButton->setIconSize(SC_DPI_T(QSize(24, 24), QSize));
+    ui->menuButton->setMenu(menu);
+    ui->stackedWidget->setCurrentAnimation(tStackedWidget::SlideHorizontal);
 }
 
 MainWindow::~MainWindow() {
+    delete d;
     delete ui;
 }
 
@@ -156,22 +171,10 @@ void MainWindow::on_calcWidget_manageFunctions() {
 }
 
 void MainWindow::on_stackedWidget_currentChanged(int arg1) {
-    if (specificMenu != nullptr) {
-        ui->menuBar->removeAction(specificMenu->menuAction());
-        specificMenu = nullptr;
-    }
-
     if (arg1 == 1) {
         ui->calcWidget->grabExpKeyboard(true);
     } else {
         ui->calcWidget->grabExpKeyboard(false);
-    }
-
-    if (arg1 != 0) {
-        ui->leftMenu->setCurrentRow(arg1 - 1);
-    } else {
-        ui->leftMenu->setCurrentRow(-1);
-        ui->leftMenu->clearSelection();
     }
 }
 
@@ -181,20 +184,26 @@ void MainWindow::on_actionGradians_triggered(bool checked) {
     }
 }
 
-void MainWindow::on_leftMenu_currentRowChanged(int currentRow) {
-    if (currentRow != -1) {
-        ui->stackedWidget->setCurrentIndex(currentRow + 1);
-        tPopover* p = tPopover::popoverForWidget(ui->leftPane);
-        if (p != nullptr) {
-            p->dismiss();
-        }
+void MainWindow::on_scientificButton_toggled(bool checked) {
+    if (checked) {
+        ui->stackedWidget->setCurrentWidget(ui->calcPage);
     }
 }
 
-void MainWindow::on_manageCustomFunctionsbutton_clicked() {
-    ui->stackedWidget->setCurrentIndex(0);
-    tPopover* p = tPopover::popoverForWidget(ui->leftPane);
-    if (p != nullptr) {
-        p->dismiss();
+void MainWindow::on_statsButton_toggled(bool checked) {
+    if (checked) {
+        ui->stackedWidget->setCurrentWidget(ui->statsPage);
+    }
+}
+
+void MainWindow::on_graphButton_toggled(bool checked) {
+    if (checked) {
+        ui->stackedWidget->setCurrentWidget(ui->graphPage);
+    }
+}
+
+void MainWindow::on_functionsButton_toggled(bool checked) {
+    if (checked) {
+        ui->stackedWidget->setCurrentWidget(ui->funcPage);
     }
 }
