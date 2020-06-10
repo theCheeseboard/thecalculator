@@ -457,7 +457,7 @@
     <message>
         <location filename="../evaluationengine.cpp" line="147"/>
         <source>Can&apos;t assign to builtin variable %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể chỉ định cho biến đổi nội bộ %1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="193"/>
