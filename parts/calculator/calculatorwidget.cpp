@@ -437,11 +437,10 @@ void CalculatorWidget::on_NthRootButton_clicked() {
     connect(popover, &tPopover::dismiss, this, [ = ] {
         grabExpKeyboard(true);
     });
-    popover->show(this->window());
+    popover->show(this);
 }
 
-void CalculatorWidget::on_LogBaseButton_clicked()
-{
+void CalculatorWidget::on_LogBaseButton_clicked() {
     grabExpKeyboard(false);
 
     LogBasePopover* p = new LogBasePopover();
@@ -457,5 +456,5 @@ void CalculatorWidget::on_LogBaseButton_clicked()
     connect(popover, &tPopover::dismiss, this, [ = ] {
         grabExpKeyboard(true);
     });
-    popover->show(this->window());
+    popover->show(this);
 }

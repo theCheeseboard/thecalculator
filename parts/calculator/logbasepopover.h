@@ -26,12 +26,11 @@ namespace Ui {
     class LogBasePopover;
 }
 
-class LogBasePopover : public QWidget
-{
+class LogBasePopover : public QWidget {
         Q_OBJECT
 
     public:
-        explicit LogBasePopover(QWidget *parent = nullptr);
+        explicit LogBasePopover(QWidget* parent = nullptr);
         ~LogBasePopover();
 
     signals:
@@ -39,12 +38,12 @@ class LogBasePopover : public QWidget
         void accepted(QString text);
 
     private slots:
-        void on_backButton_clicked();
-
         void on_okButton_clicked();
 
+        void on_titleLabel_backButtonClicked();
+
     private:
-        Ui::LogBasePopover *ui;
+        Ui::LogBasePopover* ui;
 };
 
 #endif // LOGBASEPOPOVER_H

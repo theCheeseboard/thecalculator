@@ -34,9 +34,9 @@ class NthRootPopover : public QWidget {
         ~NthRootPopover();
 
     private slots:
-        void on_backButton_clicked();
-
         void on_okButton_clicked();
+
+        void on_titleLabel_backButtonClicked();
 
     signals:
         void rejected();

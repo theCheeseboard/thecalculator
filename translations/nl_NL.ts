@@ -1316,38 +1316,48 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/logbasepopover.ui" line="71"/>
+        <location filename="../parts/calculator/logbasepopover.ui" line="35"/>
         <source>Logarithm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/logbasepopover.ui" line="125"/>
+        <location filename="../parts/calculator/logbasepopover.ui" line="89"/>
+        <source>PARAMETERS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/calculator/logbasepopover.ui" line="96"/>
         <source>Enter the parameters for the operation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/logbasepopover.ui" line="139"/>
+        <location filename="../parts/calculator/logbasepopover.ui" line="110"/>
         <source>log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/logbasepopover.ui" line="161"/>
+        <location filename="../parts/calculator/logbasepopover.ui" line="132"/>
         <source>Base</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/logbasepopover.ui" line="173"/>
+        <location filename="../parts/calculator/logbasepopover.ui" line="144"/>
         <source>(</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/logbasepopover.ui" line="197"/>
+        <location filename="../parts/calculator/logbasepopover.ui" line="168"/>
         <source>Number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/logbasepopover.ui" line="209"/>
+        <location filename="../parts/calculator/logbasepopover.ui" line="180"/>
         <source>)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/calculator/logbasepopover.ui" line="197"/>
+        <source>Add to Expression</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1467,28 +1477,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/nthrootpopover.ui" line="71"/>
+        <location filename="../parts/calculator/nthrootpopover.ui" line="35"/>
         <source>Nth Root</source>
         <translation type="unfinished">Nste wortel</translation>
     </message>
     <message>
-        <location filename="../parts/calculator/nthrootpopover.ui" line="125"/>
+        <location filename="../parts/calculator/nthrootpopover.ui" line="89"/>
+        <source>PARAMETERS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/calculator/nthrootpopover.ui" line="96"/>
         <source>Enter the parameters for the operation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/nthrootpopover.ui" line="149"/>
+        <location filename="../parts/calculator/nthrootpopover.ui" line="120"/>
         <source>Base</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/nthrootpopover.ui" line="161"/>
+        <location filename="../parts/calculator/nthrootpopover.ui" line="132"/>
         <source>√</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../parts/calculator/nthrootpopover.ui" line="185"/>
+        <location filename="../parts/calculator/nthrootpopover.ui" line="156"/>
         <source>Radicand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../parts/calculator/nthrootpopover.ui" line="173"/>
+        <source>Add to Expression</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

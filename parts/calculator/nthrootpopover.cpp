@@ -26,14 +26,13 @@ NthRootPopover::NthRootPopover(QWidget* parent) :
     QWidget(parent),
     ui(new Ui::NthRootPopover) {
     ui->setupUi(this);
+
+    this->setFocusProxy(ui->baseEdit);
+    ui->titleLabel->setBackButtonShown(true);
 }
 
 NthRootPopover::~NthRootPopover() {
     delete ui;
-}
-
-void NthRootPopover::on_backButton_clicked() {
-    emit rejected();
 }
 
 void NthRootPopover::on_okButton_clicked() {
@@ -70,4 +69,8 @@ void NthRootPopover::on_okButton_clicked() {
     } else {
         emit accepted(QStringLiteral("(%2)^(1/(%1))").arg(baseText).arg(number));
     }
+}
+
+void NthRootPopover::on_titleLabel_backButtonClicked() {
+    emit rejected();
 }

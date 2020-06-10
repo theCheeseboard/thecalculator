@@ -22,25 +22,20 @@
 
 #include <terrorflash.h>
 
-LogBasePopover::LogBasePopover(QWidget *parent) :
+LogBasePopover::LogBasePopover(QWidget* parent) :
     QWidget(parent),
-    ui(new Ui::LogBasePopover)
-{
+    ui(new Ui::LogBasePopover) {
     ui->setupUi(this);
+
+    this->setFocusProxy(ui->baseEdit);
+    ui->titleLabel->setBackButtonShown(true);
 }
 
-LogBasePopover::~LogBasePopover()
-{
+LogBasePopover::~LogBasePopover() {
     delete ui;
 }
 
-void LogBasePopover::on_backButton_clicked()
-{
-    emit rejected();
-}
-
-void LogBasePopover::on_okButton_clicked()
-{
+void LogBasePopover::on_okButton_clicked() {
     QString acceptText;
     QString baseText = ui->baseEdit->text();
     QString number = ui->numberEdit->text();
@@ -59,4 +54,8 @@ void LogBasePopover::on_okButton_clicked()
     } else {
         emit accepted(QStringLiteral("log(%1,%2)").arg(number).arg(baseText));
     }
+}
+
+void LogBasePopover::on_titleLabel_backButtonClicked() {
+    emit rejected();
 }
