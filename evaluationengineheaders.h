@@ -45,6 +45,9 @@ struct EvaluationEngineParameters {
     std::function<void(QString, idouble)> assignFunction;
     std::function<void(bool)> equalityFunction;
     QMap<QString, idouble> variables;
+    QMap<QString, idouble> builtinVariables = {
+        {"pi", M_PI}
+    };
 };
 
 #endif // EVALUATIONENGINEHEADERS_H

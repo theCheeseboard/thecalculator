@@ -44,10 +44,11 @@ idouble callFunction(QString name, QList<idouble> args, QString& error) {
 
 
 bool valueExists(QString identifier, EvaluationEngineParameters p) {
-    return p.variables.contains(identifier);
+    return p.variables.contains(identifier) || p.builtinVariables.contains(identifier);
 }
 
 idouble getValue(QString identifier, EvaluationEngineParameters p) {
+    if (p.builtinVariables.contains(identifier)) return p.builtinVariables.value(identifier);
     return p.variables.value(identifier);
 }
 

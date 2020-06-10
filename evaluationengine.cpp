@@ -143,10 +143,15 @@ EvaluationEngine::Result EvaluationEngine::evaluate() {
         result->type = Result::Error;
     };
     p.assignFunction = [ = ](QString identifier, idouble value) { //Assignment
-        result->assigned = true;
-        result->identifier = identifier;
-        result->value = value;
-        result->type = Result::Assign;
+        if (p.builtinVariables.contains(identifier)) {
+            result->error = tr("Can't assign to builtin variable %1").arg(identifier);
+            result->type = Result::Error;
+        } else {
+            result->assigned = true;
+            result->identifier = identifier;
+            result->value = value;
+            result->type = Result::Assign;
+        }
     };
     p.equalityFunction = [ = ](bool isTrue) { //Equality
         result->isTrue = isTrue;
