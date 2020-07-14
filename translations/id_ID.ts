@@ -11,37 +11,37 @@
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="134"/>
         <source>Expression</source>
-        <translation>Persamaan</translation>
+        <translation type="unfinished">Persamaan</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="144"/>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Warna</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="154"/>
         <source>Use x for the horizontal axis</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sumbu X sebagai garis horizontal</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="32"/>
         <source>Green</source>
-        <translation type="unfinished"></translation>
+        <translation>Hijau</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="33"/>
         <source>Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Merah</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="34"/>
         <source>Aqua</source>
-        <translation type="unfinished"></translation>
+        <translation>Biru Muda</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="35"/>
         <source>Purple</source>
-        <translation type="unfinished"></translation>
+        <translation>Ungu</translation>
     </message>
 </context>
 <context>
@@ -49,48 +49,48 @@
     <message>
         <location filename="../customs/branchbox.ui" line="59"/>
         <source>RETURN</source>
-        <translation type="unfinished"></translation>
+        <translation>RETURN</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="66"/>
         <location filename="../customs/branchbox.cpp" line="120"/>
         <source>Expression to calculate</source>
-        <translation type="unfinished"></translation>
+        <translation>Persamaan</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="73"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Error</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="85"/>
         <source>Add Condition</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambah Kondisi</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="95"/>
         <source>Remove Branch</source>
-        <translation type="unfinished"></translation>
+        <translation>Hapus</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="49"/>
         <source>OTHERWISE RETURN</source>
-        <translation type="unfinished"></translation>
+        <translation>SELAIN ITU KEMBALI</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="77"/>
         <source>Return value required</source>
-        <translation type="unfinished"></translation>
+        <translation>Harus disertai nilai kembali</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="78"/>
         <source>A return value is required for this branch</source>
-        <translation type="unfinished"></translation>
+        <translation>Branch ini harus disertai nilai kembali</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="118"/>
         <source>Error Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Penjelasan Kesalahan</translation>
     </message>
 </context>
 <context>
@@ -98,152 +98,152 @@
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="214"/>
         <source>Expression...</source>
-        <translation type="unfinished">Ekspresi...</translation>
+        <translation>Persamaan...</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="296"/>
         <source>Pi</source>
-        <translation type="unfinished"></translation>
+        <translation>Pi</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="325"/>
         <source>Right Shift</source>
-        <translation type="unfinished"></translation>
+        <translation>Geser Kanan</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="347"/>
         <source>Percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>Persentase</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="363"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambah</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="379"/>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Kali</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="414"/>
         <source>Euler&apos;s Constant</source>
-        <translation type="unfinished"></translation>
+        <translation>Konstanta Euler</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="436"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Hapus</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="452"/>
         <source>Imaginary Unit</source>
-        <translation type="unfinished"></translation>
+        <translation>Satuan Imajiner</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="468"/>
         <source>Previous Answer</source>
-        <translation type="unfinished"></translation>
+        <translation>Hasil Sebelumnya</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="615"/>
         <source>Cube</source>
-        <translation type="unfinished"></translation>
+        <translation>Pangkat Tiga</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="625"/>
         <source>Nth Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Akar Pangkat n</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="675"/>
         <source>Logarithm with base</source>
-        <translation type="unfinished"></translation>
+        <translation>Logaritma dengan basis</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="685"/>
         <source>Hyperbolic Arc Sine</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Arc Sinus Hiperbolik</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="821"/>
         <source>Arc Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Arc Tangen</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="781"/>
         <source>Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Kosinus</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="599"/>
         <source>Hyperbolic Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangen Hiperbolik</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="771"/>
         <source>Square Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Akar Kuadrat</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="745"/>
         <source>Base 10 Logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>Logaritma Basis 10</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="761"/>
         <source>Square</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuadrat</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="715"/>
         <source>Arc Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Arc Sinus</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="579"/>
         <source>Hyperbolic Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Sinus Hiperbolik</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="645"/>
         <source>Reciporical</source>
-        <translation type="unfinished"></translation>
+        <translation>Resiprokal</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="549"/>
         <source>Raise to a power</source>
-        <translation type="unfinished"></translation>
+        <translation>Pangkatkan</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="635"/>
         <source>Factorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Faktorial</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="655"/>
         <source>Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Sinus</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="533"/>
         <source>Arc Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Arc Cosinus</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="705"/>
         <source>Absolute</source>
-        <translation type="unfinished"></translation>
+        <translation>Nilai Mutlak</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="569"/>
         <source>Secant</source>
-        <translation type="unfinished"></translation>
+        <translation>Secan</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="695"/>
         <source>Hyperbolic Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Cosinus Hiperbolik</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="589"/>
@@ -409,7 +409,7 @@
     <message>
         <location filename="../customs/conditionbox.ui" line="67"/>
         <source>OR NOT</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">O</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="72"/>
@@ -1170,17 +1170,17 @@
     <message>
         <location filename="../parts/functions/functionwidget.ui" line="58"/>
         <source>Custom Functions</source>
-        <translation type="unfinished">Fungsi Kustom</translation>
+        <translation>Fungsi Kustom</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.ui" line="171"/>
         <source>Add Custom Function</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambahkan Fungsi Kustom</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.ui" line="236"/>
         <source>Function Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nama Fungsi</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.ui" line="294"/>
@@ -1190,22 +1190,22 @@
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="71"/>
         <source>Save this function?</source>
-        <translation type="unfinished"></translation>
+        <translation>Simpan fungsi?</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="71"/>
         <source>Do you want to save this function?</source>
-        <translation type="unfinished"></translation>
+        <translation>Apakah Anda ingin menyimpan fungsi ini?</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="98"/>
         <source>Function Name Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Perlu Nama Fungsi</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="99"/>
         <source>A function name needs to be set</source>
-        <translation type="unfinished"></translation>
+        <translation>Nama fungsi harus disertakan</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="119"/>
@@ -1243,62 +1243,62 @@
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="107"/>
         <source>Expressions</source>
-        <translation type="unfinished"></translation>
+        <translation>Persamaan</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="180"/>
         <source>Viewport</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilan</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="220"/>
         <source>Center X</source>
-        <translation type="unfinished"></translation>
+        <translation>X Pusat</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="306"/>
         <source>y = </source>
-        <translation type="unfinished"></translation>
+        <translation>y = </translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="322"/>
         <source>x = </source>
-        <translation type="unfinished"></translation>
+        <translation>x = </translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="266"/>
         <source>Center Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y Pusat</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="273"/>
         <source>Scale X</source>
-        <translation type="unfinished"></translation>
+        <translation>Pembesaran X</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="227"/>
         <source>Scale Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Pembesaran Y</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.cpp" line="49"/>
         <source>Graphing</source>
-        <translation type="unfinished"></translation>
+        <translation>Grafik</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.cpp" line="50"/>
         <source>Render Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Simpan Gambar</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.cpp" line="121"/>
         <source>For %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Untuk %1</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.cpp" line="122"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Hapus</translation>
     </message>
 </context>
 <context>
@@ -1306,47 +1306,47 @@
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="35"/>
         <source>Logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>Logaritma</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="89"/>
         <source>PARAMETERS</source>
-        <translation type="unfinished"></translation>
+        <translation>PARAMETER</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="96"/>
         <source>Enter the parameters for the operation</source>
-        <translation type="unfinished"></translation>
+        <translation>Masukkan parameter untuk operasi</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="110"/>
         <source>log</source>
-        <translation type="unfinished"></translation>
+        <translation>log</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="132"/>
         <source>Base</source>
-        <translation type="unfinished"></translation>
+        <translation>Basis</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="144"/>
         <source>(</source>
-        <translation type="unfinished"></translation>
+        <translation>(</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="168"/>
         <source>Number</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilangan</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="180"/>
         <source>)</source>
-        <translation type="unfinished"></translation>
+        <translation>)</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="197"/>
         <source>Add to Expression</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambahkan ke persamaan</translation>
     </message>
 </context>
 <context>
@@ -1359,82 +1359,82 @@
     <message>
         <location filename="../mainwindow.ui" line="93"/>
         <source>Scientific</source>
-        <translation type="unfinished"></translation>
+        <translation>Ilmiah</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="118"/>
         <source>Statistical</source>
-        <translation type="unfinished"></translation>
+        <translation>Statistik</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="140"/>
         <source>Graphing</source>
-        <translation type="unfinished"></translation>
+        <translation>Grafik</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="80"/>
         <source>Trigonometry</source>
-        <translation type="unfinished"></translation>
+        <translation>Trigonometri</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="87"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Bantuan</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="162"/>
         <source>Functions</source>
-        <translation type="unfinished"></translation>
+        <translation>Fungsi</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="297"/>
         <source>&amp;Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Keluar</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="300"/>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="311"/>
         <source>&amp;Degrees</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Derajat</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="319"/>
         <source>&amp;Radians</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Radian</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="328"/>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tentang</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="337"/>
         <source>&amp;theCalculator Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Bantuan &amp;theCalculator</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="340"/>
         <source>F1</source>
-        <translation type="unfinished"></translation>
+        <translation>F1</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="349"/>
         <source>&amp;File Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Laporkan Bug</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="358"/>
         <source>&amp;Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Kode &amp;Sumber</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="366"/>
         <source>&amp;Gradians</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Gradian</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="291"/>
@@ -1449,12 +1449,12 @@
     <message>
         <location filename="../main.cpp" line="300"/>
         <source>Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Lokasi</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="313"/>
         <source>Here</source>
-        <translation type="unfinished"></translation>
+        <translation>Di sini</translation>
     </message>
 </context>
 <context>
@@ -1462,22 +1462,22 @@
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="35"/>
         <source>Nth Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Akar Pangkat N</translation>
     </message>
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="89"/>
         <source>PARAMETERS</source>
-        <translation type="unfinished"></translation>
+        <translation>PARAMETER</translation>
     </message>
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="96"/>
         <source>Enter the parameters for the operation</source>
-        <translation type="unfinished"></translation>
+        <translation>Masukkan parameter untuk operasi ini</translation>
     </message>
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="120"/>
         <source>Base</source>
-        <translation type="unfinished"></translation>
+        <translation>Basis</translation>
     </message>
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="132"/>
@@ -1487,12 +1487,12 @@
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="156"/>
         <source>Radicand</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilangan</translation>
     </message>
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="173"/>
         <source>Add to Expression</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambahkan ke persamaan</translation>
     </message>
 </context>
 <context>
@@ -1556,27 +1556,27 @@
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="71"/>
         <source>Render Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Simpan Gambar</translation>
     </message>
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="136"/>
         <source>File Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Simpan ke</translation>
     </message>
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="143"/>
         <source>Image Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Lebar Gambar</translation>
     </message>
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="150"/>
         <source>Image Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Panjang Gambar</translation>
     </message>
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="157"/>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Cari...</translation>
     </message>
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="164"/>
@@ -1600,12 +1600,12 @@
     <message>
         <location filename="../parts/stats/statwidget.ui" line="125"/>
         <source>Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Statistik</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="186"/>
         <source>Count</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Jumlah Data</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="225"/>
@@ -1625,7 +1625,7 @@
     <message>
         <location filename="../parts/stats/statwidget.ui" line="246"/>
         <source>Maximum</source>
-        <translation type="unfinished"></translation>
+        <translation>Maksimum</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="253"/>
@@ -1635,17 +1635,17 @@
     <message>
         <location filename="../parts/stats/statwidget.ui" line="179"/>
         <source>Mean</source>
-        <translation type="unfinished"></translation>
+        <translation>Rata-Rata</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.cpp" line="34"/>
         <source>Value</source>
-        <translation type="unfinished"></translation>
+        <translation>Nilai</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.cpp" line="34"/>
         <source>Frequency</source>
-        <translation type="unfinished"></translation>
+        <translation>Frekuensi</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.cpp" line="105"/>
@@ -1655,14 +1655,14 @@
         <location filename="../parts/stats/statwidget.cpp" line="109"/>
         <location filename="../parts/stats/statwidget.cpp" line="110"/>
         <source>no data</source>
-        <translation type="unfinished"></translation>
+        <translation>tidak ada data</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.cpp" line="137"/>
         <location filename="../parts/stats/statwidget.cpp" line="146"/>
         <location filename="../parts/stats/statwidget.cpp" line="155"/>
         <source>undefined</source>
-        <translation type="unfinished"></translation>
+        <translation>tidak terdefinisi</translation>
     </message>
 </context>
 <context>
@@ -1672,44 +1672,44 @@
         <location filename="../main.cpp" line="125"/>
         <location filename="../main.cpp" line="149"/>
         <source>Calculator</source>
-        <translation type="unfinished">Kalkulator</translation>
+        <translation>Kalkulator</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="129"/>
         <location filename="../main.cpp" line="153"/>
         <source>Generate a graph in PNG format and write the data to stdout.</source>
-        <translation type="unfinished"></translation>
+        <translation>Menghasilkan sebuah grafik dalam format PNG dan mengirimkannya ke stdout.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="130"/>
         <location filename="../main.cpp" line="131"/>
         <source>expression</source>
-        <translation type="unfinished"></translation>
+        <translation>persamaan</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="130"/>
         <source>Evaluate &lt;expression&gt;, print the result to standard output, then exit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Menghitung &lt;persamaan&gt;, mencetak hasil ke stdout, kemudian berhenti.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="160"/>
         <source>Width of the graph, in pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>Panjang grafik dalam pixel</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="161"/>
         <source>Height of the graph, in pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>Lebar grafik dalam pixel</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="154"/>
         <source>X value to center the generated graph at</source>
-        <translation type="unfinished"></translation>
+        <translation>Nilai X pusat untuk grafik</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="131"/>
         <source>Do not output colour.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jangan menggunakan warna.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="154"/>
@@ -1719,7 +1719,7 @@
     <message>
         <location filename="../main.cpp" line="155"/>
         <source>Y value to center the generated graph at</source>
-        <translation type="unfinished"></translation>
+        <translation>Nilai Y pusat untuk grafik</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="155"/>
@@ -1729,7 +1729,7 @@
     <message>
         <location filename="../main.cpp" line="156"/>
         <source>Number of pixels to put between each integer in the X direction</source>
-        <translation type="unfinished"></translation>
+        <translation>Berapa pixel di antara setiap bilangan sepanjang sumbu X</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="156"/>
@@ -1739,7 +1739,7 @@
     <message>
         <location filename="../main.cpp" line="157"/>
         <source>Number of pixels to put between each integer in the Y direction</source>
-        <translation type="unfinished"></translation>
+        <translation>Berapa pixel di antara setiap bilangan sepanjang sumbu Y</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="157"/>
@@ -1749,17 +1749,17 @@
     <message>
         <location filename="../main.cpp" line="158"/>
         <source>File to output the graph to. If missing, output to stdout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">File untuk gambar grafik. Jika tidak ada, grafik akan menuju stdout</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="158"/>
         <source>path</source>
-        <translation type="unfinished"></translation>
+        <translation>lokasi</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="162"/>
         <source>Expressions to graph</source>
-        <translation type="unfinished"></translation>
+        <translation>Persamaan untuk digambarkan</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="169"/>
