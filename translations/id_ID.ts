@@ -6,12 +6,12 @@
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="73"/>
         <source>Add Function</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambahkan Fungsi</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="134"/>
         <source>Expression</source>
-        <translation type="unfinished"></translation>
+        <translation>Persamaan</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="144"/>
