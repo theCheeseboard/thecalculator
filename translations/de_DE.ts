@@ -6,7 +6,7 @@
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="73"/>
         <source>Add Function</source>
-        <translation type="unfinished"></translation>
+        <translation>Funktion hinzufügen</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="134"/>
