@@ -6,42 +6,42 @@
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="73"/>
         <source>Add Function</source>
-        <translation type="unfinished"></translation>
+        <translation>İşlev Ekle</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="134"/>
         <source>Expression</source>
-        <translation type="unfinished"></translation>
+        <translation>İfade</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="144"/>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Renk</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="154"/>
         <source>Use x for the horizontal axis</source>
-        <translation type="unfinished"></translation>
+        <translation>Yatay eksen için x kullanın</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="32"/>
         <source>Green</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeşil</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="33"/>
         <source>Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Kırmızı</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="34"/>
         <source>Aqua</source>
-        <translation type="unfinished"></translation>
+        <translation>Mavi</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="35"/>
         <source>Purple</source>
-        <translation type="unfinished"></translation>
+        <translation>Mor</translation>
     </message>
 </context>
 <context>
@@ -49,18 +49,18 @@
     <message>
         <location filename="../customs/branchbox.ui" line="59"/>
         <source>RETURN</source>
-        <translation type="unfinished"></translation>
+        <translation>VAZGEÇ</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="66"/>
         <location filename="../customs/branchbox.cpp" line="120"/>
         <source>Expression to calculate</source>
-        <translation type="unfinished"></translation>
+        <translation>Hesaplanacak ifade</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="73"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Hata</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="85"/>
