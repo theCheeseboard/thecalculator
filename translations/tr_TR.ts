@@ -65,32 +65,32 @@
     <message>
         <location filename="../customs/branchbox.ui" line="85"/>
         <source>Add Condition</source>
-        <translation type="unfinished"></translation>
+        <translation>Koşul Ekle</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="95"/>
         <source>Remove Branch</source>
-        <translation type="unfinished"></translation>
+        <translation>Şubeyi Kaldır</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="49"/>
         <source>OTHERWISE RETURN</source>
-        <translation type="unfinished"></translation>
+        <translation>AKSİ TAKDİRDE İADE</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="77"/>
         <source>Return value required</source>
-        <translation type="unfinished"></translation>
+        <translation>Dönüş değeri gerekli</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="78"/>
         <source>A return value is required for this branch</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu şube için bir dönüş değeri gerekli</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="118"/>
         <source>Error Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Hata Tanımlaması</translation>
     </message>
 </context>
 <context>
