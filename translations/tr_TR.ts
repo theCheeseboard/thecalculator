@@ -98,280 +98,280 @@
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="214"/>
         <source>Expression...</source>
-        <translation type="unfinished"></translation>
+        <translation>İfade...</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="296"/>
         <source>Pi</source>
-        <translation type="unfinished"></translation>
+        <translation>Pi</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="325"/>
         <source>Right Shift</source>
-        <translation type="unfinished"></translation>
+        <translation>Sağa ÜstKarakter</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="347"/>
         <source>Percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>Yüzde</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="363"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekle</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="379"/>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Çarpmak</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="414"/>
         <source>Euler&apos;s Constant</source>
-        <translation type="unfinished"></translation>
+        <translation>Euler sabiti</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="436"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Açık</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="452"/>
         <source>Imaginary Unit</source>
-        <translation type="unfinished"></translation>
+        <translation>Hayali Birim</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="468"/>
         <source>Previous Answer</source>
-        <translation type="unfinished"></translation>
+        <translation>Önceki Cevap</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="533"/>
         <source>Arc Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Ark Kosinüsü</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="549"/>
         <source>Raise to a power</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir güce yükseltmek</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="559"/>
         <source>Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Teğet</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="569"/>
         <source>Secant</source>
-        <translation type="unfinished"></translation>
+        <translation>Sekant</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="579"/>
         <source>Hyperbolic Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiperbolik Sinüs</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="589"/>
         <source>Hyperbolic Arc Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiperbolik Ark Tanjant</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="599"/>
         <source>Hyperbolic Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiperbolik Tanjant</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="615"/>
         <source>Cube</source>
-        <translation type="unfinished"></translation>
+        <translation>Küp</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="625"/>
         <source>Nth Root</source>
-        <translation type="unfinished"></translation>
+        <translation>N. Kök</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="635"/>
         <source>Factorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Faktöriyel</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="645"/>
         <source>Reciporical</source>
-        <translation type="unfinished"></translation>
+        <translation>Karşılıklı</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="655"/>
         <source>Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Sinüs</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="665"/>
         <source>Cotangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Kotanjant</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="675"/>
         <source>Logarithm with base</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabanlı logaritma</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="685"/>
         <source>Hyperbolic Arc Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiperbolik Ark Sinüs</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="695"/>
         <source>Hyperbolic Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiperbolik Kosinüs</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="705"/>
         <source>Absolute</source>
-        <translation type="unfinished"></translation>
+        <translation>Mutlak</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="715"/>
         <source>Arc Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Ark Sinüs</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="725"/>
         <source>Natural Logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>Doğal logaritma</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="735"/>
         <source>Arc Cotangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Ark Kotanjant</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="745"/>
         <source>Base 10 Logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>Baz 10 Logaritma</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="761"/>
         <source>Square</source>
-        <translation type="unfinished"></translation>
+        <translation>Meydan</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="771"/>
         <source>Square Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Kare kök</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="781"/>
         <source>Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Kosinüs</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="791"/>
         <source>Hyperbolic Arc Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiperbolik Ark Kosinüsü</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="801"/>
         <source>Cosecant</source>
-        <translation type="unfinished"></translation>
+        <translation>Kosekant</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="811"/>
         <source>Arc Cosecant</source>
-        <translation type="unfinished"></translation>
+        <translation>Ark Kosekantı</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="821"/>
         <source>Arc Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Ark Teğet</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="831"/>
         <source>Arc Secant</source>
-        <translation type="unfinished"></translation>
+        <translation>Ark Sekant</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="841"/>
         <source>Cube Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Küp Kökü</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="851"/>
         <source>re</source>
-        <translation type="unfinished"></translation>
+        <translation>re</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="858"/>
         <source>im</source>
-        <translation type="unfinished"></translation>
+        <translation>im</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="865"/>
         <source>arg</source>
-        <translation type="unfinished"></translation>
+        <translation>arg</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="1114"/>
         <source>Backspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Geri tuşu</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="927"/>
         <source>Left Shift</source>
-        <translation type="unfinished"></translation>
+        <translation>Sol ÜstKarakter</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="1008"/>
         <source>Subtract</source>
-        <translation type="unfinished"></translation>
+        <translation>Eksi</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="1030"/>
         <source>Divide</source>
-        <translation type="unfinished"></translation>
+        <translation>Böl</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="1046"/>
         <source>Extended Palette</source>
-        <translation type="unfinished"></translation>
+        <translation>Genişletilmiş Palet</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="1066"/>
         <source>Evaluate</source>
-        <translation type="unfinished"></translation>
+        <translation>Değerlendirmek</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="181"/>
         <source>%1 assigned to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1,%2&apos;ye atandı</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="190"/>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="240"/>
         <source>TRUE</source>
-        <translation type="unfinished"></translation>
+        <translation>DOĞRU</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="190"/>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="240"/>
         <source>FALSE</source>
-        <translation type="unfinished"></translation>
+        <translation>YANLIŞ</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="237"/>
         <source>Assign %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1&apos;i %2&apos;ye atayın</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="333"/>
         <source>No arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Tartışma yok</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="334"/>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="351"/>
         <source>function</source>
-        <translation type="unfinished"></translation>
+        <translation>işlevi</translation>
     </message>
 </context>
 <context>
@@ -379,57 +379,57 @@
     <message>
         <location filename="../customs/conditionbox.ui" line="33"/>
         <source>WHEN</source>
-        <translation type="unfinished"></translation>
+        <translation>NE ZAMAN</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="38"/>
         <source>WHEN NOT</source>
-        <translation type="unfinished"></translation>
+        <translation>DEĞİLSE</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="47"/>
         <source>AND</source>
-        <translation type="unfinished"></translation>
+        <translation>VE</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="52"/>
         <source>OR</source>
-        <translation type="unfinished"></translation>
+        <translation>YA DA</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="57"/>
         <source>XOR</source>
-        <translation type="unfinished"></translation>
+        <translation>XOR</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="62"/>
         <source>AND NOT</source>
-        <translation type="unfinished"></translation>
+        <translation>VE YOK</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="67"/>
         <source>OR NOT</source>
-        <translation type="unfinished"></translation>
+        <translation>YA DA DEĞİL</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="72"/>
         <source>XOR NOT</source>
-        <translation type="unfinished"></translation>
+        <translation>ÖZEL DEĞİL</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="80"/>
         <source>Expression to check</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrol edilecek ifade</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.cpp" line="63"/>
         <source>Expression required</source>
-        <translation type="unfinished"></translation>
+        <translation>İfade gerekli</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.cpp" line="64"/>
         <source>An expression is required for this condition</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu durum için bir ifade gereklidir</translation>
     </message>
 </context>
 <context>
@@ -437,27 +437,27 @@
     <message>
         <location filename="../evaluationengine.cpp" line="90"/>
         <source>%1: unknown variable</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: bilinmeyen değişken</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="91"/>
         <source>div: division by 0 undefined</source>
-        <translation type="unfinished"></translation>
+        <translation>div: 0&apos;a bölme tanımsız</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="92"/>
         <source>%1: undefined function</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: tanımsız işlev</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="113"/>
         <source>Stack Overflow</source>
-        <translation type="unfinished"></translation>
+        <translation>Yığın Taşması</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="147"/>
         <source>Can&apos;t assign to builtin variable %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 yerleşik değişkenine atanamıyor</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="193"/>
@@ -470,12 +470,12 @@
         <location filename="../evaluationengine.cpp" line="276"/>
         <location filename="../evaluationengine.cpp" line="283"/>
         <source>Calculates the %1 of a %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir %2&apos;nin %1&apos;ini hesaplar</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="193"/>
         <source>absolute value</source>
-        <translation type="unfinished"></translation>
+        <translation>mutlak değer</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="193"/>
@@ -497,7 +497,7 @@
         <location filename="../evaluationengine.cpp" line="595"/>
         <location filename="../evaluationengine.cpp" line="598"/>
         <source>number</source>
-        <translation type="unfinished"></translation>
+        <translation>numara</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="193"/>
@@ -533,22 +533,22 @@
         <location filename="../evaluationengine.cpp" line="595"/>
         <location filename="../evaluationengine.cpp" line="598"/>
         <source>The %1 to calculate the %2 of</source>
-        <translation type="unfinished"></translation>
+        <translation>%2 hesaplanacak %1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="196"/>
         <source>square root</source>
-        <translation type="unfinished"></translation>
+        <translation>kare kök</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="199"/>
         <source>cube root</source>
-        <translation type="unfinished"></translation>
+        <translation>küp kökü</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="206"/>
         <source>root: arg1 (%1) out of bounds (not 0)</source>
-        <translation type="unfinished"></translation>
+        <translation>kök: arg1 (%1) sınırların dışında (0 değil)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="212"/>
