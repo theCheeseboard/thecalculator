@@ -553,38 +553,38 @@
     <message>
         <location filename="../evaluationengine.cpp" line="212"/>
         <source>root: expected 2 arguments, got %1</source>
-        <translation type="unfinished"></translation>
+        <translation>kök: beklenen 2 bağımsız değişken, %1 aldı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="215"/>
         <location filename="../evaluationengine.cpp" line="216"/>
         <source>root</source>
-        <translation type="unfinished"></translation>
+        <translation>kök</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="216"/>
         <source>radicand</source>
-        <translation type="unfinished"></translation>
+        <translation>numara</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="217"/>
         <source>index</source>
-        <translation type="unfinished"></translation>
+        <translation>indeks</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="217"/>
         <source>The number to root by</source>
-        <translation type="unfinished"></translation>
+        <translation>Köklenecek sayı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="221"/>
         <source>fact: input (%1) not a real number</source>
-        <translation type="unfinished"></translation>
+        <translation>olgu: girdi (%1) gerçek bir sayı değil</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="224"/>
         <source>fact: input (%1) out of bounds (0 and above)</source>
-        <translation type="unfinished"></translation>
+        <translation>olgu: girdi (%1) sınırların dışında (0 ve üstü)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="231"/>
@@ -611,12 +611,12 @@
         <location filename="../evaluationengine.cpp" line="595"/>
         <location filename="../evaluationengine.cpp" line="598"/>
         <source>Calculates the %1 of an %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir %2&apos;nin %1&apos;ini hesaplar</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="231"/>
         <source>factorial</source>
-        <translation type="unfinished"></translation>
+        <translation>faktöryel</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="231"/>
@@ -638,32 +638,32 @@
         <location filename="../evaluationengine.cpp" line="431"/>
         <location filename="../evaluationengine.cpp" line="435"/>
         <source>angle</source>
-        <translation type="unfinished"></translation>
+        <translation>açı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="235"/>
         <source>sine</source>
-        <translation type="unfinished"></translation>
+        <translation>sinüs</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="239"/>
         <source>cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>kosinüs</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="244"/>
         <source>tan: input (%1) out of bounds (not %2)</source>
-        <translation type="unfinished"></translation>
+        <translation>tan: giriş (%1) sınırların dışında (%2 değil)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="264"/>
         <source>tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>teğet</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="268"/>
         <source>conjugate</source>
-        <translation type="unfinished"></translation>
+        <translation>eşlenik</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="268"/>
@@ -671,292 +671,292 @@
         <location filename="../evaluationengine.cpp" line="276"/>
         <location filename="../evaluationengine.cpp" line="283"/>
         <source>complex number</source>
-        <translation type="unfinished"></translation>
+        <translation>karmaşık sayı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="272"/>
         <source>imaginary portion</source>
-        <translation type="unfinished"></translation>
+        <translation>hayali kısım</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="276"/>
         <source>real portion</source>
-        <translation type="unfinished"></translation>
+        <translation>gerçek kısım</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="279"/>
         <source>arg: phase angle of 0 undefined</source>
-        <translation type="unfinished"></translation>
+        <translation>arg: 0&apos;ın faz açısı tanımsız</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="283"/>
         <source>phase angle</source>
-        <translation type="unfinished"></translation>
+        <translation>faz açısı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="287"/>
         <source>asin: input (%1) out of bounds (between -1 and 1)</source>
-        <translation type="unfinished"></translation>
+        <translation>asin: giriş (%1) sınırların dışında (-1 ile 1 arasında)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="292"/>
         <source>arcsine (inverse sine)</source>
-        <translation type="unfinished"></translation>
+        <translation>ark sinüs (ters sinüs)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="292"/>
         <source>arcsine</source>
-        <translation type="unfinished"></translation>
+        <translation>ark sinüs</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="295"/>
         <source>acos: input (%1) out of bounds (between -1 and 1)</source>
-        <translation type="unfinished"></translation>
+        <translation>acos: giriş (%1) sınırların dışında (-1 ile 1 arasında)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="300"/>
         <source>arccosine (inverse cosine)</source>
-        <translation type="unfinished"></translation>
+        <translation>arkkosinüs (ters kosinüs)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="300"/>
         <source>arccosine</source>
-        <translation type="unfinished"></translation>
+        <translation>arkkosinüs</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="305"/>
         <source>atan: input (%1) out of bounds (not i or -i)</source>
-        <translation type="unfinished"></translation>
+        <translation>atan: giriş (%1) sınırların dışında (i veya -i değil)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="310"/>
         <source>arctangent (inverse tangent)</source>
-        <translation type="unfinished"></translation>
+        <translation>arktanjant (ters tanjant)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="310"/>
         <source>arctangent</source>
-        <translation type="unfinished"></translation>
+        <translation>arktanjant</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="313"/>
         <source>sec: input (%1) out of bounds (not %2)</source>
-        <translation type="unfinished"></translation>
+        <translation>sn: giriş (%1) sınırların dışında (%2 değil)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="333"/>
         <source>secant</source>
-        <translation type="unfinished"></translation>
+        <translation>sekant</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="338"/>
         <source>csc: input (%1) out of bounds (not %2)</source>
-        <translation type="unfinished"></translation>
+        <translation>csc: giriş (%1) sınırların dışında (%2 değil)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="358"/>
         <source>cosecant</source>
-        <translation type="unfinished"></translation>
+        <translation>kosekant</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="363"/>
         <source>cot: input (%1) out of bounds (not %2)</source>
-        <translation type="unfinished"></translation>
+        <translation>cot: giriş (%1) sınırların dışında (%2 değil)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="383"/>
         <source>cotangent</source>
-        <translation type="unfinished"></translation>
+        <translation>kotanjant</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="388"/>
         <source>asec: input (%1) out of bounds (not 0)</source>
-        <translation type="unfinished"></translation>
+        <translation>asec: giriş (%1) sınırların dışında (0 değil)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="393"/>
         <source>arcsecant (inverse secant)</source>
-        <translation type="unfinished"></translation>
+        <translation>arcsecant (ters sekant)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="393"/>
         <source>arcsecant</source>
-        <translation type="unfinished"></translation>
+        <translation>arksekant</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="398"/>
         <source>acsc: input (%1) out of bounds (not 0)</source>
-        <translation type="unfinished"></translation>
+        <translation>acsc: giriş (%1) sınırların dışında (0 değil)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="403"/>
         <source>arccosecant (inverse cosecant)</source>
-        <translation type="unfinished"></translation>
+        <translation>ark kosekant (ters kosekant)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="403"/>
         <source>arccosecant</source>
-        <translation type="unfinished"></translation>
+        <translation>arkkosekant</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="411"/>
         <source>arccotangent (inverse cotangent)</source>
-        <translation type="unfinished"></translation>
+        <translation>ark kotanjant (ters kotanjant)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="411"/>
         <source>arccotangent</source>
-        <translation type="unfinished"></translation>
+        <translation>ark kotanjant</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="415"/>
         <source>hyperbolic sine</source>
-        <translation type="unfinished"></translation>
+        <translation>hiperbolik sinüs</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="419"/>
         <source>hyperbolic cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>hiperbolik kosinüs</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="423"/>
         <source>hyperbolic tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>hiperbolik tanjant</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="427"/>
         <source>hyperbolic arcsine (inverse hyperbolic arcsine)</source>
-        <translation type="unfinished"></translation>
+        <translation>hiperbolik arksin (ters hiperbolik arkin)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="427"/>
         <source>hyperbolic arcsine</source>
-        <translation type="unfinished"></translation>
+        <translation>hiperbolik arksin</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="431"/>
         <source>hyperbolic arccosine (inverse hyperbolic arccosine)</source>
-        <translation type="unfinished"></translation>
+        <translation>hiperbolik arkkosin (ters hiperbolik arkkosin)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="431"/>
         <source>hyperbolic arccosine</source>
-        <translation type="unfinished"></translation>
+        <translation>hiperbolik arkkosin</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="435"/>
         <source>hyperbolic arctangent (inverse hyperbolic arctangent)</source>
-        <translation type="unfinished"></translation>
+        <translation>hiperbolik arktanjant (ters hiperbolik arktanjant)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="435"/>
         <source>hyperbolic arctangent</source>
-        <translation type="unfinished"></translation>
+        <translation>hiperbolik arktanjant (ters hiperbolik arktanjant)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="441"/>
         <source>log: input (%1) out of bounds (not 0)</source>
-        <translation type="unfinished"></translation>
+        <translation>günlük: giriş (%1) sınırların dışında (0 değil)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="449"/>
         <source>log: arg1 (%1) out of bounds (not 0)</source>
-        <translation type="unfinished"></translation>
+        <translation>log: arg1 (%1) sınırların dışında (0 değil)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="454"/>
         <source>log: arg2 (%1) out of bounds (not 1)</source>
-        <translation type="unfinished"></translation>
+        <translation>log: arg2 (%1) sınırların dışında (1 değil)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="459"/>
         <source>log: arg2 (%1) out of bounds (not 0)</source>
-        <translation type="unfinished"></translation>
+        <translation>log: arg2 (%1) sınırların dışında (0 değil)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="465"/>
         <source>log: expected 1 or 2 arguments, got %1</source>
-        <translation type="unfinished"></translation>
+        <translation>günlük: 1 veya 2 bağımsız değişken bekleniyordu, %1 aldı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="468"/>
         <source>base 10 logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>10 tabanlı logaritma</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="469"/>
         <location filename="../evaluationengine.cpp" line="470"/>
         <source>logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>logaritma</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="471"/>
         <location filename="../evaluationengine.cpp" line="565"/>
         <source>base</source>
-        <translation type="unfinished"></translation>
+        <translation>temel</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="471"/>
         <source>The base of the logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>Logaritmanın tabanı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="477"/>
         <source>ln: input (%1) out of bounds (not 0)</source>
-        <translation type="unfinished"></translation>
+        <translation>ln: giriş (%1) sınırların dışında (0 değil)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="482"/>
         <source>base e logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>e tabanlı logaritma</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="490"/>
         <source>lsh: arg1 (%1) not a real number</source>
-        <translation type="unfinished"></translation>
+        <translation>lsh: arg1 (%1) gerçek bir sayı değil</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="494"/>
         <source>lsh: arg2 (%1) not a real number</source>
-        <translation type="unfinished"></translation>
+        <translation>lsh: arg2 (% 1) gerçek bir sayı değil</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="499"/>
         <source>lsh: arg1 (%1) not an integer</source>
-        <translation type="unfinished"></translation>
+        <translation>lsh: arg1 (% 1) tamsayı değil</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="504"/>
         <source>lsh: arg2 (%1) not an integer</source>
-        <translation type="unfinished"></translation>
+        <translation>lsh: arg2 (%1) tamsayı değil</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="510"/>
         <source>lsh: expected 2 arguments, got %1</source>
-        <translation type="unfinished"></translation>
+        <translation>lsh: 2 bağımsız değişken bekleniyordu, %1 aldı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="513"/>
         <source>Shifts a number to the left by a specified number of bits</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir sayıyı belirtilen sayıda bit kadar sola kaydırır</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="513"/>
         <location filename="../evaluationengine.cpp" line="543"/>
         <source>The number to shift</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaydırılacak sayı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="513"/>
         <location filename="../evaluationengine.cpp" line="543"/>
         <source>amount</source>
-        <translation type="unfinished"></translation>
+        <translation>Miktar</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="513"/>
         <location filename="../evaluationengine.cpp" line="543"/>
         <source>The number of bits to shift by</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaydırılacak bit sayısı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="520"/>
