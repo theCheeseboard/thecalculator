@@ -961,208 +961,209 @@
     <message>
         <location filename="../evaluationengine.cpp" line="520"/>
         <source>rsh: arg1 (%1) not a real number</source>
-        <translation type="unfinished"></translation>
+        <translation>rsh: arg1 (%1) gerçek bir sayı değil</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="524"/>
         <source>rsh: arg2 (%1) not a real number</source>
-        <translation type="unfinished"></translation>
+        <translation>rsh: arg1 (%1) gerçek bir sayı değil</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="529"/>
         <source>rsh: arg1 (%1) not an integer</source>
-        <translation type="unfinished"></translation>
+        <translation>rsh: arg1 (%1) tamsayı değil</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="534"/>
         <source>rsh: arg2 (%1) not an integer</source>
-        <translation type="unfinished"></translation>
+        <translation>rsh: arg2 (%1) tamsayı değil</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="540"/>
         <source>rsh: expected 2 arguments, got %1</source>
-        <translation type="unfinished"></translation>
+        <translation>rsh: 2 bağımsız değişken bekleniyordu,%1 aldı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="543"/>
         <source>Shifts a number to the right by a specified number of bits</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir sayıyı belirtilen sayıda bit kadar sağa kaydırır</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="551"/>
         <source>pow: arg2 (%1) out of bounds for arg1 (0) (should be positive)</source>
-        <translation type="unfinished"></translation>
+        <translation>pow: arg2 (%1) arg1 (0) için sınırların dışında (pozitif olmalıdır)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="556"/>
         <source>pow: arg2 (%1) out of bounds for arg1 (0) (should be a real number)</source>
-        <translation type="unfinished"></translation>
+        <translation>pow: arg2 (%1) arg1 (0) için sınırların dışında (gerçek bir sayı olmalıdır)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="562"/>
         <source>pow: expected 2 arguments, got %1</source>
-        <translation type="unfinished"></translation>
+        <translation>pow: 2 bağımsız değişken bekleniyordu,%1 aldı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="565"/>
         <source>Calculates an exponent</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir üs hesaplar</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="565"/>
         <source>The base of the exponent</source>
-        <translation type="unfinished"></translation>
+        <translation>Üssün tabanı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="565"/>
         <source>exponent</source>
-        <translation type="unfinished"></translation>
+        <translation>üs</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="565"/>
         <source>The number to exponentiate by</source>
-        <translation type="unfinished"></translation>
+        <translation>Üslenecek sayı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="572"/>
         <source>mod: arg1 (%1) not an integer</source>
-        <translation type="unfinished"></translation>
+        <translation>mod: arg1 (%1) tamsayı değil</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="577"/>
         <source>mod: arg2 (%1) not an integer</source>
-        <translation type="unfinished"></translation>
+        <translation>mod: arg2 (%1) tamsayı değil</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="582"/>
         <source>mod: division by 0 undefined</source>
-        <translation type="unfinished"></translation>
+        <translation>mod: 0&apos;a bölme tanımsız</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="588"/>
         <source>mod: expected 2 arguments, got %1</source>
-        <translation type="unfinished"></translation>
+        <translation>mod: 2 bağımsız değişken bekleniyordu,%1 aldı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="591"/>
         <source>Calculates the remainder when dividing two numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>İki sayıyı bölerken kalanı hesaplar</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="591"/>
         <source>divisor</source>
-        <translation type="unfinished"></translation>
+        <translation>bölen</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="591"/>
         <source>The number to be divided</source>
-        <translation type="unfinished"></translation>
+        <translation>Bölünecek sayı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="591"/>
         <source>dividend</source>
-        <translation type="unfinished"></translation>
+        <translation>kâr payı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="591"/>
         <source>The number to divide by</source>
-        <translation type="unfinished"></translation>
+        <translation>Bölünecek sayı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="595"/>
         <source>floor</source>
-        <translation type="unfinished"></translation>
+        <translation>zemin</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="598"/>
         <source>ceiling</source>
-        <translation type="unfinished"></translation>
+        <translation>tavan</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="607"/>
         <location filename="../evaluationengine.cpp" line="614"/>
         <source>random: arg1 (%1) not a real number</source>
-        <translation type="unfinished"></translation>
+        <translation>rastgele: arg1 (%1) gerçek bir sayı değil</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="619"/>
         <source>random: arg2 (%1) not a real number</source>
-        <translation type="unfinished"></translation>
+        <translation>rastgele: arg2 (%1) gerçek bir sayı değil</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="625"/>
         <source>random: expected 0, 1 or 2 arguments, got %1</source>
-        <translation type="unfinished"></translation>
+        <translation>rastgele: 0, 1 ya da 2 bağımsız değişken bekleniyordu, %1 aldı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="628"/>
         <source>Returns a random number</source>
-        <translation type="unfinished"></translation>
+        <translation>Rastgele bir sayı verir</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="629"/>
         <source>Returns a random number in the range [0-number)</source>
-        <translation type="unfinished"></translation>
+        <translation>[0-sayı) aralığında rastgele bir sayı verir</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="629"/>
         <source>bound</source>
-        <translation type="unfinished"></translation>
+        <translation>ciltli</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="629"/>
         <location filename="../evaluationengine.cpp" line="630"/>
         <source>The exclusive high bound</source>
-        <translation type="unfinished"></translation>
+        <translation>Özel yüksek sınır</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="630"/>
         <source>Returns a random number in the range [low-high)</source>
-        <translation type="unfinished"></translation>
+        <translation>[Düşük-yüksek) aralığında rastgele bir sayı verir</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="630"/>
         <source>low</source>
-        <translation type="unfinished"></translation>
+        <translation>düşük</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="630"/>
         <source>The inclusive low bound</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapsayıcı alt sınır</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="630"/>
         <source>high</source>
-        <translation type="unfinished"></translation>
+        <translation>yüksek</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="696"/>
         <location filename="../evaluationengine.cpp" line="758"/>
         <source>%1: expected scalar or boolean value, got assignment</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: beklenen skaler veya boole değeri, atama var</translation>
     </message>
     <message numerus="yes">
         <location filename="../evaluationengine.cpp" line="769"/>
         <source>%1: expected %n arguments, got %2</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%1: beklenen %n bağımsız değişken, %2 aldı</numerusform>
+            <numerusform>%1: beklenen %n bağımsız değişler, %2 aldı</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="772"/>
         <source>or</source>
         <comment>Expected 1, 2 or 3 arguments</comment>
-        <translation type="unfinished"></translation>
+        <translation>ya da</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="773"/>
         <source>%1: expected %2 arguments, got %3</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: %2 bağımsız değişler bekleniyordu, %3 aldı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="832"/>
         <source>%1: expected 1 argument, got %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: 1 bağımsız değişleri bekleniyordu,%2 aldı</translation>
     </message>
 </context>
 <context>
@@ -1170,64 +1171,65 @@
     <message>
         <location filename="../parts/functions/functionwidget.ui" line="58"/>
         <source>Custom Functions</source>
-        <translation type="unfinished"></translation>
+        <translation>Özel İşlevler</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.ui" line="171"/>
         <source>Add Custom Function</source>
-        <translation type="unfinished"></translation>
+        <translation>Özel İşlev Ekle</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.ui" line="236"/>
         <source>Function Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Fonksiyon adı</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.ui" line="294"/>
         <source>Add New Overload</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni Aşırı Yük Ekle</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="71"/>
         <source>Save this function?</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu işlev kaydedilsin mi?</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="71"/>
         <source>Do you want to save this function?</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu işlevi kaydetmek istiyor musunuz?</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="98"/>
         <source>Function Name Required</source>
-        <translation type="unfinished"></translation>
+        <translation>İşlev Adı Gerekli</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="99"/>
         <source>A function name needs to be set</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir işlev adının ayarlanması gerekiyor</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="119"/>
         <source>Overload Arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Aşırı Yük Değişkenleri</translation>
     </message>
     <message numerus="yes">
         <location filename="../parts/functions/functionwidget.cpp" line="120"/>
         <source>Only one overload can have %n arguments</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Yalnızca bir aşırı yüklemede %n bağımsız değişken olabilir</numerusform>
+            <numerusform>Yalnızca çoklu aşırı yüklemede %n bağımsız değişken olabilir</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="192"/>
         <source>For %1</source>
-        <translation type="unfinished"></translation>
+        <translation>1% için</translation>
     </message>
     <message>
         <location filename="../parts/functions/functionwidget.cpp" line="193"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Sil</translation>
     </message>
 </context>
 <context>
@@ -1235,7 +1237,7 @@
     <message>
         <location filename="../parts/graph/graphfunction.cpp" line="305"/>
         <source>undefined</source>
-        <translation type="unfinished"></translation>
+        <translation>Tanımsız</translation>
     </message>
 </context>
 <context>
@@ -1243,62 +1245,62 @@
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="107"/>
         <source>Expressions</source>
-        <translation type="unfinished"></translation>
+        <translation>İfade</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="180"/>
         <source>Viewport</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü alanı</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="220"/>
         <source>Center X</source>
-        <translation type="unfinished"></translation>
+        <translation>Merkez X</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="227"/>
         <source>Scale Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Ölçek Y</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="266"/>
         <source>Center Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Merkez Y</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="273"/>
         <source>Scale X</source>
-        <translation type="unfinished"></translation>
+        <translation>X Ölçeği</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="306"/>
         <source>y = </source>
-        <translation type="unfinished"></translation>
+        <translation>y = </translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.ui" line="322"/>
         <source>x = </source>
-        <translation type="unfinished"></translation>
+        <translation>x = </translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.cpp" line="49"/>
         <source>Graphing</source>
-        <translation type="unfinished"></translation>
+        <translation>Grafik oluşturma</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.cpp" line="50"/>
         <source>Render Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Resmi Oluştur</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.cpp" line="121"/>
         <source>For %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 için</translation>
     </message>
     <message>
         <location filename="../parts/graph/graphwidget.cpp" line="122"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Sil</translation>
     </message>
 </context>
 <context>
@@ -1306,47 +1308,47 @@
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="35"/>
         <source>Logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>Logaritma</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="89"/>
         <source>PARAMETERS</source>
-        <translation type="unfinished"></translation>
+        <translation>PARAMETRELER</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="96"/>
         <source>Enter the parameters for the operation</source>
-        <translation type="unfinished"></translation>
+        <translation>İşlem için parametreleri girin</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="110"/>
         <source>log</source>
-        <translation type="unfinished"></translation>
+        <translation>günlük</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="132"/>
         <source>Base</source>
-        <translation type="unfinished"></translation>
+        <translation>Baz</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="144"/>
         <source>(</source>
-        <translation type="unfinished"></translation>
+        <translation>(</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="168"/>
         <source>Number</source>
-        <translation type="unfinished"></translation>
+        <translation>Numara</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="180"/>
         <source>)</source>
-        <translation type="unfinished"></translation>
+        <translation>)</translation>
     </message>
     <message>
         <location filename="../parts/calculator/logbasepopover.ui" line="197"/>
         <source>Add to Expression</source>
-        <translation type="unfinished"></translation>
+        <translation>İfadeye Ekle</translation>
     </message>
 </context>
 <context>
@@ -1354,107 +1356,107 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>theCalculator</source>
-        <translation type="unfinished"></translation>
+        <translation>theCalculator</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="93"/>
         <source>Scientific</source>
-        <translation type="unfinished"></translation>
+        <translation>İlmi</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="118"/>
         <source>Statistical</source>
-        <translation type="unfinished"></translation>
+        <translation>İstatistiksel</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="140"/>
         <source>Graphing</source>
-        <translation type="unfinished"></translation>
+        <translation>Grafik oluşturma</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="80"/>
         <source>Trigonometry</source>
-        <translation type="unfinished"></translation>
+        <translation>Trigonometri</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="87"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Yardım</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="162"/>
         <source>Functions</source>
-        <translation type="unfinished"></translation>
+        <translation>Fonksiyonlar</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="297"/>
         <source>&amp;Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Vazgeç</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="300"/>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="311"/>
         <source>&amp;Degrees</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Dereceler</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="319"/>
         <source>&amp;Radians</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Radyanlar</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="328"/>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hakkında</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="337"/>
         <source>&amp;theCalculator Help</source>
-        <translation type="unfinished"></translation>
+        <translation>theCalculator &amp;Yardım</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="340"/>
         <source>F1</source>
-        <translation type="unfinished"></translation>
+        <translation>F1</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="349"/>
         <source>&amp;File Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Dosya Hatası</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="358"/>
         <source>&amp;Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kaynaklar</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="366"/>
         <source>&amp;Gradians</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Gradians</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="291"/>
         <source>TRUE</source>
-        <translation type="unfinished"></translation>
+        <translation>DOĞRU</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="291"/>
         <source>FALSE</source>
-        <translation type="unfinished"></translation>
+        <translation>YANLIŞ</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="300"/>
         <source>Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Mekân</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="313"/>
         <source>Here</source>
-        <translation type="unfinished"></translation>
+        <translation>Buraya</translation>
     </message>
 </context>
 <context>
@@ -1462,37 +1464,37 @@
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="35"/>
         <source>Nth Root</source>
-        <translation type="unfinished"></translation>
+        <translation>N. Kök</translation>
     </message>
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="89"/>
         <source>PARAMETERS</source>
-        <translation type="unfinished"></translation>
+        <translation>PARAMETRELER</translation>
     </message>
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="96"/>
         <source>Enter the parameters for the operation</source>
-        <translation type="unfinished"></translation>
+        <translation>İşlem için parametreleri girin</translation>
     </message>
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="120"/>
         <source>Base</source>
-        <translation type="unfinished"></translation>
+        <translation>Baz</translation>
     </message>
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="132"/>
         <source>√</source>
-        <translation type="unfinished"></translation>
+        <translation>√</translation>
     </message>
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="156"/>
         <source>Radicand</source>
-        <translation type="unfinished"></translation>
+        <translation>Radyand</translation>
     </message>
     <message>
         <location filename="../parts/calculator/nthrootpopover.ui" line="173"/>
         <source>Add to Expression</source>
-        <translation type="unfinished"></translation>
+        <translation>İfadeye Ekle</translation>
     </message>
 </context>
 <context>
@@ -1500,34 +1502,35 @@
     <message>
         <location filename="../customs/overloadbox.ui" line="28"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Açıklama</translation>
     </message>
     <message>
         <location filename="../customs/overloadbox.ui" line="42"/>
         <source>Argument Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Bağımsız Değişken Açıklaması</translation>
     </message>
     <message>
         <location filename="../customs/overloadbox.ui" line="73"/>
         <source>Arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Argümanlar</translation>
     </message>
     <message>
         <location filename="../customs/overloadbox.ui" line="182"/>
         <source>Add New Branch</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni Şube Ekle</translation>
     </message>
     <message>
         <location filename="../customs/overloadbox.ui" line="192"/>
         <source>Remove Overload</source>
-        <translation type="unfinished"></translation>
+        <translation>Aşırı Yükü Kaldır</translation>
     </message>
     <message numerus="yes">
         <location filename="../customs/overloadbox.cpp" line="55"/>
         <location filename="../customs/overloadbox.cpp" line="167"/>
         <source>Argument %n Name</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Bağımsız Değişken %n Adı</numerusform>
+            <numerusform>Bağımsız Değişkenler %n Adı</numerusform>
         </translation>
     </message>
     <message>
@@ -1538,17 +1541,17 @@
         <location filename="../customs/overloadbox.cpp" line="177"/>
         <location filename="../customs/overloadbox.cpp" line="179"/>
         <source>Description for %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 için açıklama</translation>
     </message>
     <message>
         <location filename="../customs/overloadbox.cpp" line="105"/>
         <source>Overload Arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Aşırı Yük Değişkenleri</translation>
     </message>
     <message>
         <location filename="../customs/overloadbox.cpp" line="106"/>
         <source>Each argument must have a name</source>
-        <translation type="unfinished"></translation>
+        <translation>Her argümanın bir adı olmalıdır</translation>
     </message>
 </context>
 <context>
@@ -1556,38 +1559,38 @@
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="71"/>
         <source>Render Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Resmi Oluştur</translation>
     </message>
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="136"/>
         <source>File Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosya konumu</translation>
     </message>
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="143"/>
         <source>Image Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Resim Yüksekliği</translation>
     </message>
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="150"/>
         <source>Image Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Resim Genişliği</translation>
     </message>
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="157"/>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Araştır...</translation>
     </message>
     <message>
         <location filename="../parts/graph/renderdialog.ui" line="164"/>
         <location filename="../parts/graph/renderdialog.ui" line="180"/>
         <source> px</source>
-        <translation type="unfinished"></translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../parts/graph/renderdialog.cpp" line="45"/>
         <source>Portable Network Graphics (*.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>Taşınabilir Ağ Grafikleri (*.png)</translation>
     </message>
 </context>
 <context>
@@ -1595,57 +1598,57 @@
     <message>
         <location filename="../parts/stats/statwidget.ui" line="45"/>
         <source>Data</source>
-        <translation type="unfinished"></translation>
+        <translation>Veri</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="125"/>
         <source>Statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>İstatistik</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="179"/>
         <source>Mean</source>
-        <translation type="unfinished"></translation>
+        <translation>Ortalama</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="186"/>
         <source>Count</source>
-        <translation type="unfinished"></translation>
+        <translation>Miktar</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="225"/>
         <source>Median</source>
-        <translation type="unfinished"></translation>
+        <translation>Medyan</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="232"/>
         <source>Minimum</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimum</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="239"/>
         <source>Q3</source>
-        <translation type="unfinished"></translation>
+        <translation>Q3</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="246"/>
         <source>Maximum</source>
-        <translation type="unfinished"></translation>
+        <translation>Maksimum</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.ui" line="253"/>
         <source>Q1</source>
-        <translation type="unfinished"></translation>
+        <translation>Q1</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.cpp" line="34"/>
         <source>Value</source>
-        <translation type="unfinished"></translation>
+        <translation>Değer</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.cpp" line="34"/>
         <source>Frequency</source>
-        <translation type="unfinished"></translation>
+        <translation>Sıklık</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.cpp" line="105"/>
@@ -1655,14 +1658,14 @@
         <location filename="../parts/stats/statwidget.cpp" line="109"/>
         <location filename="../parts/stats/statwidget.cpp" line="110"/>
         <source>no data</source>
-        <translation type="unfinished"></translation>
+        <translation>veri yok</translation>
     </message>
     <message>
         <location filename="../parts/stats/statwidget.cpp" line="137"/>
         <location filename="../parts/stats/statwidget.cpp" line="146"/>
         <location filename="../parts/stats/statwidget.cpp" line="155"/>
         <source>undefined</source>
-        <translation type="unfinished"></translation>
+        <translation>tanımsız</translation>
     </message>
 </context>
 <context>
@@ -1672,13 +1675,13 @@
         <location filename="../main.cpp" line="125"/>
         <location filename="../main.cpp" line="149"/>
         <source>Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Hesap makinesi</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="129"/>
         <location filename="../main.cpp" line="153"/>
         <source>Generate a graph in PNG format and write the data to stdout.</source>
-        <translation type="unfinished"></translation>
+        <translation>PNG formatında bir grafik oluşturun ve verileri stdout&apos;a yazın.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="130"/>
