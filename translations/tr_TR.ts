@@ -1687,87 +1687,87 @@
         <location filename="../main.cpp" line="130"/>
         <location filename="../main.cpp" line="131"/>
         <source>expression</source>
-        <translation type="unfinished"></translation>
+        <translation>ifade</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="130"/>
         <source>Evaluate &lt;expression&gt;, print the result to standard output, then exit.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;İfade&gt; değerini değerlendirin, sonucu standart çıktıya yazdırın, ardından çıkın.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="160"/>
         <source>Width of the graph, in pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>Piksel cinsinden grafiğin genişliği</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="161"/>
         <source>Height of the graph, in pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>Piksel cinsinden grafiğin yüksekliği</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="154"/>
         <source>X value to center the generated graph at</source>
-        <translation type="unfinished"></translation>
+        <translation>Oluşturulan grafiği merkezlemek için X değeri</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="131"/>
         <source>Do not output colour.</source>
-        <translation type="unfinished"></translation>
+        <translation>Renkli çıktı vermeyin.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="154"/>
         <source>x-value</source>
-        <translation type="unfinished"></translation>
+        <translation>x değeri</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="155"/>
         <source>Y value to center the generated graph at</source>
-        <translation type="unfinished"></translation>
+        <translation>Oluşturulan grafiği ortalamak için Y değeri</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="155"/>
         <source>y-value</source>
-        <translation type="unfinished"></translation>
+        <translation>y değeri</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="156"/>
         <source>Number of pixels to put between each integer in the X direction</source>
-        <translation type="unfinished"></translation>
+        <translation>X yönündeki her tam sayı arasına yerleştirilecek piksel sayısı</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="156"/>
         <source>x-scale</source>
-        <translation type="unfinished"></translation>
+        <translation>x ölçeği</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="157"/>
         <source>Number of pixels to put between each integer in the Y direction</source>
-        <translation type="unfinished"></translation>
+        <translation>Y yönünde her tam sayı arasına yerleştirilecek piksel sayısı</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="157"/>
         <source>y-scale</source>
-        <translation type="unfinished"></translation>
+        <translation>y ölçeği</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="158"/>
         <source>File to output the graph to. If missing, output to stdout</source>
-        <translation type="unfinished"></translation>
+        <translation>Grafiğin çıktısının alınacağı dosya. Eksikse, standart çıktıya çıktı</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="158"/>
         <source>path</source>
-        <translation type="unfinished"></translation>
+        <translation>yörünge</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="162"/>
         <source>Expressions to graph</source>
-        <translation type="unfinished"></translation>
+        <translation>Grafiğe eklenecek ifadeler</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="169"/>
         <source>missing operand</source>
-        <translation type="unfinished"></translation>
+        <translation>eksik işlenen</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="170"/>
@@ -1778,7 +1778,7 @@
         <location filename="../main.cpp" line="228"/>
         <location filename="../main.cpp" line="239"/>
         <source>Usage: %1 [options] -g width height expressions...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kullanım: %1 [seçenekler] -g genişlik yükseklik ifadeleri...</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="171"/>
@@ -1789,47 +1789,47 @@
         <location filename="../main.cpp" line="229"/>
         <location filename="../main.cpp" line="240"/>
         <source>%1 -gh for more information.</source>
-        <translation type="unfinished"></translation>
+        <translation>Daha fazla bilgi için %1 -gh.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="181"/>
         <source>invalid output width</source>
-        <translation type="unfinished"></translation>
+        <translation>geçersiz çıktı genişliği</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="188"/>
         <source>invalid output height</source>
-        <translation type="unfinished"></translation>
+        <translation>geçersiz çıktı yüksekliği</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="203"/>
         <source>invalid center x position</source>
-        <translation type="unfinished"></translation>
+        <translation>geçersiz orta x konumu</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="214"/>
         <source>invalid center y position</source>
-        <translation type="unfinished"></translation>
+        <translation>geçersiz merkez y konumu</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="227"/>
         <source>invalid x scale value</source>
-        <translation type="unfinished"></translation>
+        <translation>geçersiz x ölçek değeri</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="238"/>
         <source>invalid y scale value</source>
-        <translation type="unfinished"></translation>
+        <translation>geçersiz y ölçek değeri</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="260"/>
         <source>unable to open output file for writing</source>
-        <translation type="unfinished"></translation>
+        <translation>çıktı dosyası yazmak için açılamıyor</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="345"/>
         <source>Nothing to evaluate</source>
-        <translation type="unfinished"></translation>
+        <translation>Değerlendirilecek bir şey yok</translation>
     </message>
 </context>
 </TS>
