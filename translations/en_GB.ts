@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" sourcelanguage="en_US">
+<TS version="2.1" sourcelanguage="en_US" language="en_GB">
 <context>
     <name>AddFunctionDialog</name>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="73"/>
         <source>Add Function</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Function</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="134"/>
         <source>Expression</source>
-        <translation type="unfinished"></translation>
+        <translation>Expression</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="144"/>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Colour</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="154"/>
         <source>Use x for the horizontal axis</source>
-        <translation type="unfinished"></translation>
+        <translation>Use x for the horizontal axis</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="32"/>
         <source>Green</source>
-        <translation type="unfinished"></translation>
+        <translation>Green</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="33"/>
         <source>Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Red</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="34"/>
         <source>Aqua</source>
-        <translation type="unfinished"></translation>
+        <translation>Aqua</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="35"/>
         <source>Purple</source>
-        <translation type="unfinished"></translation>
+        <translation>Purple</translation>
     </message>
 </context>
 <context>
@@ -49,48 +49,48 @@
     <message>
         <location filename="../customs/branchbox.ui" line="59"/>
         <source>RETURN</source>
-        <translation type="unfinished"></translation>
+        <translation>RETURN</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="66"/>
         <location filename="../customs/branchbox.cpp" line="120"/>
         <source>Expression to calculate</source>
-        <translation type="unfinished"></translation>
+        <translation>Expression to calculate</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="73"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Error</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="85"/>
         <source>Add Condition</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Condition</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="95"/>
         <source>Remove Branch</source>
-        <translation type="unfinished"></translation>
+        <translation>Remove Branch</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="49"/>
         <source>OTHERWISE RETURN</source>
-        <translation type="unfinished"></translation>
+        <translation>OTHERWISE RETURN</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="77"/>
         <source>Return value required</source>
-        <translation type="unfinished"></translation>
+        <translation>Return value required</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="78"/>
         <source>A return value is required for this branch</source>
-        <translation type="unfinished"></translation>
+        <translation>A return value is required for this branch</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="118"/>
         <source>Error Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Error Description</translation>
     </message>
 </context>
 <context>
@@ -98,280 +98,280 @@
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="214"/>
         <source>Expression...</source>
-        <translation type="unfinished"></translation>
+        <translation>Expression...</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="296"/>
         <source>Pi</source>
-        <translation type="unfinished"></translation>
+        <translation>Pi</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="325"/>
         <source>Right Shift</source>
-        <translation type="unfinished"></translation>
+        <translation>Right Shift</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="347"/>
         <source>Percentage</source>
-        <translation type="unfinished"></translation>
+        <translation>Percentage</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="363"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Add</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="379"/>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Multiply</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="414"/>
         <source>Euler&apos;s Constant</source>
-        <translation type="unfinished"></translation>
+        <translation>Euler&apos;s Constant</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="436"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Clear</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="452"/>
         <source>Imaginary Unit</source>
-        <translation type="unfinished"></translation>
+        <translation>Imaginary Unit</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="468"/>
         <source>Previous Answer</source>
-        <translation type="unfinished"></translation>
+        <translation>Previous Answer</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="615"/>
         <source>Cube</source>
-        <translation type="unfinished"></translation>
+        <translation>Cube</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="625"/>
         <source>Nth Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Nth Root</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="675"/>
         <source>Logarithm with base</source>
-        <translation type="unfinished"></translation>
+        <translation>Logarithm with base</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="685"/>
         <source>Hyperbolic Arc Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Hyperbolic Arc Sine</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="821"/>
         <source>Arc Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Arc Tangent</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="781"/>
         <source>Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Cosine</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="599"/>
         <source>Hyperbolic Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Hyperbolic Tangent</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="771"/>
         <source>Square Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Square Root</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="745"/>
         <source>Base 10 Logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>Base 10 Logarithm</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="761"/>
         <source>Square</source>
-        <translation type="unfinished"></translation>
+        <translation>Square</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="715"/>
         <source>Arc Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Arc Sine</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="579"/>
         <source>Hyperbolic Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Hyperbolic Sine</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="645"/>
         <source>Reciporical</source>
-        <translation type="unfinished"></translation>
+        <translation>Reciporical</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="549"/>
         <source>Raise to a power</source>
-        <translation type="unfinished"></translation>
+        <translation>Raise to a power</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="635"/>
         <source>Factorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Factorial</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="655"/>
         <source>Sine</source>
-        <translation type="unfinished"></translation>
+        <translation>Sine</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="533"/>
         <source>Arc Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Arc Cosine</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="705"/>
         <source>Absolute</source>
-        <translation type="unfinished"></translation>
+        <translation>Absolute</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="569"/>
         <source>Secant</source>
-        <translation type="unfinished"></translation>
+        <translation>Secant</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="695"/>
         <source>Hyperbolic Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Hyperbolic Cosine</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="589"/>
         <source>Hyperbolic Arc Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Hyperbolic Arc Tangent</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="725"/>
         <source>Natural Logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>Natural Logarithm</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="559"/>
         <source>Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangent</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="841"/>
         <source>Cube Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Cube Root</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="791"/>
         <source>Hyperbolic Arc Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Hyperbolic Arc Cosine</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="801"/>
         <source>Cosecant</source>
-        <translation type="unfinished"></translation>
+        <translation>Cosecant</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="665"/>
         <source>Cotangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Cotangent</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="831"/>
         <source>Arc Secant</source>
-        <translation type="unfinished"></translation>
+        <translation>Arc Secant</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="811"/>
         <source>Arc Cosecant</source>
-        <translation type="unfinished"></translation>
+        <translation>Arc Cosecant</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="735"/>
         <source>Arc Cotangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Arc Cotangent</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="851"/>
         <source>re</source>
-        <translation type="unfinished"></translation>
+        <translation>re</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="858"/>
         <source>im</source>
-        <translation type="unfinished"></translation>
+        <translation>im</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="865"/>
         <source>arg</source>
-        <translation type="unfinished"></translation>
+        <translation>arg</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="1114"/>
         <source>Backspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Backspace</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="927"/>
         <source>Left Shift</source>
-        <translation type="unfinished"></translation>
+        <translation>Left Shift</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="1008"/>
         <source>Subtract</source>
-        <translation type="unfinished"></translation>
+        <translation>Subtract</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="1030"/>
         <source>Divide</source>
-        <translation type="unfinished"></translation>
+        <translation>Divide</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="1046"/>
         <source>Extended Palette</source>
-        <translation type="unfinished"></translation>
+        <translation>Extended Palette</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="1066"/>
         <source>Evaluate</source>
-        <translation type="unfinished"></translation>
+        <translation>Evaluate</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="181"/>
         <source>%1 assigned to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 assigned to %2</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="190"/>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="240"/>
         <source>TRUE</source>
-        <translation type="unfinished"></translation>
+        <translation>TRUE</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="190"/>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="240"/>
         <source>FALSE</source>
-        <translation type="unfinished"></translation>
+        <translation>FALSE</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="237"/>
         <source>Assign %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Assign %1 to %2</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="333"/>
         <source>No arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>No arguments</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="334"/>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="351"/>
         <source>function</source>
-        <translation type="unfinished"></translation>
+        <translation>function</translation>
     </message>
 </context>
 <context>
@@ -379,57 +379,57 @@
     <message>
         <location filename="../customs/conditionbox.ui" line="33"/>
         <source>WHEN</source>
-        <translation type="unfinished"></translation>
+        <translation>WHEN</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="38"/>
         <source>WHEN NOT</source>
-        <translation type="unfinished"></translation>
+        <translation>WHEN NOT</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="47"/>
         <source>AND</source>
-        <translation type="unfinished"></translation>
+        <translation>AND</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="52"/>
         <source>OR</source>
-        <translation type="unfinished"></translation>
+        <translation>OR</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="57"/>
         <source>XOR</source>
-        <translation type="unfinished"></translation>
+        <translation>XOR</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="62"/>
         <source>AND NOT</source>
-        <translation type="unfinished"></translation>
+        <translation>AND NOT</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="67"/>
         <source>OR NOT</source>
-        <translation type="unfinished"></translation>
+        <translation>OR NOT</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="72"/>
         <source>XOR NOT</source>
-        <translation type="unfinished"></translation>
+        <translation>XOR NOT</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="80"/>
         <source>Expression to check</source>
-        <translation type="unfinished"></translation>
+        <translation>Expression to check</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.cpp" line="63"/>
         <source>Expression required</source>
-        <translation type="unfinished"></translation>
+        <translation>Expression required</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.cpp" line="64"/>
         <source>An expression is required for this condition</source>
-        <translation type="unfinished"></translation>
+        <translation>An expression is required for this condition</translation>
     </message>
 </context>
 <context>
@@ -437,27 +437,27 @@
     <message>
         <location filename="../evaluationengine.cpp" line="90"/>
         <source>%1: unknown variable</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: unknown variable</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="91"/>
         <source>div: division by 0 undefined</source>
-        <translation type="unfinished"></translation>
+        <translation>div: division by 0 undefined</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="92"/>
         <source>%1: undefined function</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: undefined function</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="113"/>
         <source>Stack Overflow</source>
-        <translation type="unfinished"></translation>
+        <translation>Stack Overflow</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="147"/>
         <source>Can&apos;t assign to builtin variable %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Can&apos;t assign to builtin variable %1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="193"/>
@@ -479,7 +479,7 @@
         <location filename="../evaluationengine.cpp" line="595"/>
         <location filename="../evaluationengine.cpp" line="598"/>
         <source>number</source>
-        <translation type="unfinished"></translation>
+        <translation>number</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="193"/>
@@ -492,12 +492,12 @@
         <location filename="../evaluationengine.cpp" line="276"/>
         <location filename="../evaluationengine.cpp" line="283"/>
         <source>Calculates the %1 of a %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Calculates the %1 of a %2</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="193"/>
         <source>absolute value</source>
-        <translation type="unfinished"></translation>
+        <translation>absolute value</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="193"/>
