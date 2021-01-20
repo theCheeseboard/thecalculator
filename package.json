@@ -1,0 +1,15 @@
+{
+  "name": "thecalculator-discord",
+  "version": "1.0.0",
+  "description": "Slash Command bot that invokes theCalculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord-slash-commands-client": "^1.1.1",
+    "express": "^4.17.1"
+  }
+}
