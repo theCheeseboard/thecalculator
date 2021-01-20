@@ -8,7 +8,7 @@ let commands = {
 };
 
 let app = express();
-app.post("/", interactionsClient.verifyKeyMiddleware(process.env.BOT_PUBLIC_KEY), (req, res) => {
+app.post("/", interactionsClient.verifyKeyMiddleware(process.env.BOT_PUBLIC_KEY), async (req, res) => {
     try {
         if (req.body.type === interactionsClient.InteractionType.COMMAND) {
             let data = req.body.data;

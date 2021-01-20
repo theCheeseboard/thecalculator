@@ -1,10 +1,7 @@
 const child = require('child_process');
-const interactionsClient = require('discord-interactions');
 
 module.exports = (body, options) => {
-    let data = body.data;
-
-    return new Promise((res, rej) => {
+    return new Promise(res => {
         child.execFile("thecalculator", [
             "-e",
             options.expression,
@@ -27,7 +24,6 @@ module.exports = (body, options) => {
                 }
                 return;
             }
-    
     
             res({
                 content: `The answer is ${stdout.trim()}!`,
