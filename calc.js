@@ -14,8 +14,30 @@ module.exports = (body, options) => {
         }, (error, stdout, stderr) => {
             if (error) {
                 if (error.code === 1) {
+                    //Parse stdout
+                    let interestingLines = stdout.split("\n");
+                    while (interestingLines.length > 3) interestingLines.shift();
+
+                    let locationInformation = interestingLines[1];
+                    let start = interestingLines[2].indexOf("^");
+                    let end = interestingLines[2].lastIndexOf("^") + 1;
+                    locationInformation = [locationInformation.slice(0, start), "**", locationInformation.slice(start, end), "**", locationInformation.slice(end)].join('');
+
                     res({
-                        content: `An error occurred:\n${stdout.trim()}`
+                        embed: {
+                            title: `Evaluate: ${options.expression}`,
+                            fields: [
+                                {
+                                    name: "Error",
+                                    value: interestingLines[0]
+                                },
+                                {
+                                    name: "Location",
+                                    value: locationInformation
+                                }
+                            ],
+                            color: 0x640000
+                        }
                     })
                 } else {
                     res({
@@ -24,10 +46,22 @@ module.exports = (body, options) => {
                 }
                 return;
             }
-    
-            res({
-                content: `The answer is ${stdout.trim()}!`,
-            });
+
+            let lines = stdout.split("\n");
+            if (lines.length === 1) {
+                res({
+                    embed: {
+                        title: `Evaluate: ${options.expression}`,
+                        description: stdout.trim(),
+                        color: 0x0064FF
+                    }
+                });
+            } else {
+                //This is a multi-calc
+                res({
+                    content: `Standard output follows:\n${stdout.trim()}`,
+                });
+            }
         });
     });
 
