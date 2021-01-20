@@ -24,7 +24,7 @@ module.exports = (body, options) => {
                     locationInformation = [locationInformation.slice(0, start), "**", locationInformation.slice(start, end), "**", locationInformation.slice(end)].join('');
 
                     res({
-                        embed: {
+                        embeds: [{
                             title: `Evaluate: ${options.expression}`,
                             fields: [
                                 {
@@ -37,7 +37,7 @@ module.exports = (body, options) => {
                                 }
                             ],
                             color: 0x640000
-                        }
+                        }]
                     })
                 } else {
                     res({
@@ -50,11 +50,11 @@ module.exports = (body, options) => {
             let lines = stdout.split("\n").filter(line => line !== "");
             if (lines.length === 1) {
                 res({
-                    embed: {
+                    embeds: [{
                         title: `Evaluate: ${options.expression}`,
                         description: stdout.trim(),
                         color: 0x0064FF
-                    }
+                    }]
                 });
             } else {
                 //This is a multi-calc
