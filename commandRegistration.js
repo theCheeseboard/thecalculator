@@ -13,27 +13,27 @@ module.exports = async () => {
                 required: true,
                 type: 3
             },
-            // {
-            //     name: "trigUnit",
-            //     description: "Trigonometric unit to use",
-            //     default: false,
-            //     required: false,
-            //     type: 3,
-            //     choices: [
-            //         {
-            //             name: "degrees",
-            //             value: "degrees"
-            //         },
-            //         {
-            //             name: "radians",
-            //             value: "radians"
-            //         },
-            //         {
-            //             name: "gradians",
-            //             value: "gradians"
-            //         }
-            //     ]
-            // }
+            {
+                name: "trigunit",
+                description: "Trigonometric unit to use",
+                default: false,
+                required: false,
+                type: 3,
+                choices: [
+                    {
+                        name: "degrees",
+                        value: "degrees"
+                    },
+                    {
+                        name: "radians",
+                        value: "radians"
+                    },
+                    {
+                        name: "gradians",
+                        value: "gradians"
+                    }
+                ]
+            }
         ]
     }, "336487228228370432");
 }

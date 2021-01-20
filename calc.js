@@ -2,11 +2,18 @@ const child = require('child_process');
 
 module.exports = (body, options) => {
     return new Promise(res => {
-        child.execFile("thecalculator", [
+        let args = [
             "-e",
             options.expression,
             "-c"
-        ], {
+        ];
+
+        if (options.trigunit) {
+            args.push("-t");
+            args.push(options.trigunit);
+        }
+
+        child.execFile("thecalculator", args, {
             env: {
                 ...process.env,
                 "QT_QPA_PLATFORM": "offscreen"
@@ -64,6 +71,5 @@ module.exports = (body, options) => {
             }
         });
     });
-
 }
 
