@@ -1437,22 +1437,22 @@
         <translation>Đơn vị &amp;građian</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="291"/>
+        <location filename="../main.cpp" line="310"/>
         <source>TRUE</source>
         <translation>THẬT</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="291"/>
+        <location filename="../main.cpp" line="310"/>
         <source>FALSE</source>
         <translation>SAI</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="300"/>
+        <location filename="../main.cpp" line="319"/>
         <source>Location</source>
         <translation>Vị trí</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="313"/>
+        <location filename="../main.cpp" line="332"/>
         <source>Here</source>
         <translation>Đây</translation>
     </message>
@@ -1670,19 +1670,18 @@
     <message>
         <location filename="../main.cpp" line="118"/>
         <location filename="../main.cpp" line="125"/>
-        <location filename="../main.cpp" line="149"/>
+        <location filename="../main.cpp" line="150"/>
         <source>Calculator</source>
         <translation>Máy tính</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="129"/>
-        <location filename="../main.cpp" line="153"/>
+        <location filename="../main.cpp" line="154"/>
         <source>Generate a graph in PNG format and write the data to stdout.</source>
         <translation>Tạo ra đồ thị vào định dạng PNG và ghi sang stdout.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="130"/>
-        <location filename="../main.cpp" line="131"/>
         <source>expression</source>
         <translation>biểu thức</translation>
     </message>
@@ -1692,90 +1691,89 @@
         <translation>Tính &lt;expression&gt;, in kết quả sang đầu ra tiêu chuẩn, rồi thoát.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="160"/>
+        <location filename="../main.cpp" line="161"/>
         <source>Width of the graph, in pixels</source>
         <translation>Chiều rộng đồ thị, trong pixel</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="161"/>
+        <location filename="../main.cpp" line="162"/>
         <source>Height of the graph, in pixels</source>
         <translation>Chiều cao đồ thị, trong pixel</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="154"/>
+        <location filename="../main.cpp" line="155"/>
         <source>X value to center the generated graph at</source>
         <translation>Giá trị X để đặt giữa đồ thị</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="131"/>
+        <source>Use &lt;unit&gt; as the trigonometry unit. Possible values are degrees, radians and gradians.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="131"/>
+        <source>unit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="132"/>
         <source>Do not output colour.</source>
         <translation>Đừng xuất ra màu.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="154"/>
+        <location filename="../main.cpp" line="155"/>
         <source>x-value</source>
         <translation>x-value</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="155"/>
+        <location filename="../main.cpp" line="156"/>
         <source>Y value to center the generated graph at</source>
         <translation>Giá trị y để đặt giữa đồ thị</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="155"/>
+        <location filename="../main.cpp" line="156"/>
         <source>y-value</source>
         <translation>y-value</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="156"/>
+        <location filename="../main.cpp" line="157"/>
         <source>Number of pixels to put between each integer in the X direction</source>
         <translation>Khoảng cách đặt giữa các số cho chiều X trong pixel</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="156"/>
+        <location filename="../main.cpp" line="157"/>
         <source>x-scale</source>
         <translation>x-scale</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="157"/>
+        <location filename="../main.cpp" line="158"/>
         <source>Number of pixels to put between each integer in the Y direction</source>
         <translation>Khoảng cách đặt giữa các số cho chiều Y trong pixel</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="157"/>
+        <location filename="../main.cpp" line="158"/>
         <source>y-scale</source>
         <translation>y-scale</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="158"/>
+        <location filename="../main.cpp" line="159"/>
         <source>File to output the graph to. If missing, output to stdout</source>
         <translation>Tệp để ghi đồ thị vào. Nếu mất, ghi sang stdout</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="158"/>
+        <location filename="../main.cpp" line="159"/>
         <source>path</source>
         <translation>path</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="162"/>
+        <location filename="../main.cpp" line="163"/>
         <source>Expressions to graph</source>
         <translation>Biểu thức để vẽ trên đồ thị</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="169"/>
+        <location filename="../main.cpp" line="170"/>
         <source>missing operand</source>
         <translation>thiếu toán hạng</translation>
-    </message>
-    <message>
-        <location filename="../main.cpp" line="170"/>
-        <location filename="../main.cpp" line="182"/>
-        <location filename="../main.cpp" line="189"/>
-        <location filename="../main.cpp" line="204"/>
-        <location filename="../main.cpp" line="215"/>
-        <location filename="../main.cpp" line="228"/>
-        <location filename="../main.cpp" line="239"/>
-        <source>Usage: %1 [options] -g width height expressions...</source>
-        <translation>Cách dùng: %1 [tùy chọn] -g chiều-rộng chiều-cao biểu-thức...</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="171"/>
@@ -1785,46 +1783,72 @@
         <location filename="../main.cpp" line="216"/>
         <location filename="../main.cpp" line="229"/>
         <location filename="../main.cpp" line="240"/>
+        <source>Usage: %1 [options] -g width height expressions...</source>
+        <translation>Cách dùng: %1 [tùy chọn] -g chiều-rộng chiều-cao biểu-thức...</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="172"/>
+        <location filename="../main.cpp" line="184"/>
+        <location filename="../main.cpp" line="191"/>
+        <location filename="../main.cpp" line="206"/>
+        <location filename="../main.cpp" line="217"/>
+        <location filename="../main.cpp" line="230"/>
+        <location filename="../main.cpp" line="241"/>
         <source>%1 -gh for more information.</source>
         <translation>%1 -gh để biết thêm thông tin.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="181"/>
+        <location filename="../main.cpp" line="182"/>
         <source>invalid output width</source>
         <translation>chiều rộng không hợp lệ</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="188"/>
+        <location filename="../main.cpp" line="189"/>
         <source>invalid output height</source>
         <translation>chiều cao không hợp lệ</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="203"/>
+        <location filename="../main.cpp" line="204"/>
         <source>invalid center x position</source>
         <translation>điểm x đặt giữa không hợp lệ</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="214"/>
+        <location filename="../main.cpp" line="215"/>
         <source>invalid center y position</source>
         <translation>điểm y đặt giữa không hợp lệ</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="227"/>
+        <location filename="../main.cpp" line="228"/>
         <source>invalid x scale value</source>
         <translation>quy mô x không hợp lệ</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="238"/>
+        <location filename="../main.cpp" line="239"/>
         <source>invalid y scale value</source>
         <translation>quy mô y không hợp lệ</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="260"/>
+        <location filename="../main.cpp" line="261"/>
         <source>unable to open output file for writing</source>
         <translation>không thể mở tệp ra để ghi</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="345"/>
+        <location filename="../main.cpp" line="291"/>
+        <source>invalid trigonometric unit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="292"/>
+        <source>Available units are: degrees|radians|gradians</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="293"/>
+        <source>%1 -h for more information.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="364"/>
         <source>Nothing to evaluate</source>
         <translation>Không có gì để tính</translation>
     </message>

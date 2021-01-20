@@ -113,8 +113,8 @@ int main(int argc, char* argv[]) {
     a.setOrganizationName("theSuite");
     a.setOrganizationDomain("");
     a.setApplicationName("theCalculator");
-    a.setApplicationVersion("2.2");
-    a.setApplicationIcon(QIcon::fromTheme("thecalculator", QIcon(":/icons/icon.svg")));
+    a.setApplicationVersion("2.2.1");
+    a.setApplicationIcon(QIcon::fromTheme("thecalculator", QIcon(":/icon.svg")));
     a.setGenericName(QApplication::translate("main", "Calculator"));
     a.setAboutDialogSplashGraphic(a.aboutDialogSplashGraphicFromSvg(":/aboutsplash.svg"));
     a.setApplicationLicense(tApplication::Gpl3OrLater);
@@ -128,7 +128,8 @@ int main(int argc, char* argv[]) {
     parser.addOptions({
         {{"g", "graph"}, QApplication::translate("main", "Generate a graph in PNG format and write the data to stdout.")},
         {{"e", "evaluate"}, QApplication::translate("main", "Evaluate <expression>, print the result to standard output, then exit."), QApplication::translate("main", "expression")},
-        {{"c", "nocolor"}, QApplication::translate("main", "Do not output colour."), QApplication::translate("main", "expression")}
+        {{"t", "trig-unit"}, QApplication::translate("main", "Use <unit> as the trigonometry unit. Possible values are degrees, radians and gradians."), QApplication::translate("main", "unit")},
+        {{"c", "nocolor"}, QApplication::translate("main", "Do not output colour.")}
     });
     parser.parse(a.arguments());
 
@@ -276,6 +277,24 @@ int main(int argc, char* argv[]) {
             QList<QPair<QString, QString>> outputs;
             QMap<QString, idouble> variables;
             bool didError = false;
+
+            if (parser.isSet("t")) {
+                QString unit = parser.value("t");
+                if (unit == "degrees") {
+                    EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Degrees);
+                } else if (unit == "radians") {
+                    EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Radians);
+                } else if (unit == "gradians") {
+                    EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Gradians);
+                } else {
+                    QTextStream err(stderr);
+                    err << "thecalculator: " + QApplication::translate("main", "invalid trigonometric unit") + "\n";
+                    err << "               " + QApplication::translate("main", "Available units are: degrees|radians|gradians") + "\n";
+                    err << "               " + QApplication::translate("main", "%1 -h for more information.").arg(a.arguments().first()) + "\n";
+                    return 2;
+                }
+            }
+
             for (QString e : parser.value("e").split(":")) {
                 e = e.remove(" "); //Remove all spaces
 
