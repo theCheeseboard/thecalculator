@@ -1,20 +1,18 @@
-// if (!process.env.BOT_TOKEN || !process.env.BOT_USER_ID) {
+// if (!process.env.BOT_TOKEN || !process.env.BOT_USER_ID || !process.env.BOT_PUBLIC_KEY) {
 //     console.log("ERROR: Environment variables not set.");
-//     console.log("Set BOT_TOKEN to your bot's token and BOT_USER_ID to your bot's user ID.");
+//     console.log("Set BOT_TOKEN to your bot's token, BOT_USER_ID to your bot's user ID and BOT_PUBLIC_KEY to your bot's public key.");
 //     return;
 // }
 
 const port = process.env.PORT || 4000;
 
 const express = require('express');
-const interactions = require('discord-slash-commands-client');
+const commandClient = require('discord-slash-commands-client');
+const interactionsClient = require('discord-interactions');
 
 let app = express();
-app.use(express.json({
-    limit: "10mb"
-}));
 
-const client = new interactions.Client(process.env.BOT_TOKEN, process.env.BOT_USER_ID);
+const client = new commandClient.Client(process.env.BOT_TOKEN, process.env.BOT_USER_ID);
 client.createCommand({
     name: "calc",
     description: "Evaluate a mathematical expression"
@@ -25,13 +23,15 @@ client.createCommand({
     console.log(reason);
 })
 
-app.post("/", (req, res) => {
+app.post("/", interactionsClient.verifyKeyMiddleware(process.env.BOT_PUBLIC_KEY), (req, res) => {
     //Validate signature headers
 
-    if (req.body.type === 1) {
-        //PING message
+    if (req.body.type === interactionsClient.InteractionType.COMMAND) {
         res.send({
-            type: 1
+          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+          data: {
+            content: 'Hello world',
+          },
         });
     }
 });
