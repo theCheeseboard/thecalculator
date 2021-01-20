@@ -8,7 +8,11 @@ const port = process.env.PORT || 4000;
 
 const express = require('express');
 const interactions = require('discord-slash-commands-client');
+
 let app = express();
+app.use(express.json({
+    limit: "10mb"
+}));
 
 const client = new interactions.Client(process.env.BOT_TOKEN, process.env.BOT_USER_ID);
 client.createCommand({
@@ -21,9 +25,15 @@ client.createCommand({
     console.log(reason);
 })
 
-app.post("/", (res, rej) => {
+app.post("/", (req, res) => {
     //Validate signature headers
-    
+
+    if (req.body.type === 1) {
+        //PING message
+        res.send({
+            type: 1
+        });
+    }
 });
 
 app.listen(port, () => {
