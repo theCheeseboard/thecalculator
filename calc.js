@@ -28,7 +28,7 @@ module.exports = (body, options) => {
                     let locationInformation = interestingLines[1];
                     let start = interestingLines[2].indexOf("^");
                     let end = interestingLines[2].lastIndexOf("^") + 1;
-                    locationInformation = [locationInformation.slice(0, start), "**", locationInformation.slice(start, end), "**", locationInformation.slice(end)].join('');
+                    locationInformation = [locationInformation.slice(10, start), "__", locationInformation.slice(start, end), "__", locationInformation.slice(end)].join('');
 
                     res({
                         embeds: [{
