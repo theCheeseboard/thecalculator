@@ -18,7 +18,12 @@ app.post("/", interactionsClient.verifyKeyMiddleware(process.env.BOT_PUBLIC_KEY)
                 options[option.name] = option.value;
             }
 
-            commands[data.name](req.body, options, res);
+            ;
+
+            res.send({
+                type: interactionsClient.InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+                data: await commands[data.name](req.body, options)
+            });
             return;
         }
     } catch (err) {
