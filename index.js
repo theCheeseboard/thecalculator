@@ -6,3 +6,4 @@
 
 const server = require('./server');
 const registration = require('./commandRegistration');
+registration();

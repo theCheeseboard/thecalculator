@@ -1,4 +1,5 @@
 const child = require('child_process');
+const interactionsClient = require('discord-interactions');
 
 module.exports = (body, options, res) => {
     let data = body.data;
