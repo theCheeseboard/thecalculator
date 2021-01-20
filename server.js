@@ -4,7 +4,7 @@ const express = require('express');
 const interactionsClient = require('discord-interactions');
 
 let commands = {
-    "calc": require('calc.js')
+    "calc": require('./calc')
 };
 
 let app = express();
