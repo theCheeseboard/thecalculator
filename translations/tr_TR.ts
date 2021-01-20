@@ -1708,12 +1708,12 @@
     <message>
         <location filename="../main.cpp" line="131"/>
         <source>Use &lt;unit&gt; as the trigonometry unit. Possible values are degrees, radians and gradians.</source>
-        <translation type="unfinished"></translation>
+        <translation>Trigonometri birimi olarak &lt;birim&gt; kullanın. Olası değerler derece, radyan ve gradyandır.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="131"/>
         <source>unit</source>
-        <translation type="unfinished"></translation>
+        <translation>birim</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="132"/>
@@ -1835,17 +1835,17 @@
     <message>
         <location filename="../main.cpp" line="291"/>
         <source>invalid trigonometric unit</source>
-        <translation type="unfinished"></translation>
+        <translation>geçersiz trigonometrik birim</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="292"/>
         <source>Available units are: degrees|radians|gradians</source>
-        <translation type="unfinished"></translation>
+        <translation>Mevcut birimler: derece|radyan|gradians</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="293"/>
         <source>%1 -h for more information.</source>
-        <translation type="unfinished"></translation>
+        <translation>Daha fazla bilgi için %1 -h.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="364"/>
