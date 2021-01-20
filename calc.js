@@ -15,7 +15,7 @@ module.exports = (body, options) => {
             if (error) {
                 if (error.code === 1) {
                     //Parse stdout
-                    let interestingLines = stdout.split("\n");
+                    let interestingLines = stdout.split("\n").filter(line => line !== "");
                     while (interestingLines.length > 3) interestingLines.shift();
 
                     let locationInformation = interestingLines[1];
@@ -52,7 +52,7 @@ module.exports = (body, options) => {
                 res({
                     embeds: [{
                         title: `Evaluate: ${options.expression}`,
-                        description: stdout.trim(),
+                        description: `The answer is **${lines[0]}**`,
                         color: 0x0064FF
                     }]
                 });
