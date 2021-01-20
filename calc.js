@@ -47,7 +47,7 @@ module.exports = (body, options) => {
                 return;
             }
 
-            let lines = stdout.split("\n");
+            let lines = stdout.split("\n").filter(line => line !== "");
             if (lines.length === 1) {
                 res({
                     embed: {
