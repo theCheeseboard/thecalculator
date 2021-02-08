@@ -721,72 +721,72 @@
     <message>
         <location filename="../evaluationengine.cpp" line="206"/>
         <source>Can&apos;t take the zeroth root of a number</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir sayının sıfırıncı kökünü alamaz</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="212"/>
         <source>The root function takes 2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Kök işlevi 2 argüman alır</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="221"/>
         <source>Can&apos;t take the factorial of a non-real number</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerçek olmayan bir sayının faktöriyelini alamaz</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="224"/>
         <source>Can&apos;t take the factorial of a negative number</source>
-        <translation type="unfinished"></translation>
+        <translation>Negatif bir sayının faktöriyelini alamazsın</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="244"/>
         <source>Can&apos;t take the tangent of a number that satisfies the equation %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 denklemini karşılayan bir sayının tanjantını alamaz</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="279"/>
         <source>Can&apos;t take the phase angle of 0</source>
-        <translation type="unfinished"></translation>
+        <translation>0 faz açısını alamıyorum</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="287"/>
         <source>Can&apos;t take the inverse sine of a number outside -1 and 1</source>
-        <translation type="unfinished"></translation>
+        <translation>-1 ve 1 dışındaki bir sayının ters sinüsünü alamaz</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="295"/>
         <source>Can&apos;t take the inverse cosine of a number outside -1 and 1</source>
-        <translation type="unfinished"></translation>
+        <translation>-1 ve 1 dışındaki bir sayının ters kosinüsünü alamaz</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="305"/>
         <source>Can&apos;t take the inverse tangent of i or -i</source>
-        <translation type="unfinished"></translation>
+        <translation>İ ya da -i&apos;nin ters tanjantını alamıyorum</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="313"/>
         <source>Can&apos;t take the secant of a number that satisfies the equation %1</source>
-        <translation type="unfinished"></translation>
+        <translation>% 1 denklemini karşılayan bir sayının sekantını alamaz</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="338"/>
         <source>Can&apos;t take the cosecant of a number that satisfies the equation %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 denklemini karşılayan bir sayının kosekantı alınamıyor</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="363"/>
         <source>Can&apos;t take the cotangent of a number that satisfies the equation %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 denklemini karşılayan bir sayının kotanjantı alınamaz</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="388"/>
         <source>Can&apos;t take the inverse secant of 0</source>
-        <translation type="unfinished"></translation>
+        <translation>0&apos;ın ters sekantını alamazsın</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="398"/>
         <source>Can&apos;t take the inverse cosecant of 0</source>
-        <translation type="unfinished"></translation>
+        <translation>0&apos;ın ters kosekantını alamıyorum</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="403"/>
@@ -858,22 +858,22 @@
         <location filename="../evaluationengine.cpp" line="449"/>
         <location filename="../evaluationengine.cpp" line="477"/>
         <source>Can&apos;t take the logarithm of 0</source>
-        <translation type="unfinished"></translation>
+        <translation>0&apos;ın logaritmasını alamıyorum</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="454"/>
         <source>Can&apos;t take a logarithm with a base of 1</source>
-        <translation type="unfinished"></translation>
+        <translation>1 tabanlı bir logaritma alınamaz</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="459"/>
         <source>Can&apos;t take a logarithm with a base of 0</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabanı 0 olan bir logaritma alamaz</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="465"/>
         <source>The log function takes 1 or 2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Günlük işlevi 1 ya da 2 argüman alır</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="490"/>
@@ -881,7 +881,7 @@
         <location filename="../evaluationengine.cpp" line="520"/>
         <location filename="../evaluationengine.cpp" line="529"/>
         <source>Can&apos;t bit shift a non-integer</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamsayı olmayan bir bit kaydırılamaz</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="494"/>
@@ -889,86 +889,86 @@
         <location filename="../evaluationengine.cpp" line="524"/>
         <location filename="../evaluationengine.cpp" line="534"/>
         <source>Can&apos;t bit shift by a non-integer</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamsayı olmayan bir bit kaydırılamaz</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="510"/>
         <source>The lsh function takes 2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Lsh işlevi 2 argüman alır</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="540"/>
         <source>The rsh function takes 2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Rsh işlevi 2 argüman alır</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="551"/>
         <source>Can&apos;t take 0 to the power of a negative number</source>
-        <translation type="unfinished"></translation>
+        <translation>Negatif bir sayının üssüne 0 alınamaz</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="556"/>
         <source>Can&apos;t take 0 to the power of a non-real number</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerçek olmayan bir sayının üssü 0 olamaz</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="562"/>
         <source>The pow function takes 2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Pow işlevi 2 argüman alır</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="572"/>
         <source>Can&apos;t take the modulo of a non-integer</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamsayı olmayan bir modulo alamaz</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="577"/>
         <source>Can&apos;t take the modulo when the divisor is a non-integer</source>
-        <translation type="unfinished"></translation>
+        <translation>Bölen bir tamsayı olmadığında modulo alamaz</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="582"/>
         <source>Can&apos;t divide by zero</source>
-        <translation type="unfinished"></translation>
+        <translation>Sıfıra bölünemez</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="588"/>
         <source>The mod function takes 2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Mod işlevi 2 argüman alır</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="607"/>
         <location filename="../evaluationengine.cpp" line="614"/>
         <source>Can&apos;t generate a random number with an upper bound of a non-real number</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerçek olmayan bir sayının üst sınırına sahip rastgele bir sayı üretilemez</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="619"/>
         <source>Can&apos;t generate a random number with a lower bound of a non-real number</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerçek olmayan bir sayının alt sınırı olan rastgele bir sayı üretilemez</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="625"/>
         <source>The random function takes 0-2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Rastgele işlev 0-2 argüman alır</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="696"/>
         <location filename="../evaluationengine.cpp" line="758"/>
         <source>The function definition for %1 contains a condition which is an assignment</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 için işlev tanımı, bir atama olan bir koşul içeriyor</translation>
     </message>
     <message numerus="yes">
         <location filename="../evaluationengine.cpp" line="769"/>
         <source>The %1 function takes %n arguments</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%1 işlevi% n bağımsız değişken alıyor</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="773"/>
         <source>The %1 function takes %2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 işlevi %2 bağımsız değişken alıyor</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="832"/>
