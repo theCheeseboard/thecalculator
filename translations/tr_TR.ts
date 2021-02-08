@@ -546,16 +546,6 @@
         <translation>küp kökü</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="206"/>
-        <source>root: arg1 (%1) out of bounds (not 0)</source>
-        <translation>kök: arg1 (%1) sınırların dışında (0 değil)</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="212"/>
-        <source>root: expected 2 arguments, got %1</source>
-        <translation>kök: beklenen 2 bağımsız değişken, %1 aldı</translation>
-    </message>
-    <message>
         <location filename="../evaluationengine.cpp" line="215"/>
         <location filename="../evaluationengine.cpp" line="216"/>
         <source>root</source>
@@ -575,16 +565,6 @@
         <location filename="../evaluationengine.cpp" line="217"/>
         <source>The number to root by</source>
         <translation>Köklenecek sayı</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="221"/>
-        <source>fact: input (%1) not a real number</source>
-        <translation>olgu: girdi (%1) gerçek bir sayı değil</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="224"/>
-        <source>fact: input (%1) out of bounds (0 and above)</source>
-        <translation>olgu: girdi (%1) sınırların dışında (0 ve üstü)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="231"/>
@@ -651,11 +631,6 @@
         <translation>kosinüs</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="244"/>
-        <source>tan: input (%1) out of bounds (not %2)</source>
-        <translation>tan: giriş (%1) sınırların dışında (%2 değil)</translation>
-    </message>
-    <message>
         <location filename="../evaluationengine.cpp" line="264"/>
         <source>tangent</source>
         <translation>teğet</translation>
@@ -684,19 +659,9 @@
         <translation>gerçek kısım</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="279"/>
-        <source>arg: phase angle of 0 undefined</source>
-        <translation>arg: 0&apos;ın faz açısı tanımsız</translation>
-    </message>
-    <message>
         <location filename="../evaluationengine.cpp" line="283"/>
         <source>phase angle</source>
         <translation>faz açısı</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="287"/>
-        <source>asin: input (%1) out of bounds (between -1 and 1)</source>
-        <translation>asin: giriş (%1) sınırların dışında (-1 ile 1 arasında)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="292"/>
@@ -709,11 +674,6 @@
         <translation>ark sinüs</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="295"/>
-        <source>acos: input (%1) out of bounds (between -1 and 1)</source>
-        <translation>acos: giriş (%1) sınırların dışında (-1 ile 1 arasında)</translation>
-    </message>
-    <message>
         <location filename="../evaluationengine.cpp" line="300"/>
         <source>arccosine (inverse cosine)</source>
         <translation>arkkosinüs (ters kosinüs)</translation>
@@ -722,11 +682,6 @@
         <location filename="../evaluationengine.cpp" line="300"/>
         <source>arccosine</source>
         <translation>arkkosinüs</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="305"/>
-        <source>atan: input (%1) out of bounds (not i or -i)</source>
-        <translation>atan: giriş (%1) sınırların dışında (i veya -i değil)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="310"/>
@@ -739,19 +694,9 @@
         <translation>arktanjant</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="313"/>
-        <source>sec: input (%1) out of bounds (not %2)</source>
-        <translation>sn: giriş (%1) sınırların dışında (%2 değil)</translation>
-    </message>
-    <message>
         <location filename="../evaluationengine.cpp" line="333"/>
         <source>secant</source>
         <translation>sekant</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="338"/>
-        <source>csc: input (%1) out of bounds (not %2)</source>
-        <translation>csc: giriş (%1) sınırların dışında (%2 değil)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="358"/>
@@ -759,19 +704,9 @@
         <translation>kosekant</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="363"/>
-        <source>cot: input (%1) out of bounds (not %2)</source>
-        <translation>cot: giriş (%1) sınırların dışında (%2 değil)</translation>
-    </message>
-    <message>
         <location filename="../evaluationengine.cpp" line="383"/>
         <source>cotangent</source>
         <translation>kotanjant</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="388"/>
-        <source>asec: input (%1) out of bounds (not 0)</source>
-        <translation>asec: giriş (%1) sınırların dışında (0 değil)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="393"/>
@@ -784,9 +719,74 @@
         <translation>arksekant</translation>
     </message>
     <message>
+        <location filename="../evaluationengine.cpp" line="206"/>
+        <source>Can&apos;t take the zeroth root of a number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="212"/>
+        <source>The root function takes 2 arguments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="221"/>
+        <source>Can&apos;t take the factorial of a non-real number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="224"/>
+        <source>Can&apos;t take the factorial of a negative number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="244"/>
+        <source>Can&apos;t take the tangent of a number that satisfies the equation %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="279"/>
+        <source>Can&apos;t take the phase angle of 0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="287"/>
+        <source>Can&apos;t take the inverse sine of a number outside -1 and 1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="295"/>
+        <source>Can&apos;t take the inverse cosine of a number outside -1 and 1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="305"/>
+        <source>Can&apos;t take the inverse tangent of i or -i</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="313"/>
+        <source>Can&apos;t take the secant of a number that satisfies the equation %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="338"/>
+        <source>Can&apos;t take the cosecant of a number that satisfies the equation %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="363"/>
+        <source>Can&apos;t take the cotangent of a number that satisfies the equation %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="388"/>
+        <source>Can&apos;t take the inverse secant of 0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../evaluationengine.cpp" line="398"/>
-        <source>acsc: input (%1) out of bounds (not 0)</source>
-        <translation>acsc: giriş (%1) sınırların dışında (0 değil)</translation>
+        <source>Can&apos;t take the inverse cosecant of 0</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="403"/>
@@ -855,28 +855,125 @@
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="441"/>
-        <source>log: input (%1) out of bounds (not 0)</source>
-        <translation>günlük: giriş (%1) sınırların dışında (0 değil)</translation>
-    </message>
-    <message>
         <location filename="../evaluationengine.cpp" line="449"/>
-        <source>log: arg1 (%1) out of bounds (not 0)</source>
-        <translation>log: arg1 (%1) sınırların dışında (0 değil)</translation>
+        <location filename="../evaluationengine.cpp" line="477"/>
+        <source>Can&apos;t take the logarithm of 0</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="454"/>
-        <source>log: arg2 (%1) out of bounds (not 1)</source>
-        <translation>log: arg2 (%1) sınırların dışında (1 değil)</translation>
+        <source>Can&apos;t take a logarithm with a base of 1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="459"/>
-        <source>log: arg2 (%1) out of bounds (not 0)</source>
-        <translation>log: arg2 (%1) sınırların dışında (0 değil)</translation>
+        <source>Can&apos;t take a logarithm with a base of 0</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="465"/>
-        <source>log: expected 1 or 2 arguments, got %1</source>
-        <translation>günlük: 1 veya 2 bağımsız değişken bekleniyordu, %1 aldı</translation>
+        <source>The log function takes 1 or 2 arguments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="490"/>
+        <location filename="../evaluationengine.cpp" line="499"/>
+        <location filename="../evaluationengine.cpp" line="520"/>
+        <location filename="../evaluationengine.cpp" line="529"/>
+        <source>Can&apos;t bit shift a non-integer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="494"/>
+        <location filename="../evaluationengine.cpp" line="504"/>
+        <location filename="../evaluationengine.cpp" line="524"/>
+        <location filename="../evaluationengine.cpp" line="534"/>
+        <source>Can&apos;t bit shift by a non-integer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="510"/>
+        <source>The lsh function takes 2 arguments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="540"/>
+        <source>The rsh function takes 2 arguments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="551"/>
+        <source>Can&apos;t take 0 to the power of a negative number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="556"/>
+        <source>Can&apos;t take 0 to the power of a non-real number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="562"/>
+        <source>The pow function takes 2 arguments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="572"/>
+        <source>Can&apos;t take the modulo of a non-integer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="577"/>
+        <source>Can&apos;t take the modulo when the divisor is a non-integer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="582"/>
+        <source>Can&apos;t divide by zero</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="588"/>
+        <source>The mod function takes 2 arguments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="607"/>
+        <location filename="../evaluationengine.cpp" line="614"/>
+        <source>Can&apos;t generate a random number with an upper bound of a non-real number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="619"/>
+        <source>Can&apos;t generate a random number with a lower bound of a non-real number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="625"/>
+        <source>The random function takes 0-2 arguments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="696"/>
+        <location filename="../evaluationengine.cpp" line="758"/>
+        <source>The function definition for %1 contains a condition which is an assignment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../evaluationengine.cpp" line="769"/>
+        <source>The %1 function takes %n arguments</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="773"/>
+        <source>The %1 function takes %2 arguments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="832"/>
+        <source>The %1 function takes 1 argument</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="468"/>
@@ -901,39 +998,9 @@
         <translation>Logaritmanın tabanı</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="477"/>
-        <source>ln: input (%1) out of bounds (not 0)</source>
-        <translation>ln: giriş (%1) sınırların dışında (0 değil)</translation>
-    </message>
-    <message>
         <location filename="../evaluationengine.cpp" line="482"/>
         <source>base e logarithm</source>
         <translation>e tabanlı logaritma</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="490"/>
-        <source>lsh: arg1 (%1) not a real number</source>
-        <translation>lsh: arg1 (%1) gerçek bir sayı değil</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="494"/>
-        <source>lsh: arg2 (%1) not a real number</source>
-        <translation>lsh: arg2 (% 1) gerçek bir sayı değil</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="499"/>
-        <source>lsh: arg1 (%1) not an integer</source>
-        <translation>lsh: arg1 (% 1) tamsayı değil</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="504"/>
-        <source>lsh: arg2 (%1) not an integer</source>
-        <translation>lsh: arg2 (%1) tamsayı değil</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="510"/>
-        <source>lsh: expected 2 arguments, got %1</source>
-        <translation>lsh: 2 bağımsız değişken bekleniyordu, %1 aldı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="513"/>
@@ -959,49 +1026,9 @@
         <translation>Kaydırılacak bit sayısı</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="520"/>
-        <source>rsh: arg1 (%1) not a real number</source>
-        <translation>rsh: arg1 (%1) gerçek bir sayı değil</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="524"/>
-        <source>rsh: arg2 (%1) not a real number</source>
-        <translation>rsh: arg1 (%1) gerçek bir sayı değil</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="529"/>
-        <source>rsh: arg1 (%1) not an integer</source>
-        <translation>rsh: arg1 (%1) tamsayı değil</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="534"/>
-        <source>rsh: arg2 (%1) not an integer</source>
-        <translation>rsh: arg2 (%1) tamsayı değil</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="540"/>
-        <source>rsh: expected 2 arguments, got %1</source>
-        <translation>rsh: 2 bağımsız değişken bekleniyordu,%1 aldı</translation>
-    </message>
-    <message>
         <location filename="../evaluationengine.cpp" line="543"/>
         <source>Shifts a number to the right by a specified number of bits</source>
         <translation>Bir sayıyı belirtilen sayıda bit kadar sağa kaydırır</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="551"/>
-        <source>pow: arg2 (%1) out of bounds for arg1 (0) (should be positive)</source>
-        <translation>pow: arg2 (%1) arg1 (0) için sınırların dışında (pozitif olmalıdır)</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="556"/>
-        <source>pow: arg2 (%1) out of bounds for arg1 (0) (should be a real number)</source>
-        <translation>pow: arg2 (%1) arg1 (0) için sınırların dışında (gerçek bir sayı olmalıdır)</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="562"/>
-        <source>pow: expected 2 arguments, got %1</source>
-        <translation>pow: 2 bağımsız değişken bekleniyordu,%1 aldı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="565"/>
@@ -1022,26 +1049,6 @@
         <location filename="../evaluationengine.cpp" line="565"/>
         <source>The number to exponentiate by</source>
         <translation>Üslenecek sayı</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="572"/>
-        <source>mod: arg1 (%1) not an integer</source>
-        <translation>mod: arg1 (%1) tamsayı değil</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="577"/>
-        <source>mod: arg2 (%1) not an integer</source>
-        <translation>mod: arg2 (%1) tamsayı değil</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="582"/>
-        <source>mod: division by 0 undefined</source>
-        <translation>mod: 0&apos;a bölme tanımsız</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="588"/>
-        <source>mod: expected 2 arguments, got %1</source>
-        <translation>mod: 2 bağımsız değişken bekleniyordu,%1 aldı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="591"/>
@@ -1077,22 +1084,6 @@
         <location filename="../evaluationengine.cpp" line="598"/>
         <source>ceiling</source>
         <translation>tavan</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="607"/>
-        <location filename="../evaluationengine.cpp" line="614"/>
-        <source>random: arg1 (%1) not a real number</source>
-        <translation>rastgele: arg1 (%1) gerçek bir sayı değil</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="619"/>
-        <source>random: arg2 (%1) not a real number</source>
-        <translation>rastgele: arg2 (%1) gerçek bir sayı değil</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="625"/>
-        <source>random: expected 0, 1 or 2 arguments, got %1</source>
-        <translation>rastgele: 0, 1 ya da 2 bağımsız değişken bekleniyordu, %1 aldı</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="628"/>
@@ -1136,33 +1127,10 @@
         <translation>yüksek</translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="696"/>
-        <location filename="../evaluationengine.cpp" line="758"/>
-        <source>%1: expected scalar or boolean value, got assignment</source>
-        <translation>%1: beklenen skaler veya boole değeri, atama var</translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../evaluationengine.cpp" line="769"/>
-        <source>%1: expected %n arguments, got %2</source>
-        <translation>
-            <numerusform>%1: beklenen %n bağımsız değişken, %2 aldı</numerusform>
-        </translation>
-    </message>
-    <message>
         <location filename="../evaluationengine.cpp" line="772"/>
         <source>or</source>
         <comment>Expected 1, 2 or 3 arguments</comment>
         <translation>ya da</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="773"/>
-        <source>%1: expected %2 arguments, got %3</source>
-        <translation>%1: %2 bağımsız değişler bekleniyordu, %3 aldı</translation>
-    </message>
-    <message>
-        <location filename="../evaluationengine.cpp" line="832"/>
-        <source>%1: expected 1 argument, got %2</source>
-        <translation>%1: 1 bağımsız değişleri bekleniyordu,%2 aldı</translation>
     </message>
 </context>
 <context>

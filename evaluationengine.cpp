@@ -203,13 +203,13 @@ void EvaluationEngine::setupFunctions() {
             idouble second = args.at(1);
 
             if (second.real() == 0 && second.imag() == 0) {
-                error = tr("root: arg1 (%1) out of bounds (not 0)").arg(idbToString(second));
+                error = tr("Can't take the zeroth root of a number");
                 return 0;
             }
 
             return pow(first, idouble(1.0) / second);
         } else {
-            error = tr("root: expected 2 arguments, got %1").arg(args.length());
+            error = tr("The root function takes 2 arguments");
             return 0;
         }
     }, tr("Calculates the %1 of a %2").arg(tr("root"), tr("number")),
@@ -218,10 +218,10 @@ void EvaluationEngine::setupFunctions() {
         ));
     customFunctions.insert("fact", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
         if (arg.imag() != 0) {
-            error = tr("fact: input (%1) not a real number").arg(idbToString(arg));
+            error = tr("Can't take the factorial of a non-real number");
             return 0;
         } else if (arg.real() < 0) {
-            error = tr("fact: input (%1) out of bounds (0 and above)").arg(idbToString(arg));
+            error = tr("Can't take the factorial of a negative number");
             return 0;
         } else if (arg.real() == 0) {
             return 1;
@@ -241,20 +241,20 @@ void EvaluationEngine::setupFunctions() {
         Q_UNUSED(error)
 
         if (arg.imag() == 0) {
-            QString errStr = tr("tan: input (%1) out of bounds (not %2)");
+            QString errStr = tr("Can't take the tangent of a number that satisfies the equation %1");
             if (trigUnit == Degrees) {
                 if (fmod(arg.real() - 90, 180) == 0) {
-                    error = errStr.arg(idbToString(arg), "90° + 180n");
+                    error = errStr.arg("90° + 180n");
                     return 0;
                 }
             } else if (trigUnit == Gradians) {
                 if (fmod(arg.real() - 100, 200) == 0) {
-                    error = errStr.arg(idbToString(arg), "100ᵍ + 200n");
+                    error = errStr.arg("100ᵍ + 200n");
                     return 0;
                 }
             } else {
                 if (fmod(arg.real() - (M_PI / 2), M_PI) == 0) {
-                    error = errStr.arg(idbToString(arg), "π/2 + πn");
+                    error = errStr.arg("π/2 + πn");
                     return 0;
                 }
             }
@@ -276,7 +276,7 @@ void EvaluationEngine::setupFunctions() {
     }, "re", tr("Calculates the %1 of a %2").arg(tr("real portion"), tr("complex number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("real portion"))));
     customFunctions.insert("arg", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
         if (arg.real() == 0 && arg.imag() == 0) {
-            error = tr("arg: phase angle of 0 undefined");
+            error = tr("Can't take the phase angle of 0");
             return 0;
         }
         return fromRad(std::arg(arg));
@@ -284,7 +284,7 @@ void EvaluationEngine::setupFunctions() {
 
     customFunctions.insert("asin", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
         if (abs(arg) > 1) {
-            error = tr("asin: input (%1) out of bounds (between -1 and 1)").arg(idbToString(arg));
+            error = tr("Can't take the inverse sine of a number outside -1 and 1");
             return 0;
         } else {
             return fromRad(asin(arg));
@@ -292,7 +292,7 @@ void EvaluationEngine::setupFunctions() {
     }, "asin", tr("Calculates the %1 of an %2").arg(tr("arcsine (inverse sine)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arcsine"))));
     customFunctions.insert("acos", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
         if (abs(arg) > 1) {
-            error = tr("acos: input (%1) out of bounds (between -1 and 1)").arg(idbToString(arg));
+            error = tr("Can't take the inverse cosine of a number outside -1 and 1");
             return 0;
         } else {
             return fromRad(acos(arg));
@@ -302,7 +302,7 @@ void EvaluationEngine::setupFunctions() {
         Q_UNUSED(error)
 
         if (arg.real() == 0 && (arg.imag() == 1 || arg.imag() == -1)) {
-            error = tr("atan: input (%1) out of bounds (not i or -i)").arg(idbToString(arg));
+            error = tr("Can't take the inverse tangent of i or -i").arg(idbToString(arg));
             return 0;
         }
 
@@ -310,20 +310,20 @@ void EvaluationEngine::setupFunctions() {
     }, "atan", tr("Calculates the %1 of an %2").arg(tr("arctangent (inverse tangent)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arctangent"))));
     customFunctions.insert("sec", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
         if (arg.imag() == 0) {
-            QString errStr = tr("sec: input (%1) out of bounds (not %2)");
+            QString errStr = tr("Can't take the secant of a number that satisfies the equation %1");
             if (trigUnit == Degrees) {
                 if (fmod(arg.real() - 90, 180) == 0) {
-                    error = errStr.arg(idbToString(arg), "90° + 180n");
+                    error = errStr.arg("90° + 180n");
                     return 0;
                 }
             } else if (trigUnit == Gradians) {
                 if (fmod(arg.real() - 100, 200) == 0) {
-                    error = errStr.arg(idbToString(arg), "100ᵍ + 200n");
+                    error = errStr.arg("100ᵍ + 200n");
                     return 0;
                 }
             } else {
                 if (fmod(arg.real() - (M_PI / 2), M_PI) == 0) {
-                    error = errStr.arg(idbToString(arg), "π/2 + πn");
+                    error = errStr.arg("π/2 + πn");
                     return 0;
                 }
             }
@@ -335,20 +335,20 @@ void EvaluationEngine::setupFunctions() {
         Q_UNUSED(error)
 
         if (arg.imag() == 0) {
-            QString errStr = tr("csc: input (%1) out of bounds (not %2)");
+            QString errStr = tr("Can't take the cosecant of a number that satisfies the equation %1");
             if (trigUnit == Degrees) {
                 if (fmod(arg.real(), 180) == 0) {
-                    error = errStr.arg(idbToString(arg), "180n");
+                    error = errStr.arg("180n");
                     return 0;
                 }
             } else if (trigUnit == Gradians) {
                 if (fmod(arg.real(), 200) == 0) {
-                    error = errStr.arg(idbToString(arg), "200n");
+                    error = errStr.arg("200n");
                     return 0;
                 }
             } else {
                 if (fmod(arg.real(), M_PI) == 0) {
-                    error = errStr.arg(idbToString(arg), "πn");
+                    error = errStr.arg("πn");
                     return 0;
                 }
             }
@@ -360,20 +360,20 @@ void EvaluationEngine::setupFunctions() {
         Q_UNUSED(error)
 
         if (arg.imag() == 0) {
-            QString errStr = tr("cot: input (%1) out of bounds (not %2)");
+            QString errStr = tr("Can't take the cotangent of a number that satisfies the equation %1");
             if (trigUnit == Degrees) {
                 if (fmod(arg.real() - 90, 180) == 0) {
-                    error = errStr.arg(idbToString(arg), "90° + 180n");
+                    error = errStr.arg("90° + 180n");
                     return 0;
                 }
             } else if (trigUnit == Gradians) {
                 if (fmod(arg.real() - 100, 200) == 0) {
-                    error = errStr.arg(idbToString(arg), "100ᵍ + 200n");
+                    error = errStr.arg("100ᵍ + 200n");
                     return 0;
                 }
             } else {
                 if (fmod(arg.real() - (M_PI / 2), M_PI) == 0) {
-                    error = errStr.arg(idbToString(arg), "π/2 + πn");
+                    error = errStr.arg("π/2 + πn");
                     return 0;
                 }
             }
@@ -385,7 +385,7 @@ void EvaluationEngine::setupFunctions() {
         Q_UNUSED(error)
 
         if (arg.real() == 0 && arg.imag() == 0) {
-            error = tr("asec: input (%1) out of bounds (not 0)").arg(idbToString(arg));
+            error = tr("Can't take the inverse secant of 0").arg(idbToString(arg));
             return 0;
         }
 
@@ -395,7 +395,7 @@ void EvaluationEngine::setupFunctions() {
         Q_UNUSED(error)
 
         if (arg.real() == 0 && arg.imag() == 0) {
-            error = tr("acsc: input (%1) out of bounds (not 0)").arg(idbToString(arg));
+            error = tr("Can't take the inverse cosecant of 0").arg(idbToString(arg));
             return 0;
         }
 
@@ -438,7 +438,7 @@ void EvaluationEngine::setupFunctions() {
         if (args.length() == 1) {
             //log base 10
             if (args.first().real() == 0 && args.first().imag() == 0) {
-                error = tr("log: input (%1) out of bounds (not 0)").arg(idbToString(args.first()));
+                error = tr("Can't take the logarithm of 0");
                 return 0;
             }
 
@@ -446,23 +446,23 @@ void EvaluationEngine::setupFunctions() {
         } else if (args.length() == 2) {
             //log base %2
             if (args.first().real() == 0 && args.first().imag() == 0) {
-                error = tr("log: arg1 (%1) out of bounds (not 0)").arg(idbToString(args.first()));
+                error = tr("Can't take the logarithm of 0");
                 return 0;
             }
 
             if (args.last().real() == 1 && args.last().imag() == 0) {
-                error = tr("log: arg2 (%1) out of bounds (not 1)").arg(idbToString(args.last()));
+                error = tr("Can't take a logarithm with a base of 1");
                 return 0;
             }
 
             if (args.last().real() == 0 && args.last().imag() == 0) {
-                error = tr("log: arg2 (%1) out of bounds (not 0)").arg(idbToString(args.last()));
+                error = tr("Can't take a logarithm with a base of 0");
                 return 0;
             }
 
             return log(args.first()) / log(args.at(1));
         } else {
-            error = tr("log: expected 1 or 2 arguments, got %1").arg(args.length());
+            error = tr("The log function takes 1 or 2 arguments");
             return 0;
         }
     }, tr("Calculates the %1 of an %2").arg(tr("base 10 logarithm"), tr("number")), QStringList() << tr("number") + ":" + tr("The %1 to calculate the %2 of").arg(tr("number"), tr("base 10 logarithm")));
@@ -474,7 +474,7 @@ void EvaluationEngine::setupFunctions() {
 
     customFunctions.insert("ln", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
         if (arg.real() == 0 && arg.imag() == 0) {
-            error = tr("ln: input (%1) out of bounds (not 0)").arg(idbToString(arg));
+            error = tr("Can't take the logarithm of 0");
             return 0;
         }
 
@@ -487,27 +487,27 @@ void EvaluationEngine::setupFunctions() {
             idouble second = args.at(1);
 
             if (first.imag() != 0) {
-                error = tr("lsh: arg1 (%1) not a real number").arg(idbToString(first));
+                error = tr("Can't bit shift a non-integer");
                 return 0;
             }
             if (second.imag() != 0) {
-                error = tr("lsh: arg2 (%1) not a real number").arg(idbToString(second));
+                error = tr("Can't bit shift by a non-integer");
                 return 0;
             }
 
             if (floor(first.real()) != first.real()) {
-                error = tr("lsh: arg1 (%1) not an integer").arg(idbToString(first));
+                error = tr("Can't bit shift a non-integer");
                 return 0;
             }
 
             if (floor(second.real()) != second.real()) {
-                error = tr("lsh: arg2 (%1) not an integer").arg(idbToString(second));
+                error = tr("Can't bit shift by a non-integer");
                 return 0;
             }
 
             return (int) first.real() << (int) second.real();
         } else {
-            error = tr("lsh: expected 2 arguments, got %1").arg(args.length());
+            error = tr("The lsh function takes 2 arguments");
             return 0;
         }
     }, tr("Shifts a number to the left by a specified number of bits"), QStringList() << tr("number") + ":" + tr("The number to shift") << tr("amount") + ":" + tr("The number of bits to shift by")));
@@ -517,27 +517,27 @@ void EvaluationEngine::setupFunctions() {
             idouble second = args.at(1);
 
             if (first.imag() != 0) {
-                error = tr("rsh: arg1 (%1) not a real number").arg(idbToString(first));
+                error = tr("Can't bit shift a non-integer");
                 return 0;
             }
             if (second.imag() != 0) {
-                error = tr("rsh: arg2 (%1) not a real number").arg(idbToString(second));
+                error = tr("Can't bit shift by a non-integer");
                 return 0;
             }
 
             if (floor(first.real()) != first.real()) {
-                error = tr("rsh: arg1 (%1) not an integer").arg(idbToString(first));
+                error = tr("Can't bit shift a non-integer");
                 return 0;
             }
 
             if (floor(second.real()) != second.real()) {
-                error = tr("rsh: arg2 (%1) not an integer").arg(idbToString(second));
+                error = tr("Can't bit shift by a non-integer");
                 return 0;
             }
 
             return (int) first.real() >> (int) second.real();
         } else {
-            error = tr("rsh: expected 2 arguments, got %1").arg(args.length());
+            error = tr("The rsh function takes 2 arguments");
             return 0;
         }
     }, tr("Shifts a number to the right by a specified number of bits"), QStringList() << tr("number") + ":" + tr("The number to shift") << tr("amount") + ":" + tr("The number of bits to shift by")));
@@ -548,18 +548,18 @@ void EvaluationEngine::setupFunctions() {
 
             if (first.real() == 0 && first.imag() == 0 &&
                 second.real() <= 0 && second.imag() == 0) {
-                error = tr("pow: arg2 (%1) out of bounds for arg1 (0) (should be positive)").arg(idbToString(second));
+                error = tr("Can't take 0 to the power of a negative number");
                 return 0;
             }
 
             if (first.real() == 0 && first.imag() == 0 && second.real() == 0 && second.imag() != 0) {
-                error = tr("pow: arg2 (%1) out of bounds for arg1 (0) (should be a real number)").arg(idbToString(second));
+                error = tr("Can't take 0 to the power of a non-real number");
                 return 0;
             }
 
             return pow(first, second);
         } else {
-            error = tr("pow: expected 2 arguments, got %1").arg(args.length());
+            error = tr("The pow function takes 2 arguments");
             return 0;
         }
     }, tr("Calculates an exponent"), QStringList() << tr("base") + ":" + tr("The base of the exponent") << tr("exponent") + ":" + tr("The number to exponentiate by")));
@@ -569,23 +569,23 @@ void EvaluationEngine::setupFunctions() {
             idouble second = args.at(1);
 
             if (floor(first.real()) != first.real() || first.imag() != 0) {
-                error = tr("mod: arg1 (%1) not an integer").arg(idbToString(first));
+                error = tr("Can't take the modulo of a non-integer");
                 return 0;
             }
 
             if (floor(second.real()) != second.real() || second.imag() != 0) {
-                error = tr("mod: arg2 (%1) not an integer").arg(idbToString(second));
+                error = tr("Can't take the modulo when the divisor is a non-integer");
                 return 0;
             }
 
             if (second.real() == 0) {
-                error = tr("mod: division by 0 undefined").arg(idbToString(second));
+                error = tr("Can't divide by zero");
                 return 0;
             }
 
             return (int) first.real() % (int) second.real();
         } else {
-            error = tr("mod: expected 2 arguments, got %1").arg(args.length());
+            error = tr("The mod function takes 2 arguments");
             return 0;
         }
     }, tr("Calculates the remainder when dividing two numbers"), QStringList() << tr("divisor") + ":" + tr("The number to be divided") << tr("dividend") + ":" + tr("The number to divide by")));
@@ -604,25 +604,25 @@ void EvaluationEngine::setupFunctions() {
             return idouble(gen->generate());
         } else if (args.length() == 1) {
             if (args.first().imag() != 0) {
-                error = tr("random: arg1 (%1) not a real number").arg(idbToString(args.first()));
+                error = tr("Can't generate a random number with an upper bound of a non-real number");
                 return 0;
             }
 
             return idouble(gen->bounded((double) args.first().real()));
         } else if (args.length() == 2) {
             if (args.first().imag() != 0) {
-                error = tr("random: arg1 (%1) not a real number").arg(idbToString(args.first()));
+                error = tr("Can't generate a random number with an upper bound of a non-real number");
                 return 0;
             }
 
             if (args.last().imag() != 0) {
-                error = tr("random: arg2 (%1) not a real number").arg(idbToString(args.last()));
+                error = tr("Can't generate a random number with a lower bound of a non-real number");
                 return 0;
             }
 
             return idouble(gen->bounded((int) args.first().real(), (int) args.last().real()));
         } else {
-            error = tr("random: expected 0, 1 or 2 arguments, got %1").arg(args.length());
+            error = tr("The random function takes 0-2 arguments").arg(args.length());
             return 0;
         }
     }, tr("Returns a random number"), QStringList());
@@ -664,7 +664,7 @@ void EvaluationEngine::setupFunctions() {
                         //For each branch, evaluate the conditions and choose the branch
                         QJsonObject selectedBranch;
                         QJsonArray branches = overload.value("branches").toArray();
-                        for (QJsonValue b : branches) {
+                        for (const QJsonValue& b : qAsConst(branches)) {
                             QJsonObject branch = b.toObject();
                             if (branch.value("isOtherwise").toBool()) {
                                 //Reached the final branch
@@ -673,7 +673,7 @@ void EvaluationEngine::setupFunctions() {
                             } else {
                                 bool currentConditionState = false;
                                 QJsonArray conditions = branch.value("conditions").toArray();
-                                for (QJsonValue c : conditions) {
+                                for (const QJsonValue& c : qAsConst(conditions)) {
                                     QJsonObject condition = c.toObject();
                                     engine.setExpression(condition.value("expression").toString());
                                     int connective = condition.value("connective").toInt();
@@ -693,7 +693,7 @@ void EvaluationEngine::setupFunctions() {
                                             return 0;
                                         case EvaluationEngine::Result::Assign:
                                             //Return an error
-                                            error = tr("%1: expected scalar or boolean value, got assignment").arg(function);
+                                            error = tr("The function definition for %1 contains a condition which is an assignment").arg(function);
                                             return 0;
                                     }
 
@@ -755,7 +755,7 @@ void EvaluationEngine::setupFunctions() {
                                     return 0;
                                 case EvaluationEngine::Result::Assign:
                                     //Return an error
-                                    error = tr("%1: expected scalar or boolean value, got assignment").arg(function);
+                                    error = tr("The function definition for %1 contains a condition which is an assignment").arg(function);
                                     return 0;
                             }
                         }
@@ -766,23 +766,23 @@ void EvaluationEngine::setupFunctions() {
 
                 QString argSpecification = argCounts.join(", ");
                 if (argCounts.count() == 1) {
-                    error = tr("%1: expected %n arguments, got %2", nullptr, argCounts.first().toInt()).arg(function, QString::number(args.length()));
+                    error = tr("The %1 function takes %n arguments", nullptr, argCounts.first().toInt()).arg(function);
                 } else {
                     int last = argSpecification.lastIndexOf(", ");
                     argSpecification = argSpecification.replace(last, 2, " " + tr("or", "Expected 1, 2 or 3 arguments") + " ");
-                    error = tr("%1: expected %2 arguments, got %3").arg(function, argSpecification, QString::number(args.length()));
+                    error = tr("The %1 function takes %2 arguments").arg(function, argSpecification);
                 }
 
                 return 0;
             });
 
-            for (QJsonValue o : overloads) {
+            for (const QJsonValue& o : qAsConst(overloads)) {
                 QJsonObject overload = o.toObject();
                 QStringList argList;
 
                 QJsonArray args = overload.value("args").toArray();
 
-                for (QJsonValue v : args) {
+                for (const QJsonValue& v : qAsConst(args)) {
                     if (v.isObject()) {
                         QJsonObject o = v.toObject();
                         argList.append(o.value("name").toString() + ":" + o.value("desc").toString());
@@ -829,7 +829,7 @@ idouble EvaluationEngine::toRad(idouble deg) {
 CustomFunction EvaluationEngine::createSingleArgFunction(std::function<idouble (idouble, QString&)> fn, QString fnName, QString fnDesc, QString argName, QString argDesc) {
     return CustomFunction([ = ](QList<idouble> args, QString & error) -> idouble {
         if (args.length() != 1) {
-            error = tr("%1: expected 1 argument, got %2").arg(fnName).arg(args.length());
+            error = tr("The %1 function takes 1 argument").arg(fnName);
             return 0;
         } else {
             return fn(args.first(), error);

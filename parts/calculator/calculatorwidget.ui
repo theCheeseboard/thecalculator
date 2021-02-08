@@ -508,7 +508,7 @@
            <x>0</x>
            <y>0</y>
            <width>244</width>
-           <height>275</height>
+           <height>276</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
@@ -1049,7 +1049,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset theme="arrow-right">
+         <iconset theme="arrow-left">
           <normaloff>../../</normaloff>../../</iconset>
         </property>
        </widget>

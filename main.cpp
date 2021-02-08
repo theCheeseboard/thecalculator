@@ -243,7 +243,7 @@ int main(int argc, char* argv[]) {
             }
         }
 
-        for (QString expr : args) {
+        for (const QString &expr : qAsConst(args)) {
             GraphFunction* f = new GraphFunction(&graph, expr);
             graph.addFunction(f);
         }
@@ -274,7 +274,7 @@ int main(int argc, char* argv[]) {
             return a.exec();
         } else {
             EvaluationEngine engine;
-            QList<QPair<QString, QString>> outputs;
+            QVector<QPair<QString, QString>> outputs;
             QMap<QString, idouble> variables;
             bool didError = false;
 
@@ -320,11 +320,11 @@ int main(int argc, char* argv[]) {
 
                         QString errorExpression;
                         errorExpression = locationText;
-                        errorExpression.append(e.left(res.location));
+                        errorExpression.append(e.leftRef(res.location));
                         errorExpression.append(termCol.value("red"));
-                        errorExpression.append(e.mid(res.location, res.length));
+                        errorExpression.append(e.midRef(res.location, res.length));
                         errorExpression.append(termCol.value("reset"));
-                        errorExpression.append(e.mid(res.location + res.length));
+                        errorExpression.append(e.midRef(res.location + res.length));
                         errorText.append(errorExpression);
 
                         if (termCol.count() == 0 || res.length == 0) {
@@ -365,7 +365,7 @@ int main(int argc, char* argv[]) {
             } else if (outputs.count() == 1) {
                 out << outputs.first().second.append("\n");
             } else {
-                for (QPair<QString, QString> output : outputs) {
+                for (const QPair<QString, QString> &output : outputs) {
                     out << termCol.value("bold") << output.first << ":" << termCol.value("reset") << "\n" << output.second << "\n";
                 }
             }

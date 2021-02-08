@@ -76,9 +76,9 @@ double absArg(idouble n) {
 #define CHECK_VALID_BITWISE(name, arg1, arg2, arg1loc, arg2loc) \
     bool shouldCalc = false; \
     if (!qFuzzyIsNull(static_cast<double>((arg1).imag())) || static_cast<int>((arg1).real()) != (arg1).real()) { \
-        YYE(arg1loc, tr("%1: arg1 (%2) not an integer").arg(name).arg(idbToString(arg1)).toLocal8Bit().constData()); \
+        YYE(arg1loc, tr("Bitwise operations can only be performed on integers").toLocal8Bit().constData()); \
     } else if (!qFuzzyIsNull(static_cast<double>((arg2).imag())) || static_cast<int>((arg2).real()) != (arg2).real()) { \
-        YYE(arg2loc, tr("%1: arg2 (%2) not an integer").arg(name).arg(idbToString(arg2)).toLocal8Bit().constData()); \
+        YYE(arg2loc, tr("Bitwise operations can only be performed on integers").toLocal8Bit().constData()); \
     } else { \
         shouldCalc = true; \
     } \
@@ -181,7 +181,7 @@ expression: SUBTRACT expression {$$ = new idouble(-$2->real(), -$2->imag());}
 //|   NUMBER expression {$$ = new idouble(*$1 * *$2);}
 |   expression DIVIDE expression {
         if ($3->real() == 0 && $3->imag() == 0) {
-            YYE(@3, tr("div: division by 0 undefined").toLocal8Bit().constData());
+            YYE(@3, tr("Can't divide by zero").toLocal8Bit().constData());
             YYABORT;
         } else {
             $$ = new idouble(*$1 / *$3);
@@ -255,7 +255,7 @@ exprid: IDENTIFIER {
         if (valueExists(*$1, p)) {
             $$ = new idouble(getValue(*$1, p));
         } else {
-            YYE(@1, tr("%1: unknown variable").arg(*$1).toLocal8Bit().constData());
+            YYE(@1, tr("Unknown variable: %1").arg(*$1).toLocal8Bit().constData());
             YYABORT;
         }
     }
@@ -263,7 +263,7 @@ exprid: IDENTIFIER {
         if (valueExists(*$1, p)) {
             $$ = new idouble(pow(getValue(*$1, p), *$2));
         } else {
-            YYE(@1, tr("%1: unknown variable").arg(*$1).toLocal8Bit().constData());
+            YYE(@1, tr("Unknown variable: %1").arg(*$1).toLocal8Bit().constData());
             YYABORT;
         }
     }
@@ -271,7 +271,7 @@ exprid: IDENTIFIER {
         if (valueExists(*$1, p)) {
             $$ = new idouble(pow(getValue(*$1, p), *$3));
         } else {
-            YYE(@1, tr("%1: unknown variable").arg(*$1).toLocal8Bit().constData());
+            YYE(@1, tr("Unknown variable: %1").arg(*$1).toLocal8Bit().constData());
             YYABORT;
         }
     }

@@ -121,11 +121,11 @@ void CalculatorWidget::on_expandButton_clicked() {
     anim->setStartValue(ui->scrollArea->width());
     if (extended) {
         anim->setEndValue(0);
-        ui->expandButton->setIcon(QIcon::fromTheme("arrow-right"));
+        ui->expandButton->setIcon(QIcon::fromTheme("arrow-left"));
         extended = false;
     } else {
         anim->setEndValue(ui->scrollArea->sizeHint().width());
-        ui->expandButton->setIcon(QIcon::fromTheme("arrow-left"));
+        ui->expandButton->setIcon(QIcon::fromTheme("arrow-right"));
         extended = true;
     }
     anim->setDuration(500);
@@ -360,7 +360,7 @@ void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2
     }
     anim->setDuration(250);
     anim->setEasingCurve(QEasingCurve::OutCubic);
-    connect(anim, &tVariantAnimation::valueChanged, [ = ](QVariant value) {
+    connect(anim, &tVariantAnimation::valueChanged, this, [ = ](QVariant value) {
         ui->helpWidget->setFixedHeight(value.toInt());
     });
     connect(anim, &tVariantAnimation::finished, anim, &tVariantAnimation::deleteLater);
@@ -437,7 +437,7 @@ void CalculatorWidget::on_NthRootButton_clicked() {
     connect(popover, &tPopover::dismiss, this, [ = ] {
         grabExpKeyboard(true);
     });
-    popover->show(this);
+    popover->show(this->window());
 }
 
 void CalculatorWidget::on_LogBaseButton_clicked() {
@@ -456,5 +456,5 @@ void CalculatorWidget::on_LogBaseButton_clicked() {
     connect(popover, &tPopover::dismiss, this, [ = ] {
         grabExpKeyboard(true);
     });
-    popover->show(this);
+    popover->show(this->window());
 }
