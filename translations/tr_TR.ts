@@ -973,7 +973,7 @@
     <message>
         <location filename="../evaluationengine.cpp" line="832"/>
         <source>The %1 function takes 1 argument</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 işlevi 1 bağımsız değişken alıyor</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="468"/>
