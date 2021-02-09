@@ -6,42 +6,42 @@
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="73"/>
         <source>Add Function</source>
-        <translation type="unfinished"></translation>
+        <translation>Functie Toevoegen</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="134"/>
         <source>Expression</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitdrukking</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="144"/>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kleur</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.ui" line="154"/>
         <source>Use x for the horizontal axis</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruik x voor de horizontale as</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="32"/>
         <source>Green</source>
-        <translation type="unfinished"></translation>
+        <translation>Groen</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="33"/>
         <source>Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Rood</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="34"/>
         <source>Aqua</source>
-        <translation type="unfinished"></translation>
+        <translation>Aqua</translation>
     </message>
     <message>
         <location filename="../parts/graph/addfunctiondialog.cpp" line="35"/>
         <source>Purple</source>
-        <translation type="unfinished"></translation>
+        <translation>Paars</translation>
     </message>
 </context>
 <context>
@@ -49,23 +49,23 @@
     <message>
         <location filename="../customs/branchbox.ui" line="59"/>
         <source>RETURN</source>
-        <translation type="unfinished"></translation>
+        <translation>GEEF</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="66"/>
         <location filename="../customs/branchbox.cpp" line="120"/>
         <source>Expression to calculate</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitdrukking om uit te rekenen</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="73"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Fout</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="85"/>
         <source>Add Condition</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorwaarde Toevoegen</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.ui" line="95"/>
@@ -75,12 +75,12 @@
     <message>
         <location filename="../customs/branchbox.cpp" line="49"/>
         <source>OTHERWISE RETURN</source>
-        <translation type="unfinished"></translation>
+        <translation>GEEF ANDERS</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="77"/>
         <source>Return value required</source>
-        <translation type="unfinished"></translation>
+        <translation>Waarde vereist</translation>
     </message>
     <message>
         <location filename="../customs/branchbox.cpp" line="78"/>
@@ -90,7 +90,7 @@
     <message>
         <location filename="../customs/branchbox.cpp" line="118"/>
         <source>Error Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Foutbeschrijving</translation>
     </message>
 </context>
 <context>
@@ -98,37 +98,37 @@
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="214"/>
         <source>Expression...</source>
-        <translation type="unfinished">Uitdruiking...</translation>
+        <translation>Uitdruiking...</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="296"/>
         <source>Pi</source>
-        <translation type="unfinished"></translation>
+        <translation>Pi</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="325"/>
         <source>Right Shift</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechter Shift</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="347"/>
         <source>Percentage</source>
-        <translation type="unfinished">Percentage</translation>
+        <translation>Percentage</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="363"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Optellen</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="379"/>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Vermenigvuldigen</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="414"/>
         <source>Euler&apos;s Constant</source>
-        <translation type="unfinished"></translation>
+        <translation>Euler&apos;s Getal</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="436"/>
