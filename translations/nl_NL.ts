@@ -128,82 +128,82 @@
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="414"/>
         <source>Euler&apos;s Constant</source>
-        <translation>Euler&apos;s Getal</translation>
+        <translation>Euler&apos;s Constante</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="436"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Wissen</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="452"/>
         <source>Imaginary Unit</source>
-        <translation type="unfinished"></translation>
+        <translation>Imaginaire Eenheid</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="468"/>
         <source>Previous Answer</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorige Antwoord</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="615"/>
         <source>Cube</source>
-        <translation type="unfinished">Derdemacht</translation>
+        <translation>Derdemacht</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="625"/>
         <source>Nth Root</source>
-        <translation type="unfinished">Nste wortel</translation>
+        <translation>Nde wortel</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="675"/>
         <source>Logarithm with base</source>
-        <translation type="unfinished"></translation>
+        <translation>Logaritme met grondtal</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="685"/>
         <source>Hyperbolic Arc Sine</source>
-        <translation type="unfinished">Hyperbolische Arcsinus</translation>
+        <translation>Hyperbolische Arcsinus</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="821"/>
         <source>Arc Tangent</source>
-        <translation type="unfinished">Arctangens</translation>
+        <translation>Arctangens</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="781"/>
         <source>Cosine</source>
-        <translation type="unfinished">Cosinus</translation>
+        <translation>Cosinus</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="599"/>
         <source>Hyperbolic Tangent</source>
-        <translation type="unfinished">Hyperbolische tangens</translation>
+        <translation>Hyperbolische tangens</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="771"/>
         <source>Square Root</source>
-        <translation type="unfinished">Wortel</translation>
+        <translation>Vierkantswortel</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="745"/>
         <source>Base 10 Logarithm</source>
-        <translation type="unfinished">Grondtal 10 Logaritme</translation>
+        <translation>Logaritme met grondtal 10</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="761"/>
         <source>Square</source>
-        <translation type="unfinished">Kwadraat</translation>
+        <translation>Kwadraat</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="715"/>
         <source>Arc Sine</source>
-        <translation type="unfinished">Arcsinus</translation>
+        <translation>Arcsinus</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="579"/>
         <source>Hyperbolic Sine</source>
-        <translation type="unfinished">Hyperbolische Sinus</translation>
+        <translation>Hyperbolische Sinus</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="645"/>
@@ -213,27 +213,27 @@
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="549"/>
         <source>Raise to a power</source>
-        <translation type="unfinished">Machtsverheffen</translation>
+        <translation>Machtsverheffen</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="635"/>
         <source>Factorial</source>
-        <translation type="unfinished">Factoriaal</translation>
+        <translation>Faculteit</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="655"/>
         <source>Sine</source>
-        <translation type="unfinished">Sinus</translation>
+        <translation>Sinus</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="533"/>
         <source>Arc Cosine</source>
-        <translation type="unfinished">Arccosinus</translation>
+        <translation>Arccosinus</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="705"/>
         <source>Absolute</source>
-        <translation type="unfinished">Absoluut</translation>
+        <translation>Modulus</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="569"/>
@@ -243,32 +243,32 @@
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="695"/>
         <source>Hyperbolic Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Hyperbolische Cosinus</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="589"/>
         <source>Hyperbolic Arc Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Hyperbolische Arctangens</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="725"/>
         <source>Natural Logarithm</source>
-        <translation type="unfinished"></translation>
+        <translation>Natuurlijke Logaritme</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="559"/>
         <source>Tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangens</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="841"/>
         <source>Cube Root</source>
-        <translation type="unfinished"></translation>
+        <translation>Derdemachtswortel</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="791"/>
         <source>Hyperbolic Arc Cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>Hyperbolische Arccosinus</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="801"/>
@@ -298,12 +298,12 @@
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="851"/>
         <source>re</source>
-        <translation type="unfinished"></translation>
+        <translation>re</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="858"/>
         <source>im</source>
-        <translation type="unfinished"></translation>
+        <translation>im</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="865"/>
@@ -313,22 +313,22 @@
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="1114"/>
         <source>Backspace</source>
-        <translation type="unfinished">Backspace</translation>
+        <translation>Backspace</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="927"/>
         <source>Left Shift</source>
-        <translation type="unfinished"></translation>
+        <translation>Linker Shift</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="1008"/>
         <source>Subtract</source>
-        <translation type="unfinished"></translation>
+        <translation>Aftrekken</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="1030"/>
         <source>Divide</source>
-        <translation type="unfinished"></translation>
+        <translation>Delen</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.ui" line="1046"/>
@@ -343,35 +343,35 @@
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="181"/>
         <source>%1 assigned to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%2 ingesteld op %1</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="190"/>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="240"/>
         <source>TRUE</source>
-        <translation type="unfinished"></translation>
+        <translation>JUIST</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="190"/>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="240"/>
         <source>FALSE</source>
-        <translation type="unfinished"></translation>
+        <translation>FOUT</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="237"/>
         <source>Assign %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Stel %2 in op %1</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="333"/>
         <source>No arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Geen argumenten</translation>
     </message>
     <message>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="334"/>
         <location filename="../parts/calculator/calculatorwidget.cpp" line="351"/>
         <source>function</source>
-        <translation type="unfinished"></translation>
+        <translation>functie</translation>
     </message>
 </context>
 <context>
@@ -379,57 +379,57 @@
     <message>
         <location filename="../customs/conditionbox.ui" line="33"/>
         <source>WHEN</source>
-        <translation type="unfinished"></translation>
+        <translation>ALS</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="38"/>
         <source>WHEN NOT</source>
-        <translation type="unfinished"></translation>
+        <translation>ALS NIET</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="47"/>
         <source>AND</source>
-        <translation type="unfinished"></translation>
+        <translation>EN</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="52"/>
         <source>OR</source>
-        <translation type="unfinished"></translation>
+        <translation>OF</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="57"/>
         <source>XOR</source>
-        <translation type="unfinished"></translation>
+        <translation>XOR</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="62"/>
         <source>AND NOT</source>
-        <translation type="unfinished"></translation>
+        <translation>EN NIET</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="67"/>
         <source>OR NOT</source>
-        <translation type="unfinished"></translation>
+        <translation>OF NIET</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="72"/>
         <source>XOR NOT</source>
-        <translation type="unfinished"></translation>
+        <translation>XOR NIET</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.ui" line="80"/>
         <source>Expression to check</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitdrukking om te controleren</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.cpp" line="63"/>
         <source>Expression required</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitdrukking niet vereist</translation>
     </message>
     <message>
         <location filename="../customs/conditionbox.cpp" line="64"/>
         <source>An expression is required for this condition</source>
-        <translation type="unfinished"></translation>
+        <translation>Er is een uitdurkking vereist voor deze voorwaarde</translation>
     </message>
 </context>
 <context>
@@ -437,17 +437,17 @@
     <message>
         <location filename="../evaluationengine.cpp" line="90"/>
         <source>%1: unknown variable</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: onbekende variabele</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="91"/>
         <source>div: division by 0 undefined</source>
-        <translation type="unfinished"></translation>
+        <translation>div: delen door 0 is niet gedefiniëerd</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="92"/>
         <source>%1: undefined function</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: onbekende functie</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="113"/>
@@ -479,7 +479,7 @@
         <location filename="../evaluationengine.cpp" line="595"/>
         <location filename="../evaluationengine.cpp" line="598"/>
         <source>number</source>
-        <translation type="unfinished"></translation>
+        <translation>nummer</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="193"/>
@@ -492,12 +492,12 @@
         <location filename="../evaluationengine.cpp" line="276"/>
         <location filename="../evaluationengine.cpp" line="283"/>
         <source>Calculates the %1 of a %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Berekent de %1 van een %2</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="193"/>
         <source>absolute value</source>
-        <translation type="unfinished"></translation>
+        <translation>absolute waarde</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="193"/>
@@ -533,23 +533,23 @@
         <location filename="../evaluationengine.cpp" line="595"/>
         <location filename="../evaluationengine.cpp" line="598"/>
         <source>The %1 to calculate the %2 of</source>
-        <translation type="unfinished"></translation>
+        <translation>De %1 om de %2 van te berekenen</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="196"/>
         <source>square root</source>
-        <translation type="unfinished"></translation>
+        <translation>vierkantswortel</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="199"/>
         <source>cube root</source>
-        <translation type="unfinished"></translation>
+        <translation>derdemachtswortel</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="215"/>
         <location filename="../evaluationengine.cpp" line="216"/>
         <source>root</source>
-        <translation type="unfinished"></translation>
+        <translation>wortel</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="216"/>
@@ -591,12 +591,12 @@
         <location filename="../evaluationengine.cpp" line="595"/>
         <location filename="../evaluationengine.cpp" line="598"/>
         <source>Calculates the %1 of an %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Berekent de %1 van een %2</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="231"/>
         <source>factorial</source>
-        <translation type="unfinished"></translation>
+        <translation>faculteit</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="231"/>
@@ -618,27 +618,27 @@
         <location filename="../evaluationengine.cpp" line="431"/>
         <location filename="../evaluationengine.cpp" line="435"/>
         <source>angle</source>
-        <translation type="unfinished"></translation>
+        <translation>hoek</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="235"/>
         <source>sine</source>
-        <translation type="unfinished"></translation>
+        <translation>sinus</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="239"/>
         <source>cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>cosinus</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="264"/>
         <source>tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>tangens</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="268"/>
         <source>conjugate</source>
-        <translation type="unfinished"></translation>
+        <translation>geconjugeerde</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="268"/>
@@ -646,17 +646,17 @@
         <location filename="../evaluationengine.cpp" line="276"/>
         <location filename="../evaluationengine.cpp" line="283"/>
         <source>complex number</source>
-        <translation type="unfinished"></translation>
+        <translation>complex getal</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="272"/>
         <source>imaginary portion</source>
-        <translation type="unfinished"></translation>
+        <translation>imaginair deel</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="276"/>
         <source>real portion</source>
-        <translation type="unfinished"></translation>
+        <translation>reëel deel</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="283"/>
@@ -666,32 +666,32 @@
     <message>
         <location filename="../evaluationengine.cpp" line="292"/>
         <source>arcsine (inverse sine)</source>
-        <translation type="unfinished"></translation>
+        <translation>arcsinus (inverse sinus)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="292"/>
         <source>arcsine</source>
-        <translation type="unfinished"></translation>
+        <translation>arcsinus</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="300"/>
         <source>arccosine (inverse cosine)</source>
-        <translation type="unfinished"></translation>
+        <translation>arccosinus (inverse cosinus)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="300"/>
         <source>arccosine</source>
-        <translation type="unfinished"></translation>
+        <translation>arccosinus</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="310"/>
         <source>arctangent (inverse tangent)</source>
-        <translation type="unfinished"></translation>
+        <translation>arctangens (inverse tangens)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="310"/>
         <source>arctangent</source>
-        <translation type="unfinished"></translation>
+        <translation>arctangens</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="333"/>
@@ -721,27 +721,27 @@
     <message>
         <location filename="../evaluationengine.cpp" line="206"/>
         <source>Can&apos;t take the zeroth root of a number</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan niet de 0de wortel van een nummer berekenen</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="212"/>
         <source>The root function takes 2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>De wortelfunctie neemt 2 argumenten</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="221"/>
         <source>Can&apos;t take the factorial of a non-real number</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan geen faculteit nemen van een niet-reëel getal</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="224"/>
         <source>Can&apos;t take the factorial of a negative number</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan geen faculteit nemen van een negatief getal</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="244"/>
         <source>Can&apos;t take the tangent of a number that satisfies the equation %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan geen tangens nemen van een getal dat voldoet aan de vergelijking %1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="279"/>
@@ -751,17 +751,17 @@
     <message>
         <location filename="../evaluationengine.cpp" line="287"/>
         <source>Can&apos;t take the inverse sine of a number outside -1 and 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan geen inverse sinus nemen buiten -1 en 1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="295"/>
         <source>Can&apos;t take the inverse cosine of a number outside -1 and 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan geen inverse cosinus nemen buiten -1 en 1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="305"/>
         <source>Can&apos;t take the inverse tangent of i or -i</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan geen inverse tangens nemen van i of -i</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="313"/>
@@ -811,69 +811,69 @@
     <message>
         <location filename="../evaluationengine.cpp" line="415"/>
         <source>hyperbolic sine</source>
-        <translation type="unfinished"></translation>
+        <translation>hyperbolische sinus</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="419"/>
         <source>hyperbolic cosine</source>
-        <translation type="unfinished"></translation>
+        <translation>hyperbolische cosinus</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="423"/>
         <source>hyperbolic tangent</source>
-        <translation type="unfinished"></translation>
+        <translation>hyperbolische tangens</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="427"/>
         <source>hyperbolic arcsine (inverse hyperbolic arcsine)</source>
-        <translation type="unfinished"></translation>
+        <translation>hyperbolische arcsinus (inverse hyperbolische arcsinus)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="427"/>
         <source>hyperbolic arcsine</source>
-        <translation type="unfinished"></translation>
+        <translation>hyperbolische arcsinus</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="431"/>
         <source>hyperbolic arccosine (inverse hyperbolic arccosine)</source>
-        <translation type="unfinished"></translation>
+        <translation>hyperbolische arccosinus (inverse hyperbolische arccosinus)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="431"/>
         <source>hyperbolic arccosine</source>
-        <translation type="unfinished"></translation>
+        <translation>hyperbolische arccosinus</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="435"/>
         <source>hyperbolic arctangent (inverse hyperbolic arctangent)</source>
-        <translation type="unfinished"></translation>
+        <translation>hyperbolische arctangens (inverse hyperbolische arctangens)</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="435"/>
         <source>hyperbolic arctangent</source>
-        <translation type="unfinished"></translation>
+        <translation>hyperbolische arctangens</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="441"/>
         <location filename="../evaluationengine.cpp" line="449"/>
         <location filename="../evaluationengine.cpp" line="477"/>
         <source>Can&apos;t take the logarithm of 0</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan geen logaritme nemen van 0</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="454"/>
         <source>Can&apos;t take a logarithm with a base of 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan geen logaritme nemen met een grondtal van 1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="459"/>
         <source>Can&apos;t take a logarithm with a base of 0</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan geen logaritme nemen met een grondtal van 0</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="465"/>
         <source>The log function takes 1 or 2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>De log-functie neemt 1 of 2 argumenten</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="490"/>
