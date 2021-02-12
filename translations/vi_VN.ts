@@ -721,72 +721,72 @@
     <message>
         <location filename="../evaluationengine.cpp" line="206"/>
         <source>Can&apos;t take the zeroth root of a number</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính căn số không của một số</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="212"/>
         <source>The root function takes 2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Hàm root yêu cầu 2 tham số</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="221"/>
         <source>Can&apos;t take the factorial of a non-real number</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính giai thừa của một số không thực</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="224"/>
         <source>Can&apos;t take the factorial of a negative number</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính giai thừa của một số âm</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="244"/>
         <source>Can&apos;t take the tangent of a number that satisfies the equation %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính tang cho một số thỏa mãn phương trình %1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="279"/>
         <source>Can&apos;t take the phase angle of 0</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính góc pha của số 0</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="287"/>
         <source>Can&apos;t take the inverse sine of a number outside -1 and 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính nghịch đảo sin cho một số nàm ngoài -1 và 1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="295"/>
         <source>Can&apos;t take the inverse cosine of a number outside -1 and 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính nghịch đảo cosin cho một số nàm ngoài -1 và 1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="305"/>
         <source>Can&apos;t take the inverse tangent of i or -i</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính nghịch đảo tang của i hoặc -i</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="313"/>
         <source>Can&apos;t take the secant of a number that satisfies the equation %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính sec cho một số thỏa mãn phương trình %1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="338"/>
         <source>Can&apos;t take the cosecant of a number that satisfies the equation %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính cosec cho một số thỏa mãn phương trình %1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="363"/>
         <source>Can&apos;t take the cotangent of a number that satisfies the equation %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính cotang cho một số thỏa mãn phương trình %1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="388"/>
         <source>Can&apos;t take the inverse secant of 0</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính nghịch đảo sec của số 0</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="398"/>
         <source>Can&apos;t take the inverse cosecant of 0</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính nghịch đảo cosec của số 0</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="403"/>
@@ -858,22 +858,22 @@
         <location filename="../evaluationengine.cpp" line="449"/>
         <location filename="../evaluationengine.cpp" line="477"/>
         <source>Can&apos;t take the logarithm of 0</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính logarit của số 0</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="454"/>
         <source>Can&apos;t take a logarithm with a base of 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính logarit cơ số 1</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="459"/>
         <source>Can&apos;t take a logarithm with a base of 0</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính logarit cơ số 0</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="465"/>
         <source>The log function takes 1 or 2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Hàm log yêu cầu 1 hoặc 2 tham số</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="490"/>
@@ -881,7 +881,7 @@
         <location filename="../evaluationengine.cpp" line="520"/>
         <location filename="../evaluationengine.cpp" line="529"/>
         <source>Can&apos;t bit shift a non-integer</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể dịch bit cho một số không phải số nguyên</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="494"/>
@@ -889,91 +889,91 @@
         <location filename="../evaluationengine.cpp" line="524"/>
         <location filename="../evaluationengine.cpp" line="534"/>
         <source>Can&apos;t bit shift by a non-integer</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể dịch bit bởi một số không phải số nguyên</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="510"/>
         <source>The lsh function takes 2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Hàm lsh yêu cầu 2 tham số</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="540"/>
         <source>The rsh function takes 2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Hàm rsh yêu cầu 2 tham số</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="551"/>
         <source>Can&apos;t take 0 to the power of a negative number</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính số mũ cho 0 của số âm</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="556"/>
         <source>Can&apos;t take 0 to the power of a non-real number</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính số mũ cho 0 của số không thực</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="562"/>
         <source>The pow function takes 2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Hàm pow yêu cầu 2 tham số</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="572"/>
         <source>Can&apos;t take the modulo of a non-integer</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính modulo của số không phải số nguyên</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="577"/>
         <source>Can&apos;t take the modulo when the divisor is a non-integer</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tính modulo khi số chia không phải số nguyên</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="582"/>
         <source>Can&apos;t divide by zero</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể chia bằng số không</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="588"/>
         <source>The mod function takes 2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Hàm mod yêu cầu 2 tham số</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="607"/>
         <location filename="../evaluationengine.cpp" line="614"/>
         <source>Can&apos;t generate a random number with an upper bound of a non-real number</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tạo một số ngẫu nhiên với giới hạn trên một số không thực</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="619"/>
         <source>Can&apos;t generate a random number with a lower bound of a non-real number</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tạo một số ngẫu nhiên với giới hạn dưới một số không thực</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="625"/>
         <source>The random function takes 0-2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Hàm random yêu cầu 0-2 tham số</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="696"/>
         <location filename="../evaluationengine.cpp" line="758"/>
         <source>The function definition for %1 contains a condition which is an assignment</source>
-        <translation type="unfinished"></translation>
+        <translation>Định nghĩa hàm cho %1 chứa điều kiện là một phép gán</translation>
     </message>
     <message numerus="yes">
         <location filename="../evaluationengine.cpp" line="769"/>
         <source>The %1 function takes %n arguments</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Hàm %1 yêu cầu %n tham số</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="773"/>
         <source>The %1 function takes %2 arguments</source>
-        <translation type="unfinished"></translation>
+        <translation>Hàm %1 yêu cầu %2 tham số</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="832"/>
         <source>The %1 function takes 1 argument</source>
-        <translation type="unfinished"></translation>
+        <translation>Hàm %1 yêu cầu 1 tham số</translation>
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="468"/>
@@ -1676,12 +1676,12 @@
     <message>
         <location filename="../main.cpp" line="131"/>
         <source>Use &lt;unit&gt; as the trigonometry unit. Possible values are degrees, radians and gradians.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sử dụng &lt;đơn vị&gt; cho đơn vị lượng giác. Có thể sử dụng degrees, radians và gradians.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="131"/>
         <source>unit</source>
-        <translation type="unfinished"></translation>
+        <translation>đơn vị</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="132"/>
@@ -1803,17 +1803,17 @@
     <message>
         <location filename="../main.cpp" line="291"/>
         <source>invalid trigonometric unit</source>
-        <translation type="unfinished"></translation>
+        <translation>Đơn vị lượng giác không có hợp lệ</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="292"/>
         <source>Available units are: degrees|radians|gradians</source>
-        <translation type="unfinished"></translation>
+        <translation>Có thể sử dụng: degrees|radians|gradians</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="293"/>
         <source>%1 -h for more information.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 -h để biết thêm thông tin.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="364"/>
