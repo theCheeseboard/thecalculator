@@ -1409,12 +1409,12 @@
     <message>
         <location filename="../main.cpp" line="310"/>
         <source>TRUE</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">JUIST</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="310"/>
         <source>FALSE</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">FOUT</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="319"/>
