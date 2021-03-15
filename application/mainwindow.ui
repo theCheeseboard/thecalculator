@@ -323,45 +323,6 @@
     <string>&amp;Radians</string>
    </property>
   </action>
-  <action name="actionAbout">
-   <property name="icon">
-    <iconset theme="help-about">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;About</string>
-   </property>
-  </action>
-  <action name="actionTheCalculatorHelp">
-   <property name="icon">
-    <iconset theme="help-contents">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;theCalculator Help</string>
-   </property>
-   <property name="shortcut">
-    <string>F1</string>
-   </property>
-  </action>
-  <action name="actionFileBug">
-   <property name="icon">
-    <iconset theme="tools-report-bug">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;File Bug</string>
-   </property>
-  </action>
-  <action name="actionSources">
-   <property name="icon">
-    <iconset theme="commit">
-     <normaloff>.</normaloff>.</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Sources</string>
-   </property>
-  </action>
   <action name="actionGradians">
    <property name="checkable">
     <bool>true</bool>

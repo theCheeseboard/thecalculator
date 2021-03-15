@@ -1349,11 +1349,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="87"/>
-        <source>Help</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="165"/>
         <source>Functions</source>
         <translation type="unfinished"></translation>
@@ -1379,52 +1374,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="332"/>
-        <source>&amp;About</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="341"/>
-        <source>&amp;theCalculator Help</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="344"/>
-        <source>F1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="353"/>
-        <source>&amp;File Bug</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="362"/>
-        <source>&amp;Sources</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="370"/>
+        <location filename="../mainwindow.ui" line="331"/>
         <source>&amp;Gradians</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="317"/>
+        <location filename="../main.cpp" line="320"/>
         <source>TRUE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="317"/>
+        <location filename="../main.cpp" line="320"/>
         <source>FALSE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="326"/>
+        <location filename="../main.cpp" line="329"/>
         <source>Location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="339"/>
+        <location filename="../main.cpp" line="342"/>
         <source>Here</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1643,186 +1613,186 @@
     <name>main</name>
     <message>
         <location filename="../main.cpp" line="116"/>
-        <location filename="../main.cpp" line="132"/>
-        <location filename="../main.cpp" line="157"/>
+        <location filename="../main.cpp" line="135"/>
+        <location filename="../main.cpp" line="160"/>
         <source>Calculator</source>
         <translation type="unfinished">Kalkylator</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="136"/>
-        <location filename="../main.cpp" line="161"/>
+        <location filename="../main.cpp" line="139"/>
+        <location filename="../main.cpp" line="164"/>
         <source>Generate a graph in PNG format and write the data to stdout.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="137"/>
+        <location filename="../main.cpp" line="140"/>
         <source>expression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="137"/>
+        <location filename="../main.cpp" line="140"/>
         <source>Evaluate &lt;expression&gt;, print the result to standard output, then exit.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="168"/>
+        <location filename="../main.cpp" line="171"/>
         <source>Width of the graph, in pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="169"/>
+        <location filename="../main.cpp" line="172"/>
         <source>Height of the graph, in pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="162"/>
+        <location filename="../main.cpp" line="165"/>
         <source>X value to center the generated graph at</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="138"/>
+        <location filename="../main.cpp" line="141"/>
         <source>Use &lt;unit&gt; as the trigonometry unit. Possible values are degrees, radians and gradians.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="138"/>
+        <location filename="../main.cpp" line="141"/>
         <source>unit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="139"/>
+        <location filename="../main.cpp" line="142"/>
         <source>Do not output colour.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="162"/>
+        <location filename="../main.cpp" line="165"/>
         <source>x-value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="163"/>
+        <location filename="../main.cpp" line="166"/>
         <source>Y value to center the generated graph at</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="163"/>
+        <location filename="../main.cpp" line="166"/>
         <source>y-value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="164"/>
+        <location filename="../main.cpp" line="167"/>
         <source>Number of pixels to put between each integer in the X direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="164"/>
+        <location filename="../main.cpp" line="167"/>
         <source>x-scale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="165"/>
+        <location filename="../main.cpp" line="168"/>
         <source>Number of pixels to put between each integer in the Y direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="165"/>
+        <location filename="../main.cpp" line="168"/>
         <source>y-scale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="166"/>
+        <location filename="../main.cpp" line="169"/>
         <source>File to output the graph to. If missing, output to stdout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="166"/>
+        <location filename="../main.cpp" line="169"/>
         <source>path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="170"/>
+        <location filename="../main.cpp" line="173"/>
         <source>Expressions to graph</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="177"/>
+        <location filename="../main.cpp" line="180"/>
         <source>missing operand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="178"/>
-        <location filename="../main.cpp" line="190"/>
-        <location filename="../main.cpp" line="197"/>
-        <location filename="../main.cpp" line="212"/>
-        <location filename="../main.cpp" line="223"/>
-        <location filename="../main.cpp" line="236"/>
-        <location filename="../main.cpp" line="247"/>
+        <location filename="../main.cpp" line="181"/>
+        <location filename="../main.cpp" line="193"/>
+        <location filename="../main.cpp" line="200"/>
+        <location filename="../main.cpp" line="215"/>
+        <location filename="../main.cpp" line="226"/>
+        <location filename="../main.cpp" line="239"/>
+        <location filename="../main.cpp" line="250"/>
         <source>Usage: %1 [options] -g width height expressions...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="179"/>
-        <location filename="../main.cpp" line="191"/>
-        <location filename="../main.cpp" line="198"/>
-        <location filename="../main.cpp" line="213"/>
-        <location filename="../main.cpp" line="224"/>
-        <location filename="../main.cpp" line="237"/>
-        <location filename="../main.cpp" line="248"/>
+        <location filename="../main.cpp" line="182"/>
+        <location filename="../main.cpp" line="194"/>
+        <location filename="../main.cpp" line="201"/>
+        <location filename="../main.cpp" line="216"/>
+        <location filename="../main.cpp" line="227"/>
+        <location filename="../main.cpp" line="240"/>
+        <location filename="../main.cpp" line="251"/>
         <source>%1 -gh for more information.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="189"/>
+        <location filename="../main.cpp" line="192"/>
         <source>invalid output width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="196"/>
+        <location filename="../main.cpp" line="199"/>
         <source>invalid output height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="211"/>
+        <location filename="../main.cpp" line="214"/>
         <source>invalid center x position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="222"/>
+        <location filename="../main.cpp" line="225"/>
         <source>invalid center y position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="235"/>
+        <location filename="../main.cpp" line="238"/>
         <source>invalid x scale value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="246"/>
+        <location filename="../main.cpp" line="249"/>
         <source>invalid y scale value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="268"/>
+        <location filename="../main.cpp" line="271"/>
         <source>unable to open output file for writing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="298"/>
+        <location filename="../main.cpp" line="301"/>
         <source>invalid trigonometric unit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="299"/>
+        <location filename="../main.cpp" line="302"/>
         <source>Available units are: degrees|radians|gradians</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="300"/>
+        <location filename="../main.cpp" line="303"/>
         <source>%1 -h for more information.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="371"/>
+        <location filename="../main.cpp" line="374"/>
         <source>Nothing to evaluate</source>
         <translation type="unfinished"></translation>
     </message>

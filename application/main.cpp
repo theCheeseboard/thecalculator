@@ -118,6 +118,9 @@ int main(int argc, char* argv[]) {
     a.setApplicationLicense(tApplication::Gpl3OrLater);
     a.setCopyrightHolder("Victor Tran");
     a.setCopyrightYear("2021");
+//    a.setApplicationUrl(tApplication::HelpContents, QUrl("https://help.vicr123.com/docs/thecalculator/intro"));
+    a.setApplicationUrl(tApplication::Sources, QUrl("http://github.com/vicr123/theCalculator"));
+    a.setApplicationUrl(tApplication::FileBug, QUrl("http://github.com/vicr123/theCalculator/issues"));
 #ifdef T_BLUEPRINT_BUILD
     a.setApplicationIcon(QIcon(":/icons/thecalculator-blueprint.svg"));
     a.setApplicationName("theCalculator Blueprint");

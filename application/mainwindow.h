@@ -63,17 +63,9 @@ class MainWindow : public QMainWindow {
 
         void on_FunctionsButton_clicked();
 
-        void on_actionAbout_triggered();
-
         void on_actionDegrees_triggered(bool checked);
 
         void on_actionRadians_triggered(bool checked);
-
-        void on_actionTheCalculatorHelp_triggered();
-
-        void on_actionFileBug_triggered();
-
-        void on_actionSources_triggered();
 
         void on_calcWidget_manageFunctions();
 
@@ -103,8 +95,7 @@ class MainWindow : public QMainWindow {
 
 class CornerButton : public QPushButton {
         Q_OBJECT
-    public:
-        CornerButton(QWidget* parent = nullptr) : QPushButton(parent) {}
+    public: CornerButton(QWidget* parent = nullptr) : QPushButton(parent) {}
 
     private:
         QSize sizeHint() const {
