@@ -5,6 +5,6 @@ Version=1.0
 Name[]=theCalculator Blueprint
 GenericName[]=Calculator
 Exec=/usr/bin/thecalculator
-Icon=com.vicr123.thecalculator
+Icon=com.vicr123.thecalculator_blueprint
 Categories=Utility;
 StartupWMClass=theCalculator Blueprint
