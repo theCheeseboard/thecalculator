@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name[]=theCalculator
+GenericName[]=Calculator
+Exec=/usr/bin/thecalculator
+Icon=com.vicr123.thecalculator
+Categories=Utility;
