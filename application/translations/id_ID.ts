@@ -1375,22 +1375,22 @@
         <translation>&amp;Gradian</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="320"/>
+        <location filename="../main.cpp" line="323"/>
         <source>TRUE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="320"/>
+        <location filename="../main.cpp" line="323"/>
         <source>FALSE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="329"/>
+        <location filename="../main.cpp" line="332"/>
         <source>Location</source>
         <translation>Lokasi</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="342"/>
+        <location filename="../main.cpp" line="345"/>
         <source>Here</source>
         <translation>Di sini</translation>
     </message>
@@ -1606,187 +1606,187 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="116"/>
-        <location filename="../main.cpp" line="135"/>
-        <location filename="../main.cpp" line="160"/>
+        <location filename="../main.cpp" line="117"/>
+        <location filename="../main.cpp" line="138"/>
+        <location filename="../main.cpp" line="163"/>
         <source>Calculator</source>
         <translation>Kalkulator</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="139"/>
-        <location filename="../main.cpp" line="164"/>
+        <location filename="../main.cpp" line="142"/>
+        <location filename="../main.cpp" line="167"/>
         <source>Generate a graph in PNG format and write the data to stdout.</source>
         <translation>Menghasilkan sebuah grafik dalam format PNG dan mengirimkannya ke stdout.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="140"/>
+        <location filename="../main.cpp" line="143"/>
         <source>expression</source>
         <translation>persamaan</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="140"/>
+        <location filename="../main.cpp" line="143"/>
         <source>Evaluate &lt;expression&gt;, print the result to standard output, then exit.</source>
         <translation>Menghitung &lt;persamaan&gt;, mencetak hasil ke stdout, kemudian berhenti.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="171"/>
+        <location filename="../main.cpp" line="174"/>
         <source>Width of the graph, in pixels</source>
         <translation>Panjang grafik dalam pixel</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="172"/>
+        <location filename="../main.cpp" line="175"/>
         <source>Height of the graph, in pixels</source>
         <translation>Lebar grafik dalam pixel</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="165"/>
+        <location filename="../main.cpp" line="168"/>
         <source>X value to center the generated graph at</source>
         <translation>Nilai X pusat untuk grafik</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="141"/>
+        <location filename="../main.cpp" line="144"/>
         <source>Use &lt;unit&gt; as the trigonometry unit. Possible values are degrees, radians and gradians.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="141"/>
+        <location filename="../main.cpp" line="144"/>
         <source>unit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="142"/>
+        <location filename="../main.cpp" line="145"/>
         <source>Do not output colour.</source>
         <translation>Jangan menggunakan warna.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="165"/>
+        <location filename="../main.cpp" line="168"/>
         <source>x-value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="166"/>
+        <location filename="../main.cpp" line="169"/>
         <source>Y value to center the generated graph at</source>
         <translation>Nilai Y pusat untuk grafik</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="166"/>
+        <location filename="../main.cpp" line="169"/>
         <source>y-value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="167"/>
+        <location filename="../main.cpp" line="170"/>
         <source>Number of pixels to put between each integer in the X direction</source>
         <translation>Berapa pixel di antara setiap bilangan sepanjang sumbu X</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="167"/>
+        <location filename="../main.cpp" line="170"/>
         <source>x-scale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="168"/>
+        <location filename="../main.cpp" line="171"/>
         <source>Number of pixels to put between each integer in the Y direction</source>
         <translation>Berapa pixel di antara setiap bilangan sepanjang sumbu Y</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="168"/>
+        <location filename="../main.cpp" line="171"/>
         <source>y-scale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="169"/>
+        <location filename="../main.cpp" line="172"/>
         <source>File to output the graph to. If missing, output to stdout</source>
         <translation type="unfinished">File untuk gambar grafik. Jika tidak ada, grafik akan menuju stdout</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="169"/>
+        <location filename="../main.cpp" line="172"/>
         <source>path</source>
         <translation>lokasi</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="173"/>
+        <location filename="../main.cpp" line="176"/>
         <source>Expressions to graph</source>
         <translation>Persamaan untuk digambarkan</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="180"/>
+        <location filename="../main.cpp" line="183"/>
         <source>missing operand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="181"/>
-        <location filename="../main.cpp" line="193"/>
-        <location filename="../main.cpp" line="200"/>
-        <location filename="../main.cpp" line="215"/>
-        <location filename="../main.cpp" line="226"/>
-        <location filename="../main.cpp" line="239"/>
-        <location filename="../main.cpp" line="250"/>
+        <location filename="../main.cpp" line="184"/>
+        <location filename="../main.cpp" line="196"/>
+        <location filename="../main.cpp" line="203"/>
+        <location filename="../main.cpp" line="218"/>
+        <location filename="../main.cpp" line="229"/>
+        <location filename="../main.cpp" line="242"/>
+        <location filename="../main.cpp" line="253"/>
         <source>Usage: %1 [options] -g width height expressions...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="182"/>
-        <location filename="../main.cpp" line="194"/>
-        <location filename="../main.cpp" line="201"/>
-        <location filename="../main.cpp" line="216"/>
-        <location filename="../main.cpp" line="227"/>
-        <location filename="../main.cpp" line="240"/>
-        <location filename="../main.cpp" line="251"/>
+        <location filename="../main.cpp" line="185"/>
+        <location filename="../main.cpp" line="197"/>
+        <location filename="../main.cpp" line="204"/>
+        <location filename="../main.cpp" line="219"/>
+        <location filename="../main.cpp" line="230"/>
+        <location filename="../main.cpp" line="243"/>
+        <location filename="../main.cpp" line="254"/>
         <source>%1 -gh for more information.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="192"/>
+        <location filename="../main.cpp" line="195"/>
         <source>invalid output width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="199"/>
+        <location filename="../main.cpp" line="202"/>
         <source>invalid output height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="214"/>
+        <location filename="../main.cpp" line="217"/>
         <source>invalid center x position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="225"/>
+        <location filename="../main.cpp" line="228"/>
         <source>invalid center y position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="238"/>
+        <location filename="../main.cpp" line="241"/>
         <source>invalid x scale value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="249"/>
+        <location filename="../main.cpp" line="252"/>
         <source>invalid y scale value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="271"/>
+        <location filename="../main.cpp" line="274"/>
         <source>unable to open output file for writing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="301"/>
+        <location filename="../main.cpp" line="304"/>
         <source>invalid trigonometric unit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="302"/>
+        <location filename="../main.cpp" line="305"/>
         <source>Available units are: degrees|radians|gradians</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="303"/>
+        <location filename="../main.cpp" line="306"/>
         <source>%1 -h for more information.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="374"/>
+        <location filename="../main.cpp" line="377"/>
         <source>Nothing to evaluate</source>
         <translation type="unfinished"></translation>
     </message>

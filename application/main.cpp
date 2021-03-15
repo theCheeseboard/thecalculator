@@ -26,6 +26,7 @@
 #include <QLibraryInfo>
 #include "evaluationengine.h"
 
+#include <tstylemanager.h>
 #include <QPainter>
 #include "parts/graph/graphview.h"
 #include "parts/graph/graphfunction.h"
@@ -130,6 +131,8 @@ int main(int argc, char* argv[]) {
     a.setApplicationName("theCalculator");
     a.setDesktopFileName("com.vicr123.thecalculator");
 #endif
+
+    tStyleManager::setOverrideStyleForApplication(tStyleManager::ContemporaryDark);
 
     QCommandLineParser parser;
     parser.setApplicationDescription(QApplication::translate("main", "Calculator"));
