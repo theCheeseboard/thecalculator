@@ -26,8 +26,13 @@
 #include <tpromise.h>
 #include "evaluationengineheaders.h"
 
+QString numberFormatToString(long double number);
+QString idbToString(idouble db);
+uint qHash(const idouble& key);
+
 struct CustomFunctionPrivate;
 typedef std::function<idouble(QList<idouble>,QString&)> CustomFunctionDefinition;
+
 class CustomFunction {
     public:
         CustomFunction();

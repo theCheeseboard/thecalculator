@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QtMath>
 #include <QDebug>
+#include <QChar>
 
 typedef long long integer;
 typedef long double real;
@@ -88,7 +89,7 @@ struct Evaluation {
 };
 
 struct CalculatorCharacter {
-    CalculatorCharacter(QCharRef c);
+    CalculatorCharacter(QChar& c);
 
     enum Type {
         Number,

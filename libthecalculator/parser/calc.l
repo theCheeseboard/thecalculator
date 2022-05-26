@@ -27,7 +27,10 @@
 #include <QMutexLocker>
 #include <qmath.h>
 #include "evaluationengineheaders.h"
-#include "calc.bison.hpp"
+#ifdef Q_OS_WIN
+#include <io.h>
+#endif
+#include "calc.bison.h"
 
 #include <QDebug>
 
@@ -79,19 +82,19 @@ LETTER [a-zA-Z]
     QString token = QString::fromLocal8Bit(yytext);
     QString number;
                    for (QChar c : token) {
-                   if (c == "⁰") number.append("0");
-                   else if (c == "¹") number.append("1");
-                   else if (c == "²") number.append("2");
-                   else if (c == "³") number.append("3");
-                   else if (c == "⁴") number.append("4");
-                   else if (c == "⁵") number.append("5");
-                   else if (c == "⁶") number.append("6");
-                   else if (c == "⁷") number.append("7");
-                   else if (c == "⁸") number.append("8");
-                   else if (c == "⁹") number.append("9");
-                   else if (c == "ⁱ") number.append("i");
+                   if (c == u'⁰') number.append("0");
+                   else if (c == u'¹') number.append("1");
+                   else if (c == u'²') number.append("2");
+                   else if (c == u'³') number.append("3");
+                   else if (c == u'⁴') number.append("4");
+                   else if (c == u'⁵') number.append("5");
+                   else if (c == u'⁶') number.append("6");
+                   else if (c == u'⁷') number.append("7");
+                   else if (c == u'⁸') number.append("8");
+                   else if (c == u'⁹') number.append("9");
+                   else if (c == u'ⁱ') number.append("i");
                    }
-                  if (number == "i") {
+                  if (number == u'i') {
                       yylval->number = new idouble(0, 1);
                   } else if (number.endsWith("i")) {
                       token.chop(1);

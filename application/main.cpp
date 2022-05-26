@@ -38,57 +38,6 @@
 
 MainWindow* MainWin = nullptr;
 
-QString numberFormatToString(long double number) {
-    std::stringstream stream;
-    stream << std::setprecision(10) << number;
-
-    QString str = QString::fromStdString(stream.str());
-    if (QLocale().decimalPoint() == ',') {
-        //Replace all decimals with commas
-        str.replace(".", ",");
-    }
-    return str;
-}
-
-QString idbToString(idouble db) {
-    long double real = db.real();
-    long double imag = db.imag();
-    if (real != 0 && imag == 0) {
-        return numberFormatToString(real);
-    } else if (real == 0 && imag == 0) {
-        return "0";
-    } else if (real != 0 && imag == 1) {
-        return numberFormatToString(real) + " + i";
-    } else if (real != 0 && imag > 0) {
-        return numberFormatToString(real) + " + " + numberFormatToString(imag) + "i";
-    } else if (real != 0 && imag == -1) {
-        return numberFormatToString(real) + " - i";
-    } else if (real != 0 && imag < 0) {
-        return numberFormatToString(real) + " - " + numberFormatToString(-imag) + "i";
-    } else if (imag == 1) {
-        return "i";
-    } else if (imag == -1) {
-        return "-i";
-    } else {
-        return numberFormatToString(imag) + "i";
-    }
-}
-
-uint qHash(const idouble& key) {
-    /*QByteArray hash = QCryptographicHash::hash(idbToString(key).toUtf8(), QCryptographicHash::Md5);
-
-    uint hashValue = 0; //this can overflow, it's fine
-    for (char c : hash) {
-        hashValue += c;
-    }
-    return hashValue;*/
-
-    int n1 = 99999997;
-    int realHash = fmod(qHash(key.real()), n1);
-    int imHash = qHash(key.imag());
-    return realHash ^ imHash;
-}
-
 int main(int argc, char* argv[]) {
     //Determine whether to start a QApplication or QCoreApplication
     for (int i = 1; i < argc; i++) {

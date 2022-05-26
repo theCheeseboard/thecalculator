@@ -25,11 +25,9 @@
 #include <QString>
 #include <QtGlobal>
 #include <cstdio>
-#include "mainwindow.h"
 #include "evaluationengineheaders.h"
 #include "evaluationengine.h"
 
-extern MainWindow* MainWin;
 extern QString idbToString(idouble db);
 
 idouble callFunction(QString name, QList<idouble> args, QString& error) {
@@ -61,7 +59,7 @@ double absArg(idouble n) {
     return retval;
 }
 
-//Define helper functions
+//Define helper functions   
 
 #define YYE(loc, desc) yyerror(&loc, scanner, p, desc);
 #define CALL_MAINWINDOW_FUNCTION(loc, arg1, arg2, result) { \

@@ -22,13 +22,12 @@
 #define EVALUATIONENGINEHEADERS_H
 
 #include <QtGlobal>
-#include <complex>
-typedef std::complex<long double> idouble;
-extern uint qHash(const idouble& key);
-
+#include <QtMath>
 #include <QMap>
 #include <functional>
+#include <complex>
 
+typedef std::complex<long double> idouble;
 
 typedef void* yyscan_t;
 

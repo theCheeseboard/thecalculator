@@ -21,7 +21,7 @@
 #include "evaluationengine.h"
 
 typedef void* yyscan_t;
-#include "calc.bison.hpp"
+#include "calc.bison.h"
 #include "calc.yy.h"
 
 #include <QSettings>
@@ -32,8 +32,64 @@ EvaluationEngine::TrigonometricUnit EvaluationEngine::trigUnit = EvaluationEngin
 QMutex* EvaluationEngine::trigUnitLocker = new QMutex();
 CustomFunctionMap EvaluationEngine::customFunctions = CustomFunctionMap();
 
-extern QString idbToString(idouble db);
+QString numberFormatToString(long double number) {
+    std::stringstream stream;
+    stream << std::setprecision(10) << number;
 
+    QString str = QString::fromStdString(stream.str());
+    if (QLocale().decimalPoint() == ',') {
+        //Replace all decimals with commas
+        str.replace(".", ",");
+    }
+    return str;
+}
+
+QString idbToString(idouble db) {
+    long double real = db.real();
+    long double imag = db.imag();
+    if (real != 0 && imag == 0) {
+        return numberFormatToString(real);
+    }
+    else if (real == 0 && imag == 0) {
+        return "0";
+    }
+    else if (real != 0 && imag == 1) {
+        return numberFormatToString(real) + " + i";
+    }
+    else if (real != 0 && imag > 0) {
+        return numberFormatToString(real) + " + " + numberFormatToString(imag) + "i";
+    }
+    else if (real != 0 && imag == -1) {
+        return numberFormatToString(real) + " - i";
+    }
+    else if (real != 0 && imag < 0) {
+        return numberFormatToString(real) + " - " + numberFormatToString(-imag) + "i";
+    }
+    else if (imag == 1) {
+        return "i";
+    }
+    else if (imag == -1) {
+        return "-i";
+    }
+    else {
+        return numberFormatToString(imag) + "i";
+    }
+}
+
+uint qHash(const idouble& key) {
+    /*QByteArray hash = QCryptographicHash::hash(idbToString(key).toUtf8(), QCryptographicHash::Md5);
+
+    uint hashValue = 0; //this can overflow, it's fine
+    for (char c : hash) {
+        hashValue += c;
+    }
+    return hashValue;*/
+
+    int n1 = 99999997;
+    int realHash = fmod(qHash(key.real()), n1);
+    int imHash = qHash(key.imag());
+    return realHash ^ imHash;
+}
 struct CustomFunctionPrivate {
     CustomFunctionDefinition fn;
     QStringList desc;
@@ -634,7 +690,7 @@ void EvaluationEngine::setupFunctions() {
     QSettings settings;
     settings.beginGroup("customFunctions");
     for (QString function : settings.allKeys()) {
-        QJsonDocument doc = QJsonDocument::fromBinaryData(settings.value(function).toByteArray());
+        QJsonDocument doc = QJsonDocument::fromJson(settings.value(function).toByteArray());
         if (doc.isObject()) {
             QJsonObject obj = doc.object();
             QJsonArray overloads = obj.value("overloads").toArray();

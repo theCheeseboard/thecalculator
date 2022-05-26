@@ -156,34 +156,34 @@ Evaluation::operator QString() {
     return text;
 }
 
-CalculatorCharacter::CalculatorCharacter(QCharRef c) {
+CalculatorCharacter::CalculatorCharacter(QChar& c) {
     if (c.isDigit()) {
         type = Number;
         number = QString::number(c.digitValue());
-    } else if (c == "⁰" || c == "¹" || c == "²" || c == "³" || c == "⁴" || c == "⁵" || c == "⁶" || c == "⁷" || c == "⁸" || c == "⁹") {
+    } else if (c == u'⁰' || c == u'¹' || c == u'²' || c == u'³' || c == u'⁴' || c == u'⁵' || c == u'⁶' || c == u'⁷' || c == u'⁸' || c == u'⁹') {
         type = Super;
-        if (c == "⁰") number = "0";
-        else if (c == "¹") number = "1";
-        else if (c == "²") number = "2";
-        else if (c == "³") number = "3";
-        else if (c == "⁴") number = "4";
-        else if (c == "⁵") number = "5";
-        else if (c == "⁶") number = "6";
-        else if (c == "⁷") number = "7";
-        else if (c == "⁸") number = "8";
-        else if (c == "⁹") number = "9";
-    } else if (c == "+" || c == "-" || c == "*" || c == "/" || c == "×" || c == "÷" || c == "^") {
+        if (c == u'⁰') number = "0";
+        else if (c == u'¹') number = "1";
+        else if (c == u'²') number = "2";
+        else if (c == u'³') number = "3";
+        else if (c == u'⁴') number = "4";
+        else if (c == u'⁵') number = "5";
+        else if (c == u'⁶') number = "6";
+        else if (c == u'⁷') number = "7";
+        else if (c == u'⁸') number = "8";
+        else if (c == u'⁹') number = "9";
+    } else if (c == u'+' || c == u'-' || c == u'*' || c == u'/' || c == u'×' || c == u'÷' || c == u'^') {
         type = Operation;
         number = QChar(c);
-        if (c == "×") {
+        if (c == u'×') {
             number = "*";
-        } else if (c == "÷") {
+        } else if (c == u'÷') {
             number = "/";
         }
-    } else if (c == "(") {
+    } else if (c == u'(') {
         type = StartBracket;
         number = "(";
-    } else if (c == ")") {
+    } else if (c == u')') {
         type = EndBracket;
         number = ")";
     } else {
@@ -205,12 +205,12 @@ Evaluation Expression::evaluate() {
     int currentBrackets = 0;
     int bracketsStart;
     for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == "(") {
+        if (expression[i] == u'(') {
             currentBrackets++;
             if (currentBrackets == 1) {
                 bracketsStart = i;
             }
-        } else if (expression[i] == ")") {
+        } else if (expression[i] == u')') {
             currentBrackets--;
             if (currentBrackets == 0) {
                 int count = i - bracketsStart;
