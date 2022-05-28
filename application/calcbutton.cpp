@@ -68,9 +68,7 @@ void CalcButton::mousePressEvent(QMouseEvent *event) {
 
 void CalcButton::mouseReleaseEvent(QMouseEvent *event) {
     this->animateClick();
-    QRect geo = this->geometry();
-    geo.moveTopLeft(QPoint(0, 0));
-    if (geo.contains(event->pos())) {
+    if (underMouse()) {
         if (event->button() == Qt::LeftButton) {
             emit output(to);
         } else if (event->button() == Qt::RightButton && so != "") {

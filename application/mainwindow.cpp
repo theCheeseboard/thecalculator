@@ -40,8 +40,6 @@
 #include <tcsdtools.h>
 #include "evaluationengine.h"
 
-#include "customs/overloadbox.h"
-
 extern MainWindow* MainWin;
 
 struct MainWindowPrivate {
