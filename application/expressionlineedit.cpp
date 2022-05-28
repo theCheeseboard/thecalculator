@@ -147,11 +147,11 @@ void ExpressionLineEdit::checkText(QString text, int originalPos) {
             text = text.remove(i, 1);
             if (i < originalPos) originalPos--;
             i--;
-        } else if (c == "/") {
+        } else if (c == u'/') {
             text = text.replace(i, 1, "÷");
-        } else if (c == "*") {
+        } else if (c == u'*') {
             text = text.replace(i, 1, "×");
-        } else if (c == " ") {
+        } else if (c == u' ') {
             text = text.replace(i, 1, "⋅");
         }
     }

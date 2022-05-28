@@ -10,12 +10,16 @@ set(SOURCES
         expression.cpp)
 
 set(HEADERS
+        libthecalculator_global.h
         evaluationengine.h
         evaluationengineheaders.h
         expression.h)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     add_compile_definitions(YY_NO_UNISTD_H _CRT_NONSTDC_NO_DEPRECATE)
+
+    # Bison generates code that raises the runtime checks.
+    string(REGEX REPLACE "/RTC(su|[1su])" "" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
 endif()
 
 BISON_TARGET(theCalculatorParser parser/calc.y ${CMAKE_CURRENT_BINARY_DIR}/calc.bison.cpp 

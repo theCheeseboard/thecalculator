@@ -39,7 +39,7 @@ GraphWidget::GraphWidget(QWidget *parent) :
     ui->setupUi(this);
 
     d = new GraphWidgetPrivate();
-    ui->rightPane->setFixedWidth(300 * theLibsGlobal::getDPIScaling());
+    ui->rightPane->setFixedWidth(SC_DPI(300));
 
     #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         ui->scaleXBox->setStepType(QDoubleSpinBox::AdaptiveDecimalStepType);
@@ -50,7 +50,7 @@ GraphWidget::GraphWidget(QWidget *parent) :
     d->menu->addAction(tr("Render Image"), [=] {
         RenderDialog* d = new RenderDialog(ui->graphicsView);
         tPopover* p = new tPopover(d);
-        p->setPopoverWidth(400 * theLibsGlobal::getDPIScaling());
+        p->setPopoverWidth(SC_DPI(400));
         connect(d, &RenderDialog::dismiss, p, &tPopover::dismiss);
         p->show(this->window());
 
@@ -70,7 +70,7 @@ void GraphWidget::on_addEquationButton_clicked()
 {
     AddFunctionDialog* d = new AddFunctionDialog();
     tPopover* p = new tPopover(d);
-    p->setPopoverWidth(300 * theLibsGlobal::getDPIScaling());
+    p->setPopoverWidth(SC_DPI(300));
     p->setPerformBlanking(false);
     connect(d, &AddFunctionDialog::finished, [=] {
         p->dismiss();

@@ -4,4 +4,4 @@ set(libthecalculator_VERSION 1.0.0)
 
 include("${CMAKE_CURRENT_LIST_DIR}/libthecalculatorTargets.cmake")
 
-check_required_components(libtheslate)
+check_required_components(libthecalculator)

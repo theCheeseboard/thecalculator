@@ -25,15 +25,16 @@
 #include <complex>
 #include <tpromise.h>
 #include "evaluationengineheaders.h"
+#include "libthecalculator_global.h"
 
-QString numberFormatToString(long double number);
-QString idbToString(idouble db);
-uint qHash(const idouble& key);
+LIBTHECALCULATOR_EXPORT QString numberFormatToString(long double number);
+LIBTHECALCULATOR_EXPORT QString idbToString(idouble db);
+LIBTHECALCULATOR_EXPORT uint qHash(const idouble& key);
 
 struct CustomFunctionPrivate;
 typedef std::function<idouble(QList<idouble>,QString&)> CustomFunctionDefinition;
 
-class CustomFunction {
+class LIBTHECALCULATOR_EXPORT CustomFunction {
     public:
         CustomFunction();
         CustomFunction(CustomFunctionDefinition function);
@@ -52,7 +53,7 @@ class CustomFunction {
 
 typedef QMap<QString, CustomFunction> CustomFunctionMap;
 
-class EvaluationEngine : public QObject
+class LIBTHECALCULATOR_EXPORT EvaluationEngine : public QObject
 {
         Q_OBJECT
     public:
@@ -109,7 +110,8 @@ class EvaluationEngine : public QObject
         static TrigonometricUnit trigUnit;
 
         static int runningEngines;
-        static QMutex *runningEnginesLocker, *trigUnitLocker;
+        static QMutex* runningEnginesLocker; 
+        static QMutex* trigUnitLocker;
 
 
         static idouble toRad(idouble deg);

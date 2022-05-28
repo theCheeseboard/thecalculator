@@ -30,7 +30,6 @@
 #include <QLineEdit>
 #include <QLabel>
 #include <functional>
-#include "expression.h"
 #include <complex>
 #include <iomanip>
 #include <QListWidgetItem>

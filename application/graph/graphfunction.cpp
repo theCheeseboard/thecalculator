@@ -287,7 +287,7 @@ void GraphFunction::hoverEnterEvent(QGraphicsSceneHoverEvent *event) {
     d->colItem->setVisible(true);
 
     QPainterPath colPath;
-    colPath.addRect(0, 0, 16 * theLibsGlobal::getDPIScaling(), 16 * theLibsGlobal::getDPIScaling());
+    colPath.addRect(0, 0, SC_DPI(16), SC_DPI(16));
     d->colItem->setPath(colPath);
 
     this->hoverMoveEvent(event);
@@ -308,14 +308,14 @@ void GraphFunction::hoverMoveEvent(QGraphicsSceneHoverEvent *event) {
     }
 
     d->textItem->setText(textParts.join("\n"));
-    d->textItem->setPos(event->pos() + QPoint(32, 10) * theLibsGlobal::getDPIScaling());
+    d->textItem->setPos(event->pos() + SC_DPI_T(QPoint(32, 10), QPoint));
 
-    d->colItem->setPos(event->pos() + QPoint(10, 10) * theLibsGlobal::getDPIScaling());
+    d->colItem->setPos(event->pos() + SC_DPI_T(QPoint(10, 10), QPoint));
 
     if (d->textItem->boundingRect().right() > d->parentView->canvasSize().width()) {
         //Move the hover to the other side
-        d->textItem->moveBy(-(d->textItem->boundingRect().width() + 42 * theLibsGlobal::getDPIScaling()), 0);
-        d->colItem->moveBy(-(d->textItem->boundingRect().width() + 42 * theLibsGlobal::getDPIScaling()), 0);
+        d->textItem->moveBy(-(d->textItem->boundingRect().width() + SC_DPI(42)), 0);
+        d->colItem->moveBy(-(d->textItem->boundingRect().width() + SC_DPI(42)), 0);
     }
 }
 

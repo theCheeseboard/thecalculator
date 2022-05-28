@@ -202,7 +202,7 @@ void CalculatorWidget::resizeAnswerLabel() {
     QFont font = this->font();
     font.setPointSize(15);
     QFontMetricsF metrics(font);
-    qreal width = metrics.width(ui->answerLabel->text());
+    qreal width = metrics.horizontalAdvance(ui->answerLabel->text());
     if (width > ui->answerContainer->width()) {
         font.setPointSizeF(15.0 * (float) ui->answerContainer->width() / width);
     }

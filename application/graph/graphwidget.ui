@@ -340,7 +340,7 @@
   <customwidget>
    <class>GraphView</class>
    <extends>QGraphicsView</extends>
-   <header>parts/graph/graphview.h</header>
+   <header>graph/graphview.h</header>
    <slots>
     <signal>readyChanged(bool)</signal>
    </slots>

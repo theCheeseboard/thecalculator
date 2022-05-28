@@ -135,7 +135,7 @@ void FunctionWidget::on_saveCustomFunctionButton_clicked()
     if (editingFunction != "" && settings.contains(ui->functionName->text())) {
         settings.remove(ui->functionName->text());
     }
-    settings.setValue(ui->functionName->text(), doc.toBinaryData());
+    settings.setValue(ui->functionName->text(), doc.toJson());
 
     //Load up all the custom functions
     ui->customFunctionsList->clear();
@@ -148,7 +148,7 @@ void FunctionWidget::on_saveCustomFunctionButton_clicked()
 
     EvaluationEngine::setupFunctions();
 
-    this->setCurrentIndex(0);
+    this->setCurrentIndex(0);   
 }
 
 void FunctionWidget::on_customFunctionsList_itemActivated(QListWidgetItem *item)
@@ -157,7 +157,7 @@ void FunctionWidget::on_customFunctionsList_itemActivated(QListWidgetItem *item)
 
     QSettings settings;
     settings.beginGroup("customFunctions");
-    QJsonDocument doc = QJsonDocument::fromBinaryData(settings.value(item->text()).toByteArray());
+    QJsonDocument doc = QJsonDocument::fromJson(settings.value(item->text()).toByteArray());
     settings.endGroup();
 
     QJsonObject obj = doc.object();

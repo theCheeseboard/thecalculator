@@ -43,11 +43,6 @@
 #include "customs/overloadbox.h"
 
 extern MainWindow* MainWin;
-extern float getDPIScaling();
-extern QMap<QString, std::function<idouble(QList<idouble>, QString&)>> customFunctions;
-extern QString idbToString(idouble db);
-
-#include "calc.bison.hpp"
 
 struct MainWindowPrivate {
     tCsdTools csd;

@@ -381,7 +381,7 @@
   <customwidget>
    <class>CalculatorWidget</class>
    <extends>QWidget</extends>
-   <header>parts/calculator/calculatorwidget.h</header>
+   <header>calculator/calculatorwidget.h</header>
    <container>1</container>
    <slots>
     <signal>manageFunctions()</signal>
@@ -391,19 +391,19 @@
   <customwidget>
    <class>FunctionWidget</class>
    <extends>QStackedWidget</extends>
-   <header>parts/functions/functionwidget.h</header>
+   <header>functions/functionwidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>GraphWidget</class>
    <extends>QWidget</extends>
-   <header>parts/graph/graphwidget.h</header>
+   <header>graph/graphwidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>StatWidget</class>
    <extends>QWidget</extends>
-   <header>parts/stats/statwidget.h</header>
+   <header>stats/statwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

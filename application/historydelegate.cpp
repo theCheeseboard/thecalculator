@@ -19,7 +19,6 @@
  * *************************************/
 
 #include "historydelegate.h"
-#include "the-libs_global.h"
 
 HistoryDelegate::HistoryDelegate(QObject *parent) : QAbstractItemDelegate(parent)
 {

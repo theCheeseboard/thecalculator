@@ -20,17 +20,14 @@
 
 #include "mainwindow.h"
 #include <tapplication.h>
-#include <QDesktopWidget>
 #include <QCommandLineParser>
 #include <QTranslator>
 #include <QLibraryInfo>
 #include "evaluationengine.h"
 
 #include <QPainter>
-#include "parts/graph/graphview.h"
-#include "parts/graph/graphfunction.h"
-
-#include "calc.bison.hpp"
+#include "graph/graphview.h"
+#include "graph/graphfunction.h"
 
 #ifdef Q_OS_MAC
     #include <CoreFoundation/CFBundle.h>
@@ -307,9 +304,4 @@ int main(int argc, char* argv[]) {
             }
         }
     }
-}
-
-float getDPIScaling() {
-    float currentDPI = QApplication::desktop()->logicalDpiX();
-    return currentDPI / (float) 96;
 }
