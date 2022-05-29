@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/aboutsplash.svg</file>
+        <file>icons/thecalculator.svg</file>
+        <file>icons/thecalculator-blueprint.svg</file>
+    </qresource>
+</RCC>

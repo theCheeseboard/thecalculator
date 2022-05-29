@@ -1,0 +1,23 @@
+{
+    "name": "theCalculator",
+    "subprojects": [
+        {
+            "name": "theCalculator Desktop",
+            "type": "qt",
+            "path": "/application/translations/{lang}.ts",
+            "baseLang": "en_US"
+        },
+        {
+            "name": "theCalculator Desktop File",
+            "type": "webext-json",
+            "path": "/application/translations/desktop/com.vicr123.thecalculator/{lang}.json",
+            "baseLang": "en"
+        },
+        {
+            "name": "theCalculator Desktop File (Blueprint)",
+            "type": "webext-json",
+            "path": "/application/translations/desktop/com.vicr123.thecalculator_blueprint/{lang}.json",
+            "baseLang": "en"
+        }
+    ]
+}

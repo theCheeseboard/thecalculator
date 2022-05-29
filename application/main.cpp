@@ -25,6 +25,7 @@
 #include <QLibraryInfo>
 #include "evaluationengine.h"
 
+#include <tstylemanager.h>
 #include <QPainter>
 #include "graph/graphview.h"
 #include "graph/graphfunction.h"
@@ -48,8 +49,8 @@ int main(int argc, char* argv[]) {
     EvaluationEngine::setupFunctions();
 
 #ifdef Q_OS_LINUX
-    if (QDir("/usr/share/thecalculator").exists()) {
-        a.setShareDir("/usr/share/thecalculator");
+    if (QDir(QStringLiteral("%1/share/thecalculator/").arg(SYSTEM_PREFIX_DIRECTORY)).exists()) {
+        a.setShareDir(QStringLiteral("%1/share/thecalculator/").arg(SYSTEM_PREFIX_DIRECTORY));
     } else if (QDir(QDir::cleanPath(QApplication::applicationDirPath() + "/../share/thecalculator/")).exists()) {
         a.setShareDir(QDir::cleanPath(QApplication::applicationDirPath() + "/../share/thecalculator/"));
     }
@@ -58,14 +59,26 @@ int main(int argc, char* argv[]) {
 
     a.setOrganizationName("theSuite");
     a.setOrganizationDomain("");
-    a.setApplicationName("theCalculator");
-    a.setApplicationVersion("2.2");
-    a.setApplicationIcon(QIcon::fromTheme("thecalculator", QIcon(":/icons/icon.svg")));
+    a.setApplicationVersion("2.2.1");
     a.setGenericName(QApplication::translate("main", "Calculator"));
-    a.setAboutDialogSplashGraphic(a.aboutDialogSplashGraphicFromSvg(":/aboutsplash.svg"));
+    a.setAboutDialogSplashGraphic(a.aboutDialogSplashGraphicFromSvg(":/icons/aboutsplash.svg"));
     a.setApplicationLicense(tApplication::Gpl3OrLater);
     a.setCopyrightHolder("Victor Tran");
-    a.setCopyrightYear("2020");
+    a.setCopyrightYear("2022");
+//    a.setApplicationUrl(tApplication::HelpContents, QUrl("https://help.vicr123.com/docs/thecalculator/intro"));
+    a.setApplicationUrl(tApplication::Sources, QUrl("http://github.com/vicr123/theCalculator"));
+    a.setApplicationUrl(tApplication::FileBug, QUrl("http://github.com/vicr123/theCalculator/issues"));
+#ifdef T_BLUEPRINT_BUILD
+    a.setApplicationIcon(QIcon(":/icons/thecalculator-blueprint.svg"));
+    a.setApplicationName("theCalculator Blueprint");
+    a.setDesktopFileName("com.vicr123.thecalculator_blueprint");
+#else
+    a.setApplicationIcon(QIcon::fromTheme("thebeat", QIcon(":/icons/thecalculator.svg")));
+    a.setApplicationName("theCalculator");
+    a.setDesktopFileName("com.vicr123.thecalculator");
+#endif
+
+    tStyleManager::setOverrideStyleForApplication(tStyleManager::ContemporaryDark);
 
     QCommandLineParser parser;
     parser.setApplicationDescription(QApplication::translate("main", "Calculator"));
@@ -74,7 +87,8 @@ int main(int argc, char* argv[]) {
     parser.addOptions({
         {{"g", "graph"}, QApplication::translate("main", "Generate a graph in PNG format and write the data to stdout.")},
         {{"e", "evaluate"}, QApplication::translate("main", "Evaluate <expression>, print the result to standard output, then exit."), QApplication::translate("main", "expression")},
-        {{"c", "nocolor"}, QApplication::translate("main", "Do not output colour."), QApplication::translate("main", "expression")}
+        {{"t", "trig-unit"}, QApplication::translate("main", "Use <unit> as the trigonometry unit. Possible values are degrees, radians and gradians."), QApplication::translate("main", "unit")},
+        {{"c", "nocolor"}, QApplication::translate("main", "Do not output colour.")}
     });
     parser.parse(a.arguments());
 
@@ -188,7 +202,7 @@ int main(int argc, char* argv[]) {
             }
         }
 
-        for (QString expr : args) {
+        for (const QString& expr : qAsConst(args)) {
             GraphFunction* f = new GraphFunction(&graph, expr);
             graph.addFunction(f);
         }
@@ -219,9 +233,27 @@ int main(int argc, char* argv[]) {
             return a.exec();
         } else {
             EvaluationEngine engine;
-            QList<QPair<QString, QString>> outputs;
+            QVector<QPair<QString, QString>> outputs;
             QMap<QString, idouble> variables;
             bool didError = false;
+
+            if (parser.isSet("t")) {
+                QString unit = parser.value("t");
+                if (unit == "degrees") {
+                    EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Degrees);
+                } else if (unit == "radians") {
+                    EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Radians);
+                } else if (unit == "gradians") {
+                    EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Gradians);
+                } else {
+                    QTextStream err(stderr);
+                    err << "thecalculator: " + QApplication::translate("main", "invalid trigonometric unit") + "\n";
+                    err << "               " + QApplication::translate("main", "Available units are: degrees|radians|gradians") + "\n";
+                    err << "               " + QApplication::translate("main", "%1 -h for more information.").arg(a.arguments().first()) + "\n";
+                    return 2;
+                }
+            }
+
             for (QString e : parser.value("e").split(":")) {
                 e = e.remove(" "); //Remove all spaces
 
@@ -247,11 +279,11 @@ int main(int argc, char* argv[]) {
 
                         QString errorExpression;
                         errorExpression = locationText;
-                        errorExpression.append(e.left(res.location));
+                        errorExpression.append(e.leftRef(res.location));
                         errorExpression.append(termCol.value("red"));
-                        errorExpression.append(e.mid(res.location, res.length));
+                        errorExpression.append(e.midRef(res.location, res.length));
                         errorExpression.append(termCol.value("reset"));
-                        errorExpression.append(e.mid(res.location + res.length));
+                        errorExpression.append(e.midRef(res.location + res.length));
                         errorText.append(errorExpression);
 
                         if (termCol.count() == 0 || res.length == 0) {
@@ -292,7 +324,7 @@ int main(int argc, char* argv[]) {
             } else if (outputs.count() == 1) {
                 out << outputs.first().second.append("\n");
             } else {
-                for (QPair<QString, QString> output : outputs) {
+                for (const QPair<QString, QString>& output : outputs) {
                     out << termCol.value("bold") << output.first << ":" << termCol.value("reset") << "\n" << output.second << "\n";
                 }
             }

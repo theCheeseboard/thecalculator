@@ -36,8 +36,8 @@
 #include <QToolButton>
 #include <tpopover.h>
 #include <QShortcut>
-#include <taboutdialog.h>
 #include <tcsdtools.h>
+#include <thelpmenu.h>
 #include "evaluationengine.h"
 
 extern MainWindow* MainWin;
@@ -76,19 +76,16 @@ MainWindow::MainWindow(QWidget* parent) :
     trigMenu->addAction(ui->actionGradians);
     menu->addMenu(trigMenu);
 
-    QMenu* helpMenu = new QMenu();
-    helpMenu->setTitle(tr("Help"));
-    helpMenu->addAction(ui->actionTheCalculatorHelp);
-    helpMenu->addSeparator();
-    helpMenu->addAction(ui->actionFileBug);
-    helpMenu->addAction(ui->actionSources);
-    helpMenu->addSeparator();
-    helpMenu->addAction(ui->actionAbout);
-    menu->addMenu(helpMenu);
+    menu->addMenu(new tHelpMenu(this));
 
     menu->addSeparator();
     menu->addAction(ui->actionExit);
 
+#ifdef T_BLUEPRINT_BUILD
+    ui->menuButton->setIcon(QIcon(":/icons/thecalculator-blueprint.svg"));
+#else
+    ui->menuButton->setIcon(QIcon::fromTheme("com.vicr123.thecalculator", QIcon(":/icons/thecalculator.svg")));
+#endif
     ui->menuButton->setIconSize(SC_DPI_T(QSize(24, 24), QSize));
     ui->menuButton->setMenu(menu);
     ui->stackedWidget->setCurrentAnimation(tStackedWidget::SlideHorizontal);
@@ -117,11 +114,6 @@ void MainWindow::on_FunctionsButton_clicked() {
     ui->stackedWidget->setCurrentIndex(1);
 }
 
-void MainWindow::on_actionAbout_triggered() {
-    tAboutDialog a;
-    a.exec();
-}
-
 void MainWindow::changeEvent(QEvent* event) {
     QMainWindow::changeEvent(event);
     if (event->type() == QEvent::ActivationChange) {
@@ -145,18 +137,6 @@ void MainWindow::on_actionRadians_triggered(bool checked) {
     if (checked) {
         EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Radians);
     }
-}
-
-void MainWindow::on_actionTheCalculatorHelp_triggered() {
-    QDesktopServices::openUrl(QUrl("https://vicr123.com/thecalculator/help"));
-}
-
-void MainWindow::on_actionFileBug_triggered() {
-    QDesktopServices::openUrl(QUrl("https://github.com/vicr123/thecalculator/issues"));
-}
-
-void MainWindow::on_actionSources_triggered() {
-    QDesktopServices::openUrl(QUrl("https://github.com/vicr123/thecalculator"));
 }
 
 void MainWindow::on_calcWidget_manageFunctions() {

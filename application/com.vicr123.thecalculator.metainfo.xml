@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.vicr123.thecalculator</id>
+
+  <name>theCalculator</name>
+  <summary>Calculator</summary>
+
+  <metadata_license>CC-BY-SA-4.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <developer_name>Victor Tran</developer_name>
+
+  <recommends>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </recommends>
+
+  <description>
+    <p>
+      Perform lightning calculations.
+    </p>
+    <ul>
+      <li>Scientific functions come built in</li>
+      <li>Programmable - make your own functions and save them for next time</li>
+      <li>Contextual help guides you with functions as you type</li>
+    </ul>
+  </description>
+
+  <launchable type="desktop-id">com.vicr123.thecalculator.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://vicr123.com/thecalculator/screenshots/screenshot1.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://vicr123.com/thecalculator/screenshots/screenshot2.png</image>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1">
+    <content_attribute id="social-info">mild</content_attribute>
+  </content_rating>
+
+  <provides>
+    <binary>thecalculator</binary>
+  </provides>
+</component>
