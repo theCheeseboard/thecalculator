@@ -16,12 +16,12 @@ set(SOURCES
         calculator/logbasepopover.ui
         calculator/nthrootpopover.cpp
         calculator/nthrootpopover.ui
-        customs/branchbox.cpp
-        customs/branchbox.ui
-        customs/conditionbox.cpp
-        customs/conditionbox.ui
-        customs/overloadbox.cpp
-        customs/overloadbox.ui
+        functions/customs/branchbox.cpp
+        functions/customs/branchbox.ui
+        functions/customs/conditionbox.cpp
+        functions/customs/conditionbox.ui
+        functions/customs/overloadbox.cpp
+        functions/customs/overloadbox.ui
         functions/functionwidget.cpp
         functions/functionwidget.ui
         graph/addfunctiondialog.cpp
@@ -43,9 +43,9 @@ set(HEADERS
         calculator/calculatorwidget.h
         calculator/logbasepopover.h
         calculator/nthrootpopover.h
-        customs/branchbox.h
-        customs/conditionbox.h
-        customs/overloadbox.h
+        functions/customs/branchbox.h
+        functions/customs/conditionbox.h
+        functions/customs/overloadbox.h
         functions/functionwidget.h
         graph/addfunctiondialog.h
         graph/graphfunction.h
