@@ -33,7 +33,6 @@
 #include "logbasepopover.h"
 
 QList<CalcButton*> CalculatorWidget::buttons = QList<CalcButton*>();
-extern QString idbToString(idouble db);
 
 extern MainWindow* MainWin;
 

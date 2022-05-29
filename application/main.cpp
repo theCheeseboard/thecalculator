@@ -78,8 +78,6 @@ int main(int argc, char* argv[]) {
     a.setDesktopFileName("com.vicr123.thecalculator");
 #endif
 
-    tStyleManager::setOverrideStyleForApplication(tStyleManager::ContemporaryDark);
-
     QCommandLineParser parser;
     parser.setApplicationDescription(QApplication::translate("main", "Calculator"));
     QCommandLineOption helpOption = parser.addHelpOption();
@@ -279,11 +277,11 @@ int main(int argc, char* argv[]) {
 
                         QString errorExpression;
                         errorExpression = locationText;
-                        errorExpression.append(e.leftRef(res.location));
+                        errorExpression.append(e.left(res.location));
                         errorExpression.append(termCol.value("red"));
-                        errorExpression.append(e.midRef(res.location, res.length));
+                        errorExpression.append(e.mid(res.location, res.length));
                         errorExpression.append(termCol.value("reset"));
-                        errorExpression.append(e.midRef(res.location + res.length));
+                        errorExpression.append(e.mid(res.location + res.length));
                         errorText.append(errorExpression);
 
                         if (termCol.count() == 0 || res.length == 0) {
