@@ -30,6 +30,10 @@
 
 extern QString idbToString(idouble db);
 
+#ifdef _MSC_VER
+#pragma runtime_checks( "", off )
+#endif
+
 idouble callFunction(QString name, QList<idouble> args, QString& error) {
     //qDebug() << "Calling function:" << name << "with arguments" << args;
     if (!EvaluationEngine::customFunctions.contains(name)) {

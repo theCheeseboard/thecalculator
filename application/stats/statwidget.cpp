@@ -23,8 +23,6 @@
 #include <QSpinBox>
 #include "evaluationengine.h"
 
-extern QString idbToString(idouble db);
-
 StatWidget::StatWidget(QWidget* parent) :
     QWidget(parent),
     ui(new Ui::StatWidget) {

@@ -27,8 +27,6 @@
 #include <QGraphicsSimpleTextItem>
 #include <QTimer>
 
-extern QString idbToString(idouble db);
-
 struct GraphFunctionPrivate {
     QHash<idouble, GraphFunction::FunctionValue> yvalues;
 

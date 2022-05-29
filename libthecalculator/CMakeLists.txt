@@ -17,10 +17,10 @@ set(HEADERS
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     add_compile_definitions(YY_NO_UNISTD_H _CRT_NONSTDC_NO_DEPRECATE)
-
-    # Bison generates code that raises the runtime checks.
-    string(REGEX REPLACE "/RTC(su|[1su])" "" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
 endif()
+
+# Do not generate flex output in the source directory
+cmake_policy(SET CMP0098 NEW)
 
 BISON_TARGET(theCalculatorParser parser/calc.y ${CMAKE_CURRENT_BINARY_DIR}/calc.bison.cpp 
              DEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/calc.bison.h)
