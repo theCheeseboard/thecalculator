@@ -476,8 +476,8 @@
         <location filename="../evaluationengine.cpp" line="482"/>
         <location filename="../evaluationengine.cpp" line="513"/>
         <location filename="../evaluationengine.cpp" line="543"/>
-        <location filename="../evaluationengine.cpp" line="595"/>
-        <location filename="../evaluationengine.cpp" line="598"/>
+        <location filename="../evaluationengine.cpp" line="601"/>
+        <location filename="../evaluationengine.cpp" line="604"/>
         <source>number</source>
         <translation>nummer</translation>
     </message>
@@ -530,8 +530,8 @@
         <location filename="../evaluationengine.cpp" line="468"/>
         <location filename="../evaluationengine.cpp" line="470"/>
         <location filename="../evaluationengine.cpp" line="482"/>
-        <location filename="../evaluationengine.cpp" line="595"/>
-        <location filename="../evaluationengine.cpp" line="598"/>
+        <location filename="../evaluationengine.cpp" line="601"/>
+        <location filename="../evaluationengine.cpp" line="604"/>
         <source>The %1 to calculate the %2 of</source>
         <translation>De %1 om de %2 van te berekenen</translation>
     </message>
@@ -588,8 +588,8 @@
         <location filename="../evaluationengine.cpp" line="468"/>
         <location filename="../evaluationengine.cpp" line="469"/>
         <location filename="../evaluationengine.cpp" line="482"/>
-        <location filename="../evaluationengine.cpp" line="595"/>
-        <location filename="../evaluationengine.cpp" line="598"/>
+        <location filename="../evaluationengine.cpp" line="601"/>
+        <location filename="../evaluationengine.cpp" line="604"/>
         <source>Calculates the %1 of an %2</source>
         <translation>Berekent de %1 van een %2</translation>
     </message>
@@ -903,63 +903,68 @@
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="551"/>
+        <source>Can&apos;t take 0 to the power of 0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../evaluationengine.cpp" line="557"/>
         <source>Can&apos;t take 0 to the power of a negative number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="556"/>
+        <location filename="../evaluationengine.cpp" line="562"/>
         <source>Can&apos;t take 0 to the power of a non-real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="562"/>
+        <location filename="../evaluationengine.cpp" line="568"/>
         <source>The pow function takes 2 arguments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="572"/>
+        <location filename="../evaluationengine.cpp" line="578"/>
         <source>Can&apos;t take the modulo of a non-integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="577"/>
+        <location filename="../evaluationengine.cpp" line="583"/>
         <source>Can&apos;t take the modulo when the divisor is a non-integer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="582"/>
+        <location filename="../evaluationengine.cpp" line="588"/>
         <source>Can&apos;t divide by zero</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="588"/>
+        <location filename="../evaluationengine.cpp" line="594"/>
         <source>The mod function takes 2 arguments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="607"/>
-        <location filename="../evaluationengine.cpp" line="614"/>
+        <location filename="../evaluationengine.cpp" line="613"/>
+        <location filename="../evaluationengine.cpp" line="620"/>
         <source>Can&apos;t generate a random number with an upper bound of a non-real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="619"/>
+        <location filename="../evaluationengine.cpp" line="625"/>
         <source>Can&apos;t generate a random number with a lower bound of a non-real number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="625"/>
+        <location filename="../evaluationengine.cpp" line="631"/>
         <source>The random function takes 0-2 arguments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="696"/>
-        <location filename="../evaluationengine.cpp" line="758"/>
+        <location filename="../evaluationengine.cpp" line="702"/>
+        <location filename="../evaluationengine.cpp" line="764"/>
         <source>The function definition for %1 contains a condition which is an assignment</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../evaluationengine.cpp" line="769"/>
+        <location filename="../evaluationengine.cpp" line="775"/>
         <source>The %1 function takes %n arguments</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -967,12 +972,12 @@
         </translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="773"/>
+        <location filename="../evaluationengine.cpp" line="779"/>
         <source>The %1 function takes %2 arguments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="832"/>
+        <location filename="../evaluationengine.cpp" line="838"/>
         <source>The %1 function takes 1 argument</source>
         <translation type="unfinished"></translation>
     </message>
@@ -989,7 +994,7 @@
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="471"/>
-        <location filename="../evaluationengine.cpp" line="565"/>
+        <location filename="../evaluationengine.cpp" line="571"/>
         <source>base</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1032,103 +1037,103 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="565"/>
+        <location filename="../evaluationengine.cpp" line="571"/>
         <source>Calculates an exponent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="565"/>
+        <location filename="../evaluationengine.cpp" line="571"/>
         <source>The base of the exponent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="565"/>
+        <location filename="../evaluationengine.cpp" line="571"/>
         <source>exponent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="565"/>
+        <location filename="../evaluationengine.cpp" line="571"/>
         <source>The number to exponentiate by</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="591"/>
+        <location filename="../evaluationengine.cpp" line="597"/>
         <source>Calculates the remainder when dividing two numbers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="591"/>
+        <location filename="../evaluationengine.cpp" line="597"/>
         <source>divisor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="591"/>
+        <location filename="../evaluationengine.cpp" line="597"/>
         <source>The number to be divided</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="591"/>
+        <location filename="../evaluationengine.cpp" line="597"/>
         <source>dividend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="591"/>
+        <location filename="../evaluationengine.cpp" line="597"/>
         <source>The number to divide by</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="595"/>
+        <location filename="../evaluationengine.cpp" line="601"/>
         <source>floor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="598"/>
+        <location filename="../evaluationengine.cpp" line="604"/>
         <source>ceiling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="628"/>
+        <location filename="../evaluationengine.cpp" line="634"/>
         <source>Returns a random number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="629"/>
+        <location filename="../evaluationengine.cpp" line="635"/>
         <source>Returns a random number in the range [0-number)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="629"/>
+        <location filename="../evaluationengine.cpp" line="635"/>
         <source>bound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="629"/>
-        <location filename="../evaluationengine.cpp" line="630"/>
+        <location filename="../evaluationengine.cpp" line="635"/>
+        <location filename="../evaluationengine.cpp" line="636"/>
         <source>The exclusive high bound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="630"/>
+        <location filename="../evaluationengine.cpp" line="636"/>
         <source>Returns a random number in the range [low-high)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="630"/>
+        <location filename="../evaluationengine.cpp" line="636"/>
         <source>low</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="630"/>
+        <location filename="../evaluationengine.cpp" line="636"/>
         <source>The inclusive low bound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="630"/>
+        <location filename="../evaluationengine.cpp" line="636"/>
         <source>high</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../evaluationengine.cpp" line="772"/>
+        <location filename="../evaluationengine.cpp" line="778"/>
         <source>or</source>
         <comment>Expected 1, 2 or 3 arguments</comment>
         <translation type="unfinished"></translation>

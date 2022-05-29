@@ -547,7 +547,13 @@ void EvaluationEngine::setupFunctions() {
             idouble second = args.at(1);
 
             if (first.real() == 0 && first.imag() == 0 &&
-                second.real() <= 0 && second.imag() == 0) {
+                second.real() == 0 && second.imag() == 0) {
+                error = tr("Can't take 0 to the power of 0");
+                return 0;
+            }
+
+            if (first.real() == 0 && first.imag() == 0 &&
+                second.real() < 0 && second.imag() == 0) {
                 error = tr("Can't take 0 to the power of a negative number");
                 return 0;
             }
