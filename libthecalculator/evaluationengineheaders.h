@@ -21,32 +21,31 @@
 #ifndef EVALUATIONENGINEHEADERS_H
 #define EVALUATIONENGINEHEADERS_H
 
+#include "idouble.h"
+#include <QMap>
 #include <QtGlobal>
 #include <QtMath>
-#include <QMap>
-#include <functional>
 #include <complex>
-
-typedef std::complex<long double> idouble;
+#include <functional>
 
 typedef void* yyscan_t;
 
 typedef struct yyloc_t {
-    int location;
-    int length;
+        int location;
+        int length;
 } YYLTYPE;
 #define YYLTYPE yyloc_t
 
 struct EvaluationEngineParameters {
-    yyscan_t scanner;
-    std::function<void(idouble)> resultFunction;
-    std::function <void(int, int, const char*)> errorFunction;
-    std::function<void(QString, idouble)> assignFunction;
-    std::function<void(bool)> equalityFunction;
-    QMap<QString, idouble> variables;
-    QMap<QString, idouble> builtinVariables = {
-        {"pi", M_PI}
-    };
+        yyscan_t scanner;
+        std::function<void(idouble)> resultFunction;
+        std::function<void(int, int, const char*)> errorFunction;
+        std::function<void(QString, idouble)> assignFunction;
+        std::function<void(bool)> equalityFunction;
+        QMap<QString, idouble> variables;
+        QMap<QString, idouble> builtinVariables = {
+            {"pi", M_PI}
+        };
 };
 
 #endif // EVALUATIONENGINEHEADERS_H

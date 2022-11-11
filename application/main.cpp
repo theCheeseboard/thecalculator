@@ -28,6 +28,7 @@
 #include "graph/graphfunction.h"
 #include "graph/graphview.h"
 #include <QPainter>
+#include <libthecalculator_global.h>
 #include <tstylemanager.h>
 
 #ifdef Q_OS_MAC
@@ -46,6 +47,7 @@ int main(int argc, char* argv[]) {
 
     tApplication a(argc, argv);
     a.setApplicationShareDir("thecalculator");
+    a.addLibraryTranslator(LIBTHECALCULATOR_TRANSLATOR);
 
     EvaluationEngine::setupFunctions();
     a.installTranslators();

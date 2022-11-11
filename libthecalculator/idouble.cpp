@@ -1,7 +1,7 @@
 /****************************************
  *
- *   theCalculator - Calculator
- *   Copyright (C) 2019 Victor Tran
+ *   INSERT-PROJECT-NAME-HERE - INSERT-GENERIC-NAME-HERE
+ *   Copyright (C) 2022 Victor Tran
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -17,35 +17,21 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-
-#ifndef EVALUATIONENGINEHEADERS_H
-#define EVALUATIONENGINEHEADERS_H
-
-#include <QtGlobal>
-#include <QtMath>
-#include <QMap>
-#include <functional>
-#include <complex>
 #include "idouble.h"
 
-typedef void* yyscan_t;
+#include <functional>
 
-typedef struct yyloc_t {
-    int location;
-    int length;
-} YYLTYPE;
-#define YYLTYPE yyloc_t
+std::size_t std::hash<idouble>::operator()(const idouble& key, size_t seed) const {
+    /*QByteArray hash = QCryptographicHash::hash(idbToString(key).toUtf8(), QCryptographicHash::Md5);
 
-struct EvaluationEngineParameters {
-    yyscan_t scanner;
-    std::function<void(idouble)> resultFunction;
-    std::function <void(int, int, const char*)> errorFunction;
-    std::function<void(QString, idouble)> assignFunction;
-    std::function<void(bool)> equalityFunction;
-    QMap<QString, idouble> variables;
-    QMap<QString, idouble> builtinVariables = {
-        {"pi", M_PI}
-    };
-};
+                uint hashValue = 0; //this can overflow, it's fine
+                for (char c : hash) {
+                    hashValue += c;
+                }
+                return hashValue;*/
 
-#endif // EVALUATIONENGINEHEADERS_H
+    int n1 = 99999997;
+    int realHash = fmod(std::hash<long double>()(key.real()), n1);
+    int imHash = std::hash<long double>()(key.imag());
+    return realHash ^ imHash;
+}

@@ -27,7 +27,6 @@
 #include <QStackedWidget>
 #include <QRandomGenerator>
 #include <QProcess>
-#include "historydelegate.h"
 #include <QDesktopServices>
 #include <QMessageBox>
 #include <QTimer>

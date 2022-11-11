@@ -7,13 +7,17 @@ find_package(FLEX REQUIRED)
 
 set(SOURCES
         evaluationengine.cpp
-        expression.cpp)
+        expression.cpp
+        idouble.cpp
+)
 
 set(HEADERS
-        libthecalculator_global.h
-        evaluationengine.h
-        evaluationengineheaders.h
-        expression.h)
+    libthecalculator_global.h
+    evaluationengine.h
+    evaluationengineheaders.h
+    expression.h
+    idouble.h
+)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     add_compile_definitions(YY_NO_UNISTD_H _CRT_NONSTDC_NO_DEPRECATE)
@@ -29,7 +33,10 @@ FLEX_TARGET(theCalculatorLexer parser/calc.l  ${CMAKE_CURRENT_BINARY_DIR}/calc.l
 list(APPEND SOURCES ${BISON_theCalculatorParser_OUTPUTS} ${FLEX_theCalculatorLexer_OUTPUTS})
 
 add_library(libthecalculator SHARED ${SOURCES} ${HEADERS})
+set_target_properties(libthecalculator PROPERTIES
+        CNTP_DATA_SUBDIR thecalculator/libthecalculator)
 cntp_init(libthecalculator 20)
+cntp_translate(libthecalculator)
 set_target_properties(libthecalculator PROPERTIES
         OUTPUT_NAME thecalculator
         FRAMEWORK TRUE

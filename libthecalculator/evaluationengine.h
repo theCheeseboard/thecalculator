@@ -21,7 +21,7 @@
 #ifndef EVALUATIONENGINE_H
 #define EVALUATIONENGINE_H
 
-#include "evaluationengineheaders.h"
+#include "idouble.h"
 #include "libthecalculator_global.h"
 #include <QObject>
 #include <complex>
@@ -29,7 +29,6 @@
 
 LIBTHECALCULATOR_EXPORT QString numberFormatToString(long double number);
 LIBTHECALCULATOR_EXPORT QString idbToString(idouble db);
-LIBTHECALCULATOR_EXPORT size_t qHash(const idouble& key, size_t seed = 0);
 
 struct CustomFunctionPrivate;
 typedef std::function<idouble(QList<idouble>, QString&)> CustomFunctionDefinition;

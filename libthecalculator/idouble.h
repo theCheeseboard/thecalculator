@@ -1,7 +1,7 @@
 /****************************************
  *
- *   theCalculator - Calculator
- *   Copyright (C) 2019 Victor Tran
+ *   INSERT-PROJECT-NAME-HERE - INSERT-GENERIC-NAME-HERE
+ *   Copyright (C) 2022 Victor Tran
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -17,35 +17,17 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
+#ifndef IDOUBLE_H
+#define IDOUBLE_H
 
-#ifndef EVALUATIONENGINEHEADERS_H
-#define EVALUATIONENGINEHEADERS_H
-
-#include <QtGlobal>
-#include <QtMath>
-#include <QMap>
-#include <functional>
 #include <complex>
-#include "idouble.h"
 
-typedef void* yyscan_t;
+typedef std::complex<long double> idouble;
 
-typedef struct yyloc_t {
-    int location;
-    int length;
-} YYLTYPE;
-#define YYLTYPE yyloc_t
-
-struct EvaluationEngineParameters {
-    yyscan_t scanner;
-    std::function<void(idouble)> resultFunction;
-    std::function <void(int, int, const char*)> errorFunction;
-    std::function<void(QString, idouble)> assignFunction;
-    std::function<void(bool)> equalityFunction;
-    QMap<QString, idouble> variables;
-    QMap<QString, idouble> builtinVariables = {
-        {"pi", M_PI}
+namespace std {
+    template<> struct hash<idouble> {
+            size_t operator()(const idouble& key, size_t seed = 0) const;
     };
-};
+} // namespace std
 
-#endif // EVALUATIONENGINEHEADERS_H
+#endif // IDOUBLE_H

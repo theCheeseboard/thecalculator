@@ -19,6 +19,7 @@
  * *************************************/
 
 #include "evaluationengine.h"
+#include "evaluationengineheaders.h"
 
 typedef void* yyscan_t;
 #include "calc.bison.h"
@@ -67,23 +68,6 @@ QString idbToString(idouble db) {
         return numberFormatToString(imag) + "i";
     }
 }
-
-namespace std {
-    size_t qHash(const idouble& key, size_t seed) {
-        /*QByteArray hash = QCryptographicHash::hash(idbToString(key).toUtf8(), QCryptographicHash::Md5);
-
-        uint hashValue = 0; //this can overflow, it's fine
-        for (char c : hash) {
-            hashValue += c;
-        }
-        return hashValue;*/
-
-        int n1 = 99999997;
-        int realHash = fmod(qHash(key.real(), seed), n1);
-        int imHash = qHash(key.imag(), seed);
-        return realHash ^ imHash;
-    }
-} // namespace std
 
 struct CustomFunctionPrivate {
         CustomFunctionDefinition fn;

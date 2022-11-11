@@ -28,7 +28,7 @@
 #include <math.h>
 
 namespace std {
-    extern size_t qHash(const idouble& t, size_t seed);
+
 }
 
 struct GraphFunctionPrivate {
