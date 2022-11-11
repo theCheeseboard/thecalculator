@@ -21,18 +21,18 @@
 #ifndef EVALUATIONENGINE_H
 #define EVALUATIONENGINE_H
 
+#include "evaluationengineheaders.h"
+#include "libthecalculator_global.h"
 #include <QObject>
 #include <complex>
 #include <tpromise.h>
-#include "evaluationengineheaders.h"
-#include "libthecalculator_global.h"
 
 LIBTHECALCULATOR_EXPORT QString numberFormatToString(long double number);
 LIBTHECALCULATOR_EXPORT QString idbToString(idouble db);
-LIBTHECALCULATOR_EXPORT uint qHash(const idouble& key);
+LIBTHECALCULATOR_EXPORT size_t qHash(const idouble& key, size_t seed = 0);
 
 struct CustomFunctionPrivate;
-typedef std::function<idouble(QList<idouble>,QString&)> CustomFunctionDefinition;
+typedef std::function<idouble(QList<idouble>, QString&)> CustomFunctionDefinition;
 
 class LIBTHECALCULATOR_EXPORT CustomFunction {
     public:
@@ -53,11 +53,10 @@ class LIBTHECALCULATOR_EXPORT CustomFunction {
 
 typedef QMap<QString, CustomFunction> CustomFunctionMap;
 
-class LIBTHECALCULATOR_EXPORT EvaluationEngine : public QObject
-{
+class LIBTHECALCULATOR_EXPORT EvaluationEngine : public QObject {
         Q_OBJECT
     public:
-        explicit EvaluationEngine(QObject *parent = nullptr);
+        explicit EvaluationEngine(QObject* parent = nullptr);
         ~EvaluationEngine();
 
         enum TrigonometricUnit {
@@ -72,26 +71,26 @@ class LIBTHECALCULATOR_EXPORT EvaluationEngine : public QObject
         static CustomFunctionMap customFunctions;
 
         struct Result {
-            enum ResultType {
-                Error,
-                Scalar,
-                Assign,
-                Equality
-            };
+                enum ResultType {
+                    Error,
+                    Scalar,
+                    Assign,
+                    Equality
+                };
 
-            QString error;
-            int location;
-            int length;
+                QString error;
+                int location;
+                int length;
 
-            idouble result;
+                idouble result;
 
-            bool assigned;
-            QString identifier;
-            idouble value;
+                bool assigned;
+                QString identifier;
+                idouble value;
 
-            bool isTrue;
+                bool isTrue;
 
-            ResultType type;
+                ResultType type;
         };
 
         static tPromise<Result>* evaluate(QString expression, QMap<QString, idouble> variables = QMap<QString, idouble>());
@@ -110,9 +109,8 @@ class LIBTHECALCULATOR_EXPORT EvaluationEngine : public QObject
         static TrigonometricUnit trigUnit;
 
         static int runningEngines;
-        static QMutex* runningEnginesLocker; 
+        static QMutex* runningEnginesLocker;
         static QMutex* trigUnitLocker;
-
 
         static idouble toRad(idouble deg);
         static idouble fromRad(idouble rad);

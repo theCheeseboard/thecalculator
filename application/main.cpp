@@ -18,17 +18,17 @@
  *
  * *************************************/
 
-#include "mainwindow.h"
-#include <tapplication.h>
-#include <QCommandLineParser>
-#include <QTranslator>
-#include <QLibraryInfo>
 #include "evaluationengine.h"
+#include "mainwindow.h"
+#include <QCommandLineParser>
+#include <QLibraryInfo>
+#include <QTranslator>
+#include <tapplication.h>
 
-#include <tstylemanager.h>
-#include <QPainter>
-#include "graph/graphview.h"
 #include "graph/graphfunction.h"
+#include "graph/graphview.h"
+#include <QPainter>
+#include <tstylemanager.h>
 
 #ifdef Q_OS_MAC
     #include <CoreFoundation/CFBundle.h>
@@ -37,24 +37,17 @@
 MainWindow* MainWin = nullptr;
 
 int main(int argc, char* argv[]) {
-    //Determine whether to start a QApplication or QCoreApplication
+    // Determine whether to start a QApplication or QCoreApplication
     for (int i = 1; i < argc; i++) {
         if (qstrcmp(argv[i], "-e") == 0 || qstrcmp(argv[i], "--evaluate") == 0 || qstrcmp(argv[i], "-g") == 0 || qstrcmp(argv[i], "--graph") == 0) {
-            qputenv("QT_QPA_PLATFORM", "offscreen"); //Start offscreen so we don't create a connection to the X server
+            qputenv("QT_QPA_PLATFORM", "offscreen"); // Start offscreen so we don't create a connection to the X server
         }
     }
 
     tApplication a(argc, argv);
+    a.setApplicationShareDir("thecalculator");
 
     EvaluationEngine::setupFunctions();
-
-#ifdef Q_OS_LINUX
-    if (QDir(QStringLiteral("%1/share/thecalculator/").arg(SYSTEM_PREFIX_DIRECTORY)).exists()) {
-        a.setShareDir(QStringLiteral("%1/share/thecalculator/").arg(SYSTEM_PREFIX_DIRECTORY));
-    } else if (QDir(QDir::cleanPath(QApplication::applicationDirPath() + "/../share/thecalculator/")).exists()) {
-        a.setShareDir(QDir::cleanPath(QApplication::applicationDirPath() + "/../share/thecalculator/"));
-    }
-#endif
     a.installTranslators();
 
     a.setOrganizationName("theSuite");
@@ -65,7 +58,7 @@ int main(int argc, char* argv[]) {
     a.setApplicationLicense(tApplication::Gpl3OrLater);
     a.setCopyrightHolder("Victor Tran");
     a.setCopyrightYear("2022");
-//    a.setApplicationUrl(tApplication::HelpContents, QUrl("https://help.vicr123.com/docs/thecalculator/intro"));
+    //    a.setApplicationUrl(tApplication::HelpContents, QUrl("https://help.vicr123.com/docs/thecalculator/intro"));
     a.setApplicationUrl(tApplication::Sources, QUrl("http://github.com/vicr123/theCalculator"));
     a.setApplicationUrl(tApplication::FileBug, QUrl("http://github.com/vicr123/theCalculator/issues"));
 #ifdef T_BLUEPRINT_BUILD
@@ -83,22 +76,22 @@ int main(int argc, char* argv[]) {
     QCommandLineOption helpOption = parser.addHelpOption();
     QCommandLineOption versionOption = parser.addVersionOption();
     parser.addOptions({
-        {{"g", "graph"}, QApplication::translate("main", "Generate a graph in PNG format and write the data to stdout.")},
-        {{"e", "evaluate"}, QApplication::translate("main", "Evaluate <expression>, print the result to standard output, then exit."), QApplication::translate("main", "expression")},
-        {{"t", "trig-unit"}, QApplication::translate("main", "Use <unit> as the trigonometry unit. Possible values are degrees, radians and gradians."), QApplication::translate("main", "unit")},
-        {{"c", "nocolor"}, QApplication::translate("main", "Do not output colour.")}
+        {{"g", "graph"},                                                                              QApplication::translate("main", "Generate a graph in PNG format and write the data to stdout.")                                                   },
+        {{"e", "evaluate"},                                                                           QApplication::translate("main", "Evaluate <expression>, print the result to standard output, then exit."),                                          QApplication::translate("main", "expression")},
+        {{"t", "trig-unit"},                                                                              QApplication::translate("main",                                                                                                            "Use <unit> as the trigonometry unit. Possible values are degrees, radians and gradians."),                                                                                                                                                                                                             QApplication::translate("main", "unit")},
+        {{"c", "nocolor"}, QApplication::translate("main","Do not output colour.")}
     });
     parser.parse(a.arguments());
 
-    if (parser.isSet(versionOption)) parser.showVersion(); //Show version and kill the app here
+    if (parser.isSet(versionOption)) parser.showVersion(); // Show version and kill the app here
 
     QMap<QString, QString> termCol;
     if (!parser.isSet("c")) {
         termCol = {
-            {"reset",   "\033[0m"},
-            {"bold",    "\033[1m"},
-            {"red",     "\033[31m"},
-            {"yellow",  "\033[33m"}
+            {"reset",  "\033[0m" },
+            {"bold",   "\033[1m" },
+            {"red",    "\033[31m"},
+            {"yellow", "\033[33m"}
         };
     }
 
@@ -108,19 +101,19 @@ int main(int argc, char* argv[]) {
         parser.clearPositionalArguments();
         parser.addHelpOption();
         parser.addOptions({
-            {{"g", "graph"}, QApplication::translate("main", "Generate a graph in PNG format and write the data to stdout.")},
-            {"cx", QApplication::translate("main", "X value to center the generated graph at"), QApplication::translate("main", "x-value")},
-            {"cy", QApplication::translate("main", "Y value to center the generated graph at"), QApplication::translate("main", "y-value")},
-            {"sx", QApplication::translate("main", "Number of pixels to put between each integer in the X direction"), QApplication::translate("main", "x-scale")},
-            {"sy", QApplication::translate("main", "Number of pixels to put between each integer in the Y direction"), QApplication::translate("main", "y-scale")},
-            {{"o", "outfile"}, QApplication::translate("main", "File to output the graph to. If missing, output to stdout"), QApplication::translate("main", "path")}
+            {{"g", "graph"},                                                      QApplication::translate("main", "Generate a graph in PNG format and write the data to stdout.")},
+            { "cx",             QApplication::translate("main",                        "X value to center the generated graph at"),                                                      QApplication::translate("main", "x-value")},
+            { "cy",             QApplication::translate("main",                        "Y value to center the generated graph at"),                                                      QApplication::translate("main", "y-value")},
+            { "sx",             QApplication::translate("main", "Number of pixels to put between each integer in the X direction"),                                                      QApplication::translate("main", "x-scale")},
+            { "sy",             QApplication::translate("main", "Number of pixels to put between each integer in the Y direction"),                                                      QApplication::translate("main", "y-scale")},
+            { {"o", "outfile"}, QApplication::translate("main",       "File to output the graph to. If missing, output to stdout"),                                                         QApplication::translate("main", "path")}
         });
         parser.addPositionalArgument("width", QApplication::translate("main", "Width of the graph, in pixels"), "-g width");
         parser.addPositionalArgument("height", QApplication::translate("main", "Height of the graph, in pixels"));
         parser.addPositionalArgument("expressions", QApplication::translate("main", "Expressions to graph"), "expressions...");
         parser.process(a);
 
-        //Ensure all the command line options are valid
+        // Ensure all the command line options are valid
         QTextStream out(stdout);
         QTextStream err(stderr);
         if (parser.positionalArguments().count() < 3) {
@@ -223,7 +216,7 @@ int main(int argc, char* argv[]) {
 
         return 0;
     } else {
-        if (parser.isSet(helpOption)) parser.showHelp(); //Show help and kill the app here
+        if (parser.isSet(helpOption)) parser.showHelp(); // Show help and kill the app here
 
         if (parser.value("e") == "") {
             MainWin = new MainWindow();
@@ -253,7 +246,7 @@ int main(int argc, char* argv[]) {
             }
 
             for (QString e : parser.value("e").split(":")) {
-                e = e.remove(" "); //Remove all spaces
+                e = e.remove(" "); // Remove all spaces
 
                 engine.setExpression(e);
                 engine.setVariables(variables);
@@ -269,50 +262,51 @@ int main(int argc, char* argv[]) {
                     case EvaluationEngine::Result::Assign:
                         variables.insert(res.identifier, res.value);
                         break;
-                    case EvaluationEngine::Result::Error: {
-                        QStringList errorText;
-                        errorText.append(termCol.value("yellow") + res.error + termCol.value("reset"));
+                    case EvaluationEngine::Result::Error:
+                        {
+                            QStringList errorText;
+                            errorText.append(termCol.value("yellow") + res.error + termCol.value("reset"));
 
-                        QString locationText = QApplication::translate("MainWindow", "Location") + ": ";
+                            QString locationText = QApplication::translate("MainWindow", "Location") + ": ";
 
-                        QString errorExpression;
-                        errorExpression = locationText;
-                        errorExpression.append(e.left(res.location));
-                        errorExpression.append(termCol.value("red"));
-                        errorExpression.append(e.mid(res.location, res.length));
-                        errorExpression.append(termCol.value("reset"));
-                        errorExpression.append(e.mid(res.location + res.length));
-                        errorText.append(errorExpression);
+                            QString errorExpression;
+                            errorExpression = locationText;
+                            errorExpression.append(e.left(res.location));
+                            errorExpression.append(termCol.value("red"));
+                            errorExpression.append(e.mid(res.location, res.length));
+                            errorExpression.append(termCol.value("reset"));
+                            errorExpression.append(e.mid(res.location + res.length));
+                            errorText.append(errorExpression);
 
-                        if (termCol.count() == 0 || res.length == 0) {
-                            QString location;
-                            QString here = QApplication::translate("MainWindow", "Here").toUpper();
+                            if (termCol.count() == 0 || res.length == 0) {
+                                QString location;
+                                QString here = QApplication::translate("MainWindow", "Here").toUpper();
 
-                            //Have at least one arrow
-                            if (res.length == 0) res.length = 1;
+                                // Have at least one arrow
+                                if (res.length == 0) res.length = 1;
 
-                            if (res.location + locationText.length() < here.length() + 1) {
-                                location.fill(' ', res.location + location.length());
-                                location.append(QString().fill('^', res.length));
-                                location.append(" ");
-                                location.append(here);
-                            } else {
-                                location.fill(' ', locationText.length() + res.location - here.length() - 1);
-                                location.append(here);
-                                location.append(" ");
-                                location.append(QString().fill('^', res.length));
+                                if (res.location + locationText.length() < here.length() + 1) {
+                                    location.fill(' ', res.location + location.length());
+                                    location.append(QString().fill('^', res.length));
+                                    location.append(" ");
+                                    location.append(here);
+                                } else {
+                                    location.fill(' ', locationText.length() + res.location - here.length() - 1);
+                                    location.append(here);
+                                    location.append(" ");
+                                    location.append(QString().fill('^', res.length));
+                                }
+                                errorText.append(location);
                             }
-                            errorText.append(location);
-                        }
 
-                        outputs.append(QPair<QString, QString>(e, errorText.join("\n")));
-                        break;
-                    }
+                            outputs.append(QPair<QString, QString>(e, errorText.join("\n")));
+                            break;
+                        }
                 }
 
                 if (res.type == EvaluationEngine::Result::Error) {
                     didError = true;
-                    break; //Abort calculations here
+                    break; // Abort calculations here
                 }
             }
 
@@ -323,7 +317,8 @@ int main(int argc, char* argv[]) {
                 out << outputs.first().second.append("\n");
             } else {
                 for (const QPair<QString, QString>& output : outputs) {
-                    out << termCol.value("bold") << output.first << ":" << termCol.value("reset") << "\n" << output.second << "\n";
+                    out << termCol.value("bold") << output.first << ":" << termCol.value("reset") << "\n"
+                        << output.second << "\n";
                 }
             }
 

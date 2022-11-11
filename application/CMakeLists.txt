@@ -77,7 +77,7 @@ set_target_properties(thecalculator PROPERTIES
         WIN32_EXECUTABLE TRUE
         CNTP_DATA_SUBDIR thecalculator)
 
-cntp_init(thecalculator 17)
+cntp_init(thecalculator 20)
 cntp_translate(thecalculator)
 cntp_target_name(thecalculator "theCalculator")
 #cntp_app_icon(thecalculator

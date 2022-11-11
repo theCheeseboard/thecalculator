@@ -38,7 +38,7 @@ QString numberFormatToString(long double number) {
 
     QString str = QString::fromStdString(stream.str());
     if (QLocale().decimalPoint() == ',') {
-        //Replace all decimals with commas
+        // Replace all decimals with commas
         str.replace(".", ",");
     }
     return str;
@@ -49,52 +49,47 @@ QString idbToString(idouble db) {
     long double imag = db.imag();
     if (real != 0 && imag == 0) {
         return numberFormatToString(real);
-    }
-    else if (real == 0 && imag == 0) {
+    } else if (real == 0 && imag == 0) {
         return "0";
-    }
-    else if (real != 0 && imag == 1) {
+    } else if (real != 0 && imag == 1) {
         return numberFormatToString(real) + " + i";
-    }
-    else if (real != 0 && imag > 0) {
+    } else if (real != 0 && imag > 0) {
         return numberFormatToString(real) + " + " + numberFormatToString(imag) + "i";
-    }
-    else if (real != 0 && imag == -1) {
+    } else if (real != 0 && imag == -1) {
         return numberFormatToString(real) + " - i";
-    }
-    else if (real != 0 && imag < 0) {
+    } else if (real != 0 && imag < 0) {
         return numberFormatToString(real) + " - " + numberFormatToString(-imag) + "i";
-    }
-    else if (imag == 1) {
+    } else if (imag == 1) {
         return "i";
-    }
-    else if (imag == -1) {
+    } else if (imag == -1) {
         return "-i";
-    }
-    else {
+    } else {
         return numberFormatToString(imag) + "i";
     }
 }
 
-uint qHash(const idouble& key) {
-    /*QByteArray hash = QCryptographicHash::hash(idbToString(key).toUtf8(), QCryptographicHash::Md5);
+namespace std {
+    size_t qHash(const idouble& key, size_t seed) {
+        /*QByteArray hash = QCryptographicHash::hash(idbToString(key).toUtf8(), QCryptographicHash::Md5);
 
-    uint hashValue = 0; //this can overflow, it's fine
-    for (char c : hash) {
-        hashValue += c;
+        uint hashValue = 0; //this can overflow, it's fine
+        for (char c : hash) {
+            hashValue += c;
+        }
+        return hashValue;*/
+
+        int n1 = 99999997;
+        int realHash = fmod(qHash(key.real(), seed), n1);
+        int imHash = qHash(key.imag(), seed);
+        return realHash ^ imHash;
     }
-    return hashValue;*/
+} // namespace std
 
-    int n1 = 99999997;
-    int realHash = fmod(qHash(key.real()), n1);
-    int imHash = qHash(key.imag());
-    return realHash ^ imHash;
-}
 struct CustomFunctionPrivate {
-    CustomFunctionDefinition fn;
-    QStringList desc;
-    QList<QStringList> args;
-    bool waitingForDocs = false;
+        CustomFunctionDefinition fn;
+        QStringList desc;
+        QList<QStringList> args;
+        bool waitingForDocs = false;
 };
 
 CustomFunction::CustomFunction() {
@@ -142,18 +137,18 @@ int CustomFunction::overloads() {
     return d->args.count();
 }
 
-EvaluationEngine::EvaluationEngine(QObject* parent) : QObject(parent) {
+EvaluationEngine::EvaluationEngine(QObject* parent) :
+    QObject(parent) {
     QT_TR_NOOP("%1: unknown variable");
     QT_TR_NOOP("div: division by 0 undefined");
     QT_TR_NOOP("%1: undefined function");
 }
 
 EvaluationEngine::~EvaluationEngine() {
-
 }
 
 tPromise<EvaluationEngine::Result>* EvaluationEngine::evaluate(QString expression, QMap<QString, idouble> variables) {
-    return new tPromise<Result>([ = ](QString & error) -> Result {
+    return new tPromise<Result>([=](QString& error) -> Result {
         EvaluationEngine engine;
         engine.setExpression(expression);
         engine.setVariables(variables);
@@ -163,7 +158,7 @@ tPromise<EvaluationEngine::Result>* EvaluationEngine::evaluate(QString expressio
 
 EvaluationEngine::Result EvaluationEngine::evaluate() {
     if (runningEngines > 50) {
-        //Return a stack overflow
+        // Return a stack overflow
         Result r;
         r.type = Result::Error;
         r.error = tr("Stack Overflow");
@@ -178,7 +173,7 @@ EvaluationEngine::Result EvaluationEngine::evaluate() {
 
     QString expr = expression;
     if (QLocale().decimalPoint() == ',') {
-        //Swap the decimal point and comma
+        // Swap the decimal point and comma
         for (int i = 0; i < expr.count(); i++) {
             if (expr.at(i) == ',') {
                 expr = expr.replace(i, 1, '.');
@@ -188,17 +183,17 @@ EvaluationEngine::Result EvaluationEngine::evaluate() {
         }
     }
     EvaluationEngineParameters p;
-    p.resultFunction = [ = ](idouble r) { //Success
+    p.resultFunction = [=](idouble r) { // Success
         result->result = r;
         result->type = Result::Scalar;
     };
-    p.errorFunction = [ = ](int location, int length, const char* s) { //Error
+    p.errorFunction = [=](int location, int length, const char* s) { // Error
         result->error = QString::fromLocal8Bit(s);
         result->location = location;
         result->length = length;
         result->type = Result::Error;
     };
-    p.assignFunction = [ = ](QString identifier, idouble value) { //Assignment
+    p.assignFunction = [=](QString identifier, idouble value) { // Assignment
         if (p.builtinVariables.contains(identifier)) {
             result->error = tr("Can't assign to builtin variable %1").arg(identifier);
             result->type = Result::Error;
@@ -209,7 +204,7 @@ EvaluationEngine::Result EvaluationEngine::evaluate() {
             result->type = Result::Assign;
         }
     };
-    p.equalityFunction = [ = ](bool isTrue) { //Equality
+    p.equalityFunction = [=](bool isTrue) { // Equality
         result->isTrue = isTrue;
         result->type = Result::Equality;
     };
@@ -240,20 +235,23 @@ void EvaluationEngine::setVariables(QMap<QString, idouble> vars) {
 }
 
 void EvaluationEngine::setupFunctions() {
-    //Clear all the functions
+    // Clear all the functions
     customFunctions.clear();
 
-    //Insert all the builtin functions
-    customFunctions.insert("abs", createSingleArgFunction([ = ](idouble arg, QString & error) {
+    // Insert all the builtin functions
+    customFunctions.insert("abs", createSingleArgFunction([=](idouble arg, QString& error) {
         return abs(arg);
-    }, "abs", tr("Calculates the %1 of a %2").arg(tr("absolute value"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("absolute value"))));
-    customFunctions.insert("sqrt", createSingleArgFunction([ = ](idouble arg, QString & error) {
+    },
+                                      "abs", tr("Calculates the %1 of a %2").arg(tr("absolute value"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("absolute value"))));
+    customFunctions.insert("sqrt", createSingleArgFunction([=](idouble arg, QString& error) {
         return sqrt(arg);
-    }, "sqrt", tr("Calculates the %1 of a %2").arg(tr("square root"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("square root"))));
-    customFunctions.insert("cbrt", createSingleArgFunction([ = ](idouble arg, QString & error) {
+    },
+                                       "sqrt", tr("Calculates the %1 of a %2").arg(tr("square root"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("square root"))));
+    customFunctions.insert("cbrt", createSingleArgFunction([=](idouble arg, QString& error) {
         return pow(arg, 1 / (float) 3);
-    }, "cbrt", tr("Calculates the %1 of a %2").arg(tr("cube root"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("cube root"))));
-    customFunctions.insert("root", CustomFunction([ = ](QList<idouble> args, QString & error) -> idouble {
+    },
+                                       "cbrt", tr("Calculates the %1 of a %2").arg(tr("cube root"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("cube root"))));
+    customFunctions.insert("root", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() == 2) {
             idouble first = args.first();
             idouble second = args.at(1);
@@ -268,11 +266,9 @@ void EvaluationEngine::setupFunctions() {
             error = tr("The root function takes 2 arguments");
             return 0;
         }
-    }, tr("Calculates the %1 of a %2").arg(tr("root"), tr("number")),
-    QStringList() << tr("radicand") + ":" + tr("The %1 to calculate the %2 of").arg(tr("number"), tr("root"))
-        << tr("index") + ":" + tr("The number to root by")
-        ));
-    customFunctions.insert("fact", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
+    },
+                                       tr("Calculates the %1 of a %2").arg(tr("root"), tr("number")), QStringList() << tr("radicand") + ":" + tr("The %1 to calculate the %2 of").arg(tr("number"), tr("root")) << tr("index") + ":" + tr("The number to root by")));
+    customFunctions.insert("fact", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         if (arg.imag() != 0) {
             error = tr("Can't take the factorial of a non-real number");
             return 0;
@@ -284,16 +280,19 @@ void EvaluationEngine::setupFunctions() {
         } else {
             return arg.real() * tgamma(arg.real());
         }
-    }, "fact", tr("Calculates the %1 of an %2").arg(tr("factorial"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("factorial"))));
-    customFunctions.insert("sin", createSingleArgFunction([ = ](idouble arg, QString & error) {
+    },
+                                       "fact", tr("Calculates the %1 of an %2").arg(tr("factorial"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("factorial"))));
+    customFunctions.insert("sin", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
         return sin(toRad(arg));
-    }, "sin", tr("Calculates the %1 of an %2").arg(tr("sine"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("sine"))));
-    customFunctions.insert("cos", createSingleArgFunction([ = ](idouble arg, QString & error) {
+    },
+                                      "sin", tr("Calculates the %1 of an %2").arg(tr("sine"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("sine"))));
+    customFunctions.insert("cos", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
         return cos(toRad(arg));
-    }, "cos", tr("Calculates the %1 of an %2").arg(tr("cosine"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("cosine"))));
-    customFunctions.insert("tan", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
+    },
+                                      "cos", tr("Calculates the %1 of an %2").arg(tr("cosine"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("cosine"))));
+    customFunctions.insert("tan", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         Q_UNUSED(error)
 
         if (arg.imag() == 0) {
@@ -317,44 +316,51 @@ void EvaluationEngine::setupFunctions() {
         }
 
         return tan(toRad(arg));
-    }, "tan", tr("Calculates the %1 of a %2").arg(tr("tangent"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("tangent"))));
-    customFunctions.insert("conj", createSingleArgFunction([ = ](idouble arg, QString & error) {
+    },
+                                      "tan", tr("Calculates the %1 of a %2").arg(tr("tangent"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("tangent"))));
+    customFunctions.insert("conj", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
         return conj(arg);
-    }, "conj", tr("Calculates the %1 of a %2").arg(tr("conjugate"), tr("complex number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("complex number"), tr("conjugate"))));
-    customFunctions.insert("im", createSingleArgFunction([ = ](idouble arg, QString & error) {
+    },
+                                       "conj", tr("Calculates the %1 of a %2").arg(tr("conjugate"), tr("complex number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("complex number"), tr("conjugate"))));
+    customFunctions.insert("im", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
         return arg.imag();
-    }, "im", tr("Calculates the %1 of a %2").arg(tr("imaginary portion"), tr("complex number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("imaginary portion"))));
-    customFunctions.insert("re", createSingleArgFunction([ = ](idouble arg, QString & error) {
+    },
+                                     "im", tr("Calculates the %1 of a %2").arg(tr("imaginary portion"), tr("complex number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("imaginary portion"))));
+    customFunctions.insert("re", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
         return arg.real();
-    }, "re", tr("Calculates the %1 of a %2").arg(tr("real portion"), tr("complex number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("real portion"))));
-    customFunctions.insert("arg", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
+    },
+                                     "re", tr("Calculates the %1 of a %2").arg(tr("real portion"), tr("complex number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("real portion"))));
+    customFunctions.insert("arg", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         if (arg.real() == 0 && arg.imag() == 0) {
             error = tr("Can't take the phase angle of 0");
             return 0;
         }
         return fromRad(std::arg(arg));
-    }, "arg", tr("Calculates the %1 of a %2").arg(tr("phase angle"), tr("complex number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("phase angle"))));
+    },
+                                      "arg", tr("Calculates the %1 of a %2").arg(tr("phase angle"), tr("complex number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("phase angle"))));
 
-    customFunctions.insert("asin", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
+    customFunctions.insert("asin", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         if (abs(arg) > 1) {
             error = tr("Can't take the inverse sine of a number outside -1 and 1");
             return 0;
         } else {
             return fromRad(asin(arg));
         }
-    }, "asin", tr("Calculates the %1 of an %2").arg(tr("arcsine (inverse sine)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arcsine"))));
-    customFunctions.insert("acos", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
+    },
+                                       "asin", tr("Calculates the %1 of an %2").arg(tr("arcsine (inverse sine)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arcsine"))));
+    customFunctions.insert("acos", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         if (abs(arg) > 1) {
             error = tr("Can't take the inverse cosine of a number outside -1 and 1");
             return 0;
         } else {
             return fromRad(acos(arg));
         }
-    }, "acos", tr("Calculates the %1 of an %2").arg(tr("arccosine (inverse cosine)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arccosine"))));
-    customFunctions.insert("atan", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
+    },
+                                       "acos", tr("Calculates the %1 of an %2").arg(tr("arccosine (inverse cosine)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arccosine"))));
+    customFunctions.insert("atan", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         Q_UNUSED(error)
 
         if (arg.real() == 0 && (arg.imag() == 1 || arg.imag() == -1)) {
@@ -363,8 +369,9 @@ void EvaluationEngine::setupFunctions() {
         }
 
         return fromRad(atan(arg));
-    }, "atan", tr("Calculates the %1 of an %2").arg(tr("arctangent (inverse tangent)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arctangent"))));
-    customFunctions.insert("sec", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
+    },
+                                       "atan", tr("Calculates the %1 of an %2").arg(tr("arctangent (inverse tangent)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arctangent"))));
+    customFunctions.insert("sec", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         if (arg.imag() == 0) {
             QString errStr = tr("Can't take the secant of a number that satisfies the equation %1");
             if (trigUnit == Degrees) {
@@ -386,8 +393,9 @@ void EvaluationEngine::setupFunctions() {
         }
 
         return idouble(1) / cos(toRad(arg));
-    }, "sec", tr("Calculates the %1 of an %2").arg(tr("secant"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("secant"))));
-    customFunctions.insert("csc", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
+    },
+                                      "sec", tr("Calculates the %1 of an %2").arg(tr("secant"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("secant"))));
+    customFunctions.insert("csc", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         Q_UNUSED(error)
 
         if (arg.imag() == 0) {
@@ -411,8 +419,9 @@ void EvaluationEngine::setupFunctions() {
         }
 
         return idouble(1) / sin(toRad(arg));
-    }, "csc", tr("Calculates the %1 of an %2").arg(tr("cosecant"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("cosecant"))));
-    customFunctions.insert("cot", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
+    },
+                                      "csc", tr("Calculates the %1 of an %2").arg(tr("cosecant"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("cosecant"))));
+    customFunctions.insert("cot", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         Q_UNUSED(error)
 
         if (arg.imag() == 0) {
@@ -436,8 +445,9 @@ void EvaluationEngine::setupFunctions() {
         }
 
         return idouble(1) / tan(toRad(arg));
-    }, "cot", tr("Calculates the %1 of an %2").arg(tr("cotangent"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("cotangent"))));
-    customFunctions.insert("asec", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
+    },
+                                      "cot", tr("Calculates the %1 of an %2").arg(tr("cotangent"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("cotangent"))));
+    customFunctions.insert("asec", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         Q_UNUSED(error)
 
         if (arg.real() == 0 && arg.imag() == 0) {
@@ -446,8 +456,9 @@ void EvaluationEngine::setupFunctions() {
         }
 
         return fromRad(acos(idouble(1) / arg));
-    }, "asec", tr("Calculates the %1 of an %2").arg(tr("arcsecant (inverse secant)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arcsecant"))));
-    customFunctions.insert("acsc", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble{
+    },
+                                       "asec", tr("Calculates the %1 of an %2").arg(tr("arcsecant (inverse secant)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arcsecant"))));
+    customFunctions.insert("acsc", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         Q_UNUSED(error)
 
         if (arg.real() == 0 && arg.imag() == 0) {
@@ -456,43 +467,51 @@ void EvaluationEngine::setupFunctions() {
         }
 
         return fromRad(asin(idouble(1) / arg));
-    }, "acsc", tr("Calculates the %1 of an %2").arg(tr("arccosecant (inverse cosecant)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arccosecant"))));
-    customFunctions.insert("acot", createSingleArgFunction([ = ](idouble arg, QString & error) {
+    },
+                                       "acsc", tr("Calculates the %1 of an %2").arg(tr("arccosecant (inverse cosecant)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arccosecant"))));
+    customFunctions.insert("acot", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
         if (arg.real() == 0 && arg.imag() == 0) {
             return fromRad(M_PI / 2);
         } else {
             return fromRad(atan(idouble(1) / arg));
         }
-    }, "acot", tr("Calculates the %1 of an %2").arg(tr("arccotangent (inverse cotangent)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arccotangent"))));
-    customFunctions.insert("sinh", createSingleArgFunction([ = ](idouble arg, QString & error) {
+    },
+                                       "acot", tr("Calculates the %1 of an %2").arg(tr("arccotangent (inverse cotangent)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("arccotangent"))));
+    customFunctions.insert("sinh", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
         return sinh(arg);
-    }, "sinh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic sine"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic sine"))));
-    customFunctions.insert("cosh", createSingleArgFunction([ = ](idouble arg, QString & error) {
+    },
+                                       "sinh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic sine"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic sine"))));
+    customFunctions.insert("cosh", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
         return cosh(arg);
-    }, "cosh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic cosine"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic cosine"))));
-    customFunctions.insert("tanh", createSingleArgFunction([ = ](idouble arg, QString & error) {
+    },
+                                       "cosh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic cosine"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic cosine"))));
+    customFunctions.insert("tanh", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
         return tanh(arg);
-    }, "tanh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic tangent"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic tangent"))));
-    customFunctions.insert("asinh", createSingleArgFunction([ = ](idouble arg, QString & error) {
+    },
+                                       "tanh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic tangent"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic tangent"))));
+    customFunctions.insert("asinh", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
         return asinh(arg);
-    }, "asinh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic arcsine (inverse hyperbolic arcsine)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic arcsine"))));
-    customFunctions.insert("acosh", createSingleArgFunction([ = ](idouble arg, QString & error) {
+    },
+                                        "asinh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic arcsine (inverse hyperbolic arcsine)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic arcsine"))));
+    customFunctions.insert("acosh", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
         return acosh(arg);
-    }, "acosh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic arccosine (inverse hyperbolic arccosine)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic arccosine"))));
-    customFunctions.insert("atanh", createSingleArgFunction([ = ](idouble arg, QString & error) {
+    },
+                                        "acosh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic arccosine (inverse hyperbolic arccosine)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic arccosine"))));
+    customFunctions.insert("atanh", createSingleArgFunction([=](idouble arg, QString& error) {
         Q_UNUSED(error)
         return atanh(arg);
-    }, "atanh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic arctangent (inverse hyperbolic arctangent)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic arctangent"))));
+    },
+                                        "atanh", tr("Calculates the %1 of an %2").arg(tr("hyperbolic arctangent (inverse hyperbolic arctangent)"), tr("angle")), tr("angle"), tr("The %1 to calculate the %2 of").arg(tr("angle"), tr("hyperbolic arctangent"))));
 
-    CustomFunction logFunction([ = ](QList<idouble> args, QString & error) -> idouble {
+    CustomFunction logFunction([=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() == 1) {
-            //log base 10
+            // log base 10
             if (args.first().real() == 0 && args.first().imag() == 0) {
                 error = tr("Can't take the logarithm of 0");
                 return 0;
@@ -500,7 +519,7 @@ void EvaluationEngine::setupFunctions() {
 
             return log10(args.first());
         } else if (args.length() == 2) {
-            //log base %2
+            // log base %2
             if (args.first().real() == 0 && args.first().imag() == 0) {
                 error = tr("Can't take the logarithm of 0");
                 return 0;
@@ -521,23 +540,23 @@ void EvaluationEngine::setupFunctions() {
             error = tr("The log function takes 1 or 2 arguments");
             return 0;
         }
-    }, tr("Calculates the %1 of an %2").arg(tr("base 10 logarithm"), tr("number")), QStringList() << tr("number") + ":" + tr("The %1 to calculate the %2 of").arg(tr("number"), tr("base 10 logarithm")));
-    logFunction.addOverload(tr("Calculates the %1 of an %2").arg(tr("logarithm"), tr("number")), {
-        QStringList() << tr("number") + ":" + tr("The %1 to calculate the %2 of").arg(tr("number"), tr("logarithm"))
-            << tr("base") + ":" + tr("The base of the logarithm")
-    });
+    },
+        tr("Calculates the %1 of an %2").arg(tr("base 10 logarithm"), tr("number")), QStringList() << tr("number") + ":" + tr("The %1 to calculate the %2 of").arg(tr("number"), tr("base 10 logarithm")));
+    logFunction.addOverload(tr("Calculates the %1 of an %2").arg(tr("logarithm"), tr("number")), {QStringList() << tr("number") + ":" + tr("The %1 to calculate the %2 of").arg(tr("number"), tr("logarithm"))
+                                                                                                                << tr("base") + ":" + tr("The base of the logarithm")});
     customFunctions.insert("log", logFunction);
 
-    customFunctions.insert("ln", createSingleArgFunction([ = ](idouble arg, QString & error) -> idouble {
+    customFunctions.insert("ln", createSingleArgFunction([=](idouble arg, QString& error) -> idouble {
         if (arg.real() == 0 && arg.imag() == 0) {
             error = tr("Can't take the logarithm of 0");
             return 0;
         }
 
         return log(arg);
-    }, "ln", tr("Calculates the %1 of an %2").arg(tr("base e logarithm"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("base e logarithm"))));
+    },
+                                     "ln", tr("Calculates the %1 of an %2").arg(tr("base e logarithm"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("base e logarithm"))));
 
-    customFunctions.insert("lsh", CustomFunction([ = ](QList<idouble> args, QString & error) -> idouble {
+    customFunctions.insert("lsh", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() == 2) {
             idouble first = args.first();
             idouble second = args.at(1);
@@ -566,8 +585,9 @@ void EvaluationEngine::setupFunctions() {
             error = tr("The lsh function takes 2 arguments");
             return 0;
         }
-    }, tr("Shifts a number to the left by a specified number of bits"), QStringList() << tr("number") + ":" + tr("The number to shift") << tr("amount") + ":" + tr("The number of bits to shift by")));
-    customFunctions.insert("rsh", CustomFunction([ = ](QList<idouble> args, QString & error) -> idouble {
+    },
+                                      tr("Shifts a number to the left by a specified number of bits"), QStringList() << tr("number") + ":" + tr("The number to shift") << tr("amount") + ":" + tr("The number of bits to shift by")));
+    customFunctions.insert("rsh", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() == 2) {
             idouble first = args.first();
             idouble second = args.at(1);
@@ -596,8 +616,9 @@ void EvaluationEngine::setupFunctions() {
             error = tr("The rsh function takes 2 arguments");
             return 0;
         }
-    }, tr("Shifts a number to the right by a specified number of bits"), QStringList() << tr("number") + ":" + tr("The number to shift") << tr("amount") + ":" + tr("The number of bits to shift by")));
-    customFunctions.insert("pow", CustomFunction([ = ](QList<idouble> args, QString & error) -> idouble {
+    },
+                                      tr("Shifts a number to the right by a specified number of bits"), QStringList() << tr("number") + ":" + tr("The number to shift") << tr("amount") + ":" + tr("The number of bits to shift by")));
+    customFunctions.insert("pow", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() == 2) {
             idouble first = args.first();
             idouble second = args.at(1);
@@ -624,8 +645,9 @@ void EvaluationEngine::setupFunctions() {
             error = tr("The pow function takes 2 arguments");
             return 0;
         }
-    }, tr("Calculates an exponent"), QStringList() << tr("base") + ":" + tr("The base of the exponent") << tr("exponent") + ":" + tr("The number to exponentiate by")));
-    customFunctions.insert("mod", CustomFunction([ = ](QList<idouble> args, QString & error) -> idouble {
+    },
+                                      tr("Calculates an exponent"), QStringList() << tr("base") + ":" + tr("The base of the exponent") << tr("exponent") + ":" + tr("The number to exponentiate by")));
+    customFunctions.insert("mod", CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() == 2) {
             idouble first = args.first();
             idouble second = args.at(1);
@@ -650,16 +672,19 @@ void EvaluationEngine::setupFunctions() {
             error = tr("The mod function takes 2 arguments");
             return 0;
         }
-    }, tr("Calculates the remainder when dividing two numbers"), QStringList() << tr("divisor") + ":" + tr("The number to be divided") << tr("dividend") + ":" + tr("The number to divide by")));
+    },
+                                      tr("Calculates the remainder when dividing two numbers"), QStringList() << tr("divisor") + ":" + tr("The number to be divided") << tr("dividend") + ":" + tr("The number to divide by")));
 
-    customFunctions.insert("floor", createSingleArgFunction([ = ](idouble arg, QString & error) {
+    customFunctions.insert("floor", createSingleArgFunction([=](idouble arg, QString& error) {
         return floor(arg.real());
-    }, "floor", tr("Calculates the %1 of an %2").arg(tr("floor"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("floor"))));
-    customFunctions.insert("ceil", createSingleArgFunction([ = ](idouble arg, QString & error) {
+    },
+                                        "floor", tr("Calculates the %1 of an %2").arg(tr("floor"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("floor"))));
+    customFunctions.insert("ceil", createSingleArgFunction([=](idouble arg, QString& error) {
         return ceil(arg.real());
-    }, "ceil", tr("Calculates the %1 of an %2").arg(tr("ceiling"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("ceiling"))));
+    },
+                                       "ceil", tr("Calculates the %1 of an %2").arg(tr("ceiling"), tr("number")), tr("number"), tr("The %1 to calculate the %2 of").arg(tr("number"), tr("ceiling"))));
 
-    CustomFunction randomFunction([ = ](QList<idouble> args, QString & error) -> idouble {
+    CustomFunction randomFunction([=](QList<idouble> args, QString& error) -> idouble {
         QRandomGenerator* gen = QRandomGenerator::system();
 
         if (args.length() == 0) {
@@ -687,12 +712,13 @@ void EvaluationEngine::setupFunctions() {
             error = tr("The random function takes 0-2 arguments").arg(args.length());
             return 0;
         }
-    }, tr("Returns a random number"), QStringList());
+    },
+        tr("Returns a random number"), QStringList());
     randomFunction.addOverload(tr("Returns a random number in the range [0-number)"), QStringList() << tr("bound") + ":" + tr("The exclusive high bound"));
     randomFunction.addOverload(tr("Returns a random number in the range [low-high)"), QStringList() << tr("low") + ":" + tr("The inclusive low bound") << tr("high") + ":" + tr("The exclusive high bound"));
     customFunctions.insert("random", randomFunction);
 
-    //Set up all the custom functions
+    // Set up all the custom functions
     QSettings settings;
     settings.beginGroup("customFunctions");
     for (QString function : settings.allKeys()) {
@@ -701,7 +727,7 @@ void EvaluationEngine::setupFunctions() {
             QJsonObject obj = doc.object();
             QJsonArray overloads = obj.value("overloads").toArray();
 
-            CustomFunction func([ = ](QList<idouble> args, QString & error) -> idouble {
+            CustomFunction func([=](QList<idouble> args, QString& error) -> idouble {
                 QStringList argCounts;
                 EvaluationEngine engine;
                 QMap<QString, idouble> variables;
@@ -711,8 +737,8 @@ void EvaluationEngine::setupFunctions() {
 
                     QJsonArray fnArgs = overload.value("args").toArray();
                     if (fnArgs.count() == args.count()) {
-                        //Found the correct overload to use
-                        //Populate the arguments
+                        // Found the correct overload to use
+                        // Populate the arguments
                         for (int i = 0; i < args.count(); i++) {
                             QJsonValue arg = fnArgs.at(i);
                             if (arg.isObject()) {
@@ -723,13 +749,13 @@ void EvaluationEngine::setupFunctions() {
                         }
                         engine.setVariables(variables);
 
-                        //For each branch, evaluate the conditions and choose the branch
+                        // For each branch, evaluate the conditions and choose the branch
                         QJsonObject selectedBranch;
                         QJsonArray branches = overload.value("branches").toArray();
                         for (const QJsonValue& b : qAsConst(branches)) {
                             QJsonObject branch = b.toObject();
                             if (branch.value("isOtherwise").toBool()) {
-                                //Reached the final branch
+                                // Reached the final branch
                                 selectedBranch = branch;
                                 break;
                             } else {
@@ -750,56 +776,56 @@ void EvaluationEngine::setupFunctions() {
                                             boolResult = result.isTrue;
                                             break;
                                         case EvaluationEngine::Result::Error:
-                                            //Return an error
+                                            // Return an error
                                             error = result.error;
                                             return 0;
                                         case EvaluationEngine::Result::Assign:
-                                            //Return an error
+                                            // Return an error
                                             error = tr("The function definition for %1 contains a condition which is an assignment").arg(function);
                                             return 0;
                                     }
 
                                     if (condition.value("isFirst").toBool()) {
-                                        if (connective == 0) { //WHEN
+                                        if (connective == 0) { // WHEN
                                             currentConditionState = boolResult;
-                                        } else { //WHEN NOT
+                                        } else { // WHEN NOT
                                             currentConditionState = !boolResult;
                                         }
                                     } else {
                                         switch (connective) {
-                                            case 0: //AND
+                                            case 0: // AND
                                                 currentConditionState &= boolResult;
                                                 break;
-                                            case 1: //OR
+                                            case 1: // OR
                                                 currentConditionState |= boolResult;
                                                 break;
-                                            case 2: //XOR
+                                            case 2: // XOR
                                                 currentConditionState ^= boolResult;
                                                 break;
-                                            case 3: //AND NOT
+                                            case 3: // AND NOT
                                                 currentConditionState &= !boolResult;
                                                 break;
-                                            case 4: //OR NOT
+                                            case 4: // OR NOT
                                                 currentConditionState |= !boolResult;
                                                 break;
-                                            case 5: //XOR NOT
+                                            case 5: // XOR NOT
                                                 currentConditionState ^= !boolResult;
                                                 break;
                                         }
                                     }
                                 }
 
-                                if (currentConditionState) { //This is the branch we need
+                                if (currentConditionState) { // This is the branch we need
                                     selectedBranch = branch;
                                     break;
                                 }
                             }
                         }
 
-                        //Now that we've selected a branch, evaluate the expression
+                        // Now that we've selected a branch, evaluate the expression
                         QJsonObject retval = selectedBranch.value("return").toObject();
                         if (retval.value("isError").toBool()) {
-                            //This is an error branch
+                            // This is an error branch
                             error = function + ": " + retval.value("expression").toString();
                             return 0;
                         } else {
@@ -812,11 +838,11 @@ void EvaluationEngine::setupFunctions() {
                                 case EvaluationEngine::Result::Equality:
                                     return idouble(result.isTrue);
                                 case EvaluationEngine::Result::Error:
-                                    //Return an error
+                                    // Return an error
                                     error = result.error;
                                     return 0;
                                 case EvaluationEngine::Result::Assign:
-                                    //Return an error
+                                    // Return an error
                                     error = tr("The function definition for %1 contains a condition which is an assignment").arg(function);
                                     return 0;
                             }
@@ -869,32 +895,33 @@ void EvaluationEngine::setTrigonometricUnit(TrigonometricUnit trigUnit) {
 idouble EvaluationEngine::fromRad(idouble rad) {
     if (trigUnit == Degrees) {
         rad = idouble(rad.real() * 180 / M_PI, rad.imag());
-        //rad *= idouble(180 / M_PI, 1);
+        // rad *= idouble(180 / M_PI, 1);
     } else if (trigUnit == Gradians) {
         rad = idouble(rad.real() * 200 / M_PI, rad.imag());
-        //rad *= idouble(200 / M_PI, 1);
+        // rad *= idouble(200 / M_PI, 1);
     }
     return rad;
 }
 
 idouble EvaluationEngine::toRad(idouble deg) {
     if (trigUnit == Degrees) {
-        //deg *= idouble(M_PI / 180, 1);
+        // deg *= idouble(M_PI / 180, 1);
         deg = idouble(deg.real() * M_PI / 180, deg.imag());
     } else if (trigUnit == Gradians) {
-        //deg *= idouble(M_PI / 200, 1);
+        // deg *= idouble(M_PI / 200, 1);
         deg = idouble(deg.real() * M_PI / 200, deg.imag());
     }
     return deg;
 }
 
-CustomFunction EvaluationEngine::createSingleArgFunction(std::function<idouble (idouble, QString&)> fn, QString fnName, QString fnDesc, QString argName, QString argDesc) {
-    return CustomFunction([ = ](QList<idouble> args, QString & error) -> idouble {
+CustomFunction EvaluationEngine::createSingleArgFunction(std::function<idouble(idouble, QString&)> fn, QString fnName, QString fnDesc, QString argName, QString argDesc) {
+    return CustomFunction([=](QList<idouble> args, QString& error) -> idouble {
         if (args.length() != 1) {
             error = tr("The %1 function takes 1 argument").arg(fnName);
             return 0;
         } else {
             return fn(args.first(), error);
         }
-    }, fnDesc, QStringList() << argName + ":" + argDesc);
+    },
+        fnDesc, QStringList() << argName + ":" + argDesc);
 }

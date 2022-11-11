@@ -29,7 +29,7 @@ FLEX_TARGET(theCalculatorLexer parser/calc.l  ${CMAKE_CURRENT_BINARY_DIR}/calc.l
 list(APPEND SOURCES ${BISON_theCalculatorParser_OUTPUTS} ${FLEX_theCalculatorLexer_OUTPUTS})
 
 add_library(libthecalculator SHARED ${SOURCES} ${HEADERS})
-cntp_init(libthecalculator 17)
+cntp_init(libthecalculator 20)
 set_target_properties(libthecalculator PROPERTIES
         OUTPUT_NAME thecalculator
         FRAMEWORK TRUE

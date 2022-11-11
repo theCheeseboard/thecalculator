@@ -19,36 +19,40 @@
  * *************************************/
 #include "graphfunction.h"
 
-#include "graphview.h"
 #include "evaluationengine.h"
-#include <math.h>
-#include <QGraphicsSceneHoverEvent>
+#include "graphview.h"
 #include <QGraphicsPathItem>
+#include <QGraphicsSceneHoverEvent>
 #include <QGraphicsSimpleTextItem>
 #include <QTimer>
+#include <math.h>
+
+namespace std {
+    extern size_t qHash(const idouble& t, size_t seed);
+}
 
 struct GraphFunctionPrivate {
-    QHash<idouble, GraphFunction::FunctionValue> yvalues;
+        QHash<idouble, GraphFunction::FunctionValue> yvalues;
 
-    QString expression;
-    GraphView* parentView;
-    QColor color = QColor(0, 200, 0);
+        QString expression;
+        GraphView* parentView;
+        QColor color = QColor(0, 200, 0);
 
-    QGraphicsSimpleTextItem* textItem;
-    QGraphicsItemGroup* graphGroup;
-    QGraphicsPathItem* colItem;
+        QGraphicsSimpleTextItem* textItem;
+        QGraphicsItemGroup* graphGroup;
+        QGraphicsPathItem* colItem;
 
-    QSharedPointer<bool> oldStillWorking;
-    QSharedPointer<QMutex> oldStillWorkingMutex;
-    int numComplete, numTotal;
-    bool ready = false;
-    QPainterPath boundingRect;
+        QSharedPointer<bool> oldStillWorking;
+        QSharedPointer<QMutex> oldStillWorkingMutex;
+        int numComplete, numTotal;
+        bool ready = false;
+        QPainterPath boundingRect;
 
-    QTimer* redrawTimer;
+        QTimer* redrawTimer;
 };
 
-GraphFunction::GraphFunction(GraphView* view, QString expression, QGraphicsItem *parent) : QGraphicsObject(parent)
-{
+GraphFunction::GraphFunction(GraphView* view, QString expression, QGraphicsItem* parent) :
+    QGraphicsObject(parent) {
     d = new GraphFunctionPrivate();
 
     d->parentView = view;
@@ -99,7 +103,7 @@ void GraphFunction::setColor(QColor color) {
 }
 
 void GraphFunction::redraw(bool immediate) {
-    //Clear everything
+    // Clear everything
     if (!d->oldStillWorking.isNull()) {
         QMutexLocker locker(d->oldStillWorkingMutex.data());
         *d->oldStillWorking = false;
@@ -117,7 +121,7 @@ void GraphFunction::redraw(bool immediate) {
     if (immediate) {
         this->doRedraw();
     } else {
-        //Start the timer so we space out the redraw events
+        // Start the timer so we space out the redraw events
         if (d->redrawTimer->isActive()) {
             d->redrawTimer->stop();
         }
@@ -136,14 +140,14 @@ void GraphFunction::doRedraw() {
     double floorPrecision = ceil(log10(unroundedPrecision));
     const double precision = pow(10, floorPrecision);
 
-    //Start at xOffset
-    double firstPoint = floor(d->parentView->xOffset() / precision) * precision; //First point in cartesian coordinates
+    // Start at xOffset
+    double firstPoint = floor(d->parentView->xOffset() / precision) * precision; // First point in cartesian coordinates
     double lastPoint = firstPoint + d->parentView->canvasSize().width() / d->parentView->xScale();
 
-    //Draw chunks of 100 points
+    // Draw chunks of 100 points
     struct PromiseReturn {
-        QPainterPath path;
-        QHash<idouble, GraphFunction::FunctionValue> values;
+            QPainterPath path;
+            QHash<idouble, GraphFunction::FunctionValue> values;
     };
 
     QSharedPointer<bool> stillWorking(new bool(true));
@@ -160,14 +164,14 @@ void GraphFunction::doRedraw() {
             bool nextMove = true;
             for (double nextPoint = nextFirstPoint, xPoint = (nextFirstPoint - d->parentView->xOffset()) * d->parentView->xScale(), i = 0;
                  i < 1000; nextPoint += precision, xPoint += precision * d->parentView->xScale(), i++) {
-                if (!stillWorking.data()) return PromiseReturn(); //Bail out
+                if (!stillWorking.data()) return PromiseReturn(); // Bail out
 
                 FunctionValue v = value(idouble(nextPoint), retval.values, localCache);
                 if (v.isUndefined || abs(v.value.imag()) > 0.000001) {
                     nextMove = true;
                 } else {
-                    //Calculate the y pixel coordinate
-                    double yOffset = v.value.real() - d->parentView->yOffset(); //Cartesian coordinates from the bottom of the viewport
+                    // Calculate the y pixel coordinate
+                    double yOffset = v.value.real() - d->parentView->yOffset(); // Cartesian coordinates from the bottom of the viewport
                     int top = d->parentView->canvasSize().height() - yOffset * d->parentView->yScale();
                     if (d->parentView->canvasSize().height() < top) {
                         nextMove = true;
@@ -273,14 +277,14 @@ QRectF GraphFunction::boundingRect() const {
     return QRectF(0, 0, d->parentView->canvasSize().width(), d->parentView->canvasSize().height());
 }
 
-void GraphFunction::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+void GraphFunction::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     painter->setRenderHint(QPainter::Antialiasing);
     for (QGraphicsItem* child : this->childItems()) {
         child->paint(painter, option, widget);
     }
 }
 
-void GraphFunction::hoverEnterEvent(QGraphicsSceneHoverEvent *event) {
+void GraphFunction::hoverEnterEvent(QGraphicsSceneHoverEvent* event) {
     d->textItem->setVisible(true);
     d->colItem->setVisible(true);
 
@@ -291,7 +295,7 @@ void GraphFunction::hoverEnterEvent(QGraphicsSceneHoverEvent *event) {
     this->hoverMoveEvent(event);
 }
 
-void GraphFunction::hoverMoveEvent(QGraphicsSceneHoverEvent *event) {
+void GraphFunction::hoverMoveEvent(QGraphicsSceneHoverEvent* event) {
     QStringList textParts;
     textParts.append("f(x) = " + d->expression);
 
@@ -311,13 +315,13 @@ void GraphFunction::hoverMoveEvent(QGraphicsSceneHoverEvent *event) {
     d->colItem->setPos(event->pos() + SC_DPI_T(QPoint(10, 10), QPoint));
 
     if (d->textItem->boundingRect().right() > d->parentView->canvasSize().width()) {
-        //Move the hover to the other side
+        // Move the hover to the other side
         d->textItem->moveBy(-(d->textItem->boundingRect().width() + SC_DPI(42)), 0);
         d->colItem->moveBy(-(d->textItem->boundingRect().width() + SC_DPI(42)), 0);
     }
 }
 
-void GraphFunction::hoverLeaveEvent(QGraphicsSceneHoverEvent *event) {
+void GraphFunction::hoverLeaveEvent(QGraphicsSceneHoverEvent* event) {
     d->textItem->setVisible(false);
     d->textItem->setText("");
     d->colItem->setVisible(false);
