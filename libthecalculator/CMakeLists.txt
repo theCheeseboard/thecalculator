@@ -1,6 +1,6 @@
 project(libthecalculator VERSION 1.0.0 LANGUAGES CXX)
 
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED Concurrent)
 find_package(libcontemporary REQUIRED)
 find_package(BISON REQUIRED)
 find_package(FLEX REQUIRED) 
@@ -44,7 +44,7 @@ set_target_properties(libthecalculator PROPERTIES
         VERSION 1.0.0
         PUBLIC_HEADER "${HEADERS}")
 
-target_link_libraries(libthecalculator Qt6::Widgets libcontemporary)
+target_link_libraries(libthecalculator Qt::Widgets Qt::Concurrent libcontemporary)
 target_compile_definitions(libthecalculator PRIVATE LIBTHECALCULATOR_LIBRARY)
 
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")

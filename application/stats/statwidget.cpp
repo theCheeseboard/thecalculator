@@ -72,7 +72,7 @@ void StatWidget::on_dataTable_cellChanged(int row, int column) {
     }
 }
 
-void StatWidget::calculateData() {
+QCoro::Task<> StatWidget::calculateData() {
     QVector<double> data;
     for (int i = 0; i < ui->dataTable->rowCount(); i++) {
         QTableWidgetItem* firstColData = ui->dataTable->item(i, 0);
@@ -128,30 +128,27 @@ void StatWidget::calculateData() {
         }
 
         //Calculate the mean
-        EvaluationEngine::evaluate("(" + addends.join("+") + ")/" + QString::number(data.count()))->then([ = ](EvaluationEngine::Result result) {
-            if (result.type == EvaluationEngine::Result::Scalar) {
-                ui->meanLabel->setText(idbToString(result.result));
-            } else {
-                ui->meanLabel->setText(tr("undefined"));
-            }
-        });
+        auto meanResult = co_await EvaluationEngine::evaluate("(" + addends.join("+") + ")/" + QString::number(data.count()));
+        if (meanResult.type == EvaluationEngine::Result::Scalar) {
+            ui->meanLabel->setText(idbToString(meanResult.result));
+        } else {
+            ui->meanLabel->setText(tr("undefined"));
+        }
 
         //Calculate the sum
-        EvaluationEngine::evaluate(addends.join("+"))->then([ = ](EvaluationEngine::Result result) {
-            if (result.type == EvaluationEngine::Result::Scalar) {
-                ui->sumLabel->setText(idbToString(result.result));
-            } else {
-                ui->sumLabel->setText(tr("undefined"));
-            }
-        });
+        auto sumResult = co_await EvaluationEngine::evaluate(addends.join("+"));
+        if (sumResult.type == EvaluationEngine::Result::Scalar) {
+            ui->sumLabel->setText(idbToString(sumResult.result));
+        } else {
+            ui->sumLabel->setText(tr("undefined"));
+        }
 
         //Calculate the sum squared
-        EvaluationEngine::evaluate(addends.join("^2+") + "^2")->then([ = ](EvaluationEngine::Result result) {
-            if (result.type == EvaluationEngine::Result::Scalar) {
-                ui->sumSquaredLabel->setText(idbToString(result.result));
-            } else {
-                ui->sumSquaredLabel->setText(tr("undefined"));
-            }
-        });
+        auto sumSquaredResult = co_await EvaluationEngine::evaluate(addends.join("^2+") + "^2");
+        if (sumSquaredResult.type == EvaluationEngine::Result::Scalar) {
+            ui->sumSquaredLabel->setText(idbToString(sumSquaredResult.result));
+        } else {
+            ui->sumSquaredLabel->setText(tr("undefined"));
+        }
     }
 }

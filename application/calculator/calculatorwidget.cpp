@@ -30,6 +30,7 @@
 #include <QScrollBar>
 #include <QScroller>
 #include <tpopover.h>
+#include <QStack>
 #include <tvariantanimation.h>
 
 QList<CalcButton*> CalculatorWidget::buttons = QList<CalcButton*>();
@@ -151,55 +152,54 @@ void CalculatorWidget::on_BackspaceButton_clicked() {
     ui->expressionBox->backspace();
 }
 
-void CalculatorWidget::on_EqualButton_clicked() {
+QCoro::Task<> CalculatorWidget::on_EqualButton_clicked() {
     QString expression = ui->expressionBox->getFixedExpression();
 
-    EvaluationEngine::evaluate(expression, MainWin->variables)->then([=](EvaluationEngine::Result r) {
-        switch (r.type) {
-            case EvaluationEngine::Result::Scalar:
-                {
-                    ui->expressionBox->setExpression(idbToString(r.result));
+    auto r = co_await EvaluationEngine::evaluate(expression, MainWin->variables);
+    switch (r.type) {
+        case EvaluationEngine::Result::Scalar:
+            {
+                ui->expressionBox->setExpression(idbToString(r.result));
 
-                    QListWidgetItem* historyItem = new QListWidgetItem();
-                    historyItem->setText(expression + " = " + idbToString(r.result));
-                    historyItem->setIcon(QIcon::fromTheme("dialog-information"));
-                    ui->historyWidget->addItem(historyItem);
+                QListWidgetItem* historyItem = new QListWidgetItem();
+                historyItem->setText(expression + " = " + idbToString(r.result));
+                historyItem->setIcon(QIcon::fromTheme("dialog-information"));
+                ui->historyWidget->addItem(historyItem);
 
-                    MainWin->variables.insert("Ans", r.result);
-                    break;
-                }
-            case EvaluationEngine::Result::Error:
-                {
-                    QString answerText;
-                    ui->answerLabel->setText(r.error);
-                    ui->expressionBox->setErrorRange(r.location, r.length);
+                MainWin->variables.insert("Ans", r.result);
+                break;
+            }
+        case EvaluationEngine::Result::Error:
+            {
+                QString answerText;
+                ui->answerLabel->setText(r.error);
+                ui->expressionBox->setErrorRange(r.location, r.length);
 
-                    resizeAnswerLabel();
-                    flashError();
-                    break;
-                }
-            case EvaluationEngine::Result::Assign:
-                {
-                    MainWin->variables.insert(r.identifier, r.value);
-                    ui->answerLabel->setText(tr("%1 assigned to %2").arg(r.identifier, idbToString(r.value)));
+                resizeAnswerLabel();
+                flashError();
+                break;
+            }
+        case EvaluationEngine::Result::Assign:
+            {
+                MainWin->variables.insert(r.identifier, r.value);
+                ui->answerLabel->setText(tr("%1 assigned to %2").arg(r.identifier, idbToString(r.value)));
 
-                    QListWidgetItem* historyItem = new QListWidgetItem();
-                    historyItem->setText(r.identifier + " = " + idbToString(r.value));
-                    historyItem->setIcon(QIcon::fromTheme("dialog-information"));
-                    ui->historyWidget->addItem(historyItem);
-                    break;
-                }
-            case EvaluationEngine::Result::Equality:
-                {
-                    ui->answerLabel->setText(r.isTrue ? tr("TRUE") : tr("FALSE"));
+                QListWidgetItem* historyItem = new QListWidgetItem();
+                historyItem->setText(r.identifier + " = " + idbToString(r.value));
+                historyItem->setIcon(QIcon::fromTheme("dialog-information"));
+                ui->historyWidget->addItem(historyItem);
+                break;
+            }
+        case EvaluationEngine::Result::Equality:
+            {
+                ui->answerLabel->setText(r.isTrue ? tr("TRUE") : tr("FALSE"));
 
-                    QListWidgetItem* historyItem = new QListWidgetItem();
-                    historyItem->setText(expression + " = " + ui->answerLabel->text());
-                    historyItem->setIcon(QIcon::fromTheme("dialog-information"));
-                    ui->historyWidget->addItem(historyItem);
-                }
-        }
-    });
+                QListWidgetItem* historyItem = new QListWidgetItem();
+                historyItem->setText(expression + " = " + ui->answerLabel->text());
+                historyItem->setIcon(QIcon::fromTheme("dialog-information"));
+                ui->historyWidget->addItem(historyItem);
+            }
+    }
 }
 
 void CalculatorWidget::resizeAnswerLabel() {
@@ -219,30 +219,29 @@ void CalculatorWidget::resizeEvent(QResizeEvent* event) {
     ui->buttonsWidget->setFixedHeight(ui->ClearButton->sizeHint().height() * 5);
 }
 
-void CalculatorWidget::on_expressionBox_expressionUpdated(const QString& newString) {
-    EvaluationEngine::evaluate(newString, MainWin->variables)->then([=](EvaluationEngine::Result r) {
-        switch (r.type) {
-            case EvaluationEngine::Result::Scalar:
-                ui->answerLabel->setText(idbToString(r.result));
-                break;
-            case EvaluationEngine::Result::Error:
-                if (r.error.startsWith("syntax error")) {
-                    ui->answerLabel->setText("");
-                    ui->expressionBox->setErrorRange(0, 0);
-                } else {
-                    ui->answerLabel->setText(r.error);
-                    ui->expressionBox->setErrorRange(r.location, r.length);
-                }
+QCoro::Task<> CalculatorWidget::on_expressionBox_expressionUpdated(const QString &newString) {
+    auto r = co_await EvaluationEngine::evaluate(newString, MainWin->variables);
+    switch (r.type) {
+        case EvaluationEngine::Result::Scalar:
+            ui->answerLabel->setText(idbToString(r.result));
+            break;
+        case EvaluationEngine::Result::Error:
+            if (r.error.startsWith("syntax error")) {
+                ui->answerLabel->setText("");
+                ui->expressionBox->setErrorRange(0, 0);
+            } else {
+                ui->answerLabel->setText(r.error);
+                ui->expressionBox->setErrorRange(r.location, r.length);
+            }
 
-                resizeAnswerLabel();
-                break;
-            case EvaluationEngine::Result::Assign:
-                ui->answerLabel->setText(tr("Assign %1 to %2").arg(r.identifier, idbToString(r.value)));
-                break;
-            case EvaluationEngine::Result::Equality:
-                ui->answerLabel->setText(r.isTrue ? tr("TRUE") : tr("FALSE"));
-        }
-    });
+            resizeAnswerLabel();
+            break;
+        case EvaluationEngine::Result::Assign:
+            ui->answerLabel->setText(tr("Assign %1 to %2").arg(r.identifier, idbToString(r.value)));
+            break;
+        case EvaluationEngine::Result::Equality:
+            ui->answerLabel->setText(r.isTrue ? tr("TRUE") : tr("FALSE"));
+    }
 }
 
 void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2) {
@@ -428,7 +427,7 @@ void CalculatorWidget::on_NthRootButton_clicked() {
 
     NthRootPopover* p = new NthRootPopover();
     tPopover* popover = new tPopover(p);
-    popover->setPopoverWidth(SC_DPI(400));
+    popover->setPopoverWidth(400);
     connect(p, &NthRootPopover::rejected, popover, &tPopover::dismiss);
     connect(p, &NthRootPopover::accepted, this, [=](QString text) {
         this->ButtonPressed(text);
@@ -447,7 +446,7 @@ void CalculatorWidget::on_LogBaseButton_clicked() {
 
     LogBasePopover* p = new LogBasePopover();
     tPopover* popover = new tPopover(p);
-    popover->setPopoverWidth(SC_DPI(400));
+    popover->setPopoverWidth(400);
     connect(p, &LogBasePopover::rejected, popover, &tPopover::dismiss);
     connect(p, &LogBasePopover::accepted, this, [=](QString text) {
         this->ButtonPressed(text);

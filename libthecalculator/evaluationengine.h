@@ -23,9 +23,10 @@
 
 #include "idouble.h"
 #include "libthecalculator_global.h"
+#include <QCoroTask>
+#include <QMutex>
 #include <QObject>
 #include <complex>
-#include <tpromise.h>
 
 LIBTHECALCULATOR_EXPORT QString numberFormatToString(long double number);
 LIBTHECALCULATOR_EXPORT QString idbToString(idouble db);
@@ -92,7 +93,7 @@ class LIBTHECALCULATOR_EXPORT EvaluationEngine : public QObject {
                 ResultType type;
         };
 
-        static tPromise<Result>* evaluate(QString expression, QMap<QString, idouble> variables = QMap<QString, idouble>());
+        static QCoro::Task<Result> evaluate(QString expression, QMap<QString, idouble> variables = QMap<QString, idouble>());
         Result evaluate();
         void setExpression(QString expression);
         void setVariables(QMap<QString, idouble> vars);

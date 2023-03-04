@@ -341,18 +341,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorwidget.cpp" line="184"/>
+        <location filename="../calculator/calculatorwidget.cpp" line="185"/>
         <source>%1 assigned to %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorwidget.cpp" line="194"/>
+        <location filename="../calculator/calculatorwidget.cpp" line="195"/>
         <location filename="../calculator/calculatorwidget.cpp" line="243"/>
         <source>TRUE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorwidget.cpp" line="194"/>
+        <location filename="../calculator/calculatorwidget.cpp" line="195"/>
         <location filename="../calculator/calculatorwidget.cpp" line="243"/>
         <source>FALSE</source>
         <translation type="unfinished"></translation>
@@ -363,13 +363,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorwidget.cpp" line="335"/>
+        <location filename="../calculator/calculatorwidget.cpp" line="334"/>
         <source>No arguments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorwidget.cpp" line="336"/>
-        <location filename="../calculator/calculatorwidget.cpp" line="353"/>
+        <location filename="../calculator/calculatorwidget.cpp" line="335"/>
+        <location filename="../calculator/calculatorwidget.cpp" line="352"/>
         <source>function</source>
         <translation type="unfinished"></translation>
     </message>
@@ -500,7 +500,7 @@
 <context>
     <name>GraphFunction</name>
     <message>
-        <location filename="../graph/graphfunction.cpp" line="307"/>
+        <location filename="../graph/graphfunction.cpp" line="308"/>
         <source>undefined</source>
         <translation type="unfinished"></translation>
     </message>
@@ -620,81 +620,81 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="293"/>
+        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="293"/>
         <source>theCalculator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="93"/>
-        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="301"/>
+        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="301"/>
         <source>Scientific</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="119"/>
-        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="302"/>
+        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="302"/>
         <source>Statistical</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="142"/>
-        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="303"/>
+        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="303"/>
         <source>Graphing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="165"/>
-        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="304"/>
+        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="304"/>
         <source>Functions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="301"/>
-        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="294"/>
+        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="294"/>
         <source>&amp;Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="304"/>
-        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="296"/>
+        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="296"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="315"/>
-        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="298"/>
+        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="298"/>
         <source>&amp;Degrees</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="323"/>
-        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="299"/>
+        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="299"/>
         <source>&amp;Radians</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="331"/>
-        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="300"/>
+        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="300"/>
         <source>&amp;Gradians</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="255"/>
+        <location filename="../main.cpp" line="256"/>
         <source>TRUE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="255"/>
+        <location filename="../main.cpp" line="256"/>
         <source>FALSE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="265"/>
+        <location filename="../main.cpp" line="266"/>
         <source>Location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="278"/>
+        <location filename="../main.cpp" line="279"/>
         <source>Here</source>
         <translation type="unfinished"></translation>
     </message>
@@ -906,8 +906,8 @@
     </message>
     <message>
         <location filename="../stats/statwidget.cpp" line="135"/>
-        <location filename="../stats/statwidget.cpp" line="144"/>
-        <location filename="../stats/statwidget.cpp" line="153"/>
+        <location filename="../stats/statwidget.cpp" line="143"/>
+        <location filename="../stats/statwidget.cpp" line="151"/>
         <source>undefined</source>
         <translation type="unfinished"></translation>
     </message>
@@ -915,122 +915,111 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="58"/>
-        <location filename="../main.cpp" line="70"/>
-        <location filename="../main.cpp" line="95"/>
+        <location filename="../main.cpp" line="59"/>
+        <location filename="../main.cpp" line="71"/>
+        <location filename="../main.cpp" line="96"/>
         <source>Calculator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="74"/>
-        <location filename="../main.cpp" line="99"/>
+        <location filename="../main.cpp" line="75"/>
+        <location filename="../main.cpp" line="100"/>
         <source>Generate a graph in PNG format and write the data to stdout.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="75"/>
+        <location filename="../main.cpp" line="76"/>
         <source>Evaluate &lt;expression&gt;, print the result to standard output, then exit.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="75"/>
+        <location filename="../main.cpp" line="76"/>
         <source>expression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="76"/>
+        <location filename="../main.cpp" line="77"/>
         <source>Use &lt;unit&gt; as the trigonometry unit. Possible values are degrees, radians and gradians.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="76"/>
+        <location filename="../main.cpp" line="77"/>
         <source>unit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="77"/>
+        <location filename="../main.cpp" line="78"/>
         <source>Do not output colour.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="100"/>
+        <location filename="../main.cpp" line="101"/>
         <source>X value to center the generated graph at</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="100"/>
+        <location filename="../main.cpp" line="101"/>
         <source>x-value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="101"/>
+        <location filename="../main.cpp" line="102"/>
         <source>Y value to center the generated graph at</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="101"/>
+        <location filename="../main.cpp" line="102"/>
         <source>y-value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="102"/>
+        <location filename="../main.cpp" line="103"/>
         <source>Number of pixels to put between each integer in the X direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="102"/>
+        <location filename="../main.cpp" line="103"/>
         <source>x-scale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="103"/>
+        <location filename="../main.cpp" line="104"/>
         <source>Number of pixels to put between each integer in the Y direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="103"/>
+        <location filename="../main.cpp" line="104"/>
         <source>y-scale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="104"/>
+        <location filename="../main.cpp" line="105"/>
         <source>File to output the graph to. If missing, output to stdout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="104"/>
+        <location filename="../main.cpp" line="105"/>
         <source>path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="106"/>
+        <location filename="../main.cpp" line="107"/>
         <source>Width of the graph, in pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="107"/>
+        <location filename="../main.cpp" line="108"/>
         <source>Height of the graph, in pixels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="108"/>
+        <location filename="../main.cpp" line="109"/>
         <source>Expressions to graph</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="115"/>
-        <source>missing operand</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../main.cpp" line="116"/>
-        <location filename="../main.cpp" line="128"/>
-        <location filename="../main.cpp" line="135"/>
-        <location filename="../main.cpp" line="150"/>
-        <location filename="../main.cpp" line="161"/>
-        <location filename="../main.cpp" line="174"/>
-        <location filename="../main.cpp" line="185"/>
-        <source>Usage: %1 [options] -g width height expressions...</source>
+        <source>missing operand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1041,61 +1030,72 @@
         <location filename="../main.cpp" line="162"/>
         <location filename="../main.cpp" line="175"/>
         <location filename="../main.cpp" line="186"/>
+        <source>Usage: %1 [options] -g width height expressions...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="118"/>
+        <location filename="../main.cpp" line="130"/>
+        <location filename="../main.cpp" line="137"/>
+        <location filename="../main.cpp" line="152"/>
+        <location filename="../main.cpp" line="163"/>
+        <location filename="../main.cpp" line="176"/>
+        <location filename="../main.cpp" line="187"/>
         <source>%1 -gh for more information.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="127"/>
+        <location filename="../main.cpp" line="128"/>
         <source>invalid output width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="134"/>
+        <location filename="../main.cpp" line="135"/>
         <source>invalid output height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="149"/>
+        <location filename="../main.cpp" line="150"/>
         <source>invalid center x position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="160"/>
+        <location filename="../main.cpp" line="161"/>
         <source>invalid center y position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="173"/>
+        <location filename="../main.cpp" line="174"/>
         <source>invalid x scale value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="184"/>
+        <location filename="../main.cpp" line="185"/>
         <source>invalid y scale value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="206"/>
+        <location filename="../main.cpp" line="207"/>
         <source>unable to open output file for writing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="236"/>
+        <location filename="../main.cpp" line="237"/>
         <source>invalid trigonometric unit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="237"/>
+        <location filename="../main.cpp" line="238"/>
         <source>Available units are: degrees|radians|gradians</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="238"/>
+        <location filename="../main.cpp" line="239"/>
         <source>%1 -h for more information.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="310"/>
+        <location filename="../main.cpp" line="311"/>
         <source>Nothing to evaluate</source>
         <translation type="unfinished"></translation>
     </message>

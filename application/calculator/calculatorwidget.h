@@ -23,6 +23,7 @@
 #include <QWidget>
 #include "historydelegate.h"
 #include "evaluationengineheaders.h"
+#include <QCoroTask>
 
 class CalcButton;
 
@@ -52,9 +53,9 @@ class CalculatorWidget : public QWidget {
 
         void on_BackspaceButton_clicked();
 
-        void on_EqualButton_clicked();
+        QCoro::Task<> on_EqualButton_clicked();
 
-        void on_expressionBox_expressionUpdated(const QString&);
+        QCoro::Task<> on_expressionBox_expressionUpdated(const QString &expression);
 
         void on_expressionBox_cursorPositionChanged(int arg1, int arg2);
 

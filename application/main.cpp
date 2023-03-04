@@ -23,6 +23,7 @@
 #include <QCommandLineParser>
 #include <QLibraryInfo>
 #include <QTranslator>
+#include <QFile>
 #include <tapplication.h>
 
 #include "graph/graphfunction.h"

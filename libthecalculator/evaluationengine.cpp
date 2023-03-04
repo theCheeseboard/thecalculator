@@ -25,7 +25,9 @@ typedef void* yyscan_t;
 #include "calc.bison.h"
 #include "calc.yy.h"
 
+#include <QtConcurrent>
 #include <QSettings>
+#include <QCoroFuture>
 
 int EvaluationEngine::runningEngines = 0;
 QMutex* EvaluationEngine::runningEnginesLocker = new QMutex();
@@ -131,13 +133,13 @@ EvaluationEngine::EvaluationEngine(QObject* parent) :
 EvaluationEngine::~EvaluationEngine() {
 }
 
-tPromise<EvaluationEngine::Result>* EvaluationEngine::evaluate(QString expression, QMap<QString, idouble> variables) {
-    return new tPromise<Result>([=](QString& error) -> Result {
-        EvaluationEngine engine;
-        engine.setExpression(expression);
-        engine.setVariables(variables);
-        return engine.evaluate();
-    });
+QCoro::Task<EvaluationEngine::Result> EvaluationEngine::evaluate(QString expression, QMap<QString, idouble> variables) {
+    co_return co_await QtConcurrent::run([](QString expression, QMap<QString, idouble> variables) {
+      EvaluationEngine engine;
+      engine.setExpression(std::move(expression));
+      engine.setVariables(std::move(variables));
+      return engine.evaluate();
+    }, expression, variables);
 }
 
 EvaluationEngine::Result EvaluationEngine::evaluate() {

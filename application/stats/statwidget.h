@@ -21,6 +21,7 @@
 #define STATWIDGET_H
 
 #include <QWidget>
+#include <QCoroTask>
 
 namespace Ui {
     class StatWidget;
@@ -40,7 +41,7 @@ class StatWidget : public QWidget
     private:
         Ui::StatWidget *ui;
 
-        void calculateData();
+        QCoro::Task<> calculateData();
 };
 
 #endif // STATWIDGET_H
