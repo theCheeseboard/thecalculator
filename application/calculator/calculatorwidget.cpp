@@ -22,15 +22,15 @@
 #include "ui_calculatorwidget.h"
 
 #include "calcbutton.h"
-#include "evaluationengine.h"
+#include "evaluation/baseevaluationengine.h"
 #include "historydelegate.h"
 #include "logbasepopover.h"
 #include "mainwindow.h"
 #include "nthrootpopover.h"
 #include <QScrollBar>
 #include <QScroller>
-#include <tpopover.h>
 #include <QStack>
+#include <tpopover.h>
 #include <tvariantanimation.h>
 
 QList<CalcButton*> CalculatorWidget::buttons = QList<CalcButton*>();
@@ -155,9 +155,9 @@ void CalculatorWidget::on_BackspaceButton_clicked() {
 QCoro::Task<> CalculatorWidget::on_EqualButton_clicked() {
     QString expression = ui->expressionBox->getFixedExpression();
 
-    auto r = co_await EvaluationEngine::evaluate(expression, MainWin->variables);
+    auto r = co_await BaseEvaluationEngine::current()->evaluate(expression, MainWin->variables);
     switch (r.type) {
-        case EvaluationEngine::Result::Scalar:
+        case BaseEvaluationEngine::Result::Scalar:
             {
                 ui->expressionBox->setExpression(idbToString(r.result));
 
@@ -169,7 +169,7 @@ QCoro::Task<> CalculatorWidget::on_EqualButton_clicked() {
                 MainWin->variables.insert("Ans", r.result);
                 break;
             }
-        case EvaluationEngine::Result::Error:
+        case BaseEvaluationEngine::Result::Error:
             {
                 QString answerText;
                 ui->answerLabel->setText(r.error);
@@ -179,7 +179,7 @@ QCoro::Task<> CalculatorWidget::on_EqualButton_clicked() {
                 flashError();
                 break;
             }
-        case EvaluationEngine::Result::Assign:
+        case BaseEvaluationEngine::Result::Assign:
             {
                 MainWin->variables.insert(r.identifier, r.value);
                 ui->answerLabel->setText(tr("%1 assigned to %2").arg(r.identifier, idbToString(r.value)));
@@ -190,7 +190,7 @@ QCoro::Task<> CalculatorWidget::on_EqualButton_clicked() {
                 ui->historyWidget->addItem(historyItem);
                 break;
             }
-        case EvaluationEngine::Result::Equality:
+        case BaseEvaluationEngine::Result::Equality:
             {
                 ui->answerLabel->setText(r.isTrue ? tr("TRUE") : tr("FALSE"));
 
@@ -219,13 +219,13 @@ void CalculatorWidget::resizeEvent(QResizeEvent* event) {
     ui->buttonsWidget->setFixedHeight(ui->ClearButton->sizeHint().height() * 5);
 }
 
-QCoro::Task<> CalculatorWidget::on_expressionBox_expressionUpdated(const QString &newString) {
-    auto r = co_await EvaluationEngine::evaluate(newString, MainWin->variables);
+QCoro::Task<> CalculatorWidget::on_expressionBox_expressionUpdated(const QString& newString) {
+    auto r = co_await BaseEvaluationEngine::current()->evaluate(newString, MainWin->variables);
     switch (r.type) {
-        case EvaluationEngine::Result::Scalar:
+        case BaseEvaluationEngine::Result::Scalar:
             ui->answerLabel->setText(idbToString(r.result));
             break;
-        case EvaluationEngine::Result::Error:
+        case BaseEvaluationEngine::Result::Error:
             if (r.error.startsWith("syntax error")) {
                 ui->answerLabel->setText("");
                 ui->expressionBox->setErrorRange(0, 0);
@@ -236,10 +236,10 @@ QCoro::Task<> CalculatorWidget::on_expressionBox_expressionUpdated(const QString
 
             resizeAnswerLabel();
             break;
-        case EvaluationEngine::Result::Assign:
+        case BaseEvaluationEngine::Result::Assign:
             ui->answerLabel->setText(tr("Assign %1 to %2").arg(r.identifier, idbToString(r.value)));
             break;
-        case EvaluationEngine::Result::Equality:
+        case BaseEvaluationEngine::Result::Equality:
             ui->answerLabel->setText(r.isTrue ? tr("TRUE") : tr("FALSE"));
     }
 }
@@ -254,7 +254,7 @@ void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2
     QStack<QString> matchSelector;
     QStack<int> matchPositions;
     QChar lastChar = ' ';
-    for (int i = 0; i < relevantText.count(); i++) {
+    for (int i = 0; i < relevantText.length(); i++) {
         QChar c = relevantText.at(i);
         if (c == '(') {
             if (matchIterator.hasNext() && QRegularExpression("\\w").match(lastChar).hasMatch()) {
@@ -295,15 +295,15 @@ void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2
             currentPosition = matchPositions.pop();
         }
 
-        if (EvaluationEngine::customFunctions.contains(currentFunction)) {
+        if (BaseEvaluationEngine::current()->customFunctions().contains(currentFunction)) {
             // Figure out the current argument
             int currentArgument = 0;
 
-            if (relevantText.count() - currentPosition == 1) {
+            if (relevantText.size() - currentPosition == 1) {
                 currentArgument = -1;
             } else {
                 int bracketCount = -1;
-                for (int i = currentPosition; i < relevantText.count(); i++) {
+                for (int i = currentPosition; i < relevantText.size(); i++) {
                     QChar c = relevantText.at(i);
                     if (c == '(') {
                         bracketCount++;
@@ -316,20 +316,20 @@ void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2
                 }
             }
 
-            CustomFunction fn = EvaluationEngine::customFunctions.value(currentFunction);
+            auto fn = BaseEvaluationEngine::current()->customFunctions().value(currentFunction);
             if (currentFunctionHelp != currentFunction) {
                 currentOverload = 0;
                 currentFunctionHelp = currentFunction;
-                numOverloads = fn.overloads();
+                numOverloads = fn->overloads();
             }
 
             int usedOverload = currentOverload;
-            if (fn.getArgs(usedOverload).count() <= currentArgument && usedOverload + 1 < numOverloads) {
+            if (fn->getArgs(usedOverload).count() <= currentArgument && usedOverload + 1 < numOverloads) {
                 usedOverload++;
             }
-            ui->funHelpDesc->setText(fn.getDescription(usedOverload));
+            ui->funHelpDesc->setText(fn->getDescription(usedOverload));
 
-            QStringList args = fn.getArgs(usedOverload);
+            QStringList args = fn->getArgs(usedOverload);
             if (args.count() == 0) {
                 ui->funHelpArgs->setText(tr("No arguments"));
                 ui->funHelpName->setText(currentFunction + "() : " + tr("function"));

@@ -27,7 +27,7 @@
 #include <cstdio>
 #include <QApplication>
 #include "evaluationengineheaders.h"
-#include "evaluationengine.h"
+#include "evaluation/bisonflex/bisonflexevaluationengine.h"
 
 extern QString idbToString(idouble db);
 
@@ -37,11 +37,12 @@ extern QString idbToString(idouble db);
 
 idouble callFunction(QString name, QList<idouble> args, QString& error) {
     //qDebug() << "Calling function:" << name << "with arguments" << args;
-    if (!EvaluationEngine::customFunctions.contains(name)) {
-        error = QApplication::translate("EvaluationEngine", "%1: undefined function").arg(name);
+    auto engine = BaseEvaluationEngine::current();
+    if (!engine->customFunctions().contains(name)) {
+        error = QApplication::translate("BisonFlexEvaluationEngine", "%1: undefined function").arg(name);
         return 0;
     } else {
-        return EvaluationEngine::customFunctions.value(name).getFunction()(args, error);
+        return engine->customFunctions().value(name)->getFunction()(args, error);
     }
 }
 
@@ -75,7 +76,7 @@ double absArg(idouble n) {
             YYABORT; \
         } \
     }
-#define tr(str) QApplication::translate("EvaluationEngine", str)
+#define tr(str) QApplication::translate("BisonFlexEvaluationEngine", str)
 #define CHECK_VALID_BITWISE(name, arg1, arg2, arg1loc, arg2loc) \
     bool shouldCalc = false; \
     if (!qFuzzyIsNull(static_cast<double>((arg1).imag())) || static_cast<int>((arg1).real()) != (arg1).real()) { \
@@ -290,7 +291,7 @@ arguments: expression {$$ = new QList<idouble>(); $$->append(*$1);}
 
 function: IDENTIFIER LBRACKET arguments RBRACKET {CALL_MAINWINDOW_FUNCTION(@$, *$1, *$3, $$)}
 |   IDENTIFIER EXPONENTIATE expression LBRACKET arguments RBRACKET {
-        if ($3->real() == -1 && $3->imag() == 0 && EvaluationEngine::customFunctions.contains("a" + *$1)) {
+        if ($3->real() == -1 && $3->imag() == 0 && BaseEvaluationEngine::current()->customFunctions().contains("a" + *$1)) {
             //Call special inverse function
             CALL_MAINWINDOW_FUNCTION(@$, "a" + *$1, *$5, $$);
         } else {
@@ -301,7 +302,7 @@ function: IDENTIFIER LBRACKET arguments RBRACKET {CALL_MAINWINDOW_FUNCTION(@$, *
         }
     }
 |   IDENTIFIER power LBRACKET arguments RBRACKET {
-        if ($2->real() == -1 && $2->imag() == 0 && EvaluationEngine::customFunctions.contains("a" + *$1)) {
+        if ($2->real() == -1 && $2->imag() == 0 && BaseEvaluationEngine::current()->customFunctions().contains("a" + *$1)) {
             //Call special inverse function
             CALL_MAINWINDOW_FUNCTION(@$, "a" + *$1, *$4, $$);
         } else {

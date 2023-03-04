@@ -20,27 +20,27 @@
 #ifndef GRAPHFUNCTION_H
 #define GRAPHFUNCTION_H
 
-#include "evaluationengineheaders.h"
-#include <QGraphicsObject>
 #include <QApplication>
+#include <QCoroTask>
+#include <QGraphicsObject>
+#include <idouble.h>
 
 class GraphView;
 struct GraphFunctionPrivate;
 
-class GraphFunction : public QGraphicsObject
-{
-    Q_OBJECT
+class GraphFunction : public QGraphicsObject {
+        Q_OBJECT
 
     public:
-        explicit GraphFunction(GraphView* view, QString expression = "", QGraphicsItem *parent = nullptr);
+        explicit GraphFunction(GraphView* view, QString expression = "", QGraphicsItem* parent = nullptr);
         ~GraphFunction();
 
         struct FunctionValue {
-            idouble value;
-            bool isUndefined = false;
+                idouble value;
+                bool isUndefined = false;
         };
 
-        FunctionValue value(idouble x, QHash<idouble, GraphFunction::FunctionValue>& addHash, QHash<idouble, GraphFunction::FunctionValue> readHash);
+        QCoro::Task<FunctionValue> value(idouble x, QHash<idouble, GraphFunction::FunctionValue>& addHash, QHash<idouble, GraphFunction::FunctionValue> readHash);
         void setExpression(QString expression);
         void setColor(QColor color);
 
@@ -62,6 +62,7 @@ class GraphFunction : public QGraphicsObject
         void hoverLeaveEvent(QGraphicsSceneHoverEvent* event);
 
         void doRedraw();
+        QCoro::Task<> updateHover(QPointF pos);
 };
 
 #endif // GRAPHFUNCTION_H

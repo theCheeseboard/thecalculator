@@ -19,7 +19,7 @@
  * *************************************/
 #include "graphfunction.h"
 
-#include "evaluationengine.h"
+#include "evaluation/baseevaluationengine.h"
 #include "graphview.h"
 #include <QFutureWatcher>
 #include <QGraphicsPathItem>
@@ -178,7 +178,7 @@ void GraphFunction::doRedraw() {
                 if (!stillWorking.data())
                     return PromiseReturn(); // Bail out
 
-                FunctionValue v = value(idouble(nextPoint), retval.values, localCache);
+                FunctionValue v = QCoro::waitFor(value(idouble(nextPoint), retval.values, localCache));
                 if (v.isUndefined || abs(v.value.imag()) > 0.000001) {
                     nextMove = true;
                 } else {
@@ -234,31 +234,52 @@ void GraphFunction::doRedraw() {
     this->update();
 }
 
-GraphFunction::FunctionValue
-    GraphFunction::value(idouble x,
-        QHash<idouble, GraphFunction::FunctionValue>& addHash,
-        QHash<idouble, GraphFunction::FunctionValue> readHash) {
+QCoro::Task<> GraphFunction::updateHover(QPointF pos) {
+    QStringList textParts;
+    textParts.append("f(x) = " + d->expression);
+
+    double xValue =
+        d->parentView->xOffset() + pos.x() / d->parentView->xScale();
+    textParts.append(QString("x: ").append(QString::number(xValue)));
+
+    FunctionValue v = co_await value(idouble(xValue), d->yvalues, d->yvalues);
+    if (v.isUndefined) {
+        textParts.append(QString("y: ").append(tr("undefined")));
+    } else {
+        textParts.append(QString("y: ").append(idbToString(v.value)));
+    }
+
+    d->textItem->setText(textParts.join("\n"));
+    d->textItem->setPos(pos + QPoint(32, 10));
+
+    d->colItem->setPos(pos + QPoint(10, 10));
+
+    if (d->textItem->boundingRect().right() >
+        d->parentView->canvasSize().width()) {
+        // Move the hover to the other side
+        d->textItem->moveBy(-(d->textItem->boundingRect().width() + 42), 0);
+        d->colItem->moveBy(-(d->textItem->boundingRect().width() + 42), 0);
+    }
+}
+
+QCoro::Task<GraphFunction::FunctionValue> GraphFunction::value(idouble x, QHash<idouble, GraphFunction::FunctionValue>& addHash, QHash<idouble, GraphFunction::FunctionValue> readHash) {
     if (d->expression == "") {
         FunctionValue v;
         v.isUndefined = true;
-        return v;
+        co_return v;
     }
 
     if (readHash.contains(x)) {
-        return readHash.value(x);
+        co_return readHash.value(x);
     } else {
         QMap<QString, idouble> vars;
         vars.insert("x", x);
 
-        EvaluationEngine e;
-        e.setVariables(vars);
-        e.setTrigonometricUnit(EvaluationEngine::Radians);
-        e.setExpression(d->expression);
-        EvaluationEngine::Result evaluation = e.evaluate();
+        auto evaluation = co_await BaseEvaluationEngine::current()->evaluate(d->expression, vars);
 
         FunctionValue v;
         switch (evaluation.type) {
-            case EvaluationEngine::Result::Scalar:
+            case BaseEvaluationEngine::Result::Scalar:
                 v.value = evaluation.result;
                 break;
             default:
@@ -266,7 +287,7 @@ GraphFunction::FunctionValue
                 break;
         }
         addHash.insert(x, v);
-        return v;
+        co_return v;
     }
 }
 
@@ -296,31 +317,7 @@ void GraphFunction::hoverEnterEvent(QGraphicsSceneHoverEvent* event) {
 }
 
 void GraphFunction::hoverMoveEvent(QGraphicsSceneHoverEvent* event) {
-    QStringList textParts;
-    textParts.append("f(x) = " + d->expression);
-
-    double xValue =
-        d->parentView->xOffset() + event->pos().x() / d->parentView->xScale();
-    textParts.append(QString("x: ").append(QString::number(xValue)));
-
-    FunctionValue v = value(idouble(xValue), d->yvalues, d->yvalues);
-    if (v.isUndefined) {
-        textParts.append(QString("y: ").append(tr("undefined")));
-    } else {
-        textParts.append(QString("y: ").append(idbToString(v.value)));
-    }
-
-    d->textItem->setText(textParts.join("\n"));
-    d->textItem->setPos(event->pos() + QPoint(32, 10));
-
-    d->colItem->setPos(event->pos() + QPoint(10, 10));
-
-    if (d->textItem->boundingRect().right() >
-        d->parentView->canvasSize().width()) {
-        // Move the hover to the other side
-        d->textItem->moveBy(-(d->textItem->boundingRect().width() + 42), 0);
-        d->colItem->moveBy(-(d->textItem->boundingRect().width() + 42), 0);
-    }
+    updateHover(event->pos());
 }
 
 void GraphFunction::hoverLeaveEvent(QGraphicsSceneHoverEvent* event) {

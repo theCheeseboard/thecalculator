@@ -925,44 +925,44 @@
         <translation>Thêm quá tải</translation>
     </message>
     <message>
-        <location filename="../functions/functionwidget.cpp" line="71"/>
+        <location filename="../functions/functionwidget.cpp" line="67"/>
         <source>Save this function?</source>
         <translation>Lưu hàm số này?</translation>
     </message>
     <message>
-        <location filename="../functions/functionwidget.cpp" line="71"/>
+        <location filename="../functions/functionwidget.cpp" line="67"/>
         <source>Do you want to save this function?</source>
         <translation>Bạn có muốn lưu hàm số này không?</translation>
     </message>
     <message>
-        <location filename="../functions/functionwidget.cpp" line="98"/>
+        <location filename="../functions/functionwidget.cpp" line="92"/>
         <source>Function Name Required</source>
         <translation>Bắt buộc tên hàm số</translation>
     </message>
     <message>
-        <location filename="../functions/functionwidget.cpp" line="99"/>
+        <location filename="../functions/functionwidget.cpp" line="93"/>
         <source>A function name needs to be set</source>
         <translation>Bạn cần đặt tên hàm số</translation>
     </message>
     <message>
-        <location filename="../functions/functionwidget.cpp" line="119"/>
+        <location filename="../functions/functionwidget.cpp" line="113"/>
         <source>Overload Arguments</source>
         <translation>Tham số quá tải</translation>
     </message>
     <message numerus="yes">
-        <location filename="../functions/functionwidget.cpp" line="120"/>
+        <location filename="../functions/functionwidget.cpp" line="114"/>
         <source>Only one overload can have %n arguments</source>
         <translation>
             <numerusform>Chỉ một quá tải được có %n hàm số</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../functions/functionwidget.cpp" line="192"/>
+        <location filename="../functions/functionwidget.cpp" line="182"/>
         <source>For %1</source>
         <translation>Cho %1</translation>
     </message>
     <message>
-        <location filename="../functions/functionwidget.cpp" line="193"/>
+        <location filename="../functions/functionwidget.cpp" line="183"/>
         <source>Delete</source>
         <translation>Xóa</translation>
     </message>
@@ -970,7 +970,7 @@
 <context>
     <name>GraphFunction</name>
     <message>
-        <location filename="../graph/graphfunction.cpp" line="308"/>
+        <location filename="../graph/graphfunction.cpp" line="247"/>
         <source>undefined</source>
         <translation>không xác định</translation>
     </message>
@@ -1090,25 +1090,25 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="293"/>
+        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="293"/>
         <source>theCalculator</source>
         <translation>theCalculator</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="93"/>
-        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="301"/>
+        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="301"/>
         <source>Scientific</source>
         <translation>Khoa học</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="119"/>
-        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="302"/>
+        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="302"/>
         <source>Statistical</source>
         <translation>Thống kê</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="142"/>
-        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="303"/>
+        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="303"/>
         <source>Graphing</source>
         <translation>Đồ thị</translation>
     </message>
@@ -1119,57 +1119,57 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="165"/>
-        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="304"/>
+        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="304"/>
         <source>Functions</source>
         <translation>Hàm số</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="301"/>
-        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="294"/>
+        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="294"/>
         <source>&amp;Exit</source>
         <translation>&amp;Thoát</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="304"/>
-        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="296"/>
+        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="296"/>
         <source>Ctrl+Q</source>
         <translation>CTRL+Q</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="315"/>
-        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="298"/>
+        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="298"/>
         <source>&amp;Degrees</source>
         <translation>Đơn vị &amp;độ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="323"/>
-        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="299"/>
+        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="299"/>
         <source>&amp;Radians</source>
         <translation>Đơn vị &amp;rađian</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="331"/>
-        <location filename="../../cmake-build-debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="300"/>
+        <location filename="../../../build-theCalculator-Chroot_6-Debug/application/thecalculator_autogen/include/ui_mainwindow.h" line="300"/>
         <source>&amp;Gradians</source>
         <translation>Đơn vị &amp;građian</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="256"/>
+        <location filename="../main.cpp" line="253"/>
         <source>TRUE</source>
         <translation>THẬT</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="256"/>
+        <location filename="../main.cpp" line="253"/>
         <source>FALSE</source>
         <translation>SAI</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="266"/>
+        <location filename="../main.cpp" line="263"/>
         <source>Location</source>
         <translation>Vị trí</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="279"/>
+        <location filename="../main.cpp" line="276"/>
         <source>Here</source>
         <translation>Đây</translation>
     </message>
@@ -1355,29 +1355,29 @@
         <translation>Bình quân</translation>
     </message>
     <message>
-        <location filename="../stats/statwidget.cpp" line="32"/>
+        <location filename="../stats/statwidget.cpp" line="33"/>
         <source>Value</source>
         <translation>Giá trị</translation>
     </message>
     <message>
-        <location filename="../stats/statwidget.cpp" line="32"/>
+        <location filename="../stats/statwidget.cpp" line="33"/>
         <source>Frequency</source>
         <translation>Tần số</translation>
     </message>
     <message>
+        <location filename="../stats/statwidget.cpp" line="102"/>
         <location filename="../stats/statwidget.cpp" line="103"/>
         <location filename="../stats/statwidget.cpp" line="104"/>
         <location filename="../stats/statwidget.cpp" line="105"/>
         <location filename="../stats/statwidget.cpp" line="106"/>
         <location filename="../stats/statwidget.cpp" line="107"/>
-        <location filename="../stats/statwidget.cpp" line="108"/>
         <source>no data</source>
         <translation>không có dữ liệu</translation>
     </message>
     <message>
-        <location filename="../stats/statwidget.cpp" line="135"/>
-        <location filename="../stats/statwidget.cpp" line="143"/>
-        <location filename="../stats/statwidget.cpp" line="151"/>
+        <location filename="../stats/statwidget.cpp" line="134"/>
+        <location filename="../stats/statwidget.cpp" line="142"/>
+        <location filename="../stats/statwidget.cpp" line="150"/>
         <source>undefined</source>
         <translation>không xác định</translation>
     </message>
@@ -1385,112 +1385,123 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="59"/>
-        <location filename="../main.cpp" line="71"/>
-        <location filename="../main.cpp" line="96"/>
+        <location filename="../main.cpp" line="58"/>
+        <location filename="../main.cpp" line="70"/>
+        <location filename="../main.cpp" line="95"/>
         <source>Calculator</source>
         <translation>Máy tính</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="75"/>
-        <location filename="../main.cpp" line="100"/>
+        <location filename="../main.cpp" line="74"/>
+        <location filename="../main.cpp" line="99"/>
         <source>Generate a graph in PNG format and write the data to stdout.</source>
         <translation>Tạo ra đồ thị vào định dạng PNG và ghi sang stdout.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="76"/>
+        <location filename="../main.cpp" line="75"/>
         <source>expression</source>
         <translation>biểu thức</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="76"/>
+        <location filename="../main.cpp" line="75"/>
         <source>Evaluate &lt;expression&gt;, print the result to standard output, then exit.</source>
         <translation>Tính &lt;expression&gt;, in kết quả sang đầu ra tiêu chuẩn, rồi thoát.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="107"/>
+        <location filename="../main.cpp" line="106"/>
         <source>Width of the graph, in pixels</source>
         <translation>Chiều rộng đồ thị, trong pixel</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="108"/>
+        <location filename="../main.cpp" line="107"/>
         <source>Height of the graph, in pixels</source>
         <translation>Chiều cao đồ thị, trong pixel</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="101"/>
+        <location filename="../main.cpp" line="100"/>
         <source>X value to center the generated graph at</source>
         <translation>Giá trị X để đặt giữa đồ thị</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="77"/>
+        <location filename="../main.cpp" line="76"/>
         <source>Use &lt;unit&gt; as the trigonometry unit. Possible values are degrees, radians and gradians.</source>
         <translation>Sử dụng &lt;đơn vị&gt; cho đơn vị lượng giác. Có thể sử dụng degrees, radians và gradians.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="77"/>
+        <location filename="../main.cpp" line="76"/>
         <source>unit</source>
         <translation>đơn vị</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="78"/>
+        <location filename="../main.cpp" line="77"/>
         <source>Do not output colour.</source>
         <translation>Đừng xuất ra màu.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="101"/>
+        <location filename="../main.cpp" line="100"/>
         <source>x-value</source>
         <translation>x-value</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="102"/>
+        <location filename="../main.cpp" line="101"/>
         <source>Y value to center the generated graph at</source>
         <translation>Giá trị y để đặt giữa đồ thị</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="102"/>
+        <location filename="../main.cpp" line="101"/>
         <source>y-value</source>
         <translation>y-value</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="103"/>
+        <location filename="../main.cpp" line="102"/>
         <source>Number of pixels to put between each integer in the X direction</source>
         <translation>Khoảng cách đặt giữa các số cho chiều X trong pixel</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="103"/>
+        <location filename="../main.cpp" line="102"/>
         <source>x-scale</source>
         <translation>x-scale</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="104"/>
+        <location filename="../main.cpp" line="103"/>
         <source>Number of pixels to put between each integer in the Y direction</source>
         <translation>Khoảng cách đặt giữa các số cho chiều Y trong pixel</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="104"/>
+        <location filename="../main.cpp" line="103"/>
         <source>y-scale</source>
         <translation>y-scale</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="105"/>
+        <location filename="../main.cpp" line="104"/>
         <source>File to output the graph to. If missing, output to stdout</source>
         <translation>Tệp để ghi đồ thị vào. Nếu mất, ghi sang stdout</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="105"/>
+        <location filename="../main.cpp" line="104"/>
         <source>path</source>
         <translation>path</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="109"/>
+        <location filename="../main.cpp" line="108"/>
         <source>Expressions to graph</source>
         <translation>Biểu thức để vẽ trên đồ thị</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="116"/>
+        <location filename="../main.cpp" line="115"/>
         <source>missing operand</source>
         <translation>thiếu toán hạng</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="116"/>
+        <location filename="../main.cpp" line="128"/>
+        <location filename="../main.cpp" line="135"/>
+        <location filename="../main.cpp" line="150"/>
+        <location filename="../main.cpp" line="161"/>
+        <location filename="../main.cpp" line="174"/>
+        <location filename="../main.cpp" line="185"/>
+        <source>Usage: %1 [options] -g width height expressions...</source>
+        <translation>Cách dùng: %1 [tùy chọn] -g chiều-rộng chiều-cao biểu-thức...</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="117"/>
@@ -1500,72 +1511,61 @@
         <location filename="../main.cpp" line="162"/>
         <location filename="../main.cpp" line="175"/>
         <location filename="../main.cpp" line="186"/>
-        <source>Usage: %1 [options] -g width height expressions...</source>
-        <translation>Cách dùng: %1 [tùy chọn] -g chiều-rộng chiều-cao biểu-thức...</translation>
-    </message>
-    <message>
-        <location filename="../main.cpp" line="118"/>
-        <location filename="../main.cpp" line="130"/>
-        <location filename="../main.cpp" line="137"/>
-        <location filename="../main.cpp" line="152"/>
-        <location filename="../main.cpp" line="163"/>
-        <location filename="../main.cpp" line="176"/>
-        <location filename="../main.cpp" line="187"/>
         <source>%1 -gh for more information.</source>
         <translation>%1 -gh để biết thêm thông tin.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="128"/>
+        <location filename="../main.cpp" line="127"/>
         <source>invalid output width</source>
         <translation>chiều rộng không hợp lệ</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="135"/>
+        <location filename="../main.cpp" line="134"/>
         <source>invalid output height</source>
         <translation>chiều cao không hợp lệ</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="150"/>
+        <location filename="../main.cpp" line="149"/>
         <source>invalid center x position</source>
         <translation>điểm x đặt giữa không hợp lệ</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="161"/>
+        <location filename="../main.cpp" line="160"/>
         <source>invalid center y position</source>
         <translation>điểm y đặt giữa không hợp lệ</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="174"/>
+        <location filename="../main.cpp" line="173"/>
         <source>invalid x scale value</source>
         <translation>quy mô x không hợp lệ</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="185"/>
+        <location filename="../main.cpp" line="184"/>
         <source>invalid y scale value</source>
         <translation>quy mô y không hợp lệ</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="207"/>
+        <location filename="../main.cpp" line="206"/>
         <source>unable to open output file for writing</source>
         <translation>không thể mở tệp ra để ghi</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="237"/>
+        <location filename="../main.cpp" line="236"/>
         <source>invalid trigonometric unit</source>
         <translation>Đơn vị lượng giác không có hợp lệ</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="238"/>
+        <location filename="../main.cpp" line="237"/>
         <source>Available units are: degrees|radians|gradians</source>
         <translation>Có thể sử dụng: degrees|radians|gradians</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="239"/>
+        <location filename="../main.cpp" line="238"/>
         <source>%1 -h for more information.</source>
         <translation>%1 -h để biết thêm thông tin.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="311"/>
+        <location filename="../main.cpp" line="308"/>
         <source>Nothing to evaluate</source>
         <translation>Không có gì để tính</translation>
     </message>

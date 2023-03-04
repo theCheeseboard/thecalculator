@@ -18,12 +18,12 @@
  *
  * *************************************/
 
-#include "evaluationengine.h"
+#include "evaluation/baseevaluationengine.h"
 #include "mainwindow.h"
 #include <QCommandLineParser>
+#include <QFile>
 #include <QLibraryInfo>
 #include <QTranslator>
-#include <QFile>
 #include <tapplication.h>
 
 #include "graph/graphfunction.h"
@@ -50,7 +50,6 @@ int main(int argc, char* argv[]) {
     a.setApplicationShareDir("thecalculator");
     a.addLibraryTranslator(LIBTHECALCULATOR_TRANSLATOR);
 
-    EvaluationEngine::setupFunctions();
     a.installTranslators();
 
     a.setOrganizationName("theSuite");
@@ -219,7 +218,7 @@ int main(int argc, char* argv[]) {
             MainWin->show();
             return a.exec();
         } else {
-            EvaluationEngine engine;
+            auto engine = BaseEvaluationEngine::current();
             QVector<QPair<QString, QString>> outputs;
             QMap<QString, idouble> variables;
             bool didError = false;
@@ -227,11 +226,11 @@ int main(int argc, char* argv[]) {
             if (parser.isSet("t")) {
                 QString unit = parser.value("t");
                 if (unit == "degrees") {
-                    EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Degrees);
+                    BaseEvaluationEngine::current()->setTrigonometricUnit(BaseEvaluationEngine::Degrees);
                 } else if (unit == "radians") {
-                    EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Radians);
+                    BaseEvaluationEngine::current()->setTrigonometricUnit(BaseEvaluationEngine::Radians);
                 } else if (unit == "gradians") {
-                    EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Gradians);
+                    BaseEvaluationEngine::current()->setTrigonometricUnit(BaseEvaluationEngine::Gradians);
                 } else {
                     QTextStream err(stderr);
                     err << "thecalculator: " + QApplication::translate("main", "invalid trigonometric unit") + "\n";
@@ -244,21 +243,19 @@ int main(int argc, char* argv[]) {
             for (QString e : parser.value("e").split(":")) {
                 e = e.remove(" "); // Remove all spaces
 
-                engine.setExpression(e);
-                engine.setVariables(variables);
-                EvaluationEngine::Result res = engine.evaluate();
+                BaseEvaluationEngine::Result res = QCoro::waitFor(engine->evaluate(e, variables));
 
                 switch (res.type) {
-                    case EvaluationEngine::Result::Scalar:
+                    case BaseEvaluationEngine::Result::Scalar:
                         outputs.append(QPair<QString, QString>(e, idbToString(res.result)));
                         break;
-                    case EvaluationEngine::Result::Equality:
+                    case BaseEvaluationEngine::Result::Equality:
                         outputs.append(QPair<QString, QString>(e, res.isTrue ? QApplication::translate("MainWindow", "TRUE") : QApplication::translate("MainWindow", "FALSE")));
                         break;
-                    case EvaluationEngine::Result::Assign:
+                    case BaseEvaluationEngine::Result::Assign:
                         variables.insert(res.identifier, res.value);
                         break;
-                    case EvaluationEngine::Result::Error:
+                    case BaseEvaluationEngine::Result::Error:
                         {
                             QStringList errorText;
                             errorText.append(termCol.value("yellow") + res.error + termCol.value("reset"));
@@ -300,7 +297,7 @@ int main(int argc, char* argv[]) {
                         }
                 }
 
-                if (res.type == EvaluationEngine::Result::Error) {
+                if (res.type == BaseEvaluationEngine::Result::Error) {
                     didError = true;
                     break; // Abort calculations here
                 }

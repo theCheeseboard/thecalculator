@@ -20,9 +20,12 @@
 #ifndef IDOUBLE_H
 #define IDOUBLE_H
 
+#include "libthecalculator_global.h"
 #include <complex>
 
 typedef std::complex<long double> idouble;
+
+LIBTHECALCULATOR_EXPORT QString idbToString(idouble db);
 
 namespace std {
     template<> struct hash<idouble> {

@@ -20,25 +20,24 @@
 #include "functionwidget.h"
 #include "ui_functionwidget.h"
 
-#include "evaluationengine.h"
-#include <QMessageBox>
-#include <ttoast.h>
-#include <QSettings>
+#include "customs/overloadbox.h"
+#include "evaluation/baseevaluationengine.h"
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QMenu>
-#include "customs/overloadbox.h"
+#include <QMessageBox>
+#include <QSettings>
+#include <ttoast.h>
 
-FunctionWidget::FunctionWidget(QWidget *parent) :
+FunctionWidget::FunctionWidget(QWidget* parent) :
     tStackedWidget(parent),
-    ui(new Ui::FunctionWidget)
-{
+    ui(new Ui::FunctionWidget) {
     ui->setupUi(this);
 
     QSettings settings;
     settings.beginGroup("customFunctions");
 
-    //Load up all the custom functions
+    // Load up all the custom functions
     ui->customFunctionsList->clear();
     for (QString key : settings.allKeys()) {
         ui->customFunctionsList->addItem(key);
@@ -48,13 +47,11 @@ FunctionWidget::FunctionWidget(QWidget *parent) :
     this->setCurrentAnimation(SlideHorizontal);
 }
 
-FunctionWidget::~FunctionWidget()
-{
+FunctionWidget::~FunctionWidget() {
     delete ui;
 }
 
-void FunctionWidget::on_addCustomFunction_clicked()
-{
+void FunctionWidget::on_addCustomFunction_clicked() {
     editingFunction = "";
     ui->functionName->setText("");
     QLayoutItem* i = ui->customFunctionDefinitionWidget->layout()->takeAt(0);
@@ -66,20 +63,18 @@ void FunctionWidget::on_addCustomFunction_clicked()
     this->setCurrentIndex(1);
 }
 
-void FunctionWidget::on_backButton_2_clicked()
-{
+void FunctionWidget::on_backButton_2_clicked() {
     QMessageBox::StandardButton b = QMessageBox::warning(this, tr("Save this function?"), tr("Do you want to save this function?"), QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel, QMessageBox::Save);
     if (b == QMessageBox::Save) {
-        //Save the function
+        // Save the function
         ui->saveCustomFunctionButton->click();
     } else if (b == QMessageBox::Discard) {
-        //Don't save the function
+        // Don't save the function
         this->setCurrentIndex(0);
     }
 }
 
-void FunctionWidget::on_newOverloadButton_clicked()
-{
+void FunctionWidget::on_newOverloadButton_clicked() {
     OverloadBox* overload = new OverloadBox();
     connect(overload, &OverloadBox::remove, [=] {
         ui->customFunctionDefinitionWidget->layout()->removeWidget(overload);
@@ -88,12 +83,11 @@ void FunctionWidget::on_newOverloadButton_clicked()
     ui->customFunctionDefinitionWidget->layout()->addWidget(overload);
 }
 
-void FunctionWidget::on_saveCustomFunctionButton_clicked()
-{
+void FunctionWidget::on_saveCustomFunctionButton_clicked() {
     QJsonObject obj;
 
     if (ui->functionName->text() == "") {
-        //Name is required
+        // Name is required
         tToast* toast = new tToast();
         toast->setTitle(tr("Function Name Required"));
         toast->setText(tr("A function name needs to be set"));
@@ -109,12 +103,12 @@ void FunctionWidget::on_saveCustomFunctionButton_clicked()
         QObject* o = ui->customFunctionDefinitionWidget->layout()->itemAt(i)->widget();
         OverloadBox* box = (OverloadBox*) o;
 
-        if (!box->check()) return; //Error occurred during check, don't save
+        if (!box->check()) return; // Error occurred during check, don't save
 
         QJsonObject save = box->save();
         int argCount = save.value("args").toArray().count();
         if (argNumbers.contains(argCount)) {
-            //More than one overload with same number of arguments
+            // More than one overload with same number of arguments
             tToast* toast = new tToast();
             toast->setTitle(tr("Overload Arguments"));
             toast->setText(tr("Only one overload can have %n arguments", nullptr, argCount));
@@ -131,13 +125,13 @@ void FunctionWidget::on_saveCustomFunctionButton_clicked()
     QSettings settings;
     settings.beginGroup("customFunctions");
 
-    //Save the function
+    // Save the function
     if (editingFunction != "" && settings.contains(ui->functionName->text())) {
         settings.remove(ui->functionName->text());
     }
     settings.setValue(ui->functionName->text(), doc.toJson());
 
-    //Load up all the custom functions
+    // Load up all the custom functions
     ui->customFunctionsList->clear();
     for (QString key : settings.allKeys()) {
         ui->customFunctionsList->addItem(key);
@@ -146,13 +140,10 @@ void FunctionWidget::on_saveCustomFunctionButton_clicked()
     settings.endGroup();
     settings.sync();
 
-    EvaluationEngine::setupFunctions();
-
-    this->setCurrentIndex(0);   
+    this->setCurrentIndex(0);
 }
 
-void FunctionWidget::on_customFunctionsList_itemActivated(QListWidgetItem *item)
-{
+void FunctionWidget::on_customFunctionsList_itemActivated(QListWidgetItem* item) {
     editingFunction = item->text();
 
     QSettings settings;
@@ -163,7 +154,7 @@ void FunctionWidget::on_customFunctionsList_itemActivated(QListWidgetItem *item)
     QJsonObject obj = doc.object();
     ui->functionName->setText(obj.value("name").toString());
 
-    //Clear overloads
+    // Clear overloads
     QLayoutItem* i = ui->customFunctionDefinitionWidget->layout()->takeAt(0);
     while (i != nullptr) {
         i->widget()->deleteLater();
@@ -184,8 +175,7 @@ void FunctionWidget::on_customFunctionsList_itemActivated(QListWidgetItem *item)
     this->setCurrentIndex(1);
 }
 
-void FunctionWidget::on_customFunctionsList_customContextMenuRequested(const QPoint &pos)
-{
+void FunctionWidget::on_customFunctionsList_customContextMenuRequested(const QPoint& pos) {
     QListWidgetItem* item = ui->customFunctionsList->itemAt(pos);
     if (item != nullptr) {
         QMenu* menu = new QMenu();
@@ -196,8 +186,6 @@ void FunctionWidget::on_customFunctionsList_customContextMenuRequested(const QPo
             settings.remove(item->text());
             settings.endGroup();
             settings.sync();
-
-            EvaluationEngine::setupFunctions();
 
             ui->customFunctionsList->removeItemWidget(item);
         });

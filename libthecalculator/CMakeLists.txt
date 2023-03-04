@@ -6,17 +6,22 @@ find_package(BISON REQUIRED)
 find_package(FLEX REQUIRED) 
 
 set(SOURCES
-        evaluationengine.cpp
-        expression.cpp
-        idouble.cpp
+    expression.cpp
+    idouble.cpp
+    evaluation/baseevaluationengine.cpp
+    evaluation/bisonflex/bisonflexevaluationengine.cpp
 )
 
 set(HEADERS
     libthecalculator_global.h
-    evaluationengine.h
+    evaluation/baseevaluationengine.h
     evaluationengineheaders.h
     expression.h
     idouble.h
+)
+
+set(PRIVATE_HEADERS
+    evaluation/bisonflex/bisonflexevaluationengine.h
 )
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
@@ -32,7 +37,7 @@ FLEX_TARGET(theCalculatorLexer parser/calc.l  ${CMAKE_CURRENT_BINARY_DIR}/calc.l
 
 list(APPEND SOURCES ${BISON_theCalculatorParser_OUTPUTS} ${FLEX_theCalculatorLexer_OUTPUTS})
 
-add_library(libthecalculator SHARED ${SOURCES} ${HEADERS})
+add_library(libthecalculator SHARED ${SOURCES} ${HEADERS} ${PRIVATE_HEADERS})
 set_target_properties(libthecalculator PROPERTIES
         CNTP_DATA_SUBDIR thecalculator/libthecalculator)
 cntp_init(libthecalculator 20)

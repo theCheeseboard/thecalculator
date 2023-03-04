@@ -21,7 +21,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include "evaluationengine.h"
+#include "evaluation/baseevaluationengine.h"
 #include <QActionGroup>
 #include <QDesktopServices>
 #include <QMenu>
@@ -128,13 +128,13 @@ void MainWindow::changeEvent(QEvent* event) {
 
 void MainWindow::on_actionDegrees_triggered(bool checked) {
     if (checked) {
-        EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Degrees);
+        BaseEvaluationEngine::current()->setTrigonometricUnit(BaseEvaluationEngine::Degrees);
     }
 }
 
 void MainWindow::on_actionRadians_triggered(bool checked) {
     if (checked) {
-        EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Radians);
+        BaseEvaluationEngine::current()->setTrigonometricUnit(BaseEvaluationEngine::Radians);
     }
 }
 
@@ -152,7 +152,7 @@ void MainWindow::on_stackedWidget_currentChanged(int arg1) {
 
 void MainWindow::on_actionGradians_triggered(bool checked) {
     if (checked) {
-        EvaluationEngine::setTrigonometricUnit(EvaluationEngine::Gradians);
+        BaseEvaluationEngine::current()->setTrigonometricUnit(BaseEvaluationEngine::Gradians);
     }
 }
 

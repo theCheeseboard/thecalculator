@@ -20,8 +20,9 @@
 #include "statwidget.h"
 #include "ui_statwidget.h"
 
+#include "evaluation/baseevaluationengine.h"
 #include <QSpinBox>
-#include "evaluationengine.h"
+#include <idouble.h>
 
 StatWidget::StatWidget(QWidget* parent) :
     QWidget(parent),
@@ -36,7 +37,7 @@ StatWidget::StatWidget(QWidget* parent) :
     freqBox->setMinimum(1);
     freqBox->setMaximum(9999999);
     freqBox->setFrame(false);
-    connect(freqBox, QOverload<int>::of(&QSpinBox::valueChanged), [ = ] {
+    connect(freqBox, QOverload<int>::of(&QSpinBox::valueChanged), [=] {
         on_dataTable_cellChanged(0, 1);
     });
     ui->dataTable->setCellWidget(0, 1, freqBox);
@@ -49,7 +50,7 @@ StatWidget::~StatWidget() {
 void StatWidget::on_dataTable_cellChanged(int row, int column) {
     QTableWidgetItem* firstColData = ui->dataTable->item(row, 0);
     if ((!firstColData || firstColData->text() == "") && ui->dataTable->rowCount() > 1) {
-        //Remove this row; we don't need it any more
+        // Remove this row; we don't need it any more
         ui->dataTable->removeRow(row);
     }
 
@@ -57,7 +58,7 @@ void StatWidget::on_dataTable_cellChanged(int row, int column) {
 
     QTableWidgetItem* secondLastItem = ui->dataTable->item(ui->dataTable->rowCount() - 1, 0);
     if (secondLastItem && secondLastItem->text() != "") {
-        //Add an extra row
+        // Add an extra row
         int newRow = ui->dataTable->rowCount();
         ui->dataTable->setRowCount(newRow + 1);
 
@@ -65,7 +66,7 @@ void StatWidget::on_dataTable_cellChanged(int row, int column) {
         freqBox->setMinimum(1);
         freqBox->setMaximum(9999999);
         freqBox->setFrame(false);
-        connect(freqBox, QOverload<int>::of(&QSpinBox::valueChanged), [ = ] {
+        connect(freqBox, QOverload<int>::of(&QSpinBox::valueChanged), [=] {
             on_dataTable_cellChanged(newRow, 1);
         });
         ui->dataTable->setCellWidget(newRow, 1, freqBox);
@@ -78,20 +79,18 @@ QCoro::Task<> StatWidget::calculateData() {
         QTableWidgetItem* firstColData = ui->dataTable->item(i, 0);
         if (!firstColData) continue;
 
-        EvaluationEngine engine;
-        engine.setExpression(firstColData->text());
-        EvaluationEngine::Result res = engine.evaluate();
-
+        auto res = co_await BaseEvaluationEngine::current()->evaluate(firstColData->text());
         switch (res.type) {
-            case EvaluationEngine::Result::Scalar: {
-                QSpinBox* freqData = (QSpinBox*) ui->dataTable->cellWidget(i, 1);
-                for (int i = 0; i < freqData->value(); i++) {
-                    data.append(res.result.real());
+            case BaseEvaluationEngine::Result::Scalar:
+                {
+                    QSpinBox* freqData = (QSpinBox*) ui->dataTable->cellWidget(i, 1);
+                    for (int i = 0; i < freqData->value(); i++) {
+                        data.append(res.result.real());
+                    }
+                    break;
                 }
-                break;
-            }
             default:
-                //This is an error
+                // This is an error
                 break;
         }
     }
@@ -107,45 +106,45 @@ QCoro::Task<> StatWidget::calculateData() {
         ui->sumLabel->setText(tr("no data"));
         ui->sumSquaredLabel->setText(tr("no data"));
     } else {
-        //Sort the data
-        //Needed to find median, min, etc.
+        // Sort the data
+        // Needed to find median, min, etc.
         std::sort(data.begin(), data.end());
 
         ui->minLabel->setText(QString::number(data.first()));
         ui->maxLabel->setText(QString::number(data.last()));
         if (data.count() % 2 == 1) {
-            //We have one single number for the median
+            // We have one single number for the median
             ui->medLabel->setText(QString::number(data.at(data.count() / 2)));
         } else {
-            //We've got two numbers that we need to average
+            // We've got two numbers that we need to average
             ui->medLabel->setText(QString::number((data.at(data.count() / 2 - 1) + data.at(data.count() / 2)) / 2));
         }
 
-        //Populate a string list
+        // Populate a string list
         QStringList addends;
         for (double val : data) {
             addends.append(QString::number(val));
         }
 
-        //Calculate the mean
-        auto meanResult = co_await EvaluationEngine::evaluate("(" + addends.join("+") + ")/" + QString::number(data.count()));
-        if (meanResult.type == EvaluationEngine::Result::Scalar) {
+        // Calculate the mean
+        auto meanResult = co_await BaseEvaluationEngine::current()->evaluate("(" + addends.join("+") + ")/" + QString::number(data.count()));
+        if (meanResult.type == BaseEvaluationEngine::Result::Scalar) {
             ui->meanLabel->setText(idbToString(meanResult.result));
         } else {
             ui->meanLabel->setText(tr("undefined"));
         }
 
-        //Calculate the sum
-        auto sumResult = co_await EvaluationEngine::evaluate(addends.join("+"));
-        if (sumResult.type == EvaluationEngine::Result::Scalar) {
+        // Calculate the sum
+        auto sumResult = co_await BaseEvaluationEngine::current()->evaluate(addends.join("+"));
+        if (sumResult.type == BaseEvaluationEngine::Result::Scalar) {
             ui->sumLabel->setText(idbToString(sumResult.result));
         } else {
             ui->sumLabel->setText(tr("undefined"));
         }
 
-        //Calculate the sum squared
-        auto sumSquaredResult = co_await EvaluationEngine::evaluate(addends.join("^2+") + "^2");
-        if (sumSquaredResult.type == EvaluationEngine::Result::Scalar) {
+        // Calculate the sum squared
+        auto sumSquaredResult = co_await BaseEvaluationEngine::current()->evaluate(addends.join("^2+") + "^2");
+        if (sumSquaredResult.type == BaseEvaluationEngine::Result::Scalar) {
             ui->sumSquaredLabel->setText(idbToString(sumSquaredResult.result));
         } else {
             ui->sumSquaredLabel->setText(tr("undefined"));
