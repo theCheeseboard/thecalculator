@@ -21,16 +21,16 @@
 #include "calculatorwidget.h"
 #include "ui_calculatorwidget.h"
 
-#include <QScroller>
-#include <QScrollBar>
-#include "historydelegate.h"
 #include "calcbutton.h"
-#include "mainwindow.h"
-#include <tvariantanimation.h>
 #include "evaluationengine.h"
-#include <tpopover.h>
-#include "nthrootpopover.h"
+#include "historydelegate.h"
 #include "logbasepopover.h"
+#include "mainwindow.h"
+#include "nthrootpopover.h"
+#include <QScrollBar>
+#include <QScroller>
+#include <tpopover.h>
+#include <tvariantanimation.h>
 
 QList<CalcButton*> CalculatorWidget::buttons = QList<CalcButton*>();
 
@@ -58,7 +58,7 @@ CalculatorWidget::CalculatorWidget(QWidget* parent) :
     ui->MinusButton->setShiftedOutput("⁻");
     ui->imaginaryButton->setShiftedOutput("ⁱ");
 
-    //ui->EqualButton->setProperty("type", "positive");
+    // ui->EqualButton->setProperty("type", "positive");
     QPalette operationButtonPalette = ui->EqualButton->palette();
     operationButtonPalette.setColor(QPalette::Button, operationButtonPalette.color(QPalette::Button).darker(150));
     ui->EqualButton->setPalette(operationButtonPalette);
@@ -85,10 +85,10 @@ CalculatorWidget::CalculatorWidget(QWidget* parent) :
 
     historyDelegate = new HistoryDelegate();
     ui->historyWidget->setItemDelegate(historyDelegate);
-    connect(ui->historyWidget->verticalScrollBar(), &QScrollBar::rangeChanged, [ = ](int min, int max) {
+    connect(ui->historyWidget->verticalScrollBar(), &QScrollBar::rangeChanged, [=](int min, int max) {
         if (historyAtBottom) ui->historyWidget->verticalScrollBar()->setValue(max);
     });
-    connect(ui->historyWidget->verticalScrollBar(), &QScrollBar::valueChanged, [ = ](int value) {
+    connect(ui->historyWidget->verticalScrollBar(), &QScrollBar::valueChanged, [=](int value) {
         if (value == ui->historyWidget->verticalScrollBar()->maximum()) {
             historyAtBottom = true;
         } else {
@@ -109,6 +109,8 @@ CalculatorWidget::CalculatorWidget(QWidget* parent) :
     for (CalcButton* b : buttons) {
         connect(b, &CalcButton::output, this, &CalculatorWidget::ButtonPressed);
     }
+
+    this->setFocusProxy(ui->expressionBox);
 }
 
 CalculatorWidget::~CalculatorWidget() {
@@ -129,14 +131,13 @@ void CalculatorWidget::on_expandButton_clicked() {
     }
     anim->setDuration(500);
     anim->setEasingCurve(QEasingCurve::OutCubic);
-    connect(anim, &tVariantAnimation::valueChanged, [ = ](QVariant value) {
+    connect(anim, &tVariantAnimation::valueChanged, [=](QVariant value) {
         ui->scrollArea->setFixedWidth(SC_DPI(value.toInt()));
         forceWidth = SC_DPI(QWidget::sizeHint().width()) - SC_DPI(ui->scrollArea->width()) + ui->scrollArea->width();
     });
     connect(anim, SIGNAL(finished()), anim, SLOT(deleteLater()));
     anim->start();
 }
-
 
 void CalculatorWidget::ButtonPressed(QString text) {
     ui->expressionBox->insert(text);
@@ -153,46 +154,50 @@ void CalculatorWidget::on_BackspaceButton_clicked() {
 void CalculatorWidget::on_EqualButton_clicked() {
     QString expression = ui->expressionBox->getFixedExpression();
 
-    EvaluationEngine::evaluate(expression, MainWin->variables)->then([ = ](EvaluationEngine::Result r) {
+    EvaluationEngine::evaluate(expression, MainWin->variables)->then([=](EvaluationEngine::Result r) {
         switch (r.type) {
-            case EvaluationEngine::Result::Scalar: {
-                ui->expressionBox->setExpression(idbToString(r.result));
+            case EvaluationEngine::Result::Scalar:
+                {
+                    ui->expressionBox->setExpression(idbToString(r.result));
 
-                QListWidgetItem* historyItem = new QListWidgetItem();
-                historyItem->setText(expression + " = " + idbToString(r.result));
-                historyItem->setIcon(QIcon::fromTheme("dialog-information"));
-                ui->historyWidget->addItem(historyItem);
+                    QListWidgetItem* historyItem = new QListWidgetItem();
+                    historyItem->setText(expression + " = " + idbToString(r.result));
+                    historyItem->setIcon(QIcon::fromTheme("dialog-information"));
+                    ui->historyWidget->addItem(historyItem);
 
-                MainWin->variables.insert("Ans", r.result);
-                break;
-            }
-            case EvaluationEngine::Result::Error: {
-                QString answerText;
-                ui->answerLabel->setText(r.error);
-                ui->expressionBox->setErrorRange(r.location, r.length);
+                    MainWin->variables.insert("Ans", r.result);
+                    break;
+                }
+            case EvaluationEngine::Result::Error:
+                {
+                    QString answerText;
+                    ui->answerLabel->setText(r.error);
+                    ui->expressionBox->setErrorRange(r.location, r.length);
 
-                resizeAnswerLabel();
-                flashError();
-                break;
-            }
-            case EvaluationEngine::Result::Assign: {
-                MainWin->variables.insert(r.identifier, r.value);
-                ui->answerLabel->setText(tr("%1 assigned to %2").arg(r.identifier, idbToString(r.value)));
+                    resizeAnswerLabel();
+                    flashError();
+                    break;
+                }
+            case EvaluationEngine::Result::Assign:
+                {
+                    MainWin->variables.insert(r.identifier, r.value);
+                    ui->answerLabel->setText(tr("%1 assigned to %2").arg(r.identifier, idbToString(r.value)));
 
-                QListWidgetItem* historyItem = new QListWidgetItem();
-                historyItem->setText(r.identifier + " = " + idbToString(r.value));
-                historyItem->setIcon(QIcon::fromTheme("dialog-information"));
-                ui->historyWidget->addItem(historyItem);
-                break;
-            }
-            case EvaluationEngine::Result::Equality: {
-                ui->answerLabel->setText(r.isTrue ? tr("TRUE") : tr("FALSE"));
+                    QListWidgetItem* historyItem = new QListWidgetItem();
+                    historyItem->setText(r.identifier + " = " + idbToString(r.value));
+                    historyItem->setIcon(QIcon::fromTheme("dialog-information"));
+                    ui->historyWidget->addItem(historyItem);
+                    break;
+                }
+            case EvaluationEngine::Result::Equality:
+                {
+                    ui->answerLabel->setText(r.isTrue ? tr("TRUE") : tr("FALSE"));
 
-                QListWidgetItem* historyItem = new QListWidgetItem();
-                historyItem->setText(expression + " = " + ui->answerLabel->text());
-                historyItem->setIcon(QIcon::fromTheme("dialog-information"));
-                ui->historyWidget->addItem(historyItem);
-            }
+                    QListWidgetItem* historyItem = new QListWidgetItem();
+                    historyItem->setText(expression + " = " + ui->answerLabel->text());
+                    historyItem->setIcon(QIcon::fromTheme("dialog-information"));
+                    ui->historyWidget->addItem(historyItem);
+                }
         }
     });
 }
@@ -214,9 +219,8 @@ void CalculatorWidget::resizeEvent(QResizeEvent* event) {
     ui->buttonsWidget->setFixedHeight(ui->ClearButton->sizeHint().height() * 5);
 }
 
-
 void CalculatorWidget::on_expressionBox_expressionUpdated(const QString& newString) {
-    EvaluationEngine::evaluate(newString, MainWin->variables)->then([ = ](EvaluationEngine::Result r) {
+    EvaluationEngine::evaluate(newString, MainWin->variables)->then([=](EvaluationEngine::Result r) {
         switch (r.type) {
             case EvaluationEngine::Result::Scalar:
                 ui->answerLabel->setText(idbToString(r.result));
@@ -241,14 +245,13 @@ void CalculatorWidget::on_expressionBox_expressionUpdated(const QString& newStri
     });
 }
 
-
 void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2) {
     QString relevantText = ui->expressionBox->getFixedExpression().left(arg2);
-    //Find the previous function
+    // Find the previous function
     QRegularExpression regex("\\w+?(?=[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁱ]*\\()");
     QRegularExpressionMatchIterator matchIterator = regex.globalMatch(relevantText);
 
-    //Select the appropriate match
+    // Select the appropriate match
     QStack<QString> matchSelector;
     QStack<int> matchPositions;
     QChar lastChar = ' ';
@@ -260,7 +263,7 @@ void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2
                 matchSelector.push(m.captured());
                 matchPositions.push(m.capturedEnd());
             } else {
-                //Push an empty string so it will be popped when it finds )
+                // Push an empty string so it will be popped when it finds )
                 matchSelector.push("");
                 matchPositions.push(i);
             }
@@ -268,11 +271,11 @@ void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2
             if (!matchSelector.isEmpty()) {
                 matchSelector.pop();
                 matchPositions.pop();
-                //Otherwise we'll continue and try to get the function anyway
+                // Otherwise we'll continue and try to get the function anyway
             }
         }
 
-        //Ignore exponents
+        // Ignore exponents
         if (!QRegularExpression("[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁱ]").match(c).hasMatch()) {
             lastChar = c;
         }
@@ -285,7 +288,7 @@ void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2
     anim->setStartValue(ui->helpWidget->height());
     anim->setEndValue(0);
     if (!matchSelector.isEmpty()) {
-        //We're currently in a function definition
+        // We're currently in a function definition
         QString currentFunction = matchSelector.pop();
         int currentPosition = matchPositions.pop();
         while (currentFunction == "" && !matchSelector.isEmpty()) {
@@ -294,7 +297,7 @@ void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2
         }
 
         if (EvaluationEngine::customFunctions.contains(currentFunction)) {
-            //Figure out the current argument
+            // Figure out the current argument
             int currentArgument = 0;
 
             if (relevantText.count() - currentPosition == 1) {
@@ -307,7 +310,7 @@ void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2
                         bracketCount++;
                     } else if (c == ')') {
                         bracketCount--;
-                        if (bracketCount < 0) break; //Too many closing brackets
+                        if (bracketCount < 0) break; // Too many closing brackets
                     } else if (c == argSep) {
                         if (bracketCount == 0) currentArgument++;
                     }
@@ -359,7 +362,7 @@ void CalculatorWidget::on_expressionBox_cursorPositionChanged(int arg1, int arg2
     }
     anim->setDuration(250);
     anim->setEasingCurve(QEasingCurve::OutCubic);
-    connect(anim, &tVariantAnimation::valueChanged, this, [ = ](QVariant value) {
+    connect(anim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
         ui->helpWidget->setFixedHeight(value.toInt());
     });
     connect(anim, &tVariantAnimation::finished, anim, &tVariantAnimation::deleteLater);
@@ -411,7 +414,7 @@ void CalculatorWidget::flashError() {
     a->setDuration(1000);
     a->setEasingCurve(QEasingCurve::Linear);
     connect(a, &tVariantAnimation::finished, a, &tVariantAnimation::deleteLater);
-    connect(a, &tVariantAnimation::valueChanged, [ = ](QVariant value) {
+    connect(a, &tVariantAnimation::valueChanged, [=](QVariant value) {
         QPalette pal = this->palette();
         pal.setColor(QPalette::Window, value.value<QColor>());
         ui->expressionBox->setPalette(pal);
@@ -427,13 +430,13 @@ void CalculatorWidget::on_NthRootButton_clicked() {
     tPopover* popover = new tPopover(p);
     popover->setPopoverWidth(SC_DPI(400));
     connect(p, &NthRootPopover::rejected, popover, &tPopover::dismiss);
-    connect(p, &NthRootPopover::accepted, this, [ = ](QString text) {
+    connect(p, &NthRootPopover::accepted, this, [=](QString text) {
         this->ButtonPressed(text);
         popover->dismiss();
     });
     connect(popover, &tPopover::dismissed, p, &NthRootPopover::deleteLater);
     connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
-    connect(popover, &tPopover::dismiss, this, [ = ] {
+    connect(popover, &tPopover::dismiss, this, [=] {
         grabExpKeyboard(true);
     });
     popover->show(this->window());
@@ -446,13 +449,13 @@ void CalculatorWidget::on_LogBaseButton_clicked() {
     tPopover* popover = new tPopover(p);
     popover->setPopoverWidth(SC_DPI(400));
     connect(p, &LogBasePopover::rejected, popover, &tPopover::dismiss);
-    connect(p, &LogBasePopover::accepted, this, [ = ](QString text) {
+    connect(p, &LogBasePopover::accepted, this, [=](QString text) {
         this->ButtonPressed(text);
         popover->dismiss();
     });
     connect(popover, &tPopover::dismissed, p, &LogBasePopover::deleteLater);
     connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
-    connect(popover, &tPopover::dismiss, this, [ = ] {
+    connect(popover, &tPopover::dismiss, this, [=] {
         grabExpKeyboard(true);
     });
     popover->show(this->window());

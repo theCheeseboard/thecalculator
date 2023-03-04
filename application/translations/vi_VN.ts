@@ -341,35 +341,35 @@
         <translation>Tính</translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorwidget.cpp" line="180"/>
+        <location filename="../calculator/calculatorwidget.cpp" line="184"/>
         <source>%1 assigned to %2</source>
         <translation>%1 được gán cho %2</translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorwidget.cpp" line="189"/>
-        <location filename="../calculator/calculatorwidget.cpp" line="239"/>
+        <location filename="../calculator/calculatorwidget.cpp" line="194"/>
+        <location filename="../calculator/calculatorwidget.cpp" line="243"/>
         <source>TRUE</source>
         <translation>THẬT</translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorwidget.cpp" line="189"/>
-        <location filename="../calculator/calculatorwidget.cpp" line="239"/>
+        <location filename="../calculator/calculatorwidget.cpp" line="194"/>
+        <location filename="../calculator/calculatorwidget.cpp" line="243"/>
         <source>FALSE</source>
         <translation>SAI</translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorwidget.cpp" line="236"/>
+        <location filename="../calculator/calculatorwidget.cpp" line="240"/>
         <source>Assign %1 to %2</source>
         <translation>Gán %1 cho %2</translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorwidget.cpp" line="332"/>
+        <location filename="../calculator/calculatorwidget.cpp" line="335"/>
         <source>No arguments</source>
         <translation>Không có tham số</translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorwidget.cpp" line="333"/>
-        <location filename="../calculator/calculatorwidget.cpp" line="350"/>
+        <location filename="../calculator/calculatorwidget.cpp" line="336"/>
+        <location filename="../calculator/calculatorwidget.cpp" line="353"/>
         <source>function</source>
         <translation>hàm số</translation>
     </message>

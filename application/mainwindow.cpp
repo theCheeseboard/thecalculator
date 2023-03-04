@@ -86,6 +86,8 @@ MainWindow::MainWindow(QWidget* parent) :
     ui->menuButton->setIconSize(QSize(24, 24));
     ui->menuButton->setMenu(menu);
     ui->stackedWidget->setCurrentAnimation(tStackedWidget::SlideHorizontal);
+
+    ui->calcWidget->setFocus();
 }
 
 MainWindow::~MainWindow() {
