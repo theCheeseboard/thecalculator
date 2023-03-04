@@ -1,6 +1,6 @@
 project(thecalculator VERSION 1.0.0 LANGUAGES CXX)
 
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(libcontemporary REQUIRED)
 
 set(SOURCES
@@ -80,9 +80,9 @@ set_target_properties(thecalculator PROPERTIES
 cntp_init(thecalculator 20)
 cntp_translate(thecalculator)
 cntp_target_name(thecalculator "theCalculator")
-#cntp_app_icon(thecalculator
-#    BASEICON icons/baseicon.svg
-#    BASEICON_MAC icons/baseicon-mac.svg)
+cntp_app_icon(thecalculator
+    BASEICON icons/baseicon.svg
+    BASEICON_MAC icons/baseicon-mac.svg)
 cntp_target_desktop_file(thecalculator
     DESKTOP_FILE com.vicr123.thecalculator.desktop
     BLUEPRINT_DESKTOP_FILE com.vicr123.thecalculator_blueprint.desktop)

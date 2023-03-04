@@ -1,6 +1,6 @@
 project(libthecalculator VERSION 1.0.0 LANGUAGES CXX)
 
-find_package(Qt6 REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED)
 find_package(libcontemporary REQUIRED)
 find_package(BISON REQUIRED)
 find_package(FLEX REQUIRED) 

@@ -21,28 +21,29 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <QScroller>
+#include "evaluationengine.h"
 #include <QActionGroup>
-#include <QMenu>
-#include <QStackedWidget>
-#include <QRandomGenerator>
-#include <QProcess>
 #include <QDesktopServices>
+#include <QMenu>
 #include <QMessageBox>
-#include <QTimer>
+#include <QProcess>
+#include <QRandomGenerator>
 #include <QScrollBar>
-#include <ttoast.h>
-#include <QToolButton>
-#include <tpopover.h>
+#include <QScroller>
 #include <QShortcut>
+#include <QStackedWidget>
+#include <QTimer>
+#include <QToolButton>
+#include <tapplication.h>
 #include <tcsdtools.h>
 #include <thelpmenu.h>
-#include "evaluationengine.h"
+#include <tpopover.h>
+#include <ttoast.h>
 
 extern MainWindow* MainWin;
 
 struct MainWindowPrivate {
-    tCsdTools csd;
+        tCsdTools csd;
 };
 
 MainWindow::MainWindow(QWidget* parent) :
@@ -80,12 +81,9 @@ MainWindow::MainWindow(QWidget* parent) :
     menu->addSeparator();
     menu->addAction(ui->actionExit);
 
-#ifdef T_BLUEPRINT_BUILD
-    ui->menuButton->setIcon(QIcon(":/icons/thecalculator-blueprint.svg"));
-#else
-    ui->menuButton->setIcon(QIcon::fromTheme("com.vicr123.thecalculator", QIcon(":/icons/thecalculator.svg")));
-#endif
-    ui->menuButton->setIconSize(SC_DPI_T(QSize(24, 24), QSize));
+    this->setWindowIcon(tApplication::applicationIcon());
+    ui->menuButton->setIcon(tApplication::applicationIcon());
+    ui->menuButton->setIconSize(QSize(24, 24));
     ui->menuButton->setMenu(menu);
     ui->stackedWidget->setCurrentAnimation(tStackedWidget::SlideHorizontal);
 }

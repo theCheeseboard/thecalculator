@@ -15,7 +15,7 @@
     </message>
     <message>
         <location filename="../evaluationengine.cpp" line="128"/>
-        <location filename="../../../build-thecalculator-Chroot_6-Debug/libthecalculator/calc.bison.cpp" line="88"/>
+        <location filename="../../../build-theCalculator-Chroot_6-Debug/libthecalculator/calc.bison.cpp" line="88"/>
         <source>%1: undefined function</source>
         <translation type="unfinished"></translation>
     </message>

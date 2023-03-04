@@ -54,34 +54,27 @@ int main(int argc, char* argv[]) {
 
     a.setOrganizationName("theSuite");
     a.setOrganizationDomain("");
-    a.setApplicationVersion("2.2.1");
+    a.setApplicationVersion("3.0");
     a.setGenericName(QApplication::translate("main", "Calculator"));
     a.setAboutDialogSplashGraphic(a.aboutDialogSplashGraphicFromSvg(":/icons/aboutsplash.svg"));
     a.setApplicationLicense(tApplication::Gpl3OrLater);
     a.setCopyrightHolder("Victor Tran");
-    a.setCopyrightYear("2022");
+    a.setCopyrightYear("2023");
     //    a.setApplicationUrl(tApplication::HelpContents, QUrl("https://help.vicr123.com/docs/thecalculator/intro"));
     a.setApplicationUrl(tApplication::Sources, QUrl("http://github.com/vicr123/theCalculator"));
     a.setApplicationUrl(tApplication::FileBug, QUrl("http://github.com/vicr123/theCalculator/issues"));
-#ifdef T_BLUEPRINT_BUILD
-    a.setApplicationIcon(QIcon(":/icons/thecalculator-blueprint.svg"));
-    a.setApplicationName("theCalculator Blueprint");
-    a.setDesktopFileName("com.vicr123.thecalculator_blueprint");
-#else
-    a.setApplicationIcon(QIcon::fromTheme("thebeat", QIcon(":/icons/thecalculator.svg")));
-    a.setApplicationName("theCalculator");
-    a.setDesktopFileName("com.vicr123.thecalculator");
-#endif
+    a.setApplicationName(T_APPMETA_READABLE_NAME);
+    a.setDesktopFileName(T_APPMETA_DESKTOP_ID);
 
     QCommandLineParser parser;
     parser.setApplicationDescription(QApplication::translate("main", "Calculator"));
     QCommandLineOption helpOption = parser.addHelpOption();
     QCommandLineOption versionOption = parser.addVersionOption();
     parser.addOptions({
-        {{"g", "graph"},                                                                              QApplication::translate("main", "Generate a graph in PNG format and write the data to stdout.")                                                   },
-        {{"e", "evaluate"},                                                                           QApplication::translate("main", "Evaluate <expression>, print the result to standard output, then exit."),                                          QApplication::translate("main", "expression")},
-        {{"t", "trig-unit"},                                                                              QApplication::translate("main",                                                                                                            "Use <unit> as the trigonometry unit. Possible values are degrees, radians and gradians."),                                                                                                                                                                                                             QApplication::translate("main", "unit")},
-        {{"c", "nocolor"}, QApplication::translate("main","Do not output colour.")}
+        {{"g", "graph"}, QApplication::translate("main", "Generate a graph in PNG format and write the data to stdout.")},
+        {{"e", "evaluate"}, QApplication::translate("main", "Evaluate <expression>, print the result to standard output, then exit."), QApplication::translate("main", "expression")},
+        {{"t", "trig-unit"}, QApplication::translate("main", "Use <unit> as the trigonometry unit. Possible values are degrees, radians and gradians."), QApplication::translate("main", "unit")},
+        {{"c", "nocolor"}, QApplication::translate("main", "Do not output colour.")}
     });
     parser.parse(a.arguments());
 
@@ -103,12 +96,12 @@ int main(int argc, char* argv[]) {
         parser.clearPositionalArguments();
         parser.addHelpOption();
         parser.addOptions({
-            {{"g", "graph"},                                                      QApplication::translate("main", "Generate a graph in PNG format and write the data to stdout.")},
-            { "cx",             QApplication::translate("main",                        "X value to center the generated graph at"),                                                      QApplication::translate("main", "x-value")},
-            { "cy",             QApplication::translate("main",                        "Y value to center the generated graph at"),                                                      QApplication::translate("main", "y-value")},
-            { "sx",             QApplication::translate("main", "Number of pixels to put between each integer in the X direction"),                                                      QApplication::translate("main", "x-scale")},
-            { "sy",             QApplication::translate("main", "Number of pixels to put between each integer in the Y direction"),                                                      QApplication::translate("main", "y-scale")},
-            { {"o", "outfile"}, QApplication::translate("main",       "File to output the graph to. If missing, output to stdout"),                                                         QApplication::translate("main", "path")}
+            {{"g", "graph"}, QApplication::translate("main", "Generate a graph in PNG format and write the data to stdout.")},
+            {"cx", QApplication::translate("main", "X value to center the generated graph at"), QApplication::translate("main", "x-value")},
+            {"cy", QApplication::translate("main", "Y value to center the generated graph at"), QApplication::translate("main", "y-value")},
+            {"sx", QApplication::translate("main", "Number of pixels to put between each integer in the X direction"), QApplication::translate("main", "x-scale")},
+            {"sy", QApplication::translate("main", "Number of pixels to put between each integer in the Y direction"), QApplication::translate("main", "y-scale")},
+            {{"o", "outfile"}, QApplication::translate("main", "File to output the graph to. If missing, output to stdout"), QApplication::translate("main", "path")}
         });
         parser.addPositionalArgument("width", QApplication::translate("main", "Width of the graph, in pixels"), "-g width");
         parser.addPositionalArgument("height", QApplication::translate("main", "Height of the graph, in pixels"));
