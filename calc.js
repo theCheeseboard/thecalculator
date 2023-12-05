@@ -16,7 +16,8 @@ module.exports = (body, options) => {
         child.execFile("thecalculator", args, {
             env: {
                 ...process.env,
-                "QT_QPA_PLATFORM": "offscreen"
+                "QT_QPA_PLATFORM": "offscreen",
+                "LANG": body.locale.replace("-", "_")
             }
         }, (error, stdout, stderr) => {
             if (error) {
