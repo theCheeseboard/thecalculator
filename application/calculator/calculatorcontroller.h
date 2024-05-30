@@ -11,6 +11,10 @@ class CalculatorController : public QObject {
         Q_PROPERTY(QString instantResult READ instantResult NOTIFY instantResultChanged FINAL)
         Q_PROPERTY(QString balancingBrackets READ balancingBrackets NOTIFY balancingBracketsChanged FINAL)
         Q_PROPERTY(int cursorPosition READ cursorPosition WRITE setCursorPosition NOTIFY cursorPositionChanged FINAL)
+        Q_PROPERTY(bool intellisenseAvailable READ intellisenseAvailable NOTIFY intellisenseChanged FINAL)
+        Q_PROPERTY(QString intellisenseFunction READ intellisenseFunction NOTIFY intellisenseChanged FINAL)
+        Q_PROPERTY(QString intellisenseDescription READ intellisenseDescription NOTIFY intellisenseChanged FINAL)
+        Q_PROPERTY(QString intellisenseArguments READ intellisenseArguments NOTIFY intellisenseChanged FINAL)
         QML_ELEMENT
     public:
         explicit CalculatorController(QObject* parent = nullptr);
@@ -30,16 +34,26 @@ class CalculatorController : public QObject {
         QString balancingBrackets();
         QString instantResult();
 
+        bool intellisenseAvailable();
+        QString intellisenseFunction();
+        QString intellisenseDescription();
+        QString intellisenseArguments();
+
+        Q_SCRIPTABLE void performEvaluation();
+
     signals:
         void expressionStringChanged();
         void instantResultChanged();
         void cursorPositionChanged();
         void balancingBracketsChanged();
+        void intellisenseChanged();
+        Q_SCRIPTABLE void evaluationError();
 
     private:
         CalculatorControllerPrivate* d;
 
         void expressionStringUpdated();
+        void calculateIntellisense();
 };
 
 #endif // CALCULATORCONTROLLER_H

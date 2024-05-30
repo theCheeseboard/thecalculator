@@ -1,5 +1,7 @@
 #include "calculatorcontroller.h"
 
+#include <libcontemporary_global.h>
+
 struct CalculatorControllerPrivate {
         QString expressionString;
         QString instantResult;
@@ -84,13 +86,41 @@ QString CalculatorController::instantResult() {
     return d->instantResult;
 }
 
+bool CalculatorController::intellisenseAvailable() {
+    return false;
+}
+
+QString CalculatorController::intellisenseFunction() {
+    return "pow(base, exponent)";
+}
+
+QString CalculatorController::intellisenseDescription() {
+    return "Describe the pow function";
+}
+
+QString CalculatorController::intellisenseArguments() {
+    QStringList args;
+    args.append("base: the base of the exponent");
+    return args.join(libContemporaryCommon::humanReadablePartJoinString());
+}
+
+void CalculatorController::performEvaluation() {
+    emit evaluationError();
+}
+
 void CalculatorController::expressionStringUpdated() {
     emit expressionStringChanged();
     emit cursorPositionChanged();
     emit balancingBracketsChanged();
 
+    calculateIntellisense();
+
     // TODO: Calculate instant result
     auto fullExpression = d->expressionString + balancingBrackets();
     d->instantResult = fullExpression;
     emit instantResultChanged();
+}
+
+void CalculatorController::calculateIntellisense() {
+    // Step back until we find a bracket with a function name we understand
 }

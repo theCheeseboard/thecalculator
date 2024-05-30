@@ -12,6 +12,8 @@ Item {
 
     CalculatorController {
         id: controller
+
+        onEvaluationError: instantResultContainer.flash()
     }
 
     Keys.onPressed: event => {
@@ -97,6 +99,56 @@ Item {
                     color: Contemporary.line
                 }
 
+                Layer {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: controller.intellisenseAvailable ? intellisenseLayout.childrenRect.height + 20 : 0
+
+                    clip: true
+
+                    GridLayout {
+                        id: intellisenseLayout
+                        anchors.fill: parent
+                        anchors.margins: 10
+
+                        columns: 4
+
+                        Label {
+                            Layout.fillWidth: true
+                            text: controller.intellisenseFunction
+                        }
+
+                        Button {
+                            id: intellisensePreviousButton
+                            icon.name: "go-previous"
+                            implicitWidth: intellisensePreviousButton.height
+                            flat: true
+                            Layout.rowSpan: 2
+                        }
+
+                        Label {
+                            text: "1/3"
+                            Layout.rowSpan: 2
+                        }
+
+                        Button {
+                            id: intellisenseNextButton
+                            icon.name: "go-next"
+                            implicitWidth: intellisenseNextButton.height
+                            flat: true
+                            Layout.rowSpan: 2
+                        }
+
+                        Label {
+                            text: controller.intellisenseDescription
+                        }
+
+                        Label {
+                            text: controller.intellisenseArguments
+                            Layout.columnSpan: 4
+                        }
+                    }
+                }
+
                 RowLayout {
                     Layout.fillWidth: true
 
@@ -124,11 +176,18 @@ Item {
                     }
                 }
 
-                Label {
+                ErrorFlasher {
+                    id: instantResultContainer
                     Layout.fillWidth: true
-                    horizontalAlignment: TextArea.AlignRight
-                    text: controller.instantResult
-                    font.pointSize: 15
+                    Layout.preferredHeight: instantResultLabel.implicitHeight
+
+                    Label {
+                        id: instantResultLabel
+                        anchors.fill: parent
+                        text: controller.instantResult
+                        font.pointSize: 15
+                        horizontalAlignment: TextArea.AlignRight
+                    }
                 }
             }
         }
