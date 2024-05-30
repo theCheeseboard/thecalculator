@@ -36,7 +36,9 @@ qt_add_qml_module(thecalculator
     QML_FILES
         Main.qml
     NO_CACHEGEN
-    QML_FILES Calculator.qml
+    QML_FILES calculator/Calculator.qml
+    QML_FILES calculator/ButtonPad.qml
+    QML_FILES calculator/ColorButton.qml
 )
 
 set_target_properties(thecalculator PROPERTIES

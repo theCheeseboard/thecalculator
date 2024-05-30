@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import com.vicr123.Contemporary
 import Contemporary
 import Qt.labs.platform as Labs
+import "calculator" as Calculator
 
 import com.vicr123.Contemporary.CoreStyles
 
@@ -185,7 +186,7 @@ ContemporaryWindow {
                 id: stack
                 anchors.fill: parent
 
-                Calculator { }
+                Calculator.Calculator { }
             }
         }
 
