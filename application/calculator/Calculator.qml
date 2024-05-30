@@ -6,6 +6,71 @@ import com.vicr123.Contemporary
 import com.vicr123.Contemporary.impl as Impl
 
 Item {
+    id: root
+
+    property bool typing: false
+
+    CalculatorController {
+        id: controller
+    }
+
+    Keys.onPressed: event => {
+                        event.accepted = true
+
+                        if (event.key === Qt.Key_Backspace) {
+                            backspace()
+                            return;
+                        }
+
+                        switch (event.text) {
+                            case "*":
+                                type("×");
+                                break;
+                            case "/":
+                                type("÷");
+                                break;
+                            default:
+                                type(event.text)
+                        }
+
+                    }
+    Keys.onEscapePressed: event => {
+                              event.accepted = true;
+                              root.clear()
+                          }
+    Keys.onReturnPressed: event => {
+                              event.accepted = true;
+                              root.performEvaluation()
+                          }
+    Keys.onLeftPressed: event => {
+                            event.accepted = true;
+                            controller.cursorLeft();
+                        }
+    Keys.onRightPressed: event => {
+                            event.accepted = true;
+                            controller.cursorRight();
+                        }
+
+    function type(key) {
+        root.typing = true;
+        controller.pressKey(key)
+        root.typing = false;
+    }
+
+    function backspace() {
+        root.typing = true;
+        controller.backspace()
+        root.typing = false;
+    }
+
+    function clear() {
+        controller.clearExpression()
+    }
+
+    function performEvaluation() {
+        controller.performEvaluation();
+    }
+
     ColumnLayout {
         anchors.fill: parent
         anchors.topMargin: SafeZone.top + 10
@@ -32,18 +97,37 @@ Item {
                     color: Contemporary.line
                 }
 
-                TextField {
+                RowLayout {
                     Layout.fillWidth: true
-                    horizontalAlignment: TextArea.AlignRight
-                    placeholderText: qsTr("Expression...");
-                    font.pointSize: 20
-                    background: Item { }
+
+                    spacing: 1
+
+                    TextField {
+                        id: expressionField
+                        Layout.fillWidth: true
+                        horizontalAlignment: TextArea.AlignRight
+                        placeholderText: qsTr("Expression...");
+                        font.pointSize: 20
+                        background: Item { }
+                        text: controller.expressionString
+                        cursorPosition: controller.cursorPosition
+
+                        onCursorPositionChanged: !root.typing && (controller.cursorPosition = expressionField.cursorPosition)
+
+                        Keys.forwardTo: [root]
+                    }
+
+                    Label {
+                        text: controller.balancingBrackets
+                        font.pointSize: 20
+                        color: Contemporary.disabled(Contemporary.foreground)
+                    }
                 }
 
                 Label {
                     Layout.fillWidth: true
                     horizontalAlignment: TextArea.AlignRight
-                    text: "Intermediate answer goes here"
+                    text: controller.instantResult
                     font.pointSize: 15
                 }
             }
@@ -51,6 +135,11 @@ Item {
 
         ButtonPad {
             Layout.preferredWidth: parent.width
+
+            onKeyPressed: key => root.type(key)
+            onClearPressed: () => root.clear()
+            onBackspacePressed: () => root.backspace()
+            onEvaluationRequested: () => root.performEvaluation()
         }
     }
 }

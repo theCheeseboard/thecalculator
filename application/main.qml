@@ -4,8 +4,8 @@ import QtQuick.Layouts
 import com.vicr123.Contemporary
 import Contemporary
 import Qt.labs.platform as Labs
-import "calculator" as Calculator
 
+import com.vicr123.thecalculator.calculator
 import com.vicr123.Contemporary.CoreStyles
 
 ContemporaryWindow {
@@ -29,30 +29,6 @@ ContemporaryWindow {
             title: qsTr("File")
 
             Labs.MenuItem {
-                text: qsTr("New Tab")
-                shortcut: hk_`Ctrl+T`
-                onTriggered: () => {
-                    surface.newTab()
-                    stack.currentIndex = stack.pages.length - 1
-                }
-            }
-            Labs.MenuItem {
-                text: qsTr("Close Tab")
-                shortcut: hk_`Ctrl+W`
-                onTriggered: () => {
-                    surface.closeTab(stack.currentIndex)
-                }
-            }
-
-            Labs.MenuItem {
-                text: qsTr("Settings")
-                shortcut: hk_`Ctrl+,`
-                onTriggered: () => {
-                    outerStack.push(settingsSurface)
-                }
-            }
-
-            Labs.MenuItem {
                 shortcut: hk_`Ctrl+Q`
                 text: qsTr("Quit")
                 onTriggered: Qt.quit()
@@ -70,25 +46,6 @@ ContemporaryWindow {
                 text: qsTr("Paste")
                 shortcut: hk_`Ctrl+V`
                 onTriggered: stack.pages[stack.currentIndex].paste()
-            }
-        }
-        Labs.Menu {
-            title: qsTr("View");
-
-            Labs.MenuItem {
-                text: qsTr("Zoom In")
-                shortcut: hk_`Ctrl++`
-                onTriggered: stack.pages[stack.currentIndex].zoomIn()
-            }
-            Labs.MenuItem {
-                text: qsTr("Zoom Out")
-                shortcut: hk_`Ctrl+-`
-                onTriggered: stack.pages[stack.currentIndex].zoomOut()
-            }
-            Labs.MenuItem {
-                text: qsTr("Default Zoom")
-                shortcut: hk_`Ctrl+0`
-                onTriggered: stack.pages[stack.currentIndex].zoomDefault()
             }
         }
         Labs.Menu {
@@ -113,17 +70,6 @@ ContemporaryWindow {
             actionBar: ActionBar {
                 menu: Menu {
                     Action {
-                        shortcut: hk_`Ctrl+T`
-                        text: qsTr("New Tab")
-                        icon.name: "tab-new"
-
-                        onTriggered: () => {
-                                         surface.newTab()
-                                         stack.currentIndex = stack.pages.length - 1
-                                     }
-                    }
-                    MenuSeparator {}
-                    Action {
                         shortcut: hk_`Ctrl+C`
                         text: qsTr("Copy")
                         icon.name: "edit-copy"
@@ -135,43 +81,11 @@ ContemporaryWindow {
                         icon.name: "edit-paste"
                         onTriggered: stack.pages[stack.currentIndex].paste()
                     }
-                    MenuSeparator {}
-                    Action {
-                        shortcut: hk_`Ctrl+=`
-                        text: qsTr("Zoom In")
-                        icon.name: "zoom-in"
-                        onTriggered: stack.pages[stack.currentIndex].zoomIn()
-                    }
-                    Action {
-                        shortcut: hk_`Ctrl+-`
-                        text: qsTr("Zoom Out")
-                        icon.name: "zoom-out"
-                        onTriggered: stack.pages[stack.currentIndex].zoomOut()
-                    }
-                    Action {
-                        shortcut: hk_`Ctrl+0`
-                        text: qsTr("Default Zoom")
-                        icon.name: "zoom-original"
-                        onTriggered: stack.pages[stack.currentIndex].zoomDefault()
-                    }
-                    MenuSeparator {}
-                    Action {
-                        shortcut: hk_`Ctrl+,`
-                        text: qsTr("Settings")
-                        icon.name: "configure"
-                        onTriggered: outerStack.push(settingsSurface)
-                    }
-                    Action {
-                        shortcut: hk_`Ctrl+W`
-                        text: qsTr("Close Tab")
-                        icon.name: "tab-close"
-                        onTriggered: surface.closeTab(stack.currentIndex)
-                    }
                 }
 
                 ActionBarTabber {
                     ActionBarTabber.Button {
-                        text: "Calculator"
+                        text: "Scientific"
                         icon.name: "calculator-scientific"
                         checked: stack.currentIndex === 0
                         onActivated: stack.currentIndex = 0
@@ -186,7 +100,7 @@ ContemporaryWindow {
                 id: stack
                 anchors.fill: parent
 
-                Calculator.Calculator { }
+                Calculator { }
             }
         }
 

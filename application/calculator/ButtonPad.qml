@@ -5,10 +5,16 @@ import Contemporary
 import com.vicr123.Contemporary.impl as Impl
 
 Rectangle {
+    id: root
     color: Contemporary.accent
     radius: 4
 
     Layout.preferredHeight: buttonsPane.height
+
+    signal keyPressed(string key)
+    signal clearPressed
+    signal backspacePressed
+    signal evaluationRequested
 
     GridLayout {
         id: buttonsPane
@@ -22,6 +28,8 @@ Rectangle {
             text: "C"
             Layout.fillHeight: true
             Layout.fillWidth: true
+
+            onClicked: root.clearPressed()
         }
 
         Button {
@@ -30,6 +38,8 @@ Rectangle {
             text: "<" // TODO: Use an icon?
             Layout.fillHeight: true
             Layout.fillWidth: true
+
+            onClicked: root.backspacePressed()
         }
 
         Repeater {
@@ -40,6 +50,8 @@ Rectangle {
                 text: Qt.locale().toString(modelData)
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+
+                onClicked: root.keyPressed(Qt.locale().toString(modelData))
             }
         }
 
@@ -48,6 +60,8 @@ Rectangle {
             text: Qt.locale().decimalPoint
             Layout.fillHeight: true
             Layout.fillWidth: true
+
+            onClicked: root.keyPressed(Qt.locale().decimalPoint)
         }
 
         Button {
@@ -55,6 +69,8 @@ Rectangle {
             text: Qt.locale().zeroDigit
             Layout.fillHeight: true
             Layout.fillWidth: true
+
+            onClicked: root.keyPressed(Qt.locale().zeroDigit)
         }
 
         Button {
@@ -96,6 +112,8 @@ Rectangle {
 
                     Layout.fillHeight: true
                     Layout.fillWidth: true
+
+                    onClicked: root.keyPressed(modelData)
                 }
             }
 
@@ -106,6 +124,8 @@ Rectangle {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.columnSpan: 3
+
+                onClicked: root.evaluationRequested()
             }
         }
 
