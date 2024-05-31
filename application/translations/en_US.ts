@@ -13,8 +13,8 @@
 <context>
     <name>Calculator</name>
     <message>
-        <location filename="../calculator/Calculator.qml" line="161"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="161"/>
+        <location filename="../calculator/Calculator.qml" line="174"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="174"/>
         <source>Expression...</source>
         <translation type="unfinished"></translation>
     </message>

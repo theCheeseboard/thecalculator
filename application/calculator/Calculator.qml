@@ -24,6 +24,19 @@ Item {
                             return;
                         }
 
+                        if (event.modifiers === Qt.ControlModifier) {
+                            switch (event.key) {
+                                case Qt.Key_P:
+                                    type("π");
+                                    break;
+                                case Qt.Key_R:
+                                    type("√");
+                                    break;
+                            }
+
+                            return;
+                        }
+
                         switch (event.text) {
                             case "*":
                                 type("×");
