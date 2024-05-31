@@ -177,7 +177,7 @@ Rectangle {
                             ToolTip.delay: 1000
                             ToolTip.timeout: 5000
                             ToolTip.visible: hovered
-                            ToolTip.text: opButton.buttonText
+                            ToolTip.text: opButton.buttonTooltip
 
                             onClicked: () => {
                                 switch (opButton.buttonAction) {

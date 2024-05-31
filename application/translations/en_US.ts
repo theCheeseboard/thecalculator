@@ -102,6 +102,132 @@
         <source>Other Logarithm</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="82"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="82"/>
+        <source>Absolute Value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="87"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="87"/>
+        <source>Real Part</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="92"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="92"/>
+        <source>Imaginary Part</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="97"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="97"/>
+        <source>Hyperbolic Sine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="102"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="102"/>
+        <source>Hyperbolic Cosine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="107"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="107"/>
+        <source>Hyperbolic Tangent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="112"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="112"/>
+        <source>Inverse Hyperbolic Sine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="117"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="117"/>
+        <source>Inverse Hyperbolic Cosine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="122"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="122"/>
+        <source>Inverse Hyperbolic Tangent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="127"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="127"/>
+        <source>Secant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="132"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="132"/>
+        <source>Cosecant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="137"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="137"/>
+        <source>Cotangent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="142"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="142"/>
+        <source>Inverse Secant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="147"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="147"/>
+        <source>Inverse Cosecant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="152"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="152"/>
+        <source>Inverse Cotangent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="157"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="157"/>
+        <source>Hyperbolic Secant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="162"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="162"/>
+        <source>Hyperbolic Cosecant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="167"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="167"/>
+        <source>Hyperbolic Cotangent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="172"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="172"/>
+        <source>Inverse Hyperbolic Secant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="177"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="177"/>
+        <source>Inverse Hyperbolic Cosecant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/ButtonPadOperations.qml" line="182"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPadOperations.qml" line="182"/>
+        <source>Inverse Hyperbolic Cotangent</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Calculator</name>
