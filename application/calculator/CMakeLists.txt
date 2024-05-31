@@ -5,6 +5,7 @@ cntp_add_qml_module(calc thecalculator
         Calculator.qml
         ButtonPad.qml
         ColorButton.qml
+        ButtonPadOperations.qml
     SOURCES
         calculatorcontroller.h calculatorcontroller.cpp
 )

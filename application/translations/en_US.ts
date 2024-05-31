@@ -4,8 +4,8 @@
 <context>
     <name>ButtonPad</name>
     <message>
-        <location filename="../calculator/ButtonPad.qml" line="78"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPad.qml" line="78"/>
+        <location filename="../calculator/ButtonPad.qml" line="79"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPad.qml" line="79"/>
         <source>Ans</source>
         <translation type="unfinished"></translation>
     </message>

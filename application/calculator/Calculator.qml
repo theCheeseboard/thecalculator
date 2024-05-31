@@ -163,6 +163,7 @@ Item {
                         background: Item { }
                         text: controller.expressionString
                         cursorPosition: controller.cursorPosition
+                        color: Contemporary.foreground
 
                         onCursorPositionChanged: !root.typing && (controller.cursorPosition = expressionField.cursorPosition)
 

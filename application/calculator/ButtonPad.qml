@@ -7,6 +7,7 @@ import com.vicr123.Contemporary.impl as Impl
 Rectangle {
     id: root
     color: Contemporary.accent
+    // color: Contemporary.background
     radius: 4
 
     Layout.preferredHeight: buttonsPane.height
@@ -154,15 +155,33 @@ Rectangle {
 
                     width: advancedOperationsPane.width
 
+                    ButtonPadOperations {
+                        id: buttonPadOperations
+                    }
+
                     Repeater {
-                        model: 30
+                        model: buttonPadOperations
 
                         ColorButton {
+                            id: opButton
+                            required property string buttonAction
+                            required property string buttonText
                             color: advancedOperationsColor.color
-                            text: `OpBtn ${Qt.locale().toString(index)}`
+                            text: opButton.buttonText
 
                             Layout.fillHeight: true
                             Layout.fillWidth: true
+
+                            onClicked: () => {
+                                switch (opButton.buttonAction) {
+                                    case "nth-root":
+                                    case "log-generic":
+                                       // TODO
+                                       break;
+                                    default:
+                                        root.keyPressed(opButton.buttonAction)
+                                }
+                            }
                         }
                     }
                 }
