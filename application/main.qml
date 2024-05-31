@@ -31,6 +31,7 @@ ContemporaryWindow {
             Labs.MenuItem {
                 shortcut: hk_`Ctrl+Q`
                 text: qsTr("Quit")
+                role: Labs.MenuItem.QuitRole
                 onTriggered: Qt.quit()
             }
         }
@@ -53,6 +54,7 @@ ContemporaryWindow {
 
             Labs.MenuItem {
                 text: qsTr("About")
+                role: Labs.MenuItem.AboutRole
                 onTriggered: outerStack.push(aboutSurface)
             }
         }

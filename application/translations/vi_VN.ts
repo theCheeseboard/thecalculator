@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="vi_VN" sourcelanguage="en_US">
 <context>
     <name>ButtonPad</name>
     <message>
@@ -109,7 +109,7 @@
         <location filename="../calculator/Calculator.qml" line="174"/>
         <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="174"/>
         <source>Expression...</source>
-        <translation type="unfinished"></translation>
+        <translation>Biểu thức...</translation>
     </message>
 </context>
 <context>
@@ -124,19 +124,19 @@
         <location filename="../Main.qml" line="29"/>
         <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="29"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>Tệp</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="33"/>
         <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="33"/>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Thoát</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="39"/>
         <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="39"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Sửa</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="42"/>
@@ -144,7 +144,7 @@
         <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="42"/>
         <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="76"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Chép</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="47"/>
@@ -152,19 +152,19 @@
         <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="47"/>
         <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="82"/>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Dán</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="53"/>
         <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="53"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Trợ giúp</translation>
     </message>
     <message>
         <location filename="../Main.qml" line="56"/>
         <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="56"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Giới thiệu</translation>
     </message>
 </context>
 <context>
@@ -172,7 +172,7 @@
     <message>
         <location filename="../main.cpp" line="17"/>
         <source>Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Máy tính</translation>
     </message>
 </context>
 </TS>

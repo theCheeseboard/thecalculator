@@ -166,11 +166,18 @@ Rectangle {
                             id: opButton
                             required property string buttonAction
                             required property string buttonText
+                            required property string buttonTooltip
                             color: advancedOperationsColor.color
                             text: opButton.buttonText
+                            hoverEnabled: true
 
                             Layout.fillHeight: true
                             Layout.fillWidth: true
+
+                            ToolTip.delay: 1000
+                            ToolTip.timeout: 5000
+                            ToolTip.visible: hovered
+                            ToolTip.text: opButton.buttonText
 
                             onClicked: () => {
                                 switch (opButton.buttonAction) {
