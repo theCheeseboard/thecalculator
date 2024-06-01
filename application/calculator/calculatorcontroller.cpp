@@ -2,6 +2,7 @@
 
 #include <libcontemporary_global.h>
 
+#include "historymodel.h"
 #include <libtcalc/tc_evaluator.h>
 #include <libtcalc/tc_lexer.h>
 #include <libtcalc/tc_parser.h>
@@ -11,6 +12,8 @@ struct CalculatorControllerPrivate {
         QString instantResult;
         int cursorPosition;
 
+        HistoryModel* history;
+
         tcalc::evaluator evaluator{64};
 
         int errorStartLocation = 0;
@@ -19,6 +22,7 @@ struct CalculatorControllerPrivate {
 
 CalculatorController::CalculatorController(QObject* parent) :
     QObject{parent}, d{new CalculatorControllerPrivate()} {
+    d->history = new HistoryModel(this);
 }
 
 CalculatorController::~CalculatorController() {
@@ -121,12 +125,33 @@ int CalculatorController::errorEndLocation() {
     return d->errorEndLocation;
 }
 
-void CalculatorController::performEvaluation() {
-    auto fullExpression = d->expressionString + balancingBrackets();
-    emit evaluationError();
+QAbstractItemModel* CalculatorController::history() {
+    return d->history;
 }
 
-QString CalculatorController::evaluateExpression(QString expression) {
+void CalculatorController::performEvaluation() {
+    auto fullExpression = d->expressionString + balancingBrackets();
+    bool success;
+    auto result = evaluateExpression(fullExpression, &success);
+
+    if (!success) {
+        emit evaluationError();
+        return;
+    }
+
+    d->history->addHistoryEntry({fullExpression, result});
+
+    d->expressionString = result;
+    d->cursorPosition = d->expressionString.length();
+    expressionStringUpdated();
+
+    // Clear the instant result until the input changes again
+    d->instantResult.clear();
+    emit instantResultChanged();
+}
+
+QString CalculatorController::evaluateExpression(QString expression, bool* success) {
+    *success = false;
     if (expression.isEmpty()) {
         d->errorStartLocation = 0;
         d->errorEndLocation = 0;
@@ -173,8 +198,10 @@ QString CalculatorController::evaluateExpression(QString expression) {
     d->errorEndLocation = 0;
 
     if (auto number = std::get_if<tcalc::number>(&result.value())) {
+        *success = true;
         return QString::fromStdString(number->string());
     } else if (auto comparisonResult = std::get_if<bool>(&result.value())) {
+        *success = true;
         return *comparisonResult ? tr("True") : tr("False");
     } else {
         return tr("Unknown Error");
@@ -188,9 +215,9 @@ void CalculatorController::expressionStringUpdated() {
 
     calculateIntellisense();
 
-    // TODO: Calculate instant result
     auto fullExpression = d->expressionString + balancingBrackets();
-    d->instantResult = evaluateExpression(fullExpression);
+    bool success;
+    d->instantResult = evaluateExpression(fullExpression, &success);
     emit instantResultChanged();
 }
 

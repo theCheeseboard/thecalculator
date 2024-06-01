@@ -1,6 +1,7 @@
 #ifndef CALCULATORCONTROLLER_H
 #define CALCULATORCONTROLLER_H
 
+#include <QAbstractItemModel>
 #include <QObject>
 #include <QQmlEngine>
 
@@ -17,6 +18,7 @@ class CalculatorController : public QObject {
         Q_PROPERTY(QString intellisenseArguments READ intellisenseArguments NOTIFY intellisenseChanged FINAL)
         Q_PROPERTY(int errorStartLocation READ errorStartLocation NOTIFY instantResultChanged FINAL)
         Q_PROPERTY(int errorEndLocation READ errorEndLocation NOTIFY instantResultChanged FINAL)
+        Q_PROPERTY(QAbstractItemModel* history READ history CONSTANT FINAL)
         QML_ELEMENT
     public:
         explicit CalculatorController(QObject* parent = nullptr);
@@ -44,9 +46,11 @@ class CalculatorController : public QObject {
         int errorStartLocation();
         int errorEndLocation();
 
+        QAbstractItemModel* history();
+
         Q_SCRIPTABLE void performEvaluation();
 
-        QString evaluateExpression(QString expression);
+        QString evaluateExpression(QString expression, bool* success);
 
     signals:
         void expressionStringChanged();

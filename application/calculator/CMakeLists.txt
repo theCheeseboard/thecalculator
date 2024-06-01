@@ -8,6 +8,7 @@ cntp_add_qml_module(calc thecalculator
         ButtonPadOperations.qml
     SOURCES
         calculatorcontroller.h calculatorcontroller.cpp
+        historymodel.h historymodel.cpp
 )
 
 set_target_properties(thecalculator-qmlmodule-calc PROPERTIES
