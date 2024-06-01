@@ -242,43 +242,54 @@
     <name>CalculatorController</name>
     <message>
         <location filename="../calculator/calculatorcontroller.cpp" line="143"/>
-        <location filename="../calculator/calculatorcontroller.cpp" line="154"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="152"/>
         <source>Syntax Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="152"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="168"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="180"/>
         <source>Unknown Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="156"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="154"/>
         <source>Can&apos;t divide by zero</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="158"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="156"/>
         <source>Can&apos;t take the logarithm of zero</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="160"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="158"/>
         <source>Undefined Variable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="162"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="160"/>
         <source>Undefined Function</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="164"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="162"/>
         <source>Can&apos;t take a logarithm of base 0 or 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="166"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="164"/>
         <source>Bad Arity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="178"/>
+        <source>True</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="178"/>
+        <source>False</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

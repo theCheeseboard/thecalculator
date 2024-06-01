@@ -148,8 +148,6 @@ QString CalculatorController::evaluateExpression(QString expression) {
         d->errorStartLocation = result.error().position.start_index;
         d->errorEndLocation = result.error().position.end_index;
         switch (result.error().type) {
-            case tcalc::eval_error_type::none:
-                return tr("Unknown Error");
             case tcalc::eval_error_type::invalid_program:
                 return tr("Syntax Error");
             case tcalc::eval_error_type::divide_by_zero:
@@ -165,17 +163,21 @@ QString CalculatorController::evaluateExpression(QString expression) {
             case tcalc::eval_error_type::bad_arity:
                 return tr("Bad Arity");
             case tcalc::eval_error_type::complex_inequality:
-                return "E";
+            case tcalc::eval_error_type::none:
+            default:
+                return tr("Unknown Error");
         }
     }
 
     d->errorStartLocation = 0;
     d->errorEndLocation = 0;
 
-    if (const tcalc::number* number = std::get_if<tcalc::number>(&result.value())) {
+    if (auto number = std::get_if<tcalc::number>(&result.value())) {
         return QString::fromStdString(number->string());
+    } else if (auto comparisonResult = std::get_if<bool>(&result.value())) {
+        return *comparisonResult ? tr("True") : tr("False");
     } else {
-        return "E";
+        return tr("Unknown Error");
     }
 }
 
