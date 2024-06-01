@@ -41,6 +41,8 @@ class CalculatorController : public QObject {
 
         Q_SCRIPTABLE void performEvaluation();
 
+        QString evaluateExpression(QString expression);
+
     signals:
         void expressionStringChanged();
         void instantResultChanged();

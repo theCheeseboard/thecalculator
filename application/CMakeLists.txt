@@ -4,6 +4,7 @@ project(thecalculator VERSION 1.0.0 LANGUAGES CXX)
 
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Quick QuickControls2)
 find_package(libcontemporary REQUIRED)
+find_package(libtcalc REQUIRED)
 
 set(SOURCES
         main.cpp
@@ -60,7 +61,7 @@ cntp_defaults_file(thecalculator
     DEFAULTS_FILE thecalculator.conf)
 # cntp_dmg(thecalculator app-dmg-background.svg)
 
-target_link_libraries(thecalculator PUBLIC Qt::Widgets Qt::Quick Qt::QuickControls2 libcontemporary)
+target_link_libraries(thecalculator PUBLIC Qt::Widgets Qt::Quick Qt::QuickControls2 libcontemporary libtcalc)
 
 install(TARGETS thecalculator
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}

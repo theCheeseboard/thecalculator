@@ -2,10 +2,16 @@
 
 #include <libcontemporary_global.h>
 
+#include <libtcalc/tc_evaluator.h>
+#include <libtcalc/tc_lexer.h>
+#include <libtcalc/tc_parser.h>
+
 struct CalculatorControllerPrivate {
         QString expressionString;
         QString instantResult;
         int cursorPosition;
+
+        tcalc::evaluator evaluator{64};
 };
 
 CalculatorController::CalculatorController(QObject* parent) :
@@ -105,7 +111,52 @@ QString CalculatorController::intellisenseArguments() {
 }
 
 void CalculatorController::performEvaluation() {
+    auto fullExpression = d->expressionString + balancingBrackets();
     emit evaluationError();
+}
+
+QString CalculatorController::evaluateExpression(QString expression) {
+    if (expression.isEmpty()) {
+        return {};
+    }
+
+    tcalc::lexer lexer(expression.toStdString(), QLocale().decimalPoint() != ",");
+    tcalc::parser parser(std::move(lexer), 64);
+
+    auto expr = parser.parse_expression();
+    if (!parser.diagnostic_bag().empty()) {
+        return tr("Syntax Error");
+    }
+
+    auto result = d->evaluator.evaluate(expr);
+    if (result.is_error()) {
+        switch (result.error().type) {
+            case tcalc::eval_error_type::none:
+                return tr("Unknown Error");
+            case tcalc::eval_error_type::invalid_program:
+                return tr("Syntax Error");
+            case tcalc::eval_error_type::divide_by_zero:
+                return tr("Can't divide by zero");
+            case tcalc::eval_error_type::log_zero:
+                return tr("Can't take the logarithm of zero");
+            case tcalc::eval_error_type::undefined_variable:
+                return tr("Undefined Variable");
+            case tcalc::eval_error_type::undefined_function:
+                return tr("Undefined Function");
+            case tcalc::eval_error_type::log_base:
+                return tr("Can't take a logarithm of base 0 or 1");
+            case tcalc::eval_error_type::bad_arity:
+                return tr("Bad Arity");
+            case tcalc::eval_error_type::complex_inequality:
+                return "E";
+        }
+    }
+
+    if (const tcalc::number* number = std::get_if<tcalc::number>(&result.value())) {
+        return QString::fromStdString(number->string());
+    } else {
+        return "E";
+    }
 }
 
 void CalculatorController::expressionStringUpdated() {
@@ -117,7 +168,7 @@ void CalculatorController::expressionStringUpdated() {
 
     // TODO: Calculate instant result
     auto fullExpression = d->expressionString + balancingBrackets();
-    d->instantResult = fullExpression;
+    d->instantResult = evaluateExpression(fullExpression);
     emit instantResultChanged();
 }
 

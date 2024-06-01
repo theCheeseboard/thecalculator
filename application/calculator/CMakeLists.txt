@@ -9,3 +9,7 @@ cntp_add_qml_module(calc thecalculator
     SOURCES
         calculatorcontroller.h calculatorcontroller.cpp
 )
+
+set_target_properties(thecalculator-qmlmodule-calc PROPERTIES
+    CXX_STANDARD 20
+)

@@ -239,6 +239,50 @@
     </message>
 </context>
 <context>
+    <name>CalculatorController</name>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="128"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="137"/>
+        <source>Syntax Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="135"/>
+        <source>Unknown Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="139"/>
+        <source>Can&apos;t divide by zero</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="141"/>
+        <source>Can&apos;t take the logarithm of zero</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="143"/>
+        <source>Undefined Variable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="145"/>
+        <source>Undefined Function</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="147"/>
+        <source>Can&apos;t take a logarithm of base 0 or 1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="149"/>
+        <source>Bad Arity</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Main</name>
     <message>
         <location filename="../Main.qml" line="16"/>
