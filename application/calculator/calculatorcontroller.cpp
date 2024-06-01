@@ -12,6 +12,9 @@ struct CalculatorControllerPrivate {
         int cursorPosition;
 
         tcalc::evaluator evaluator{64};
+
+        int errorStartLocation = 0;
+        int errorEndLocation = 0;
 };
 
 CalculatorController::CalculatorController(QObject* parent) :
@@ -110,6 +113,14 @@ QString CalculatorController::intellisenseArguments() {
     return args.join(libContemporaryCommon::humanReadablePartJoinString());
 }
 
+int CalculatorController::errorStartLocation() {
+    return d->errorStartLocation;
+}
+
+int CalculatorController::errorEndLocation() {
+    return d->errorEndLocation;
+}
+
 void CalculatorController::performEvaluation() {
     auto fullExpression = d->expressionString + balancingBrackets();
     emit evaluationError();
@@ -117,6 +128,8 @@ void CalculatorController::performEvaluation() {
 
 QString CalculatorController::evaluateExpression(QString expression) {
     if (expression.isEmpty()) {
+        d->errorStartLocation = 0;
+        d->errorEndLocation = 0;
         return {};
     }
 
@@ -125,11 +138,15 @@ QString CalculatorController::evaluateExpression(QString expression) {
 
     auto expr = parser.parse_expression();
     if (!parser.diagnostic_bag().empty()) {
+        d->errorStartLocation = 0;
+        d->errorEndLocation = 0;
         return tr("Syntax Error");
     }
 
     auto result = d->evaluator.evaluate(expr);
     if (result.is_error()) {
+        d->errorStartLocation = result.error().position.start_index;
+        d->errorEndLocation = result.error().position.end_index;
         switch (result.error().type) {
             case tcalc::eval_error_type::none:
                 return tr("Unknown Error");
@@ -151,6 +168,9 @@ QString CalculatorController::evaluateExpression(QString expression) {
                 return "E";
         }
     }
+
+    d->errorStartLocation = 0;
+    d->errorEndLocation = 0;
 
     if (const tcalc::number* number = std::get_if<tcalc::number>(&result.value())) {
         return QString::fromStdString(number->string());

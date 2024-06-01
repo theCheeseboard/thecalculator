@@ -162,31 +162,59 @@ Item {
                     }
                 }
 
-                RowLayout {
+                Item {
                     Layout.fillWidth: true
+                    Layout.preferredHeight: expressionRow.implicitHeight
 
-                    spacing: 1
+                    RowLayout {
+                        id: expressionRow
+                        anchors.fill: parent
+                        spacing: 1
 
-                    TextField {
-                        id: expressionField
-                        Layout.fillWidth: true
-                        horizontalAlignment: TextArea.AlignRight
-                        placeholderText: qsTr("Expression...");
-                        font.pointSize: 20
-                        background: Item { }
-                        text: controller.expressionString
-                        cursorPosition: controller.cursorPosition
-                        color: Contemporary.foreground
+                        TextField {
+                            id: expressionField
+                            Layout.fillWidth: true
+                            horizontalAlignment: TextArea.AlignRight
+                            placeholderText: qsTr("Expression...");
+                            font.pointSize: 20
+                            background: Item { }
+                            text: controller.expressionString
+                            cursorPosition: controller.cursorPosition
+                            color: Contemporary.foreground
 
-                        onCursorPositionChanged: !root.typing && (controller.cursorPosition = expressionField.cursorPosition)
+                            onCursorPositionChanged: !root.typing && (controller.cursorPosition = expressionField.cursorPosition)
 
-                        Keys.forwardTo: [root]
+                            Keys.forwardTo: [root]
+                        }
+
+                        Label {
+                            text: controller.balancingBrackets
+                            font.pointSize: 20
+                            color: Contemporary.disabled(Contemporary.foreground)
+                        }
                     }
 
-                    Label {
-                        text: controller.balancingBrackets
-                        font.pointSize: 20
-                        color: Contemporary.disabled(Contemporary.foreground)
+                    TextMetrics {
+                        id: errorLocatorRight
+                        font: expressionField.font
+                        text: (controller.expressionString + controller.balancingBrackets).substring(controller.errorEndLocation);
+                    }
+
+                    TextMetrics {
+                        id: errorLocatorMid
+                        font: expressionField.font
+                        text: (controller.expressionString + controller.balancingBrackets).substring(controller.errorStartLocation, controller.errorEndLocation);
+                    }
+
+                    Rectangle {
+                        id: errorLocator
+                        anchors.bottom: parent.bottom
+                        anchors.right: parent.right
+                        anchors.rightMargin: errorLocatorRight.advanceWidth
+                        implicitHeight: 1;
+                        color: "red";
+
+                        width: errorLocatorMid.advanceWidth
                     }
                 }
 

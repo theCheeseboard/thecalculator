@@ -232,8 +232,8 @@
 <context>
     <name>Calculator</name>
     <message>
-        <location filename="../calculator/Calculator.qml" line="174"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="174"/>
+        <location filename="../calculator/Calculator.qml" line="178"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="178"/>
         <source>Expression...</source>
         <translation>Biểu thức...</translation>
     </message>
@@ -241,43 +241,43 @@
 <context>
     <name>CalculatorController</name>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="128"/>
-        <location filename="../calculator/calculatorcontroller.cpp" line="137"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="143"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="154"/>
         <source>Syntax Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="135"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="152"/>
         <source>Unknown Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="139"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="156"/>
         <source>Can&apos;t divide by zero</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="141"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="158"/>
         <source>Can&apos;t take the logarithm of zero</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="143"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="160"/>
         <source>Undefined Variable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="145"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="162"/>
         <source>Undefined Function</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="147"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="164"/>
         <source>Can&apos;t take a logarithm of base 0 or 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="149"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="166"/>
         <source>Bad Arity</source>
         <translation type="unfinished"></translation>
     </message>

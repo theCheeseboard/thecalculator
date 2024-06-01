@@ -15,6 +15,8 @@ class CalculatorController : public QObject {
         Q_PROPERTY(QString intellisenseFunction READ intellisenseFunction NOTIFY intellisenseChanged FINAL)
         Q_PROPERTY(QString intellisenseDescription READ intellisenseDescription NOTIFY intellisenseChanged FINAL)
         Q_PROPERTY(QString intellisenseArguments READ intellisenseArguments NOTIFY intellisenseChanged FINAL)
+        Q_PROPERTY(int errorStartLocation READ errorStartLocation NOTIFY instantResultChanged FINAL)
+        Q_PROPERTY(int errorEndLocation READ errorEndLocation NOTIFY instantResultChanged FINAL)
         QML_ELEMENT
     public:
         explicit CalculatorController(QObject* parent = nullptr);
@@ -38,6 +40,9 @@ class CalculatorController : public QObject {
         QString intellisenseFunction();
         QString intellisenseDescription();
         QString intellisenseArguments();
+
+        int errorStartLocation();
+        int errorEndLocation();
 
         Q_SCRIPTABLE void performEvaluation();
 
