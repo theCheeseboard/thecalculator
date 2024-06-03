@@ -7,6 +7,8 @@ Button {
     property var color: Contemporary.accent
     id: button
 
+    signal rightClicked
+
     background: Impl.ButtonBackground {
         buttonColor: button.color
         flat: button.flat
@@ -21,5 +23,11 @@ Button {
             focused: button.visualFocus
             radius: 4
         }
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        acceptedButtons: Qt.RightButton
+        onClicked: button.rightClicked()
     }
 }

@@ -4,13 +4,9 @@ cntp_add_qml_module(calc thecalculator
     QML_FILES
         Calculator.qml
         ButtonPad.qml
-        ColorButton.qml
+        KeypadButton.qml
         ButtonPadOperations.qml
     SOURCES
         calculatorcontroller.h calculatorcontroller.cpp
         historymodel.h historymodel.cpp
-)
-
-set_target_properties(thecalculator-qmlmodule-calc PROPERTIES
-    CXX_STANDARD 20
 )

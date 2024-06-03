@@ -6,6 +6,7 @@ import Contemporary
 import Qt.labs.platform as Labs
 
 import com.vicr123.thecalculator.calculator
+import com.vicr123.thecalculator.units
 import com.vicr123.Contemporary.CoreStyles
 
 ContemporaryWindow {
@@ -87,10 +88,16 @@ ContemporaryWindow {
 
                 ActionBarTabber {
                     ActionBarTabber.Button {
-                        text: "Scientific"
+                        text: qsTr("Scientific")
                         icon.name: "calculator-scientific"
                         checked: stack.currentIndex === 0
                         onActivated: stack.currentIndex = 0
+                    }
+                    ActionBarTabber.Button {
+                        text: qsTr("Units")
+                        icon.name: "calculator-scientific"
+                        checked: stack.currentIndex === 1
+                        onActivated: stack.currentIndex = 1
                     }
                 }
 
@@ -103,6 +110,7 @@ ContemporaryWindow {
                 anchors.fill: parent
 
                 Calculator { }
+                Units { }
             }
         }
 

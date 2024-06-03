@@ -4,8 +4,8 @@
 <context>
     <name>ButtonPad</name>
     <message>
-        <location filename="../calculator/ButtonPad.qml" line="79"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPad.qml" line="79"/>
+        <location filename="../calculator/ButtonPad.qml" line="92"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/ButtonPad.qml" line="92"/>
         <source>Ans</source>
         <translation type="unfinished"></translation>
     </message>
@@ -296,56 +296,170 @@
 <context>
     <name>Main</name>
     <message>
-        <location filename="../Main.qml" line="16"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="16"/>
+        <location filename="../Main.qml" line="17"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="17"/>
         <source>theCalculator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="29"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="29"/>
+        <location filename="../Main.qml" line="30"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="30"/>
         <source>File</source>
         <translation>Tệp</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="33"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="33"/>
+        <location filename="../Main.qml" line="34"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="34"/>
         <source>Quit</source>
         <translation>Thoát</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="39"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="39"/>
+        <location filename="../Main.qml" line="40"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="40"/>
         <source>Edit</source>
         <translation>Sửa</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="42"/>
-        <location filename="../Main.qml" line="76"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="42"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="76"/>
+        <location filename="../Main.qml" line="43"/>
+        <location filename="../Main.qml" line="77"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="43"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="77"/>
         <source>Copy</source>
         <translation>Chép</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="47"/>
-        <location filename="../Main.qml" line="82"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="47"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="82"/>
+        <location filename="../Main.qml" line="48"/>
+        <location filename="../Main.qml" line="83"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="48"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="83"/>
         <source>Paste</source>
         <translation>Dán</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="53"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="53"/>
+        <location filename="../Main.qml" line="54"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="54"/>
         <source>Help</source>
         <translation>Trợ giúp</translation>
     </message>
     <message>
-        <location filename="../Main.qml" line="56"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="56"/>
+        <location filename="../Main.qml" line="57"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="57"/>
         <source>About</source>
         <translation>Giới thiệu</translation>
+    </message>
+    <message>
+        <location filename="../Main.qml" line="91"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="91"/>
+        <source>Scientific</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Main.qml" line="97"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/com/vicr123/thecalculator/Main.qml" line="97"/>
+        <source>Units</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UnitSelectionModel</name>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="5"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="5"/>
+        <source>Distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="9"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="9"/>
+        <source>Millimeters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="12"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="12"/>
+        <source>Centimeters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="15"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="15"/>
+        <source>Meters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="18"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="18"/>
+        <source>Kilometers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="21"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="21"/>
+        <source>Inches</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="24"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="24"/>
+        <source>Feet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="27"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="27"/>
+        <source>Yards</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="30"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="30"/>
+        <source>Miles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="33"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="33"/>
+        <source>Lightyears</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="38"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="38"/>
+        <source>Weight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="42"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="42"/>
+        <source>Temperature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="46"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="46"/>
+        <source>Celsius</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="55"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="55"/>
+        <source>Fahrenheit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="59"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="59"/>
+        <source>Kelvin</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Units</name>
+    <message>
+        <location filename="../units/Units.qml" line="19"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/Units.qml" line="19"/>
+        <source>Unit Type</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

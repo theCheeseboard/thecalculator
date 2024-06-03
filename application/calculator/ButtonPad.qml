@@ -24,7 +24,7 @@ Rectangle {
         anchors.left: parent.left
         anchors.right: operationsColor.left
 
-        Button {
+        KeypadButton {
             id: clearButton
             text: "C"
             Layout.fillHeight: true
@@ -33,7 +33,7 @@ Rectangle {
             onClicked: root.clearPressed()
         }
 
-        Button {
+        KeypadButton {
             Layout.columnSpan: 2
             id: backspaceButton
             text: "<" // TODO: Use an icon?
@@ -44,41 +44,64 @@ Rectangle {
         }
 
         Repeater {
-            model: [7, 8, 9, 4, 5, 6, 1, 2, 3]
+            model: [
+                {
+                    number: "7",
+                    superscript: "⁷"
+                },
+                {
+                    number: "8",
+                    superscript: "⁸"
+                },
+                {
+                    number: "9",
+                    superscript: "⁹"
+                },
+                {
+                    number: "4",
+                    superscript: "⁴"
+                },
+                {
+                    number: "5",
+                    superscript: "⁵"
+                },
+                {
+                    number: "6",
+                    superscript: "⁶"
+                },
+                {
+                    number: "1",
+                    superscript: "¹"
+                },
+                {
+                    number: "2",
+                    superscript: "²"
+                },
+                {
+                    number: "3",
+                    superscript: "³"
+                },
+                {
+                    number: Qt.locale().decimalPoint
+                },
+                {
+                    number: Qt.locale().zeroDigit,
+                    superscript: "⁰"
+                },
+                {
+                    number: qsTr("Ans")
+                }
+            ]
 
-            Button {
-                required property int modelData
-                text: Qt.locale().toString(modelData)
+            KeypadButton {
+                required property var modelData
+                text: typeof(modelData.number) === "number" ? Qt.locale().toString(modelData.number) : modelData.number
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
-                onClicked: root.keyPressed(Qt.locale().toString(modelData))
+                onClicked: root.keyPressed(typeof(modelData.number) === "number" ? Qt.locale().toString(modelData.number) : modelData.number)
+                onRightClicked: modelData.superscript && root.keyPressed(modelData.superscript)
             }
-        }
-
-        Button {
-            id: decimalButton
-            text: Qt.locale().decimalPoint
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-
-            onClicked: root.keyPressed(Qt.locale().decimalPoint)
-        }
-
-        Button {
-            id: zeroButton
-            text: Qt.locale().zeroDigit
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-
-            onClicked: root.keyPressed(Qt.locale().zeroDigit)
-        }
-
-        Button {
-            id: answerButton
-            text: qsTr("Ans")
-            Layout.fillHeight: true
-            Layout.fillWidth: true
         }
     }
 
@@ -106,7 +129,7 @@ Rectangle {
             Repeater {
                 model: ["(", ")", "%", "π", "e", "i", "×", "÷", "<<", "+", "-", ">>"]
 
-                ColorButton {
+                KeypadButton {
                     required property var modelData
                     color: operationsColor.color
                     text: modelData
@@ -118,7 +141,7 @@ Rectangle {
                 }
             }
 
-            ColorButton {
+            KeypadButton {
                 color: operationsColor.color
                 text: "="
 
@@ -162,7 +185,7 @@ Rectangle {
                     Repeater {
                         model: buttonPadOperations
 
-                        ColorButton {
+                        KeypadButton {
                             id: opButton
                             required property string buttonAction
                             required property string buttonText

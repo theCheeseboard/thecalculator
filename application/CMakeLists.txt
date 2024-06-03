@@ -40,6 +40,7 @@ qt_add_qml_module(thecalculator
 )
 
 add_subdirectory(calculator)
+add_subdirectory(units)
 
 set_target_properties(thecalculator PROPERTIES
         MACOSX_BUNDLE TRUE
