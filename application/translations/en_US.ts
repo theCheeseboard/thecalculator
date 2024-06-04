@@ -363,92 +363,116 @@
 <context>
     <name>UnitSelectionModel</name>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="5"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="5"/>
+        <location filename="../units/UnitSelectionModel.qml" line="7"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="7"/>
         <source>Distance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="9"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="9"/>
+        <location filename="../units/UnitSelectionModel.qml" line="11"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="11"/>
         <source>Millimeters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="12"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="12"/>
+        <location filename="../units/UnitSelectionModel.qml" line="16"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="16"/>
         <source>Centimeters</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../units/UnitSelectionModel.qml" line="15"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="15"/>
-        <source>Meters</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../units/UnitSelectionModel.qml" line="18"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="18"/>
-        <source>Kilometers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../units/UnitSelectionModel.qml" line="21"/>
         <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="21"/>
+        <source>Meters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="26"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="26"/>
+        <source>Kilometers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="31"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="31"/>
         <source>Inches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="24"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="24"/>
+        <location filename="../units/UnitSelectionModel.qml" line="36"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="36"/>
         <source>Feet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="27"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="27"/>
+        <location filename="../units/UnitSelectionModel.qml" line="41"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="41"/>
         <source>Yards</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../units/UnitSelectionModel.qml" line="30"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="30"/>
-        <source>Miles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../units/UnitSelectionModel.qml" line="33"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="33"/>
-        <source>Lightyears</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../units/UnitSelectionModel.qml" line="38"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="38"/>
-        <source>Weight</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../units/UnitSelectionModel.qml" line="42"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="42"/>
-        <source>Temperature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../units/UnitSelectionModel.qml" line="46"/>
         <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="46"/>
+        <source>Miles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="51"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="51"/>
+        <source>Lightyears</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="57"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="57"/>
+        <source>Mass</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="60"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="60"/>
+        <source>Gram</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="65"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="65"/>
+        <source>Kilogram</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="70"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="70"/>
+        <source>Ounce</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="75"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="75"/>
+        <source>Pound</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="82"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="82"/>
+        <source>Temperature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="86"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="86"/>
         <source>Celsius</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="55"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="55"/>
+        <location filename="../units/UnitSelectionModel.qml" line="91"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="91"/>
         <source>Fahrenheit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="59"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="59"/>
+        <location filename="../units/UnitSelectionModel.qml" line="97"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="97"/>
         <source>Kelvin</source>
         <translation type="unfinished"></translation>
     </message>
@@ -456,9 +480,25 @@
 <context>
     <name>Units</name>
     <message>
-        <location filename="../units/Units.qml" line="19"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/Units.qml" line="19"/>
+        <location filename="../units/Units.qml" line="62"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/Units.qml" line="62"/>
         <source>Unit Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/Units.qml" line="105"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/Units.qml" line="105"/>
+        <source>Quantity...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UnitsController</name>
+    <message>
+        <location filename="../units/unitscontroller.cpp" line="37"/>
+        <location filename="../units/unitscontroller.cpp" line="45"/>
+        <location filename="../units/unitscontroller.cpp" line="51"/>
+        <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

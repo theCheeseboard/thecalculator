@@ -4,4 +4,6 @@ cntp_add_qml_module(units thecalculator
     QML_FILES
         Units.qml
         UnitSelectionModel.qml
+    SOURCES
+        unitscontroller.h unitscontroller.cpp
 )
