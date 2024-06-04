@@ -237,58 +237,115 @@
         <source>Expression...</source>
         <translation>Biểu thức...</translation>
     </message>
+    <message>
+        <location filename="../calculator/Calculator.qml" line="296"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="296"/>
+        <source>DEG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/Calculator.qml" line="297"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="297"/>
+        <source>RAD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/Calculator.qml" line="297"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="297"/>
+        <source>GRAD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/Calculator.qml" line="307"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="307"/>
+        <source>Angle Units</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/Calculator.qml" line="310"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="310"/>
+        <source>Degrees</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/Calculator.qml" line="315"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="315"/>
+        <source>Radians</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/Calculator.qml" line="320"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="320"/>
+        <source>Gradians</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CalculatorController</name>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="168"/>
-        <location filename="../calculator/calculatorcontroller.cpp" line="177"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="198"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="207"/>
         <source>Syntax Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="193"/>
-        <location filename="../calculator/calculatorcontroller.cpp" line="207"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="233"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="246"/>
         <source>Unknown Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="179"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="209"/>
         <source>Can&apos;t divide by zero</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="181"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="211"/>
         <source>Can&apos;t take the logarithm of zero</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="183"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="213"/>
         <source>Undefined Variable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="185"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="215"/>
         <source>Undefined Function</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="187"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="217"/>
         <source>Can&apos;t take a logarithm of base 0 or 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="189"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="219"/>
         <source>Bad Arity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="205"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="223"/>
+        <source>Can&apos;t tan(π/2 + πk)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="225"/>
+        <source>Can&apos;t tan(90 + 180k)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="227"/>
+        <source>Can&apos;t tan(100 + 200k)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="244"/>
         <source>True</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="205"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="244"/>
         <source>False</source>
         <translation type="unfinished"></translation>
     </message>
@@ -363,116 +420,116 @@
 <context>
     <name>UnitSelectionModel</name>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="7"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="7"/>
+        <location filename="../units/UnitSelectionModel.qml" line="5"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="5"/>
         <source>Distance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="11"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="11"/>
+        <location filename="../units/UnitSelectionModel.qml" line="9"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="9"/>
         <source>Millimeters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="16"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="16"/>
+        <location filename="../units/UnitSelectionModel.qml" line="14"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="14"/>
         <source>Centimeters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="21"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="21"/>
+        <location filename="../units/UnitSelectionModel.qml" line="19"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="19"/>
         <source>Meters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="26"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="26"/>
+        <location filename="../units/UnitSelectionModel.qml" line="24"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="24"/>
         <source>Kilometers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="31"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="31"/>
+        <location filename="../units/UnitSelectionModel.qml" line="29"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="29"/>
         <source>Inches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="36"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="36"/>
+        <location filename="../units/UnitSelectionModel.qml" line="34"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="34"/>
         <source>Feet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="41"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="41"/>
+        <location filename="../units/UnitSelectionModel.qml" line="39"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="39"/>
         <source>Yards</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="46"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="46"/>
+        <location filename="../units/UnitSelectionModel.qml" line="44"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="44"/>
         <source>Miles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="51"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="51"/>
+        <location filename="../units/UnitSelectionModel.qml" line="49"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="49"/>
         <source>Lightyears</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="57"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="57"/>
+        <location filename="../units/UnitSelectionModel.qml" line="55"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="55"/>
         <source>Mass</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="60"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="60"/>
+        <location filename="../units/UnitSelectionModel.qml" line="58"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="58"/>
         <source>Gram</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="65"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="65"/>
+        <location filename="../units/UnitSelectionModel.qml" line="63"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="63"/>
         <source>Kilogram</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="70"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="70"/>
+        <location filename="../units/UnitSelectionModel.qml" line="68"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="68"/>
         <source>Ounce</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="75"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="75"/>
+        <location filename="../units/UnitSelectionModel.qml" line="73"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="73"/>
         <source>Pound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="82"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="82"/>
+        <location filename="../units/UnitSelectionModel.qml" line="80"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="80"/>
         <source>Temperature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="86"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="86"/>
+        <location filename="../units/UnitSelectionModel.qml" line="84"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="84"/>
         <source>Celsius</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="91"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="91"/>
+        <location filename="../units/UnitSelectionModel.qml" line="89"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="89"/>
         <source>Fahrenheit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../units/UnitSelectionModel.qml" line="97"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="97"/>
+        <location filename="../units/UnitSelectionModel.qml" line="95"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="95"/>
         <source>Kelvin</source>
         <translation type="unfinished"></translation>
     </message>

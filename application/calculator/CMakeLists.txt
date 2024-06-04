@@ -6,6 +6,7 @@ cntp_add_qml_module(calc thecalculator
         ButtonPad.qml
         KeypadButton.qml
         ButtonPadOperations.qml
+        ControlButton.qml
     SOURCES
         calculatorcontroller.h calculatorcontroller.cpp
         historymodel.h historymodel.cpp

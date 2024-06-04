@@ -19,10 +19,18 @@ class CalculatorController : public QObject {
         Q_PROPERTY(int errorStartLocation READ errorStartLocation NOTIFY instantResultChanged FINAL)
         Q_PROPERTY(int errorEndLocation READ errorEndLocation NOTIFY instantResultChanged FINAL)
         Q_PROPERTY(QAbstractItemModel* history READ history CONSTANT FINAL)
+        Q_PROPERTY(TrigonometricUnit trigonometricUnit READ trigonometricUnit WRITE setTrigonometricUnit NOTIFY trigonometricUnitChanged FINAL)
         QML_ELEMENT
     public:
         explicit CalculatorController(QObject* parent = nullptr);
         ~CalculatorController();
+
+        enum TrigonometricUnit {
+            Degrees,
+            Radians,
+            Gradians
+        };
+        Q_ENUM(TrigonometricUnit)
 
         QString expressionString();
         void setExpressionString(QString expressionString);
@@ -43,6 +51,9 @@ class CalculatorController : public QObject {
         QString intellisenseDescription();
         QString intellisenseArguments();
 
+        TrigonometricUnit trigonometricUnit();
+        void setTrigonometricUnit(TrigonometricUnit unit);
+
         int errorStartLocation();
         int errorEndLocation();
 
@@ -58,6 +69,7 @@ class CalculatorController : public QObject {
         void cursorPositionChanged();
         void balancingBracketsChanged();
         void intellisenseChanged();
+        void trigonometricUnitChanged();
         Q_SCRIPTABLE void evaluationError();
 
     private:

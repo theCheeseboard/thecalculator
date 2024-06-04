@@ -117,6 +117,36 @@ QString CalculatorController::intellisenseArguments() {
     return args.join(libContemporaryCommon::humanReadablePartJoinString());
 }
 
+CalculatorController::TrigonometricUnit CalculatorController::trigonometricUnit() {
+    switch (d->evaluator.trig_unit()) {
+        case tcalc::angle_unit::radians:
+            return CalculatorController::Radians;
+        case tcalc::angle_unit::degrees:
+            return CalculatorController::Degrees;
+        case tcalc::angle_unit::gradians:
+            return CalculatorController::Gradians;
+    }
+}
+
+void CalculatorController::setTrigonometricUnit(TrigonometricUnit unit) {
+    tcalc::angle_unit newTrigUnit;
+    switch (unit) {
+        case Degrees:
+            newTrigUnit = tcalc::angle_unit::degrees;
+            break;
+        case Radians:
+            newTrigUnit = tcalc::angle_unit::radians;
+            break;
+        case Gradians:
+            newTrigUnit = tcalc::angle_unit::gradians;
+            break;
+    }
+    d->evaluator.trig_unit(newTrigUnit);
+    emit trigonometricUnitChanged();
+
+    expressionStringUpdated();
+}
+
 int CalculatorController::errorStartLocation() {
     return d->errorStartLocation;
 }
@@ -187,11 +217,20 @@ QString CalculatorController::evaluateExpression(QString expression, bool* succe
                 return tr("Can't take a logarithm of base 0 or 1");
             case tcalc::eval_error_type::bad_arity:
                 return tr("Bad Arity");
+            case tcalc::eval_error_type::out_of_tan_domain:
+                switch (d->evaluator.trig_unit()) {
+                    case tcalc::angle_unit::radians:
+                        return tr("Can't tan(π/2 + πk)");
+                    case tcalc::angle_unit::degrees:
+                        return tr("Can't tan(90 + 180k)");
+                    case tcalc::angle_unit::gradians:
+                        return tr("Can't tan(100 + 200k)");
+                }
             case tcalc::eval_error_type::complex_inequality:
             case tcalc::eval_error_type::none:
-            default:
-                return tr("Unknown Error");
+                break;
         }
+        return tr("Unknown Error");
     }
 
     d->errorStartLocation = 0;

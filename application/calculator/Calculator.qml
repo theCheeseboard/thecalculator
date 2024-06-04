@@ -287,6 +287,55 @@ Item {
                                 horizontalAlignment: TextArea.AlignRight
                             }
                         }
+
+                        RowLayout {
+                            id: controlsRow
+
+                            ControlButton {
+                                id: angleUnitSelector
+                                text: controller.trigonometricUnit === CalculatorController.Degrees ? qsTr("DEG") :
+                                      controller.trigonometricUnit === CalculatorController.Radians ? qsTr("RAD") : qsTr("GRAD")
+                                color: layer1.color
+
+                                onClicked: angleUnitMenu.open()
+
+                                Menu {
+                                    id: angleUnitMenu
+                                    y: parent.height
+
+                                    MenuSection {
+                                        text: qsTr("Angle Units")
+                                    }
+                                    MenuItem {
+                                        text: qsTr("Degrees")
+                                        checked: controller.trigonometricUnit === CalculatorController.Degrees
+                                        onTriggered: controller.trigonometricUnit = CalculatorController.Degrees
+                                    }
+                                    MenuItem {
+                                        text: qsTr("Radians")
+                                        checked: controller.trigonometricUnit === CalculatorController.Radians
+                                        onTriggered: controller.trigonometricUnit = CalculatorController.Radians
+                                    }
+                                    MenuItem {
+                                        text: qsTr("Gradians")
+                                        checked: controller.trigonometricUnit === CalculatorController.Gradians
+                                        onTriggered: controller.trigonometricUnit = CalculatorController.Gradians
+                                    }
+                                }
+                            }
+
+                            ControlButton {
+                                id: domainSelector
+                                text: "CMPLX"
+                                color: layer1.color
+                            }
+
+                            ControlButton {
+                                id: precisionSelector
+                                text: "64"
+                                color: layer1.color
+                            }
+                        }
                     }
                 }
             }
