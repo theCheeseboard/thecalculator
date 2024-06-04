@@ -290,7 +290,7 @@
     </message>
     <message>
         <location filename="../calculator/calculatorcontroller.cpp" line="234"/>
-        <location filename="../calculator/calculatorcontroller.cpp" line="247"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="258"/>
         <source>Unknown Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -340,13 +340,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="245"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="249"/>
         <source>True</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="245"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="249"/>
         <source>False</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="255"/>
+        <source>= to set: %1 = %2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -553,8 +558,8 @@
     <name>UnitsController</name>
     <message>
         <location filename="../units/unitscontroller.cpp" line="37"/>
-        <location filename="../units/unitscontroller.cpp" line="45"/>
-        <location filename="../units/unitscontroller.cpp" line="51"/>
+        <location filename="../units/unitscontroller.cpp" line="46"/>
+        <location filename="../units/unitscontroller.cpp" line="52"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>

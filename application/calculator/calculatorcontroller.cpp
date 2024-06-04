@@ -163,7 +163,7 @@ QAbstractItemModel* CalculatorController::history() {
 void CalculatorController::performEvaluation() {
     auto fullExpression = d->expressionString + balancingBrackets();
     bool success;
-    auto result = evaluateExpression(fullExpression, &success);
+    auto result = evaluateExpression(fullExpression, true, &success);
 
     if (!success) {
         emit evaluationError();
@@ -181,7 +181,7 @@ void CalculatorController::performEvaluation() {
     emit instantResultChanged();
 }
 
-QString CalculatorController::evaluateExpression(QString expression, bool* success) {
+QString CalculatorController::evaluateExpression(QString expression, bool commit, bool* success) {
     *success = false;
     if (expression.isEmpty()) {
         d->errorStartLocation = 0;
@@ -237,12 +237,23 @@ QString CalculatorController::evaluateExpression(QString expression, bool* succe
     d->errorStartLocation = 0;
     d->errorEndLocation = 0;
 
+    if (commit) {
+        d->evaluator.commit_result(result.value());
+    }
+
     if (auto number = std::get_if<tcalc::number>(&result.value())) {
         *success = true;
         return QString::fromStdString(number->string());
     } else if (auto comparisonResult = std::get_if<bool>(&result.value())) {
         *success = true;
         return *comparisonResult ? tr("True") : tr("False");
+    } else if (auto assignResult = std::get_if<tcalc::assign_result>(&result.value())) {
+        *success = true;
+        if (commit) {
+            return QString::fromStdString(assignResult->value.string());
+        } else {
+            return tr("= to set: %1 = %2").arg(QString::fromStdString(assignResult->variable), QString::fromStdString(assignResult->value.string()));
+        }
     } else {
         return tr("Unknown Error");
     }
@@ -265,7 +276,7 @@ void CalculatorController::expressionStringUpdated() {
 
     auto fullExpression = d->expressionString + balancingBrackets();
     bool success;
-    d->instantResult = evaluateExpression(fullExpression, &success);
+    d->instantResult = evaluateExpression(fullExpression, false, &success);
     emit instantResultChanged();
 }
 

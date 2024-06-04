@@ -38,7 +38,8 @@ QString UnitsController::evaluate(QString expression, QString x, bool forward) {
     }
 
     [[maybe_unused]]
-    auto _ = d->evaluator.evaluate(tcalc::parser(tcalc::lexer(QStringLiteral("x=%1").arg(x).toStdString(), true), 64).parse_expression());
+    auto setXResult = d->evaluator.evaluate(tcalc::parser(tcalc::lexer(QStringLiteral("x=%1").arg(x).toStdString(), true), 64).parse_expression());
+    d->evaluator.commit_result(setXResult.value());
 
     auto result = d->evaluator.evaluate(expr);
     if (result.is_error()) {
