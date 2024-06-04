@@ -232,50 +232,50 @@
 <context>
     <name>Calculator</name>
     <message>
-        <location filename="../calculator/Calculator.qml" line="234"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="234"/>
+        <location filename="../calculator/Calculator.qml" line="245"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="245"/>
         <source>Expression...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../calculator/Calculator.qml" line="296"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="296"/>
-        <source>DEG</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../calculator/Calculator.qml" line="297"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="297"/>
-        <source>RAD</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../calculator/Calculator.qml" line="297"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="297"/>
-        <source>GRAD</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/Calculator.qml" line="307"/>
         <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="307"/>
+        <source>DEG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/Calculator.qml" line="308"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="308"/>
+        <source>RAD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/Calculator.qml" line="308"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="308"/>
+        <source>GRAD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/Calculator.qml" line="318"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="318"/>
         <source>Angle Units</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/Calculator.qml" line="310"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="310"/>
+        <location filename="../calculator/Calculator.qml" line="321"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="321"/>
         <source>Degrees</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/Calculator.qml" line="315"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="315"/>
+        <location filename="../calculator/Calculator.qml" line="326"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="326"/>
         <source>Radians</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/Calculator.qml" line="320"/>
-        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="320"/>
+        <location filename="../calculator/Calculator.qml" line="331"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="331"/>
         <source>Gradians</source>
         <translation type="unfinished"></translation>
     </message>
@@ -283,69 +283,69 @@
 <context>
     <name>CalculatorController</name>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="198"/>
-        <location filename="../calculator/calculatorcontroller.cpp" line="207"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="199"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="208"/>
         <source>Syntax Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="233"/>
-        <location filename="../calculator/calculatorcontroller.cpp" line="246"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="234"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="247"/>
         <source>Unknown Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="209"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="210"/>
         <source>Can&apos;t divide by zero</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="211"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="212"/>
         <source>Can&apos;t take the logarithm of zero</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="213"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="214"/>
         <source>Undefined Variable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="215"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="216"/>
         <source>Undefined Function</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="217"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="218"/>
         <source>Can&apos;t take a logarithm of base 0 or 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="219"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="220"/>
         <source>Bad Arity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="223"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="224"/>
         <source>Can&apos;t tan(π/2 + πk)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="225"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="226"/>
         <source>Can&apos;t tan(90 + 180k)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="227"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="228"/>
         <source>Can&apos;t tan(100 + 200k)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="244"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="245"/>
         <source>True</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="244"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="245"/>
         <source>False</source>
         <translation type="unfinished"></translation>
     </message>

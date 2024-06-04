@@ -1,5 +1,6 @@
 #include "calculatorcontroller.h"
 
+#include <QClipboard>
 #include <libcontemporary_global.h>
 
 #include "historymodel.h"
@@ -245,6 +246,14 @@ QString CalculatorController::evaluateExpression(QString expression, bool* succe
     } else {
         return tr("Unknown Error");
     }
+}
+
+QString CalculatorController::clipboard() {
+    return qApp->clipboard()->text();
+}
+
+void CalculatorController::clipboardCopy(QString text) {
+    qApp->clipboard()->setText(text);
 }
 
 void CalculatorController::expressionStringUpdated() {

@@ -63,6 +63,9 @@ class CalculatorController : public QObject {
 
         QString evaluateExpression(QString expression, bool* success);
 
+        Q_SCRIPTABLE QString clipboard();
+        Q_SCRIPTABLE void clipboardCopy(QString text);
+
     signals:
         void expressionStringChanged();
         void instantResultChanged();

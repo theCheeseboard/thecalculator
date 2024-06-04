@@ -10,6 +10,14 @@ Item {
 
     property bool typing: false
 
+    function paste() {
+        type(controller.clipboard());
+    }
+
+    function copy() {
+        controller.clipboardCopy(expressionField.selectedText ? expressionField.selectedText : expressionField.text)
+    }
+
     CalculatorController {
         id: controller
 
@@ -36,6 +44,9 @@ Item {
                                     break;
                                 case Qt.Key_R:
                                     type("√");
+                                    break;
+                                default:
+                                    event.accepted = false;
                                     break;
                             }
 
