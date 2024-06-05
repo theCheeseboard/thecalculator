@@ -72,7 +72,7 @@ jobs:
           $executable = Move-Item -Path "$env:BUILD_DIRECTORY/thecalculator*.exe" -Destination output -Force -PassThru
           windeployqt output --qmldir="$env:SOURCE_DIRECTORY" -printsupport
           copy $env:INSTALL_DIRECTORY/bin/*.dll output
-          copy $env:VCPKG_DIRECTORY/installed/*/*.dll output
+          copy $env:VCPKG_DIRECTORY/installed/x64-windows-release/*.dll output
       - name: Upload thecalculator artifact
         uses: actions/upload-artifact@v4
         with:
