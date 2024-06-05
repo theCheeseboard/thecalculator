@@ -44,7 +44,7 @@ jobs:
         uses: johnwason/vcpkg-action@v6
         id: vcpkg
         with:
-          pkgs: mpfr utf8proc
+          pkgs: mpc utf8proc
           triplet: x64-windows-release
           token: ${{ github.token }}
           github-binarycache: true
