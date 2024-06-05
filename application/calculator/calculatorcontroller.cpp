@@ -227,6 +227,12 @@ QString CalculatorController::evaluateExpression(QString expression, bool commit
                     case tcalc::angle_unit::gradians:
                         return tr("Can't tan(100 + 200k)");
                 }
+            case tcalc::eval_error_type::zero_pow_zero:
+                return tr("Can't take 0 to the power of 0");
+            case tcalc::eval_error_type::assign_to_constant:
+                return tr("Can't assign to a constant value");
+            case tcalc::eval_error_type::zero_root:
+                return tr("Can't take the zeroth root of a number");
             case tcalc::eval_error_type::complex_inequality:
             case tcalc::eval_error_type::none:
                 break;

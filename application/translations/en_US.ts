@@ -289,8 +289,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="234"/>
-        <location filename="../calculator/calculatorcontroller.cpp" line="258"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="240"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="264"/>
         <source>Unknown Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -340,17 +340,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="249"/>
-        <source>True</source>
+        <location filename="../calculator/calculatorcontroller.cpp" line="231"/>
+        <source>Can&apos;t take 0 to the power of 0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="249"/>
-        <source>False</source>
+        <location filename="../calculator/calculatorcontroller.cpp" line="233"/>
+        <source>Can&apos;t assign to a constant value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="235"/>
+        <source>Can&apos;t take the zeroth root of a number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/calculatorcontroller.cpp" line="255"/>
+        <source>True</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="255"/>
+        <source>False</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="261"/>
         <source>= to set: %1 = %2</source>
         <translation type="unfinished"></translation>
     </message>
