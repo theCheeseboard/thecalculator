@@ -66,11 +66,13 @@ jobs:
           SOURCE_DIRECTORY: ${{ steps.thecalculator.outputs.source-directory }}
           BUILD_DIRECTORY: ${{ steps.thecalculator.outputs.build-directory }}
           INSTALL_DIRECTORY: ${{ steps.thecalculator.outputs.install-directory }}
+          VCPKG_DIRECTORY: ${{ github.workspace }}/vcpkg
         run: |
           New-Item -ItemType Directory -Force -Path output
           $executable = Move-Item -Path "$env:BUILD_DIRECTORY/thecalculator*.exe" -Destination output -Force -PassThru
           windeployqt output --qmldir="$env:SOURCE_DIRECTORY" -printsupport
           copy $env:INSTALL_DIRECTORY/bin/*.dll output
+          copy $env:VCPKG_DIRECTORY/installed/*/*.dll output
       - name: Upload thecalculator artifact
         uses: actions/upload-artifact@v4
         with:
