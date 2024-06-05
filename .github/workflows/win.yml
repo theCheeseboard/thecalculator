@@ -54,7 +54,7 @@ jobs:
         with:
           project: vrabbers/tcalc
           commitish: main
-          extra-cmake-args: "-DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
+          extra-cmake-args: ${{ steps.vcpkg.outputs.vcpkg-cmake-config }}
       - name: Install thecalculator
         id: thecalculator
         uses: theCheeseboard/actions/build-cmake-project@actions
