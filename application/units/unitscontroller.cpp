@@ -5,7 +5,7 @@
 #include <libtcalc/tc_parser.h>
 
 struct UnitsControllerPrivate {
-        tcalc::evaluator evaluator{64};
+    tcalc::evaluator evaluator{64};
 };
 
 UnitsController::UnitsController(QObject* parent) :
@@ -39,6 +39,9 @@ QString UnitsController::evaluate(QString expression, QString x, bool forward) {
 
     [[maybe_unused]]
     auto setXResult = d->evaluator.evaluate(tcalc::parser(tcalc::lexer(QStringLiteral("x=%1").arg(x).toStdString(), true), 64).parse_expression());
+    if (setXResult.is_error()) {
+        return tr("Error");
+    }
     d->evaluator.commit_result(setXResult.value());
 
     auto result = d->evaluator.evaluate(expr);
