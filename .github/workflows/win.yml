@@ -1,0 +1,78 @@
+name: "Windows CI"
+on:
+  push:
+    branches:
+      - '**'
+  release:
+    types: [published]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Install Ninja
+        uses: seanmiddleditch/gha-setup-ninja@master
+      - uses: TheMrMilchmann/setup-msvc-dev@v3
+        with:
+          arch: x64
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          aqtversion: '==3.1.*'
+          version: '6.7.0'
+          target: 'desktop'
+          cache: true
+          modules: 'qt3d qtcharts qtconnectivity qtdatavis3d qtgraphs qtgrpc qthttpserver qtimageformats qtlanguageserver qtlocation qtlottie qtmultimedia qtnetworkauth qtpdf qtpositioning qtquick3dphysics qtquickeffectmaker qtremoteobjects qtscxml qtsensors qtserialbus qtserialport qtspeech qtvirtualkeyboard qtwebchannel qtwebengine qtwebsockets qtwebview qt5compat qtquick3d qtquicktimeline qtshadertools'
+      - name: Install QCoro
+        uses: theCheeseboard/actions/build-cmake-project@actions
+        with:
+          project: danvratil/qcoro
+          commitish: v0.10.0
+      - name: Install libcontemporary
+        uses: theCheeseboard/actions/build-cmake-project@actions
+        with:
+          project: theCheeseboard/libcontemporary
+          commitish: features/qml
+      - name: Install contemporary-qml
+        uses: theCheeseboard/actions/build-cmake-project@actions
+        with:
+          project: theCheeseboard/contemporary-qml
+          commitish: main
+      - name: Setup vcpkg
+        uses: johnwason/vcpkg-action@v6
+        id: vcpkg
+        with:
+          pkgs: mpfr utf8proc
+          triplet: x64-windows-release
+          token: ${{ github.token }}
+          github-binarycache: true
+      - name: Install tcalc
+        id: tcalc
+        uses: theCheeseboard/actions/build-cmake-project@actions
+        with:
+          project: vrabbers/tcalc
+          commitish: main
+          extra-cmake-args: "-DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake"
+      - name: Install thecalculator
+        id: thecalculator
+        uses: theCheeseboard/actions/build-cmake-project@actions
+        with:
+          project: .
+          commitish: .
+      - name: Deploy thecalculator
+        env:
+          SOURCE_DIRECTORY: ${{ steps.thecalculator.outputs.source-directory }}
+          BUILD_DIRECTORY: ${{ steps.thecalculator.outputs.build-directory }}
+          INSTALL_DIRECTORY: ${{ steps.thecalculator.outputs.install-directory }}
+        run: |
+          New-Item -ItemType Directory -Force -Path output
+          $executable = Move-Item -Path "$env:BUILD_DIRECTORY/thecalculator*.exe" -Destination output -Force -PassThru
+          windeployqt output --qmldir="$env:SOURCE_DIRECTORY" -printsupport
+          copy $env:INSTALL_DIRECTORY/bin/*.dll output
+      - name: Upload thecalculator artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: thecalculator-win
+          path: output
