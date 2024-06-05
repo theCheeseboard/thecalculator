@@ -553,6 +553,282 @@
         <source>Kelvin</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="102"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="102"/>
+        <source>Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="106"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="106"/>
+        <source>Square Millimeters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="111"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="111"/>
+        <source>Square Centimeters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="116"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="116"/>
+        <source>Square Meters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="121"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="121"/>
+        <source>Hectares</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="126"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="126"/>
+        <source>Square Kilometers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="131"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="131"/>
+        <source>Square Feet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="136"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="136"/>
+        <source>Square Yards</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="141"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="141"/>
+        <source>Acres</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="146"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="146"/>
+        <source>Square Miles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="153"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="153"/>
+        <source>Power</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="157"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="157"/>
+        <source>Watts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="162"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="162"/>
+        <source>Kilowatts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="167"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="167"/>
+        <source>Megawatts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="172"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="172"/>
+        <source>Horsepower</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="177"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="177"/>
+        <source>Foot-pounds per minute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="182"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="182"/>
+        <source>British Thermal Units per hour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="187"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="187"/>
+        <source>British Thermal Units per minute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="192"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="192"/>
+        <source>Calories per second</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="199"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="199"/>
+        <source>Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="203"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="203"/>
+        <source>Bytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="208"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="208"/>
+        <source>Kilobytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="213"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="213"/>
+        <source>Megabytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="218"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="218"/>
+        <source>Gigabytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="223"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="223"/>
+        <source>Terabytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="228"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="228"/>
+        <source>Petabytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="233"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="233"/>
+        <source>Exabytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="238"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="238"/>
+        <source>Zettabytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="243"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="243"/>
+        <source>Yottabytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="248"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="248"/>
+        <source>Kibibytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="253"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="253"/>
+        <source>Mebibytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="258"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="258"/>
+        <source>Gibibytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="263"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="263"/>
+        <source>Tebibytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="268"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="268"/>
+        <source>Pebibytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="273"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="273"/>
+        <source>Exbibytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="278"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="278"/>
+        <source>Zebibytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="283"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="283"/>
+        <source>Yobibytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="288"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="288"/>
+        <source>Bits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="293"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="293"/>
+        <source>Kilobits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="298"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="298"/>
+        <source>Megabits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="303"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="303"/>
+        <source>Gigabits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="308"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="308"/>
+        <source>Terabits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="313"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="313"/>
+        <source>Petabits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="318"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="318"/>
+        <source>Exabits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="323"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="323"/>
+        <source>Zettabits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../units/UnitSelectionModel.qml" line="328"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/units/UnitSelectionModel.qml" line="328"/>
+        <source>Yottabits</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Units</name>
@@ -573,8 +849,9 @@
     <name>UnitsController</name>
     <message>
         <location filename="../units/unitscontroller.cpp" line="37"/>
-        <location filename="../units/unitscontroller.cpp" line="46"/>
-        <location filename="../units/unitscontroller.cpp" line="52"/>
+        <location filename="../units/unitscontroller.cpp" line="43"/>
+        <location filename="../units/unitscontroller.cpp" line="49"/>
+        <location filename="../units/unitscontroller.cpp" line="55"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
