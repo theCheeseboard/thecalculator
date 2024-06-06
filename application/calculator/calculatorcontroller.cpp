@@ -1,8 +1,12 @@
 #include "calculatorcontroller.h"
 
 #include <QClipboard>
+#include <QRegularExpression>
+#include <QStack>
 #include <libcontemporary_global.h>
+#include <ranges/trange.h>
 
+#include "functiondatabase.h"
 #include "historymodel.h"
 #include <libtcalc/tc_evaluator.h>
 #include <libtcalc/tc_lexer.h>
@@ -19,6 +23,13 @@ struct CalculatorControllerPrivate {
 
         int errorStartLocation = 0;
         int errorEndLocation = 0;
+
+        QString intellisenseFunction;
+        FunctionDatabase::Function intellisenseFunctionData;
+        int intellisenseCurrentOverload = 0;
+        int intellisenseCurrentArgument = 0;
+        FunctionDatabase functionDatabase;
+        bool intellisenseAutoChangeOverload = true;
 };
 
 CalculatorController::CalculatorController(QObject* parent) :
@@ -101,21 +112,59 @@ QString CalculatorController::instantResult() {
 }
 
 bool CalculatorController::intellisenseAvailable() {
-    return false;
+    return !d->intellisenseFunction.isEmpty();
 }
 
 QString CalculatorController::intellisenseFunction() {
-    return "pow(base, exponent)";
+    if (d->intellisenseFunctionData.overloads.count() <= d->intellisenseCurrentOverload) return {};
+    auto overload = d->intellisenseFunctionData.overloads.at(d->intellisenseCurrentOverload);
+
+    return QStringLiteral("%1(%2)").arg(d->intellisenseFunctionData.name, tRange(overload.arguments).map<QString>([](FunctionDatabase::Function::Overload::Argument argument) {
+        return argument.name;
+    }).toList()
+                                                                              .join(QLocale().decimalPoint() == "," ? "; " : ", "));
 }
 
 QString CalculatorController::intellisenseDescription() {
-    return "Describe the pow function";
+    if (d->intellisenseFunctionData.overloads.count() <= d->intellisenseCurrentOverload) return {};
+    auto overload = d->intellisenseFunctionData.overloads.at(d->intellisenseCurrentOverload);
+
+    return overload.description;
 }
 
 QString CalculatorController::intellisenseArguments() {
-    QStringList args;
-    args.append("base: the base of the exponent");
+    if (d->intellisenseFunctionData.overloads.count() <= d->intellisenseCurrentOverload) return {};
+    auto overload = d->intellisenseFunctionData.overloads.at(d->intellisenseCurrentOverload);
+    auto args = tRange(overload.arguments).map<QString>([this](FunctionDatabase::Function::Overload::Argument argument, int index) {
+        if (d->intellisenseCurrentArgument == index) {
+            return QStringLiteral("**%1: %2**").arg(argument.name, argument.description);
+        } else {
+            return argument.name;
+        }
+    }).toList();
     return args.join(libContemporaryCommon::humanReadablePartJoinString());
+}
+
+int CalculatorController::intellisenseCurrentOverload() {
+    return d->intellisenseCurrentOverload;
+}
+
+int CalculatorController::intellisenseTotalOverloads() {
+    return d->intellisenseFunctionData.overloads.length();
+}
+
+void CalculatorController::intellisenseNextOverload() {
+    if (d->intellisenseCurrentOverload == d->intellisenseFunctionData.overloads.length() - 1) return;
+    d->intellisenseCurrentOverload += 1;
+    d->intellisenseAutoChangeOverload = false;
+    emit intellisenseChanged();
+}
+
+void CalculatorController::intellisensePreviousOverload() {
+    if (d->intellisenseCurrentOverload == 0) return;
+    d->intellisenseCurrentOverload -= 1;
+    d->intellisenseAutoChangeOverload = false;
+    emit intellisenseChanged();
 }
 
 CalculatorController::TrigonometricUnit CalculatorController::trigonometricUnit() {
@@ -288,4 +337,99 @@ void CalculatorController::expressionStringUpdated() {
 
 void CalculatorController::calculateIntellisense() {
     // Step back until we find a bracket with a function name we understand
+    QString relevantText = d->expressionString.left(d->cursorPosition);
+
+    // Find the previous function
+    QRegularExpression regex("\\w+?(?=[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁱ]*\\()");
+    QRegularExpressionMatchIterator matchIterator = regex.globalMatch(relevantText);
+
+    // Select the appropriate match
+    QStack<QString> matchSelector;
+    QStack<int> matchPositions;
+    QChar lastChar = ' ';
+    for (int i = 0; i < relevantText.length(); i++) {
+        QChar c = relevantText.at(i);
+        if (c == '(') {
+            if (matchIterator.hasNext() && QRegularExpression("\\w").match(lastChar).hasMatch()) {
+                QRegularExpressionMatch m = matchIterator.next();
+                matchSelector.push(m.captured());
+                matchPositions.push(m.capturedEnd());
+            } else {
+                // Push an empty string so it will be popped when it finds )
+                matchSelector.push("");
+                matchPositions.push(i);
+            }
+        } else if (c == ')') {
+            if (!matchSelector.isEmpty()) {
+                matchSelector.pop();
+                matchPositions.pop();
+                // Otherwise we'll continue and try to get the function anyway
+            }
+        }
+
+        // Ignore exponents
+        if (!QRegularExpression("[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁱ]").match(c).hasMatch()) {
+            lastChar = c;
+        }
+    }
+
+    QChar argSep = ',';
+    if (QLocale().decimalPoint() == ',') argSep = ';';
+
+    if (!matchSelector.isEmpty()) {
+        // We're currently in a function definition
+        auto currentFunction = matchSelector.pop();
+        auto currentPosition = matchPositions.pop();
+        while (currentFunction == "" && !matchSelector.isEmpty()) {
+            currentFunction = matchSelector.pop();
+            currentPosition = matchPositions.pop();
+        }
+
+        if (d->intellisenseFunction != currentFunction) {
+            d->intellisenseAutoChangeOverload = true;
+            d->intellisenseCurrentOverload = 0;
+        }
+
+        if (d->functionDatabase.haveFunction(currentFunction)) {
+            // Figure out the current argument
+            int currentArgument = 0;
+
+            int bracketCount = -1;
+            for (int i = currentPosition; i < relevantText.size(); i++) {
+                QChar c = relevantText.at(i);
+                if (c == '(') {
+                    bracketCount++;
+                } else if (c == ')') {
+                    bracketCount--;
+                    if (bracketCount < 0) break; // Too many closing brackets
+                } else if (c == argSep) {
+                    if (bracketCount == 0) currentArgument++;
+                }
+            }
+
+            if (currentArgument != -1) {
+                d->intellisenseCurrentArgument = currentArgument;
+                d->intellisenseFunctionData = d->functionDatabase.function(currentFunction);
+                d->intellisenseFunction = currentFunction;
+
+                if (d->intellisenseAutoChangeOverload) {
+                    // Find the first overload with n arguments
+                    for (auto i = 0; i < d->intellisenseFunctionData.overloads.length(); i++) {
+                        if (d->intellisenseFunctionData.overloads.at(i).arguments.length() > d->intellisenseCurrentArgument) {
+                            d->intellisenseCurrentOverload = i;
+                            break;
+                        }
+                    }
+                }
+
+                emit intellisenseChanged();
+                return;
+            }
+        }
+    }
+
+    d->intellisenseFunction.clear();
+    d->intellisenseAutoChangeOverload = true;
+    d->intellisenseCurrentOverload = 0;
+    emit intellisenseChanged();
 }

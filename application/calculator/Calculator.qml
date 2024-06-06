@@ -179,52 +179,104 @@ Item {
                             color: Contemporary.line
                         }
 
-                        Layer {
+                        Item {
+                            id: intellisenseLayerContainer
                             Layout.fillWidth: true
-                            Layout.preferredHeight: controller.intellisenseAvailable ? intellisenseLayout.childrenRect.height + 20 : 0
+                            Layout.preferredHeight: targetHeight
 
-                            clip: true
+                            property int targetHeight: 0
+                            opacity: 0
 
-                            GridLayout {
-                                id: intellisenseLayout
-                                anchors.fill: parent
-                                anchors.margins: 10
-
-                                columns: 4
-
-                                Label {
-                                    Layout.fillWidth: true
-                                    text: controller.intellisenseFunction
+                            states: [
+                                State {
+                                    name: "opened"
+                                    when: controller.intellisenseAvailable
+                                    PropertyChanges {
+                                        target: intellisenseLayerContainer
+                                        targetHeight: intellisenseLayout.childrenRect.height + 20
+                                        opacity: 1
+                                    }
+                                },
+                                State {
+                                    name: "closed"
+                                    when: !controller.intellisenseAvailable
+                                    PropertyChanges {
+                                        target: intellisenseLayerContainer
+                                        targetHeight: 0
+                                        opacity: 0
+                                    }
                                 }
+                            ]
+                            state: "closed"
 
-                                Button {
-                                    id: intellisensePreviousButton
-                                    icon.name: "go-previous"
-                                    implicitWidth: intellisensePreviousButton.height
-                                    flat: true
-                                    Layout.rowSpan: 2
+                            Behavior on targetHeight {
+                                NumberAnimation {
+                                    duration: 150
+                                    easing.type: Easing.OutCubic
                                 }
+                            }
 
-                                Label {
-                                    text: "1/3"
-                                    Layout.rowSpan: 2
+                            Behavior on opacity {
+                                NumberAnimation {
+                                    duration: 150
+                                    easing.type: Easing.OutCubic
                                 }
+                            }
 
-                                Button {
-                                    id: intellisenseNextButton
-                                    icon.name: "go-next"
-                                    implicitWidth: intellisenseNextButton.height
-                                    flat: true
-                                    Layout.rowSpan: 2
-                                }
+                            Layer {
+                                anchors.left: parent.left
+                                anchors.right: parent.right
+                                anchors.top: parent.top
+                                height: intellisenseLayout.childrenRect.height + 20
 
-                                Label {
-                                    text: controller.intellisenseDescription
-                                }
+                                clip: true
 
-                                Label {
-                                    text: controller.intellisenseArguments
-                                    Layout.columnSpan: 4
+                                GridLayout {
+                                    id: intellisenseLayout
+                                    anchors.fill: parent
+                                    anchors.margins: 10
+
+                                    columns: 4
+
+                                    Label {
+                                        Layout.fillWidth: true
+                                        text: controller.intellisenseFunction
+                                    }
+
+                                    Button {
+                                        id: intellisensePreviousButton
+                                        icon.name: "go-previous"
+                                        implicitWidth: intellisensePreviousButton.height
+                                        flat: true
+                                        Layout.rowSpan: 2
+                                        enabled: controller.intellisenseCurrentOverload !== 0
+                                        onClicked: controller.intellisensePreviousOverload()
+                                    }
+
+                                    Label {
+                                        text: `${controller.intellisenseCurrentOverload + 1}/${controller.intellisenseTotalOverloads}`
+                                        Layout.rowSpan: 2
+                                    }
+
+                                    Button {
+                                        id: intellisenseNextButton
+                                        icon.name: "go-next"
+                                        implicitWidth: intellisenseNextButton.height
+                                        flat: true
+                                        Layout.rowSpan: 2
+                                        enabled: controller.intellisenseCurrentOverload !== controller.intellisenseTotalOverloads - 1
+                                        onClicked: controller.intellisenseNextOverload()
+                                    }
+
+                                    Label {
+                                        text: controller.intellisenseDescription
+                                    }
+
+                                    Label {
+                                        text: controller.intellisenseArguments
+                                        Layout.columnSpan: 4
+                                        textFormat: Text.MarkdownText
+                                    }
                                 }
                             }
                         }

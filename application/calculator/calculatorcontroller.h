@@ -16,6 +16,8 @@ class CalculatorController : public QObject {
         Q_PROPERTY(QString intellisenseFunction READ intellisenseFunction NOTIFY intellisenseChanged FINAL)
         Q_PROPERTY(QString intellisenseDescription READ intellisenseDescription NOTIFY intellisenseChanged FINAL)
         Q_PROPERTY(QString intellisenseArguments READ intellisenseArguments NOTIFY intellisenseChanged FINAL)
+        Q_PROPERTY(int intellisenseCurrentOverload READ intellisenseCurrentOverload NOTIFY intellisenseChanged FINAL)
+        Q_PROPERTY(int intellisenseTotalOverloads READ intellisenseTotalOverloads NOTIFY intellisenseChanged FINAL)
         Q_PROPERTY(int errorStartLocation READ errorStartLocation NOTIFY instantResultChanged FINAL)
         Q_PROPERTY(int errorEndLocation READ errorEndLocation NOTIFY instantResultChanged FINAL)
         Q_PROPERTY(QAbstractItemModel* history READ history CONSTANT FINAL)
@@ -50,6 +52,10 @@ class CalculatorController : public QObject {
         QString intellisenseFunction();
         QString intellisenseDescription();
         QString intellisenseArguments();
+        int intellisenseCurrentOverload();
+        int intellisenseTotalOverloads();
+        Q_SCRIPTABLE void intellisenseNextOverload();
+        Q_SCRIPTABLE void intellisensePreviousOverload();
 
         TrigonometricUnit trigonometricUnit();
         void setTrigonometricUnit(TrigonometricUnit unit);
