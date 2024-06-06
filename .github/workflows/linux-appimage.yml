@@ -58,5 +58,4 @@ jobs:
         with:
           sourceDirectory: ${{ steps.thecalculator.outputs.source-directory }}
           buildDirectory: ${{ steps.thecalculator.outputs.build-directory }}
-        env:
-          NO_STRIP: true
+
