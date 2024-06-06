@@ -11,3 +11,5 @@ cntp_add_qml_module(calc thecalculator
         calculatorcontroller.h calculatorcontroller.cpp
         historymodel.h historymodel.cpp
 )
+
+target_link_libraries(thecalculator-qmlmodule-calc PUBLIC libtcalc)

@@ -7,3 +7,5 @@ cntp_add_qml_module(units thecalculator
     SOURCES
         unitscontroller.h unitscontroller.cpp
 )
+
+target_link_libraries(thecalculator-qmlmodule-units PUBLIC libtcalc)
