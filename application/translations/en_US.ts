@@ -394,63 +394,116 @@
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="25"/>
-        <source>Calculates the sine of an angle</source>
+        <source>Calculates the nth root of a number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="26"/>
-        <source>Angle to calculate the sine of</source>
+        <source>Number to calculate the nth root of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="31"/>
-        <source>Calculates the cosine of an angle</source>
+        <location filename="../calculator/functiondatabase.cpp" line="27"/>
+        <source>degree</source>
+        <comment>Polynomial degree</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="27"/>
+        <source>Degree of root to calculate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="32"/>
-        <source>Angle to calculate the cosine of</source>
+        <source>Calculates the sine of an angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="37"/>
-        <source>Calculates the tangent of an angle</source>
+        <location filename="../calculator/functiondatabase.cpp" line="33"/>
+        <source>Angle to calculate the sine of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="33"/>
+        <location filename="../calculator/functiondatabase.cpp" line="39"/>
+        <location filename="../calculator/functiondatabase.cpp" line="45"/>
+        <source>angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="38"/>
-        <source>Angle to calculate the tangent of</source>
+        <source>Calculates the cosine of an angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="42"/>
-        <source>Calculates the logarithm (base 10) of a number</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../calculator/functiondatabase.cpp" line="43"/>
-        <location filename="../calculator/functiondatabase.cpp" line="45"/>
-        <source>Number to take the logarithm of</source>
+        <location filename="../calculator/functiondatabase.cpp" line="39"/>
+        <source>Angle to calculate the cosine of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="44"/>
-        <source>Calculates the logarithm of a number, specifying a base</source>
+        <source>Calculates the tangent of an angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="46"/>
-        <source>Base of the logarithm</source>
+        <location filename="../calculator/functiondatabase.cpp" line="45"/>
+        <source>Angle to calculate the tangent of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="49"/>
+        <source>Calculates the logarithm (base 10) of a number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="50"/>
-        <source>Calculates the natural logarithm (base e) of a number</source>
+        <location filename="../calculator/functiondatabase.cpp" line="52"/>
+        <source>Number to take the logarithm of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="51"/>
+        <source>Calculates the logarithm of a number, specifying a base</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="53"/>
+        <source>Base of the logarithm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="53"/>
+        <source>base</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="57"/>
+        <source>Calculates the natural logarithm (base e) of a number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="58"/>
         <source>Number to take the natural logarithm of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="63"/>
+        <source>Calculates the absolute value of a number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="64"/>
+        <source>Number to take the absolute value of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="69"/>
+        <source>Calculates e raised to the power of a number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="70"/>
+        <source>Number to raise e to the power of</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

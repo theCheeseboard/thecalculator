@@ -11,7 +11,7 @@ FunctionDatabase::FunctionDatabase(QObject* parent) :
     d->functions.insert("sqrt", {
                                     "sqrt", {
                                              {tr("Calculates the square root of a number"),
-                                                    {{"x", tr("Number to calculate the square root of")}}},
+                                                    {{"", tr("Number to calculate the square root of")}}},
                                              }
     });
     d->functions.insert("cbrt", {
@@ -20,22 +20,29 @@ FunctionDatabase::FunctionDatabase(QObject* parent) :
                                                     {{"x", tr("Number to calculate the cube root of")}}},
                                              }
     });
+    d->functions.insert("root", {
+                                    "root", {
+                                             {tr("Calculates the nth root of a number"),
+                                                    {{"x", tr("Number to calculate the nth root of")},
+                                                        {tr("degree", "Polynomial degree"), tr("Degree of root to calculate")}}},
+                                             }
+    });
     d->functions.insert("sin", {
                                    "sin", {
                                            {tr("Calculates the sine of an angle"),
-                                                  {{"angle", tr("Angle to calculate the sine of")}}},
+                                                  {{tr("angle"), tr("Angle to calculate the sine of")}}},
                                            }
     });
     d->functions.insert("cos", {
                                    "cos", {
                                            {tr("Calculates the cosine of an angle"),
-                                                  {{"angle", tr("Angle to calculate the cosine of")}}},
+                                                  {{tr("angle"), tr("Angle to calculate the cosine of")}}},
                                            }
     });
     d->functions.insert("tan", {
                                    "tan", {
                                            {tr("Calculates the tangent of an angle"),
-                                                  {{"angle", tr("Angle to calculate the tangent of")}}},
+                                                  {{tr("angle"), tr("Angle to calculate the tangent of")}}},
                                            }
     });
     d->functions.insert("log", {
@@ -43,13 +50,25 @@ FunctionDatabase::FunctionDatabase(QObject* parent) :
                                                {{"x", tr("Number to take the logarithm of")}}},
                                            {tr("Calculates the logarithm of a number, specifying a base"),
                                                   {{"x", tr("Number to take the logarithm of")},
-                                                      {"base", tr("Base of the logarithm")}}}}
+                                                      {tr("base"), tr("Base of the logarithm")}}}}
     });
     d->functions.insert("ln", {
                                   "ln", {
                                          {tr("Calculates the natural logarithm (base e) of a number"),
                                                 {{"x", tr("Number to take the natural logarithm of")}}},
                                          }
+    });
+    d->functions.insert("abs", {
+                                   "abs", {
+                                           {tr("Calculates the absolute value of a number"),
+                                                  {{"x", tr("Number to take the absolute value of")}}},
+                                           }
+    });
+    d->functions.insert("exp", {
+                                   "exp", {
+                                           {tr("Calculates e raised to the power of a number"),
+                                                  {{"x", tr("Number to raise e to the power of")}}},
+                                           }
     });
 }
 
