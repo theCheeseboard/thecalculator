@@ -11,7 +11,7 @@ FunctionDatabase::FunctionDatabase(QObject* parent) :
     d->functions.insert("sqrt", {
                                     "sqrt", {
                                              {tr("Calculates the square root of a number"),
-                                                    {{"", tr("Number to calculate the square root of")}}},
+                                                    {{"x", tr("Number to calculate the square root of")}}},
                                              }
     });
     d->functions.insert("cbrt", {

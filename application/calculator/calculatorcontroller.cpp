@@ -77,18 +77,24 @@ int CalculatorController::cursorPosition() {
 void CalculatorController::setCursorPosition(int cursorPosition) {
     d->cursorPosition = cursorPosition;
     emit cursorPositionChanged();
+
+    calculateIntellisense();
 }
 
 void CalculatorController::cursorLeft() {
     if (d->cursorPosition == 0) return;
     d->cursorPosition -= 1;
     emit cursorPositionChanged();
+
+    calculateIntellisense();
 }
 
 void CalculatorController::cursorRight() {
     if (d->cursorPosition == d->expressionString.length()) return;
     d->cursorPosition += 1;
     emit cursorPositionChanged();
+
+    calculateIntellisense();
 }
 
 QString CalculatorController::balancingBrackets() {
@@ -212,9 +218,13 @@ QAbstractItemModel* CalculatorController::history() {
 void CalculatorController::performEvaluation() {
     auto fullExpression = d->expressionString + balancingBrackets();
     bool success;
-    auto result = evaluateExpression(fullExpression, true, &success);
+    auto result = evaluateExpression(fullExpression, true, false, &success);
 
     if (!success) {
+        // Place the error in the instant result area
+        // because the instant result suppresses errors
+        d->instantResult = result;
+        emit instantResultChanged();
         emit evaluationError();
         return;
     }
@@ -230,7 +240,7 @@ void CalculatorController::performEvaluation() {
     emit instantResultChanged();
 }
 
-QString CalculatorController::evaluateExpression(QString expression, bool commit, bool* success) {
+QString CalculatorController::evaluateExpression(QString expression, bool commit, bool isInstantResult, bool* success) {
     *success = false;
     if (expression.isEmpty()) {
         d->errorStartLocation = 0;
@@ -245,11 +255,20 @@ QString CalculatorController::evaluateExpression(QString expression, bool commit
     if (!parser.diagnostic_bag().empty()) {
         d->errorStartLocation = 0;
         d->errorEndLocation = 0;
+
+        if (isInstantResult) return {};
         return tr("Syntax Error");
     }
 
     auto result = d->evaluator.evaluate(expr);
     if (result.is_error()) {
+        if (isInstantResult) {
+            // Suppress errors for instant result
+            d->errorStartLocation = 0;
+            d->errorEndLocation = 0;
+            return {};
+        }
+
         d->errorStartLocation = result.error().position.start_index;
         d->errorEndLocation = result.error().position.end_index;
         switch (result.error().type) {
@@ -310,6 +329,7 @@ QString CalculatorController::evaluateExpression(QString expression, bool commit
             return tr("= to set: %1 = %2").arg(QString::fromStdString(assignResult->variable), QString::fromStdString(assignResult->value.string()));
         }
     } else {
+        if (isInstantResult) return {};
         return tr("Unknown Error");
     }
 }
@@ -331,7 +351,7 @@ void CalculatorController::expressionStringUpdated() {
 
     auto fullExpression = d->expressionString + balancingBrackets();
     bool success;
-    d->instantResult = evaluateExpression(fullExpression, false, &success);
+    d->instantResult = evaluateExpression(fullExpression, false, true, &success);
     emit instantResultChanged();
 }
 

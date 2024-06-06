@@ -283,89 +283,89 @@
 <context>
     <name>CalculatorController</name>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="248"/>
-        <location filename="../calculator/calculatorcontroller.cpp" line="257"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="260"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="276"/>
         <source>Syntax Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="289"/>
-        <location filename="../calculator/calculatorcontroller.cpp" line="313"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="308"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="333"/>
         <source>Unknown Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="259"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="278"/>
         <source>Can&apos;t divide by zero</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="261"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="280"/>
         <source>Can&apos;t take the logarithm of zero</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="263"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="282"/>
         <source>Undefined Variable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="265"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="284"/>
         <source>Undefined Function</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="267"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="286"/>
         <source>Can&apos;t take a logarithm of base 0 or 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="269"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="288"/>
         <source>Bad Arity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="273"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="292"/>
         <source>Can&apos;t tan(π/2 + πk)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="275"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="294"/>
         <source>Can&apos;t tan(90 + 180k)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="277"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="296"/>
         <source>Can&apos;t tan(100 + 200k)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="280"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="299"/>
         <source>Can&apos;t take 0 to the power of 0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="282"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="301"/>
         <source>Can&apos;t assign to a constant value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="284"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="303"/>
         <source>Can&apos;t take the zeroth root of a number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="304"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="323"/>
         <source>True</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="304"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="323"/>
         <source>False</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="310"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="329"/>
         <source>= to set: %1 = %2</source>
         <translation type="unfinished"></translation>
     </message>
