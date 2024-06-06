@@ -41,6 +41,7 @@ jobs:
         with:
           project: theCheeseboard/contemporary-qml
           commitish: main
+          extra-cmake-args: -DCNTP_BUNDLE_ICONS=ON
       - name: Install tcalc
         id: tcalc
         uses: theCheeseboard/actions/build-cmake-project@actions
