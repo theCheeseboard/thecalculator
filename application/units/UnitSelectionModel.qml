@@ -42,7 +42,7 @@ ListModel {
             },
             ListElement {
                 name: qsTr("Miles")
-                toBase: "1609.34"
+                toBase: "1609.344"
                 suffix: " mi"
             },
             ListElement {
