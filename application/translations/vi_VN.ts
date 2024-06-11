@@ -279,93 +279,133 @@
         <source>Gradians</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../calculator/Calculator.qml" line="392"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="392"/>
+        <source>CMPLX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/Calculator.qml" line="392"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="392"/>
+        <source>REAL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/Calculator.qml" line="402"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="402"/>
+        <source>Complex Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/Calculator.qml" line="405"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="405"/>
+        <source>Complex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/Calculator.qml" line="410"/>
+        <location filename="../../build/Desktop_ARM-Debug/application/calculator/Calculator.qml" line="410"/>
+        <source>Real</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CalculatorController</name>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="260"/>
-        <location filename="../calculator/calculatorcontroller.cpp" line="276"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="271"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="280"/>
         <source>Syntax Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="308"/>
-        <location filename="../calculator/calculatorcontroller.cpp" line="333"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="317"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="342"/>
         <source>Unknown Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="278"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="282"/>
         <source>Can&apos;t divide by zero</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="280"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="284"/>
         <source>Can&apos;t take the logarithm of zero</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="282"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="286"/>
         <source>Undefined Variable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="284"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="288"/>
         <source>Undefined Function</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="286"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="290"/>
         <source>Can&apos;t take a logarithm of base 0 or 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="288"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="292"/>
         <source>Bad Arity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="292"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="296"/>
         <source>Can&apos;t tan(π/2 + πk)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="294"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="298"/>
         <source>Can&apos;t tan(90 + 180k)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="296"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="300"/>
         <source>Can&apos;t tan(100 + 200k)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="299"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="303"/>
         <source>Can&apos;t take 0 to the power of 0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="301"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="305"/>
         <source>Can&apos;t assign to a constant value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="303"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="307"/>
         <source>Can&apos;t take the zeroth root of a number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="323"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="309"/>
+        <source>The result of an expression is complex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="312"/>
+        <source>Overflow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="332"/>
         <source>True</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="323"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="332"/>
         <source>False</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="329"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="338"/>
         <source>= to set: %1 = %2</source>
         <translation type="unfinished"></translation>
     </message>

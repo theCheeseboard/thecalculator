@@ -389,8 +389,29 @@ Item {
 
                             ControlButton {
                                 id: domainSelector
-                                text: "CMPLX"
+                                text: controller.complexMode ? qsTr("CMPLX") : qsTr("REAL")
                                 color: layer1.color
+
+                                onClicked: complexModeMenu.open()
+
+                                Menu {
+                                    id: complexModeMenu
+                                    y: parent.height
+
+                                    MenuSection {
+                                        text: qsTr("Complex Mode")
+                                    }
+                                    MenuItem {
+                                        text: qsTr("Complex")
+                                        checked: controller.complexMode
+                                        onTriggered: controller.complexMode = true
+                                    }
+                                    MenuItem {
+                                        text: qsTr("Real")
+                                        checked: !controller.complexMode
+                                        onTriggered: controller.complexMode = false
+                                    }
+                                }
                             }
 
                             ControlButton {

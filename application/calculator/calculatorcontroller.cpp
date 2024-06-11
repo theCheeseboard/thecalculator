@@ -203,6 +203,17 @@ void CalculatorController::setTrigonometricUnit(TrigonometricUnit unit) {
     expressionStringUpdated();
 }
 
+bool CalculatorController::complexMode() {
+    return d->evaluator.complex_mode();
+}
+
+void CalculatorController::setComplexMode(bool complexMode) {
+    d->evaluator.complex_mode(complexMode);
+    emit complexModeChanged();
+
+    expressionStringUpdated();
+}
+
 int CalculatorController::errorStartLocation() {
     return d->errorStartLocation;
 }
@@ -262,13 +273,6 @@ QString CalculatorController::evaluateExpression(QString expression, bool commit
 
     auto result = d->evaluator.evaluate(expr);
     if (result.is_error()) {
-        if (isInstantResult) {
-            // Suppress errors for instant result
-            d->errorStartLocation = 0;
-            d->errorEndLocation = 0;
-            return {};
-        }
-
         d->errorStartLocation = result.error().position.start_index;
         d->errorEndLocation = result.error().position.end_index;
         switch (result.error().type) {
@@ -301,6 +305,11 @@ QString CalculatorController::evaluateExpression(QString expression, bool commit
                 return tr("Can't assign to a constant value");
             case tcalc::eval_error_type::zero_root:
                 return tr("Can't take the zeroth root of a number");
+            case tcalc::eval_error_type::real_mode_complex_result:
+                return tr("The result of an expression is complex");
+            case tcalc::eval_error_type::overflow:
+            case tcalc::eval_error_type::nan_error:
+                return tr("Overflow");
             case tcalc::eval_error_type::complex_inequality:
             case tcalc::eval_error_type::none:
                 break;

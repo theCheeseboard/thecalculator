@@ -22,6 +22,7 @@ class CalculatorController : public QObject {
         Q_PROPERTY(int errorEndLocation READ errorEndLocation NOTIFY instantResultChanged FINAL)
         Q_PROPERTY(QAbstractItemModel* history READ history CONSTANT FINAL)
         Q_PROPERTY(TrigonometricUnit trigonometricUnit READ trigonometricUnit WRITE setTrigonometricUnit NOTIFY trigonometricUnitChanged FINAL)
+        Q_PROPERTY(bool complexMode READ complexMode WRITE setComplexMode NOTIFY complexModeChanged FINAL)
         QML_ELEMENT
     public:
         explicit CalculatorController(QObject* parent = nullptr);
@@ -60,6 +61,9 @@ class CalculatorController : public QObject {
         TrigonometricUnit trigonometricUnit();
         void setTrigonometricUnit(TrigonometricUnit unit);
 
+        bool complexMode();
+        void setComplexMode(bool complexMode);
+
         int errorStartLocation();
         int errorEndLocation();
 
@@ -79,6 +83,7 @@ class CalculatorController : public QObject {
         void balancingBracketsChanged();
         void intellisenseChanged();
         void trigonometricUnitChanged();
+        void complexModeChanged();
         Q_SCRIPTABLE void evaluationError();
 
     private:
