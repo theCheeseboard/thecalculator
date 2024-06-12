@@ -70,6 +70,30 @@ FunctionDatabase::FunctionDatabase(QObject* parent) :
                                                   {{"x", tr("Number to raise e to the power of")}}},
                                            }
     });
+    d->functions.insert("re", {
+                                  "re", {
+                                         {tr("Returns the real part of a complex number"),
+                                                {{"x", tr("Number to return the real part of")}}},
+                                         }
+    });
+    d->functions.insert("im", {
+                                  "im", {
+                                         {tr("Returns the imaginary part of a complex number"),
+                                                {{"x", tr("Number to return the imaginary part of")}}},
+                                         }
+    });
+    d->functions.insert("arg", {
+                                   "arg", {
+                                           {tr("Returns the phase angle of a complex number"),
+                                                  {{"x", tr("Number to return the phase angle of")}}},
+                                           }
+    });
+    d->functions.insert("conj", {
+                                    "conj", {
+                                             {tr("Returns the complex conjugate of a complex number"),
+                                                    {{"x", tr("Number to return the complex conjugate of")}}},
+                                             }
+    });
 }
 
 FunctionDatabase::~FunctionDatabase() {

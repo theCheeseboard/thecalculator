@@ -546,6 +546,46 @@
         <source>Number to raise e to the power of</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="75"/>
+        <source>Returns the real part of a complex number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="76"/>
+        <source>Number to return the real part of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="81"/>
+        <source>Returns the imaginary part of a complex number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="82"/>
+        <source>Number to return the imaginary part of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="87"/>
+        <source>Returns the phase angle of a complex number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="88"/>
+        <source>Number to return the phase angle of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="93"/>
+        <source>Returns the complex conjugate of a complex number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="94"/>
+        <source>Number to return the complex conjugate of</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Main</name>
