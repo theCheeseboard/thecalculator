@@ -45,6 +45,24 @@ FunctionDatabase::FunctionDatabase(QObject* parent) :
                                                   {{tr("angle"), tr("Angle to calculate the tangent of")}}},
                                            }
     });
+    d->functions.insert("asin", {
+                                    "asin", {
+                                             {tr("Calculates the inverse sine of an angle"),
+                                                    {{tr("angle"), tr("Angle to calculate the inverse sine of")}}},
+                                             }
+    });
+    d->functions.insert("acos", {
+                                    "acos", {
+                                             {tr("Calculates the inverse cosine of an angle"),
+                                                    {{tr("angle"), tr("Angle to calculate the inverse cosine of")}}},
+                                             }
+    });
+    d->functions.insert("atan", {
+                                    "atan", {
+                                             {tr("Calculates the inverse tangent of an angle"),
+                                                    {{tr("angle"), tr("Angle to calculate the inverse tangent of")}}},
+                                             }
+    });
     d->functions.insert("log", {
                                    "log", {{tr("Calculates the logarithm (base 10) of a number"),
                                                {{"x", tr("Number to take the logarithm of")}}},

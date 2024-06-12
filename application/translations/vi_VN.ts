@@ -467,6 +467,9 @@
         <location filename="../calculator/functiondatabase.cpp" line="33"/>
         <location filename="../calculator/functiondatabase.cpp" line="39"/>
         <location filename="../calculator/functiondatabase.cpp" line="45"/>
+        <location filename="../calculator/functiondatabase.cpp" line="51"/>
+        <location filename="../calculator/functiondatabase.cpp" line="57"/>
+        <location filename="../calculator/functiondatabase.cpp" line="63"/>
         <source>angle</source>
         <translation type="unfinished"></translation>
     </message>
@@ -491,98 +494,128 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="49"/>
-        <source>Calculates the logarithm (base 10) of a number</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../calculator/functiondatabase.cpp" line="50"/>
-        <location filename="../calculator/functiondatabase.cpp" line="52"/>
-        <source>Number to take the logarithm of</source>
+        <source>Calculates the inverse sine of an angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="51"/>
-        <source>Calculates the logarithm of a number, specifying a base</source>
+        <source>Angle to calculate the inverse sine of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="53"/>
-        <source>Base of the logarithm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../calculator/functiondatabase.cpp" line="53"/>
-        <source>base</source>
+        <location filename="../calculator/functiondatabase.cpp" line="56"/>
+        <source>Calculates the inverse cosine of an angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="57"/>
-        <source>Calculates the natural logarithm (base e) of a number</source>
+        <source>Angle to calculate the inverse cosine of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="58"/>
-        <source>Number to take the natural logarithm of</source>
+        <location filename="../calculator/functiondatabase.cpp" line="62"/>
+        <source>Calculates the inverse tangent of an angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="63"/>
-        <source>Calculates the absolute value of a number</source>
+        <source>Angle to calculate the inverse tangent of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="64"/>
-        <source>Number to take the absolute value of</source>
+        <location filename="../calculator/functiondatabase.cpp" line="67"/>
+        <source>Calculates the logarithm (base 10) of a number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="68"/>
+        <location filename="../calculator/functiondatabase.cpp" line="70"/>
+        <source>Number to take the logarithm of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="69"/>
-        <source>Calculates e raised to the power of a number</source>
+        <source>Calculates the logarithm of a number, specifying a base</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="70"/>
-        <source>Number to raise e to the power of</source>
+        <location filename="../calculator/functiondatabase.cpp" line="71"/>
+        <source>Base of the logarithm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="71"/>
+        <source>base</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="75"/>
-        <source>Returns the real part of a complex number</source>
+        <source>Calculates the natural logarithm (base e) of a number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="76"/>
-        <source>Number to return the real part of</source>
+        <source>Number to take the natural logarithm of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="81"/>
-        <source>Returns the imaginary part of a complex number</source>
+        <source>Calculates the absolute value of a number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="82"/>
-        <source>Number to return the imaginary part of</source>
+        <source>Number to take the absolute value of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="87"/>
-        <source>Returns the phase angle of a complex number</source>
+        <source>Calculates e raised to the power of a number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="88"/>
-        <source>Number to return the phase angle of</source>
+        <source>Number to raise e to the power of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="93"/>
-        <source>Returns the complex conjugate of a complex number</source>
+        <source>Returns the real part of a complex number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="94"/>
+        <source>Number to return the real part of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="99"/>
+        <source>Returns the imaginary part of a complex number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="100"/>
+        <source>Number to return the imaginary part of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="105"/>
+        <source>Returns the phase angle of a complex number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="106"/>
+        <source>Number to return the phase angle of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="111"/>
+        <source>Returns the complex conjugate of a complex number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="112"/>
         <source>Number to return the complex conjugate of</source>
         <translation type="unfinished"></translation>
     </message>
