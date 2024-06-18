@@ -63,6 +63,42 @@ FunctionDatabase::FunctionDatabase(QObject* parent) :
                                                     {{tr("angle"), tr("Angle to calculate the inverse tangent of")}}},
                                              }
     });
+    d->functions.insert("sinh", {
+                                    "sinh", {
+                                             {tr("Calculates the hyperbolic sine of an angle"),
+                                                    {{tr("angle"), tr("Angle to calculate the hyperbolic sine of")}}},
+                                             }
+    });
+    d->functions.insert("cosh", {
+                                    "cosh", {
+                                             {tr("Calculates the hyperbolic cosine of an angle"),
+                                                    {{tr("angle"), tr("Angle to calculate the hyperbolic cosine of")}}},
+                                             }
+    });
+    d->functions.insert("tanh", {
+                                    "tanh", {
+                                             {tr("Calculates the hyperbolic tangent of an angle"),
+                                                    {{tr("angle"), tr("Angle to calculate the hyperbolic tangent of")}}},
+                                             }
+    });
+    d->functions.insert("asinh", {
+                                     "asinh", {
+                                               {tr("Calculates the inverse hyperbolic sine of an angle"),
+                                                      {{tr("angle"), tr("Angle to calculate the inverse hyperbolic sine of")}}},
+                                               }
+    });
+    d->functions.insert("acosh", {
+                                     "acosh", {
+                                               {tr("Calculates the inverse hyperbolic cosine of an angle"),
+                                                      {{tr("angle"), tr("Angle to calculate the inverse hyperbolic cosine of")}}},
+                                               }
+    });
+    d->functions.insert("atanh", {
+                                     "atanh", {
+                                               {tr("Calculates the inverse hyperbolic tangent of an angle"),
+                                                      {{tr("angle"), tr("Angle to calculate the inverse hyperbolic tangent of")}}},
+                                               }
+    });
     d->functions.insert("log", {
                                    "log", {{tr("Calculates the logarithm (base 10) of a number"),
                                                {{"x", tr("Number to take the logarithm of")}}},
