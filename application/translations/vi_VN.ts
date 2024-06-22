@@ -319,8 +319,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="317"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="330"/>
+        <source>Can&apos;t asec(0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="332"/>
+        <source>Can&apos;t acsc(0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="338"/>
+        <source>Can&apos;t asech(0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../calculator/calculatorcontroller.cpp" line="342"/>
+        <source>Can&apos;t acoth(-1) or acoth(0) or acoth(1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="358"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="383"/>
         <source>Unknown Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -370,42 +390,102 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="303"/>
-        <source>Can&apos;t take 0 to the power of 0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../calculator/calculatorcontroller.cpp" line="305"/>
-        <source>Can&apos;t assign to a constant value</source>
+        <source>Can&apos;t sec(π/2 + πk)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/calculatorcontroller.cpp" line="307"/>
-        <source>Can&apos;t take the zeroth root of a number</source>
+        <source>Can&apos;t sec(90 + 180k)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/calculatorcontroller.cpp" line="309"/>
+        <source>Can&apos;t sec(100 + 200k)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="314"/>
+        <source>Can&apos;t csc(πk)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="316"/>
+        <source>Can&apos;t csc(180k)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="318"/>
+        <source>Can&apos;t csc(200k)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="323"/>
+        <source>Can&apos;t cot(πk)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="325"/>
+        <source>Can&apos;t cot(180k)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="327"/>
+        <source>Can&apos;t cot(200k)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="334"/>
+        <source>Can&apos;t csch(0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="336"/>
+        <source>Can&apos;t coth(0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="340"/>
+        <source>Can&apos;t acsch(0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="344"/>
+        <source>Can&apos;t take 0 to the power of 0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="346"/>
+        <source>Can&apos;t assign to a constant value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="348"/>
+        <source>Can&apos;t take the zeroth root of a number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/calculatorcontroller.cpp" line="350"/>
         <source>The result of an expression is complex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="312"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="353"/>
         <source>Overflow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="332"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="373"/>
         <source>True</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="332"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="373"/>
         <source>False</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/calculatorcontroller.cpp" line="338"/>
+        <location filename="../calculator/calculatorcontroller.cpp" line="379"/>
         <source>= to set: %1 = %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -476,6 +556,18 @@
         <location filename="../calculator/functiondatabase.cpp" line="87"/>
         <location filename="../calculator/functiondatabase.cpp" line="93"/>
         <location filename="../calculator/functiondatabase.cpp" line="99"/>
+        <location filename="../calculator/functiondatabase.cpp" line="105"/>
+        <location filename="../calculator/functiondatabase.cpp" line="111"/>
+        <location filename="../calculator/functiondatabase.cpp" line="117"/>
+        <location filename="../calculator/functiondatabase.cpp" line="123"/>
+        <location filename="../calculator/functiondatabase.cpp" line="129"/>
+        <location filename="../calculator/functiondatabase.cpp" line="135"/>
+        <location filename="../calculator/functiondatabase.cpp" line="141"/>
+        <location filename="../calculator/functiondatabase.cpp" line="147"/>
+        <location filename="../calculator/functiondatabase.cpp" line="153"/>
+        <location filename="../calculator/functiondatabase.cpp" line="159"/>
+        <location filename="../calculator/functiondatabase.cpp" line="165"/>
+        <location filename="../calculator/functiondatabase.cpp" line="171"/>
         <source>angle</source>
         <translation type="unfinished"></translation>
     </message>
@@ -590,98 +682,218 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="103"/>
-        <source>Calculates the logarithm (base 10) of a number</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../calculator/functiondatabase.cpp" line="104"/>
-        <location filename="../calculator/functiondatabase.cpp" line="106"/>
-        <source>Number to take the logarithm of</source>
+        <source>Calculates the secant of an angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="105"/>
-        <source>Calculates the logarithm of a number, specifying a base</source>
+        <source>Angle to calculate the secant of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="107"/>
-        <source>Base of the logarithm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../calculator/functiondatabase.cpp" line="107"/>
-        <source>base</source>
+        <location filename="../calculator/functiondatabase.cpp" line="110"/>
+        <source>Calculates the cosecant of an angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="111"/>
-        <source>Calculates the natural logarithm (base e) of a number</source>
+        <source>Angle to calculate the cosecant of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="112"/>
-        <source>Number to take the natural logarithm of</source>
+        <location filename="../calculator/functiondatabase.cpp" line="116"/>
+        <source>Calculates the cotangent of an angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="117"/>
-        <source>Calculates the absolute value of a number</source>
+        <source>Angle to calculate the cotangent of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="118"/>
-        <source>Number to take the absolute value of</source>
+        <location filename="../calculator/functiondatabase.cpp" line="122"/>
+        <source>Calculates the inverse secant of an angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="123"/>
-        <source>Calculates e raised to the power of a number</source>
+        <source>Angle to calculate the inverse secant of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="124"/>
-        <source>Number to raise e to the power of</source>
+        <location filename="../calculator/functiondatabase.cpp" line="128"/>
+        <source>Calculates the inverse cosecant of an angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="129"/>
-        <source>Returns the real part of a complex number</source>
+        <source>Angle to calculate the inverse cosecant of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="130"/>
-        <source>Number to return the real part of</source>
+        <location filename="../calculator/functiondatabase.cpp" line="134"/>
+        <source>Calculates the inverse cotangent of an angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="135"/>
-        <source>Returns the imaginary part of a complex number</source>
+        <source>Angle to calculate the inverse cotangent of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="136"/>
-        <source>Number to return the imaginary part of</source>
+        <location filename="../calculator/functiondatabase.cpp" line="140"/>
+        <source>Calculates the hyperbolic secant of an angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="141"/>
-        <source>Returns the phase angle of a complex number</source>
+        <source>Angle to calculate the hyperbolic secant of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="142"/>
-        <source>Number to return the phase angle of</source>
+        <location filename="../calculator/functiondatabase.cpp" line="146"/>
+        <source>Calculates the hyperbolic cosecant of an angle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../calculator/functiondatabase.cpp" line="147"/>
+        <source>Angle to calculate the hyperbolic cosecant of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="152"/>
+        <source>Calculates the hyperbolic cotangent of an angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="153"/>
+        <source>Angle to calculate the hyperbolic cotangent of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="158"/>
+        <source>Calculates the inverse hyperbolic secant of an angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="159"/>
+        <source>Angle to calculate the inverse hyperbolic secant of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="164"/>
+        <source>Calculates the inverse hyperbolic cosecant of an angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="165"/>
+        <source>Angle to calculate the inverse hyperbolic cosecant of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="170"/>
+        <source>Calculates the inverse hyperbolic cotangent of an angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="171"/>
+        <source>Angle to calculate the inverse hyperbolic cotangent of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="175"/>
+        <source>Calculates the logarithm (base 10) of a number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="176"/>
+        <location filename="../calculator/functiondatabase.cpp" line="178"/>
+        <source>Number to take the logarithm of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="177"/>
+        <source>Calculates the logarithm of a number, specifying a base</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="179"/>
+        <source>Base of the logarithm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="179"/>
+        <source>base</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="183"/>
+        <source>Calculates the natural logarithm (base e) of a number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="184"/>
+        <source>Number to take the natural logarithm of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="189"/>
+        <source>Calculates the absolute value of a number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="190"/>
+        <source>Number to take the absolute value of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="195"/>
+        <source>Calculates e raised to the power of a number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="196"/>
+        <source>Number to raise e to the power of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="201"/>
+        <source>Returns the real part of a complex number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="202"/>
+        <source>Number to return the real part of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="207"/>
+        <source>Returns the imaginary part of a complex number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="208"/>
+        <source>Number to return the imaginary part of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="213"/>
+        <source>Returns the phase angle of a complex number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="214"/>
+        <source>Number to return the phase angle of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../calculator/functiondatabase.cpp" line="219"/>
         <source>Returns the complex conjugate of a complex number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../calculator/functiondatabase.cpp" line="148"/>
+        <location filename="../calculator/functiondatabase.cpp" line="220"/>
         <source>Number to return the complex conjugate of</source>
         <translation type="unfinished"></translation>
     </message>

@@ -99,6 +99,78 @@ FunctionDatabase::FunctionDatabase(QObject* parent) :
                                                       {{tr("angle"), tr("Angle to calculate the inverse hyperbolic tangent of")}}},
                                                }
     });
+    d->functions.insert("sec", {
+                                   "sec", {
+                                           {tr("Calculates the secant of an angle"),
+                                                  {{tr("angle"), tr("Angle to calculate the secant of")}}},
+                                           }
+    });
+    d->functions.insert("csc", {
+                                   "csc", {
+                                           {tr("Calculates the cosecant of an angle"),
+                                                  {{tr("angle"), tr("Angle to calculate the cosecant of")}}},
+                                           }
+    });
+    d->functions.insert("cot", {
+                                   "cot", {
+                                           {tr("Calculates the cotangent of an angle"),
+                                                  {{tr("angle"), tr("Angle to calculate the cotangent of")}}},
+                                           }
+    });
+    d->functions.insert("asec", {
+                                    "asec", {
+                                             {tr("Calculates the inverse secant of an angle"),
+                                                    {{tr("angle"), tr("Angle to calculate the inverse secant of")}}},
+                                             }
+    });
+    d->functions.insert("acsc", {
+                                    "acsc", {
+                                             {tr("Calculates the inverse cosecant of an angle"),
+                                                    {{tr("angle"), tr("Angle to calculate the inverse cosecant of")}}},
+                                             }
+    });
+    d->functions.insert("acot", {
+                                    "acot", {
+                                             {tr("Calculates the inverse cotangent of an angle"),
+                                                    {{tr("angle"), tr("Angle to calculate the inverse cotangent of")}}},
+                                             }
+    });
+    d->functions.insert("sech", {
+                                    "sech", {
+                                             {tr("Calculates the hyperbolic secant of an angle"),
+                                                    {{tr("angle"), tr("Angle to calculate the hyperbolic secant of")}}},
+                                             }
+    });
+    d->functions.insert("csch", {
+                                    "csch", {
+                                             {tr("Calculates the hyperbolic cosecant of an angle"),
+                                                    {{tr("angle"), tr("Angle to calculate the hyperbolic cosecant of")}}},
+                                             }
+    });
+    d->functions.insert("coth", {
+                                    "coth", {
+                                             {tr("Calculates the hyperbolic cotangent of an angle"),
+                                                    {{tr("angle"), tr("Angle to calculate the hyperbolic cotangent of")}}},
+                                             }
+    });
+    d->functions.insert("asech", {
+                                     "asech", {
+                                               {tr("Calculates the inverse hyperbolic secant of an angle"),
+                                                      {{tr("angle"), tr("Angle to calculate the inverse hyperbolic secant of")}}},
+                                               }
+    });
+    d->functions.insert("acsch", {
+                                     "acsch", {
+                                               {tr("Calculates the inverse hyperbolic cosecant of an angle"),
+                                                      {{tr("angle"), tr("Angle to calculate the inverse hyperbolic cosecant of")}}},
+                                               }
+    });
+    d->functions.insert("acoth", {
+                                     "acoth", {
+                                               {tr("Calculates the inverse hyperbolic cotangent of an angle"),
+                                                      {{tr("angle"), tr("Angle to calculate the inverse hyperbolic cotangent of")}}},
+                                               }
+    });
     d->functions.insert("log", {
                                    "log", {{tr("Calculates the logarithm (base 10) of a number"),
                                                {{"x", tr("Number to take the logarithm of")}}},

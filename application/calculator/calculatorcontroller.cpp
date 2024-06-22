@@ -299,6 +299,47 @@ QString CalculatorController::evaluateExpression(QString expression, bool commit
                     case tcalc::angle_unit::gradians:
                         return tr("Can't tan(100 + 200k)");
                 }
+            case tcalc::eval_error_type::out_of_sec_domain:
+                switch (d->evaluator.trig_unit()) {
+                    case tcalc::angle_unit::radians:
+                        return tr("Can't sec(π/2 + πk)");
+                    case tcalc::angle_unit::degrees:
+                        return tr("Can't sec(90 + 180k)");
+                    case tcalc::angle_unit::gradians:
+                        return tr("Can't sec(100 + 200k)");
+                }
+            case tcalc::eval_error_type::out_of_csc_domain:
+                switch (d->evaluator.trig_unit()) {
+                    case tcalc::angle_unit::radians:
+                        return tr("Can't csc(πk)");
+                    case tcalc::angle_unit::degrees:
+                        return tr("Can't csc(180k)");
+                    case tcalc::angle_unit::gradians:
+                        return tr("Can't csc(200k)");
+                }
+            case tcalc::eval_error_type::out_of_cot_domain:
+                switch (d->evaluator.trig_unit()) {
+                    case tcalc::angle_unit::radians:
+                        return tr("Can't cot(πk)");
+                    case tcalc::angle_unit::degrees:
+                        return tr("Can't cot(180k)");
+                    case tcalc::angle_unit::gradians:
+                        return tr("Can't cot(200k)");
+                }
+            case tcalc::eval_error_type::out_of_asec_domain:
+                return tr("Can't asec(0)");
+            case tcalc::eval_error_type::out_of_acsc_domain:
+                return tr("Can't acsc(0)");
+            case tcalc::eval_error_type::out_of_csch_domain:
+                return tr("Can't csch(0)");
+            case tcalc::eval_error_type::out_of_coth_domain:
+                return tr("Can't coth(0)");
+            case tcalc::eval_error_type::out_of_asech_domain:
+                return tr("Can't asech(0)");
+            case tcalc::eval_error_type::out_of_acsch_domain:
+                return tr("Can't acsch(0)");
+            case tcalc::eval_error_type::out_of_acoth_domain:
+                return tr("Can't acoth(-1) or acoth(0) or acoth(1)");
             case tcalc::eval_error_type::zero_pow_zero:
                 return tr("Can't take 0 to the power of 0");
             case tcalc::eval_error_type::assign_to_constant:
