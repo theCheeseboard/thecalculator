@@ -1,20 +1,25 @@
-mod contemporary;
-mod surface_list;
+mod actions;
+mod main_surface;
+mod main_window;
+mod scientific;
 
-use crate::contemporary::application::Details;
-use crate::contemporary::setup::{Contemporary, ContemporaryMenus, setup_contemporary};
-use crate::contemporary::surface::Surface;
-use crate::contemporary::window::{ContemporaryWindow, PushPop, contemporary_window_options};
-use crate::surface_list::{HelloWorld, SurfaceList};
-use gpui::{
-    App, AppContext, Application, Bounds, IntoElement, ParentElement, Render, Styled, WindowBounds,
-    WindowOptions, px, size,
-};
+use crate::actions::{Degrees, Gradians, Radians};
+use crate::main_window::MainWindow;
+use cntp_i18n::{I18N_MANAGER, tr, tr_load};
+use cntp_icon_tool_macros::application_icon;
+use contemporary::application::{ApplicationLink, Details, License, new_contemporary_application};
+use contemporary::components::dialog_box::StandardButton::No;
+use contemporary::macros::application_details;
+use contemporary::setup::{Contemporary, ContemporaryMenus, setup_contemporary};
+use contemporary::window::contemporary_window_options;
+use gpui::{App, Bounds, Menu, MenuItem, WindowBounds, WindowOptions, px, size};
+use smol_macros::main;
 use std::rc::Rc;
-use crate::contemporary::about_surface::AboutSurface;
 
-fn main() {
-    Application::new().run(|cx: &mut App| {
+fn mane() {
+    application_icon!("../dist/baseicon.svg");
+    new_contemporary_application().run(|cx: &mut App| {
+        I18N_MANAGER.write().unwrap().load_source(tr_load!());
         let bounds = Bounds::centered(None, size(px(800.0), px(600.0)), cx);
 
         let default_window_options = contemporary_window_options(cx);
@@ -24,41 +29,60 @@ fn main() {
                 ..default_window_options
             },
             |_, cx| {
-                let mut window = ContemporaryWindow::new(cx);
+                let window = MainWindow::new(cx);
                 let weak_window = window.downgrade();
-                let weak_widow = window.downgrade();
 
                 setup_contemporary(
                     cx,
                     Contemporary {
                         details: Details {
-                            application_name: "theCalculator",
-                            desktop_entry: "com.vicr123.thecalculator",
+                            generatable: application_details!(),
+                            copyright_holder: "Victor Tran",
+                            copyright_year: "2025",
                             application_version: "3.0",
+                            license: License::Gpl3OrLater,
+                            links: [
+                                (
+                                    ApplicationLink::FileBug,
+                                    "https://github.com/vicr123/thecalculator/issues",
+                                ),
+                                (
+                                    ApplicationLink::SourceCode,
+                                    "https://github.com/vicr123/thecalculator",
+                                ),
+                            ]
+                            .into(),
                         },
                         menus: ContemporaryMenus {
-                            menus: vec![],
+                            menus: vec![Menu {
+                                name: tr!("MENU_TRIGONOMETRY", "Trigonometry").into(),
+                                items: vec![
+                                    MenuItem::action(tr!("TRIG_DEGREES", "Degrees"), Degrees),
+                                    MenuItem::action(tr!("TRIG_RADIANS", "Radians"), Radians),
+                                    MenuItem::action(tr!("TRIG_GRADIANS", "Gradians"), Gradians),
+                                ],
+                            }],
                             on_about: Rc::new(move |cx| {
-                                let about_surface = AboutSurface::new(cx, weak_widow.clone());
-                                let a_surface = cx.new(|_| SurfaceList::About(about_surface));
-                                let sf = Surface::new(cx, a_surface);
-                                weak_widow.upgrade().unwrap().push(cx, sf);
+                                weak_window.upgrade().unwrap().update(cx, |window, cx| {
+                                    window.about_surface_open(true);
+                                    cx.notify()
+                                })
                             }),
+                            on_settings: None,
                         },
                     },
                 );
-                
-                let window_contents = cx.new(|cx| {
-                    SurfaceList::HelloWorld(cx.new(|_| HelloWorld {
-                        window: weak_window,
-                    }))
-                });
-                let surface = Surface::new(cx, window_contents);
-                window.push(cx, surface);
+
                 window
             },
         )
         .unwrap();
         cx.activate(true);
     });
+}
+
+main! {
+    async fn main() {
+        mane()
+    }
 }
