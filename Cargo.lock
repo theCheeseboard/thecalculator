@@ -4931,6 +4931,7 @@ dependencies = [
  "rust-embed",
  "smol",
  "smol-macros",
+ "unicode-segmentation",
 ]
 
 [[package]]

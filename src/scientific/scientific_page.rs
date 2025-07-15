@@ -1,8 +1,8 @@
+use crate::expression_box::{Alignment, ExpressionBox};
 use crate::scientific::keypad::keypad;
 use cntp_i18n::tr;
 use contemporary::components::button::{Button, button};
 use contemporary::components::layer::layer;
-use contemporary::components::text_field::TextField;
 use contemporary::styling::theme::Theme;
 use gpui::{
     App, AppContext, Context, ElementId, Entity, IntoElement, ParentElement, Render, Styled,
@@ -10,7 +10,7 @@ use gpui::{
 };
 
 pub struct ScientificPage {
-    expression_box: Entity<TextField>,
+    expression_box: Entity<ExpressionBox>,
 
     answer: String,
 }
@@ -19,19 +19,15 @@ impl ScientificPage {
     pub fn new(cx: &mut App) -> Entity<ScientificPage> {
         cx.new(|cx| {
             let scientific_page = ScientificPage {
-                expression_box: TextField::new(
+                expression_box: ExpressionBox::new(
                     cx,
-                    "expression-box",
-                    "".into(),
-                    tr!("EXPRESSION_PLACEHOLDER", "Expression...").into(),
+                    "",
+                    tr!("EXPRESSION_PLACEHOLDER", "Expression..."),
+                    px(30.).into(),
+                    Alignment::Right,
                 ),
                 answer: "".into(),
             };
-
-            scientific_page.expression_box.update(cx, |this, cx| {
-                this.borderless(true);
-                cx.notify();
-            });
 
             scientific_page
         })

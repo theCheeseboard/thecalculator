@@ -1,9 +1,11 @@
 mod actions;
+mod expression_box;
 mod main_surface;
 mod main_window;
 mod scientific;
 
 use crate::actions::{Degrees, Gradians, Radians};
+use crate::expression_box::bind_expression_box_keys;
 use crate::main_window::MainWindow;
 use cntp_i18n::{I18N_MANAGER, tr, tr_load};
 use cntp_icon_tool_macros::application_icon;
@@ -21,6 +23,8 @@ fn mane() {
     new_contemporary_application().run(|cx: &mut App| {
         I18N_MANAGER.write().unwrap().load_source(tr_load!());
         let bounds = Bounds::centered(None, size(px(800.0), px(600.0)), cx);
+
+        bind_expression_box_keys(cx);
 
         let default_window_options = contemporary_window_options(cx);
         cx.open_window(
