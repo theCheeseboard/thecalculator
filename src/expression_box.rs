@@ -29,6 +29,7 @@ actions!(
         Cut,
         Copy,
         Clear,
+        Commit,
         Pi,
         Radical
     ]
@@ -50,6 +51,7 @@ pub fn bind_expression_box_keys(cx: &mut App) {
         KeyBinding::new("end", End, None),
         KeyBinding::new("ctrl-cmd-space", ShowCharacterPalette, None),
         KeyBinding::new("escape", Clear, None),
+        KeyBinding::new("enter", Commit, None),
         KeyBinding::new("secondary-p", Pi, None),
         KeyBinding::new("secondary-r", Radical, None),
     ]);
@@ -64,7 +66,10 @@ pub struct TextChangeEvent {
     pub new_text: SharedString,
 }
 
+pub struct CommitEvent {}
+
 type TextChangeEventHandler = Rc<dyn Fn(&TextChangeEvent, &mut Window, &mut App)>;
+type CommitEventHandler = Rc<dyn Fn(&CommitEvent, &mut Window, &mut App)>;
 
 pub struct ExpressionBox {
     focus_handle: FocusHandle,
@@ -81,6 +86,7 @@ pub struct ExpressionBox {
     pub error_range: Option<Range<usize>>,
 
     text_change_event: TextChangeEventHandler,
+    commit_event: CommitEventHandler,
 }
 
 impl ExpressionBox {
@@ -91,6 +97,7 @@ impl ExpressionBox {
         text_size: AbsoluteLength,
         alignment: Alignment,
         text_change_event: impl Fn(&TextChangeEvent, &mut Window, &mut App) + 'static,
+        commit_event: impl Fn(&CommitEvent, &mut Window, &mut App) + 'static,
     ) -> Entity<Self> {
         cx.new(|cx| ExpressionBox {
             focus_handle: cx.focus_handle(),
@@ -106,6 +113,7 @@ impl ExpressionBox {
             alignment,
             error_range: None,
             text_change_event: Rc::new(text_change_event),
+            commit_event: Rc::new(commit_event),
         })
     }
 }
@@ -433,6 +441,10 @@ impl ExpressionBox {
             .into();
         self.selected_range = range.start + new_text.len()..range.start + new_text.len();
         self.marked_range.take();
+    }
+
+    pub fn handle_commit(&mut self, _: &Commit, window: &mut Window, cx: &mut Context<Self>) {
+        (self.commit_event)(&CommitEvent {}, window, cx);
     }
 }
 
@@ -825,6 +837,7 @@ impl Render for ExpressionBox {
             .on_action(cx.listener(Self::cut))
             .on_action(cx.listener(Self::copy))
             .on_action(cx.listener(Self::handle_clear))
+            .on_action(cx.listener(Self::handle_commit))
             .on_action(cx.listener(Self::insert_pi))
             .on_action(cx.listener(Self::insert_radical))
             .on_mouse_down(MouseButton::Left, cx.listener(Self::on_mouse_down))
