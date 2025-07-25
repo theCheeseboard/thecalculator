@@ -1,12 +1,12 @@
 use crate::expression_box::{Alignment, ExpressionBox};
-use crate::scientific::keypad::keypad;
+use crate::scientific::keypad::{KeypadButtonClickEvent, keypad};
 use cntp_i18n::tr;
 use contemporary::components::button::{Button, button};
 use contemporary::components::layer::layer;
 use contemporary::styling::theme::Theme;
 use gpui::{
-    App, AppContext, Context, ElementId, Entity, IntoElement, ParentElement, Render, Styled,
-    TextAlign, Window, div, px,
+    App, AppContext, Context, ElementId, Entity, EntityInputHandler, IntoElement, ParentElement,
+    Render, Styled, TextAlign, Window, div, px,
 };
 
 pub struct ScientificPage {
@@ -61,7 +61,7 @@ impl Render for ScientificPage {
                             .flex_col()
                             .flex_grow()
                             .child(div().flex_grow())
-                            .child(div().h(px(1.)).bg(theme.border_color))
+                            .child(div().h(px(1.)).mx(px(10.)).bg(theme.border_color))
                             .child(self.expression_box.clone())
                             .child(
                                 div()
@@ -84,7 +84,22 @@ impl Render for ScientificPage {
                                     ),
                             ),
                     )
-                    .child(keypad()),
+                    .child(keypad(cx.listener(
+                        |this, event: &KeypadButtonClickEvent, window, cx| {
+                            this.expression_box.update(cx, |expression_box, cx| {
+                                match event.button.as_str() {
+                                    "C" => expression_box.reset(),
+                                    "<" => expression_box.backspace(window, cx),
+                                    _ => expression_box.replace_text_in_range(
+                                        None,
+                                        event.button.as_str(),
+                                        window,
+                                        cx,
+                                    ),
+                                }
+                            });
+                        },
+                    ))),
             )
     }
 }

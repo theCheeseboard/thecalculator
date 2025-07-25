@@ -3,9 +3,9 @@ use gpui::{
     AbsoluteLength, App, Bounds, ClipboardItem, Context, CursorStyle, ElementId,
     ElementInputHandler, Entity, EntityInputHandler, FocusHandle, Focusable, GlobalElementId, Hsla,
     KeyBinding, LayoutId, MouseButton, MouseDownEvent, MouseMoveEvent, MouseUpEvent, PaintQuad,
-    Pixels, Point, Rgba, ShapedLine, SharedString, Style, TextRun, TextStyle, TextStyleRefinement,
-    UTF16Selection, UnderlineStyle, Window, actions, div, fill, point, prelude::*, px, relative,
-    rgb, size,
+    Pixels, Point, Radians, Rgba, ShapedLine, SharedString, Style, TextRun, TextStyle,
+    TextStyleRefinement, UTF16Selection, UnderlineStyle, Window, actions, div, fill, point,
+    prelude::*, px, relative, rgb, size,
 };
 use std::ops::Range;
 use unicode_segmentation::*;
@@ -27,6 +27,7 @@ actions!(
         Cut,
         Copy,
         Pi,
+        Radical
     ]
 );
 
@@ -46,6 +47,7 @@ pub fn bind_expression_box_keys(cx: &mut App) {
         KeyBinding::new("end", End, None),
         KeyBinding::new("ctrl-cmd-space", ShowCharacterPalette, None),
         KeyBinding::new("secondary-p", Pi, None),
+        KeyBinding::new("secondary-r", Radical, None),
     ]);
 }
 
@@ -132,7 +134,11 @@ impl ExpressionBox {
         self.move_to(self.content.len(), cx);
     }
 
-    pub fn backspace(&mut self, _: &Backspace, window: &mut Window, cx: &mut Context<Self>) {
+    pub fn handle_backspace(&mut self, _: &Backspace, window: &mut Window, cx: &mut Context<Self>) {
+        self.backspace(window, cx);
+    }
+
+    pub fn backspace(&mut self, window: &mut Window, cx: &mut Context<Self>) {
         if self.selected_range.is_empty() {
             self.select_to(self.previous_boundary(self.cursor_offset()), cx)
         }
@@ -151,6 +157,13 @@ impl ExpressionBox {
             self.select_to(self.next_boundary(self.cursor_offset()), cx)
         }
         self.replace_text_in_range(None, "π", window, cx)
+    }
+
+    pub fn insert_radical(&mut self, _: &Radical, window: &mut Window, cx: &mut Context<Self>) {
+        if self.selected_range.is_empty() {
+            self.select_to(self.next_boundary(self.cursor_offset()), cx)
+        }
+        self.replace_text_in_range(None, "√", window, cx)
     }
 
     pub fn on_mouse_down(
@@ -473,7 +486,7 @@ impl EntityInputHandler for ExpressionBox {
 
     fn character_index_for_point(
         &mut self,
-        point: gpui::Point<Pixels>,
+        point: Point<Pixels>,
         _window: &mut Window,
         _cx: &mut Context<Self>,
     ) -> Option<usize> {
@@ -558,7 +571,6 @@ impl Element for ExpressionBoxTextElement {
                 Hsla::from(theme.foreground.disabled()),
             )
         } else {
-            let balancing_brackets = ")".repeat(input.balancing_brackets());
             (content.clone(), style.color)
         };
 
@@ -717,10 +729,8 @@ impl Element for ExpressionBoxTextElement {
         )
         .unwrap();
 
-        if focus_handle.is_focused(window) {
-            if let Some(cursor) = prepaint.cursor.take() {
-                window.paint_quad(cursor);
-            }
+        if let Some(cursor) = prepaint.cursor.take() {
+            window.paint_quad(cursor);
         }
 
         self.input.update(cx, |input, _cx| {
@@ -737,7 +747,7 @@ impl Render for ExpressionBox {
             .key_context("TextInput")
             .track_focus(&self.focus_handle(cx))
             .cursor(CursorStyle::IBeam)
-            .on_action(cx.listener(Self::backspace))
+            .on_action(cx.listener(Self::handle_backspace))
             .on_action(cx.listener(Self::delete))
             .on_action(cx.listener(Self::left))
             .on_action(cx.listener(Self::right))
@@ -751,6 +761,7 @@ impl Render for ExpressionBox {
             .on_action(cx.listener(Self::cut))
             .on_action(cx.listener(Self::copy))
             .on_action(cx.listener(Self::insert_pi))
+            .on_action(cx.listener(Self::insert_radical))
             .on_mouse_down(MouseButton::Left, cx.listener(Self::on_mouse_down))
             .on_mouse_up(MouseButton::Left, cx.listener(Self::on_mouse_up))
             .on_mouse_up_out(MouseButton::Left, cx.listener(Self::on_mouse_up))
