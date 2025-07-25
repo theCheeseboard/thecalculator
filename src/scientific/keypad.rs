@@ -116,7 +116,7 @@ impl RenderOnce for Keypad {
             for number in row.iter() {
                 let button_handler = self.keypad_button_click_handler.clone();
                 let button_text = number.to_string();
-                
+
                 row_div = row_div.child(
                     button(SharedString::from(format!("{number}-button")))
                         .child(number.to_string())

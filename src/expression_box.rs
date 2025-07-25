@@ -7,7 +7,9 @@ use gpui::{
     TextStyleRefinement, UTF16Selection, UnderlineStyle, Window, actions, div, fill, point,
     prelude::*, px, relative, rgb, size,
 };
+use std::any::Any;
 use std::ops::Range;
+use std::rc::Rc;
 use unicode_segmentation::*;
 
 actions!(
@@ -26,6 +28,7 @@ actions!(
         Paste,
         Cut,
         Copy,
+        Clear,
         Pi,
         Radical
     ]
@@ -46,6 +49,7 @@ pub fn bind_expression_box_keys(cx: &mut App) {
         KeyBinding::new("home", Home, None),
         KeyBinding::new("end", End, None),
         KeyBinding::new("ctrl-cmd-space", ShowCharacterPalette, None),
+        KeyBinding::new("escape", Clear, None),
         KeyBinding::new("secondary-p", Pi, None),
         KeyBinding::new("secondary-r", Radical, None),
     ]);
@@ -55,6 +59,12 @@ pub enum Alignment {
     Left,
     Right,
 }
+
+pub struct TextChangeEvent {
+    pub new_text: SharedString,
+}
+
+type TextChangeEventHandler = Rc<dyn Fn(&TextChangeEvent, &mut Window, &mut App)>;
 
 pub struct ExpressionBox {
     focus_handle: FocusHandle,
@@ -69,6 +79,8 @@ pub struct ExpressionBox {
     text_size: AbsoluteLength,
     is_selecting: bool,
     pub error_range: Option<Range<usize>>,
+
+    text_change_event: TextChangeEventHandler,
 }
 
 impl ExpressionBox {
@@ -78,6 +90,7 @@ impl ExpressionBox {
         placeholder: impl Into<SharedString>,
         text_size: AbsoluteLength,
         alignment: Alignment,
+        text_change_event: impl Fn(&TextChangeEvent, &mut Window, &mut App) + 'static,
     ) -> Entity<Self> {
         cx.new(|cx| ExpressionBox {
             focus_handle: cx.focus_handle(),
@@ -92,6 +105,7 @@ impl ExpressionBox {
             text_size,
             alignment,
             error_range: None,
+            text_change_event: Rc::new(text_change_event),
         })
     }
 }
@@ -136,13 +150,21 @@ impl ExpressionBox {
 
     pub fn handle_backspace(&mut self, _: &Backspace, window: &mut Window, cx: &mut Context<Self>) {
         self.backspace(window, cx);
+        (self.text_change_event)(
+            &TextChangeEvent {
+                new_text: self.content.clone(),
+            },
+            window,
+            cx,
+        );
+        cx.notify();
     }
 
-    pub fn backspace(&mut self, window: &mut Window, cx: &mut Context<Self>) {
+    pub fn backspace(&mut self, _: &mut Window, cx: &mut Context<Self>) {
         if self.selected_range.is_empty() {
             self.select_to(self.previous_boundary(self.cursor_offset()), cx)
         }
-        self.replace_text_in_range(None, "", window, cx)
+        self.type_text(None, "")
     }
 
     pub fn delete(&mut self, _: &Delete, window: &mut Window, cx: &mut Context<Self>) {
@@ -156,14 +178,32 @@ impl ExpressionBox {
         if self.selected_range.is_empty() {
             self.select_to(self.next_boundary(self.cursor_offset()), cx)
         }
-        self.replace_text_in_range(None, "π", window, cx)
+        self.replace_text_in_range(None, "π", window, cx);
+
+        (self.text_change_event)(
+            &TextChangeEvent {
+                new_text: self.content.clone(),
+            },
+            window,
+            cx,
+        );
+        cx.notify();
     }
 
     pub fn insert_radical(&mut self, _: &Radical, window: &mut Window, cx: &mut Context<Self>) {
         if self.selected_range.is_empty() {
             self.select_to(self.next_boundary(self.cursor_offset()), cx)
         }
-        self.replace_text_in_range(None, "√", window, cx)
+        self.replace_text_in_range(None, "√", window, cx);
+
+        (self.text_change_event)(
+            &TextChangeEvent {
+                new_text: self.content.clone(),
+            },
+            window,
+            cx,
+        );
+        cx.notify();
     }
 
     pub fn on_mouse_down(
@@ -331,6 +371,18 @@ impl ExpressionBox {
             .unwrap_or(self.content.len())
     }
 
+    pub fn handle_clear(&mut self, _: &Clear, window: &mut Window, cx: &mut Context<Self>) {
+        self.reset();
+        (self.text_change_event)(
+            &TextChangeEvent {
+                new_text: self.content.clone(),
+            },
+            window,
+            cx,
+        );
+        cx.notify();
+    }
+
     pub fn reset(&mut self) {
         self.content = "".into();
         self.selected_range = 0..0;
@@ -365,6 +417,22 @@ impl ExpressionBox {
 
     fn replace_input_text(&mut self, text: &str) -> String {
         text.replace("*", "×").replace(" ", "×").replace("/", "÷")
+    }
+
+    pub fn type_text(&mut self, range_utf16: Option<Range<usize>>, new_text: &str) {
+        let new_text = self.replace_input_text(new_text);
+        let range = range_utf16
+            .as_ref()
+            .map(|range_utf16| self.range_from_utf16(range_utf16))
+            .or(self.marked_range.clone())
+            .unwrap_or(self.selected_range.clone());
+
+        self.content = (self.content[0..range.start].to_owned()
+            + new_text.as_str()
+            + &self.content[range.end..])
+            .into();
+        self.selected_range = range.start + new_text.len()..range.start + new_text.len();
+        self.marked_range.take();
     }
 }
 
@@ -411,22 +479,18 @@ impl EntityInputHandler for ExpressionBox {
         &mut self,
         range_utf16: Option<Range<usize>>,
         new_text: &str,
-        _: &mut Window,
+        window: &mut Window,
         cx: &mut Context<Self>,
     ) {
-        let new_text = self.replace_input_text(new_text);
-        let range = range_utf16
-            .as_ref()
-            .map(|range_utf16| self.range_from_utf16(range_utf16))
-            .or(self.marked_range.clone())
-            .unwrap_or(self.selected_range.clone());
+        self.type_text(range_utf16, new_text);
 
-        self.content = (self.content[0..range.start].to_owned()
-            + new_text.as_str()
-            + &self.content[range.end..])
-            .into();
-        self.selected_range = range.start + new_text.len()..range.start + new_text.len();
-        self.marked_range.take();
+        (self.text_change_event)(
+            &TextChangeEvent {
+                new_text: self.content.clone(),
+            },
+            window,
+            cx,
+        );
         cx.notify();
     }
 
@@ -760,6 +824,7 @@ impl Render for ExpressionBox {
             .on_action(cx.listener(Self::paste))
             .on_action(cx.listener(Self::cut))
             .on_action(cx.listener(Self::copy))
+            .on_action(cx.listener(Self::handle_clear))
             .on_action(cx.listener(Self::insert_pi))
             .on_action(cx.listener(Self::insert_radical))
             .on_mouse_down(MouseButton::Left, cx.listener(Self::on_mouse_down))

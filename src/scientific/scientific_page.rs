@@ -1,4 +1,4 @@
-use crate::expression_box::{Alignment, ExpressionBox};
+use crate::expression_box::{Alignment, ExpressionBox, TextChangeEvent};
 use crate::scientific::keypad::{KeypadButtonClickEvent, keypad};
 use cntp_i18n::tr;
 use contemporary::components::button::{Button, button};
@@ -6,18 +6,21 @@ use contemporary::components::layer::layer;
 use contemporary::styling::theme::Theme;
 use gpui::{
     App, AppContext, Context, ElementId, Entity, EntityInputHandler, IntoElement, ParentElement,
-    Render, Styled, TextAlign, Window, div, px,
+    Render, SharedString, Styled, TextAlign, Window, div, px,
 };
 
 pub struct ScientificPage {
     expression_box: Entity<ExpressionBox>,
 
-    answer: String,
+    answer: SharedString,
 }
 
 impl ScientificPage {
     pub fn new(cx: &mut App) -> Entity<ScientificPage> {
         cx.new(|cx| {
+            let expression_box_text_changed_listener =
+                cx.listener(Self::expression_box_text_changed);
+
             let scientific_page = ScientificPage {
                 expression_box: ExpressionBox::new(
                     cx,
@@ -25,12 +28,23 @@ impl ScientificPage {
                     tr!("EXPRESSION_PLACEHOLDER", "Expression..."),
                     px(30.).into(),
                     Alignment::Right,
+                    expression_box_text_changed_listener,
                 ),
                 answer: "".into(),
             };
 
             scientific_page
         })
+    }
+
+    fn expression_box_text_changed(
+        this: &mut ScientificPage,
+        event: &TextChangeEvent,
+        _: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
+        this.answer = event.new_text.clone();
+        cx.notify()
     }
 }
 
@@ -65,7 +79,7 @@ impl Render for ScientificPage {
                             .child(self.expression_box.clone())
                             .child(
                                 div()
-                                    .text_size(px(30.))
+                                    .text_size(px(25.))
                                     .text_align(TextAlign::Right)
                                     .child(self.answer.clone()),
                             )
@@ -86,18 +100,18 @@ impl Render for ScientificPage {
                     )
                     .child(keypad(cx.listener(
                         |this, event: &KeypadButtonClickEvent, window, cx| {
-                            this.expression_box.update(cx, |expression_box, cx| {
+                            let event = this.expression_box.update(cx, |expression_box, cx| {
                                 match event.button.as_str() {
                                     "C" => expression_box.reset(),
                                     "<" => expression_box.backspace(window, cx),
-                                    _ => expression_box.replace_text_in_range(
-                                        None,
-                                        event.button.as_str(),
-                                        window,
-                                        cx,
-                                    ),
+                                    _ => expression_box.type_text(None, event.button.as_str()),
+                                }
+
+                                TextChangeEvent {
+                                    new_text: expression_box.content.clone(),
                                 }
                             });
+                            Self::expression_box_text_changed(this, &event, window, cx);
                         },
                     ))),
             )
