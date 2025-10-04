@@ -26,7 +26,7 @@ fn mane() {
 
         bind_expression_box_keys(cx);
 
-        let default_window_options = contemporary_window_options(cx);
+        let default_window_options = contemporary_window_options(cx, "theCalculator".into());
         cx.open_window(
             WindowOptions {
                 window_bounds: Some(WindowBounds::Windowed(bounds)),

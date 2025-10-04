@@ -98,7 +98,7 @@ impl Render for ScientificPage {
                     .p(px(12.))
                     .gap(px(10.))
                     .child(
-                        layer("calculation-layer")
+                        layer()
                             .flex()
                             .flex_col()
                             .flex_grow()
