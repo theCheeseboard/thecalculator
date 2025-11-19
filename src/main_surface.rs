@@ -4,6 +4,7 @@ use crate::scientific::scientific_page::ScientificPage;
 use cntp_i18n::tr;
 use contemporary::components::application_menu::ApplicationMenu;
 use contemporary::components::button::button;
+use contemporary::components::icon_text::icon_text;
 use contemporary::components::pager::pager;
 use contemporary::styling::theme::Theme;
 use contemporary::surface::surface;
@@ -12,9 +13,10 @@ use gpui::{
     ParentElement, Render, Styled, Window, div, px,
 };
 use std::path::Components;
-use contemporary::components::icon_text::icon_text;
+use tcalc::evaluator::AngleUnit;
 
 pub struct MainSurface {
+    selected_angle_unit: Entity<AngleUnit>,
     scientific_page: Entity<ScientificPage>,
 
     application_menu: Entity<ApplicationMenu>,
@@ -35,9 +37,10 @@ impl MainSurfaceTab {
 }
 
 impl MainSurface {
-    pub fn new(cx: &mut App) -> Entity<MainSurface> {
-        cx.new(|cx| MainSurface {
-            scientific_page: ScientificPage::new(cx),
+    pub fn new(selected_angle_unit: Entity<AngleUnit>, cx: &mut Context<Self>) -> MainSurface {
+        MainSurface {
+            selected_angle_unit: selected_angle_unit.clone(),
+            scientific_page: cx.new(|cx| ScientificPage::new(selected_angle_unit, cx)),
             application_menu: ApplicationMenu::new(
                 cx,
                 Menu {
@@ -53,7 +56,7 @@ impl MainSurface {
                 },
             ),
             selected_tab: Scientific,
-        })
+        }
     }
 }
 
@@ -73,7 +76,10 @@ impl Render for MainSurface {
                         .content_stretch()
                         .child(
                             button("scientific-button")
-                                .child(icon_text("calculator-scientific".into(), tr!("SCIENTIFIC_BUTTON", "Scientific").into()))
+                                .child(icon_text(
+                                    "calculator-scientific".into(),
+                                    tr!("SCIENTIFIC_BUTTON", "Scientific").into(),
+                                ))
                                 .checked_when(self.selected_tab == Scientific)
                                 .on_click(cx.listener(|this, _, _, cx| {
                                     this.selected_tab = Scientific;

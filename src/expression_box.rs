@@ -119,6 +119,16 @@ impl ExpressionBox {
 }
 
 impl ExpressionBox {
+    pub fn current_text(&self) -> SharedString {
+        self.content.clone()
+    }
+
+    pub fn set_text(&mut self, new_text: SharedString, cx: &mut Context<Self>) {
+        self.reset();
+        self.content = new_text;
+        cx.notify();
+    }
+
     pub fn left(&mut self, _: &Left, _: &mut Window, cx: &mut Context<Self>) {
         if self.selected_range.is_empty() {
             self.move_to(self.previous_boundary(self.cursor_offset()), cx);
@@ -365,7 +375,9 @@ impl ExpressionBox {
     }
 
     pub fn previous_boundary(&self, offset: usize) -> usize {
-        self.content
+        let balancing_brackets = ")".repeat(self.balancing_brackets());
+
+        format!("{}{balancing_brackets}", self.content)
             .grapheme_indices(true)
             .rev()
             .find_map(|(idx, _)| (idx < offset).then_some(idx))
@@ -373,7 +385,9 @@ impl ExpressionBox {
     }
 
     pub fn next_boundary(&self, offset: usize) -> usize {
-        self.content
+        let balancing_brackets = ")".repeat(self.balancing_brackets());
+
+        format!("{}{balancing_brackets}", self.content)
             .grapheme_indices(true)
             .find_map(|(idx, _)| (idx > offset).then_some(idx))
             .unwrap_or(self.content.len())
@@ -435,6 +449,10 @@ impl ExpressionBox {
             .or(self.marked_range.clone())
             .unwrap_or(self.selected_range.clone());
 
+        if self.content.len() < range.start {
+            let missing_brackets = range.start - self.content.len();
+            self.content = format!("{}{}", self.content, ")".repeat(missing_brackets)).into();
+        }
         self.content = (self.content[0..range.start].to_owned()
             + new_text.as_str()
             + &self.content[range.end..])

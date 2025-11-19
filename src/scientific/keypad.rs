@@ -2,7 +2,8 @@ use contemporary::components::button::button;
 use contemporary::hsv::Hsva;
 use contemporary::styling::theme::Theme;
 use gpui::{
-    App, IntoElement, ParentElement, RenderOnce, Rgba, SharedString, Styled, Window, div, px,
+    App, InteractiveElement, IntoElement, ParentElement, RenderOnce, Rgba, SharedString,
+    StatefulInteractiveElement, Styled, Window, div, px, uniform_list,
 };
 use std::rc::Rc;
 
@@ -28,6 +29,7 @@ pub fn keypad(
 impl RenderOnce for Keypad {
     fn render(self, _window: &mut Window, cx: &mut App) -> impl IntoElement {
         let theme = cx.global::<Theme>();
+        // TODO: i18n
         let keypad_numbers = [
             ["7", "8", "9"],
             ["4", "5", "6"],
@@ -49,7 +51,9 @@ impl RenderOnce for Keypad {
                         .flex_basis(px(10.))
                         .on_click(move |_, window, cx| {
                             clear_button_handler(
-                                &KeypadButtonClickEvent { button: "C".to_string() },
+                                &KeypadButtonClickEvent {
+                                    button: "C".to_string(),
+                                },
                                 window,
                                 cx,
                             )
@@ -62,7 +66,9 @@ impl RenderOnce for Keypad {
                         .flex_basis(px(10.))
                         .on_click(move |_, window, cx| {
                             backspace_button_handler(
-                                &KeypadButtonClickEvent { button: "<".to_string() },
+                                &KeypadButtonClickEvent {
+                                    button: "<".to_string(),
+                                },
                                 window,
                                 cx,
                             )
@@ -84,7 +90,9 @@ impl RenderOnce for Keypad {
                         .flex_basis(px(10.))
                         .on_click(move |_, window, cx| {
                             button_handler(
-                                &KeypadButtonClickEvent { button: button_text.clone() },
+                                &KeypadButtonClickEvent {
+                                    button: button_text.clone(),
+                                },
                                 window,
                                 cx,
                             )
@@ -125,7 +133,9 @@ impl RenderOnce for Keypad {
                         .flex_basis(px(10.))
                         .on_click(move |_, window, cx| {
                             button_handler(
-                                &KeypadButtonClickEvent { button: button_text.clone() },
+                                &KeypadButtonClickEvent {
+                                    button: button_text.clone(),
+                                },
                                 window,
                                 cx,
                             )
@@ -143,12 +153,101 @@ impl RenderOnce for Keypad {
                 .flex_grow()
                 .on_click(move |_, window, cx| {
                     equals_button_handler(
-                        &KeypadButtonClickEvent { button: "=".to_string() },
+                        &KeypadButtonClickEvent {
+                            button: "=".to_string(),
+                        },
                         window,
                         cx,
                     )
                 }),
         );
+
+        let keypad_functions = [
+            ["x²", "x³", "xⁿ"],
+            ["√", "³√", "ⁿ√"],
+            ["ln", "log", "logₙ"],
+            ["sin", "cos", "tan"],
+            ["asin", "acos", "atan"],
+        ];
+
+        let functions_background = operations_background.darker(2.);
+
+        let functions = div()
+            .bg::<Rgba>(functions_background.into())
+            .rounded(theme.border_radius)
+            .flex_grow()
+            .overflow_y_hidden()
+            .child(
+                uniform_list(
+                    "keypad_functions",
+                    keypad_functions.len(),
+                    move |range, _, cx| {
+                        range
+                            .map(|i| {
+                                let mut row_div = div().flex().w_full().gap(px(2.));
+                                for number in keypad_functions[i].iter() {
+                                    let button_handler = self.keypad_button_click_handler.clone();
+                                    let button_text = number.to_string();
+
+                                    row_div = row_div.child(
+                                        button(SharedString::from(format!("{number}-button")))
+                                            .child(number.to_string())
+                                            .button_color(functions_background)
+                                            .flex_grow()
+                                            .flex_basis(px(10.))
+                                            .on_click(move |_, window, cx| {
+                                                button_handler(
+                                                    &KeypadButtonClickEvent {
+                                                        button: button_text.clone(),
+                                                    },
+                                                    window,
+                                                    cx,
+                                                )
+                                            }),
+                                    );
+                                }
+                                row_div
+                            })
+                            .collect()
+                    },
+                )
+                .size_full(),
+            );
+
+        // let mut functions = div()
+        //     .id("functions")
+        //     .overflow_y_scroll()
+        //     .flex()
+        //     .flex_col()
+        //     .flex_grow()
+        //     .bg::<Rgba>(functions_background.into())
+        //     .rounded(theme.border_radius)
+        //     .gap(px(2.));
+        // for row in keypad_functions.iter() {
+        //     let mut row_div = div().flex().flex_grow().gap(px(2.));
+        //     for number in row.iter() {
+        //         let button_handler = self.keypad_button_click_handler.clone();
+        //         let button_text = number.to_string();
+        //
+        //         row_div = row_div.child(
+        //             button(SharedString::from(format!("{number}-button")))
+        //                 .child(number.to_string())
+        //                 .button_color(functions_background)
+        //                 .flex_grow()
+        //                 .flex_basis(px(10.))
+        //                 .on_click(move |_, window, cx| {
+        //                     button_handler(
+        //                         &KeypadButtonClickEvent {
+        //                             button: button_text.clone(),
+        //                         },
+        //                         window,
+        //                         cx,
+        //                     )
+        //                 }),
+        //         );
+        //     }
+        //     functions = functions.child(row_div);
+        // }
 
         div()
             .flex()
@@ -157,5 +256,6 @@ impl RenderOnce for Keypad {
             .gap(px(2.))
             .child(numbers)
             .child(operations)
+            .child(functions)
     }
 }
