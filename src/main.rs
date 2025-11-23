@@ -3,6 +3,7 @@ mod expression_box;
 mod main_surface;
 mod main_window;
 mod scientific;
+mod rwlock_evaluator_extensions;
 
 use crate::actions::{Degrees, Gradians, Radians};
 use crate::expression_box::bind_expression_box_keys;

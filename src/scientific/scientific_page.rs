@@ -1,3 +1,5 @@
+use std::sync::{Arc, RwLock};
+use std::thread;
 use crate::expression_box::{Alignment, ExpressionBox, TextChangeEvent};
 use crate::scientific::keypad::{KeypadButtonClickEvent, keypad};
 use cntp_i18n::{I18nString, Quote, tr};
@@ -5,11 +7,7 @@ use contemporary::components::button::{Button, button};
 use contemporary::components::context_menu::ContextMenuItem;
 use contemporary::components::layer::layer;
 use contemporary::styling::theme::{Theme, ThemeStorage, VariableColor};
-use gpui::{
-    AppContext, Context, ElementId, Entity, InteractiveElement, IntoElement, ListAlignment,
-    ListState, ParentElement, Render, SharedString, StatefulInteractiveElement, Styled, TextAlign,
-    Window, div, list, px, rgba,
-};
+use gpui::{AppContext, Context, ElementId, Entity, InteractiveElement, IntoElement, ListAlignment, ListState, ParentElement, Render, SharedString, StatefulInteractiveElement, Styled, TextAlign, Window, div, list, px, rgba, AsyncApp, WeakEntity};
 use std::time::{Duration, Instant};
 use tcalc::evaluator::eval_result::{
     DomainViolation, EvalError, EvalValue, FactorialDomainViolation, LogarithmDomainViolation,
@@ -18,6 +16,7 @@ use tcalc::evaluator::eval_result::{
 use tcalc::evaluator::{AngleUnit, CancellationTokenSource, Evaluator, Number, Real};
 use tcalc::lexer::Lexer;
 use tcalc::parser::Parser;
+use crate::rwlock_evaluator_extensions::RwlockEvaluatorExtensions;
 
 pub struct ScientificPage {
     selected_angle_unit: Entity<AngleUnit>,
@@ -26,7 +25,7 @@ pub struct ScientificPage {
     answer: SharedString,
     answer_error_animation_start: Option<Instant>,
 
-    evaluator: Evaluator<Real>,
+    evaluator: Arc<RwLock<Evaluator<Real>>>,
     supplementary: SharedString,
     cancellation_source: CancellationTokenSource,
 
@@ -43,7 +42,7 @@ impl ScientificPage {
     pub fn new(selected_angle_unit: Entity<AngleUnit>, cx: &mut Context<Self>) -> ScientificPage {
         cx.observe(&selected_angle_unit, |this, selected_angle_unit, cx| {
             let selected_angle_unit = selected_angle_unit.read(cx);
-            this.evaluator.set_angle_unit(selected_angle_unit.clone());
+            this.evaluator.cancel_evaluation_and_write(&this.cancellation_source).set_angle_unit(selected_angle_unit.clone());
             cx.notify();
         })
         .detach();
@@ -66,7 +65,7 @@ impl ScientificPage {
             ),
             answer: Default::default(),
             answer_error_animation_start: None,
-            evaluator: Evaluator::new(),
+            evaluator: Arc::new(RwLock::new(Evaluator::new())),
             supplementary: Default::default(),
             cancellation_source: CancellationTokenSource::new(),
             history_items: Vec::new(),
@@ -91,9 +90,11 @@ impl ScientificPage {
         self.cancellation_source.cancel();
         self.cancellation_source = CancellationTokenSource::new();
 
+        // Clear the answer box because the calculation may take some time
+        self.answer = Default::default();
+
         let expression = self.expression_box.read(cx).current_text().to_string();
         if expression.is_empty() {
-            self.answer = Default::default();
             self.supplementary = Default::default();
             return;
         }
@@ -106,44 +107,61 @@ impl ScientificPage {
             let statement = statements.first().unwrap().clone();
             let cancellation_token = self.cancellation_source.token();
 
-            let result = self.evaluator.evaluate(&statement, cancellation_token);
+            let (tx, rx) = async_channel::bounded(1);
 
-            match result {
-                Ok(EvalValue::Numeric(result)) => {
-                    let answer = result.to_string();
-                    self.answer = answer.clone().into();
-                    match result.to_string_truncated_or_less(10) {
-                        Ok(approximate_result) => {
-                            if approximate_result == answer {
-                                self.supplementary = Default::default();
-                            } else {
-                                self.supplementary = format!("≈ {approximate_result}").into()
+            let evaluator = self.evaluator.clone();
+            let angle_unit = evaluator.read().unwrap().angle_unit().clone();
+
+            thread::spawn(move || {
+                let evaluator = evaluator.write().unwrap();
+                let result = evaluator.evaluate(&statement, cancellation_token);
+                let _ = tx.send_blocking(result);
+            });
+
+            cx.spawn(async move |weak_this: WeakEntity<Self>, cx: &mut AsyncApp| {
+                let Ok(result) = rx.recv().await else {
+                    return;
+                };
+
+                let _ = weak_this.update(cx, |this, cx| {
+                    match result {
+                        Ok(EvalValue::Numeric(result)) => {
+                            let answer = result.to_string();
+                            this.answer = answer.clone().into();
+                            match result.to_string_truncated_or_less(10) {
+                                Ok(approximate_result) => {
+                                    if approximate_result == answer {
+                                        this.supplementary = Default::default();
+                                    } else {
+                                        this.supplementary = format!("≈ {approximate_result}").into()
+                                    }
+                                }
+                                Err(_) => this.supplementary = Default::default(),
                             }
                         }
-                        Err(_) => self.supplementary = Default::default(),
+                        Ok(EvalValue::AssignedVariable {
+                               variable_name,
+                               value,
+                           }) => {
+                            this.answer = "Assigned Variable".into();
+                        }
+                        Ok(EvalValue::Comparison(result)) => {
+                            this.answer = match result {
+                                true => tr!("COMPARISON_RESULT_TRUE", "True").into(),
+                                false => tr!("COMPARISON_RESULT_FALSE", "False").into(),
+                            };
+                            this.supplementary = Default::default();
+                        }
+                        Err(err) => {
+                            this.answer = match err {
+                                EvalError::InvalidProgram => Default::default(),
+                                _ => eval_error_to_string(&err, &angle_unit).into(),
+                            };
+                            this.supplementary = Default::default();
+                        }
                     }
-                }
-                Ok(EvalValue::AssignedVariable {
-                    variable_name,
-                    value,
-                }) => {
-                    self.answer = "Assigned Variable".into();
-                }
-                Ok(EvalValue::Comparison(result)) => {
-                    self.answer = match result {
-                        true => tr!("COMPARISON_RESULT_TRUE", "True").into(),
-                        false => tr!("COMPARISON_RESULT_FALSE", "False").into(),
-                    };
-                    self.supplementary = Default::default();
-                }
-                Err(err) => {
-                    self.answer = match err {
-                        EvalError::InvalidProgram => Default::default(),
-                        _ => eval_error_to_string(&err, self.evaluator.angle_unit()).into(),
-                    };
-                    self.supplementary = Default::default();
-                }
-            }
+                });
+            }).detach();
         } else {
             self.answer = Default::default();
         }
@@ -169,13 +187,13 @@ impl ScientificPage {
             // TODO: ?
             if statements.len() == 1 {
                 let statement = statements.first().unwrap();
-                let result = this
-                    .evaluator
+                let mut evaluator = this.evaluator.write().unwrap();
+                let result = evaluator
                     .evaluate(statement, this.cancellation_source.token());
 
                 match result {
                     Ok(value) => {
-                        this.evaluator.apply_evaluation_effects(value.clone());
+                        evaluator.apply_evaluation_effects(value.clone());
                         match value {
                             EvalValue::Numeric(result) => {
                                 this.supplementary = Default::default();
@@ -201,7 +219,9 @@ impl ScientificPage {
                     }
                     Err(err) => {
                         this.answer =
-                            eval_error_to_string(&err, this.evaluator.angle_unit()).into();
+                            eval_error_to_string(&err, evaluator.angle_unit()).into();
+                        drop(evaluator);
+
                         this.trigger_error_animation();
                     }
                 }
@@ -265,6 +285,8 @@ impl Render for ScientificPage {
         } else {
             0.
         };
+
+        let selected_angle_unit = self.selected_angle_unit.read(cx);
 
         div()
             .h_full()
@@ -358,7 +380,7 @@ impl Render for ScientificPage {
                                     .p(px(3.))
                                     .child(
                                         tool_button("angle-units")
-                                            .child(match self.evaluator.angle_unit() {
+                                            .child(match selected_angle_unit {
                                                 AngleUnit::Degrees => {
                                                     tr!("TRIG_DEGREES_SHORT", "DEG")
                                                 }
