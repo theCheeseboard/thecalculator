@@ -168,6 +168,12 @@ impl RenderOnce for Keypad {
             ["ln", "log", "logₙ"],
             ["sin", "cos", "tan"],
             ["asin", "acos", "atan"],
+            ["sinh", "cosh", "tanh"],
+            ["asinh", "acosh", "atanh"],
+            ["sec", "csc", "cot"],
+            ["asec", "acsc", "acot"],
+            ["sech", "csch", "coth"],
+            ["asech", "acsch", "acoth"]
         ];
 
         let functions_background = operations_background.darker(2.);

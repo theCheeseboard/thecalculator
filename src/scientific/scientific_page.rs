@@ -250,11 +250,14 @@ impl ScientificPage {
                 match event.button.as_str() {
                     "C" => expression_box.reset(),
                     "<" => expression_box.backspace(window, cx),
-                    "ln" | "log" | "sin" | "cos" | "tan" | "asin" | "acos" | "atan" => {
+                    "ln" | "log" | "sin" | "cos" | "tan" | "asin" | "acos" | "atan" | "sinh"
+                    | "cosh" | "tanh" | "asinh" | "acosh" | "atanh" | "sec" | "csc" | "cot"
+                    | "asec" | "acsc" | "acot" | "sech" | "csch" | "coth" | "acoth" | "asech"
+                    | "acsch" => {
                         expression_box.type_text(None, format!("{}(", event.button).as_str())
                     }
                     "xⁿ" => expression_box.type_text(None, "^"),
-                    "ⁿ√" => (), // TODO
+                    "ⁿ√" => (),   // TODO
                     "logₙ" => (), // TODO
                     _ => expression_box.type_text(None, event.button.as_str()),
                 }

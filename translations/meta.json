@@ -1,0 +1,212 @@
+{
+  "COMPARISON_RESULT_FALSE": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:215",
+    "plural": false,
+    "description": null
+  },
+  "COMPARISON_RESULT_TRUE": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:214",
+    "plural": false,
+    "description": null
+  },
+  "DOMAIN_VIOLATION_ASIN": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:501",
+    "plural": false,
+    "description": null
+  },
+  "DOMAIN_VIOLATION_DIVISION_BY_ZERO": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:452",
+    "plural": false,
+    "description": null
+  },
+  "DOMAIN_VIOLATION_LOGARITHM_OF_NEGATIVE": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:458",
+    "plural": false,
+    "description": null
+  },
+  "DOMAIN_VIOLATION_LOGARITHM_OF_ZERO": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:466",
+    "plural": false,
+    "description": null
+  },
+  "DOMAIN_VIOLATION_NEGATIVE_BASE_FACTORIAL": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:536",
+    "plural": false,
+    "description": null
+  },
+  "DOMAIN_VIOLATION_NON_INTEGER_BASE_FACTORIAL": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:544",
+    "plural": false,
+    "description": null
+  },
+  "DOMAIN_VIOLATION_NTH_ROOT": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:473",
+    "plural": false,
+    "description": null
+  },
+  "DOMAIN_VIOLATION_TAN_DEGREES": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:481",
+    "plural": false,
+    "description": null
+  },
+  "DOMAIN_VIOLATION_TAN_GRADIANS": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:493",
+    "plural": false,
+    "description": null
+  },
+  "DOMAIN_VIOLATION_TAN_RADIANS": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:487",
+    "plural": false,
+    "description": null
+  },
+  "DOMAIN_VIOLATION_ZERO_BASE_NEGATIVE_ORDER": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:518",
+    "plural": false,
+    "description": null
+  },
+  "DOMAIN_VIOLATION_ZERO_BASE_NON_INTEGER_ORDER": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:528",
+    "plural": false,
+    "description": null
+  },
+  "DOMAIN_VIOLATION_ZERO_BASE_ZERO_ORDER": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:510",
+    "plural": false,
+    "description": null
+  },
+  "EVAL_ERROR_ASSIGN_TO_CONSTANT": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:553",
+    "plural": false,
+    "description": null
+  },
+  "EVAL_ERROR_COMPLEX_INEQUALITY": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:568",
+    "plural": false,
+    "description": null
+  },
+  "EVAL_ERROR_INVALID_ARGUMENT_COUNT": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:565",
+    "plural": false,
+    "description": null
+  },
+  "EVAL_ERROR_INVALID_PROGRAM": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:571",
+    "plural": false,
+    "description": null
+  },
+  "EVAL_ERROR_UNDEFINED_FUNCTION": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:562",
+    "plural": false,
+    "description": null
+  },
+  "EVAL_ERROR_UNDEFINED_VARIABLE": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:559",
+    "plural": false,
+    "description": null
+  },
+  "EXPRESSION_PLACEHOLDER": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:60",
+    "plural": false,
+    "description": null
+  },
+  "MENU_TRIGONOMETRY": {
+    "context": "main.rs",
+    "definedIn": "src/main.rs:63",
+    "plural": false,
+    "description": null
+  },
+  "NUMBER_ERROR_INTERNAL_ERROR": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:440",
+    "plural": false,
+    "description": null
+  },
+  "NUMBER_ERROR_OPERATION_CANCELLED_ERROR": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:444",
+    "plural": false,
+    "description": null
+  },
+  "NUMBER_ERROR_OVERFLOW": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:549",
+    "plural": false,
+    "description": null
+  },
+  "NUMBER_ERROR_PRECISION_OVERFLOW": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:449",
+    "plural": false,
+    "description": null
+  },
+  "RANGE_REAL_SHORT": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:426",
+    "plural": false,
+    "description": null
+  },
+  "SCIENTIFIC_BUTTON": {
+    "context": "main_surface.rs",
+    "definedIn": "src/main_surface.rs:81",
+    "plural": false,
+    "description": null
+  },
+  "TRIG_DEGREES": {
+    "context": "main.rs",
+    "definedIn": "src/main.rs:65",
+    "plural": false,
+    "description": null
+  },
+  "TRIG_DEGREES_SHORT": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:388",
+    "plural": false,
+    "description": null
+  },
+  "TRIG_GRADIANS": {
+    "context": "main.rs",
+    "definedIn": "src/main.rs:67",
+    "plural": false,
+    "description": null
+  },
+  "TRIG_GRADIANS_SHORT": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:394",
+    "plural": false,
+    "description": null
+  },
+  "TRIG_RADIANS": {
+    "context": "main.rs",
+    "definedIn": "src/main.rs:66",
+    "plural": false,
+    "description": null
+  },
+  "TRIG_RADIANS_SHORT": {
+    "context": "scientific_page.rs",
+    "definedIn": "src/scientific/scientific_page.rs:391",
+    "plural": false,
+    "description": null
+  }
+}
